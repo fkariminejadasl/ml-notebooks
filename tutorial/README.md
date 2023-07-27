@@ -140,6 +140,7 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `squeue`: show the status of the job
 - `scancel`: cancel the job. 
 - `scontrol`: show detailed job information
+- `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`
 - `sacct`: get statistics on completed jobs
 - `accinfo` `accuse`, `budget-overview`: show how much credite is left (Snellius commands)
 - `myquota`: show the limit of files. They are also listed in [Snellius hardware and file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware+and+file+systems).
