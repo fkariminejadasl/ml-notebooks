@@ -16,9 +16,21 @@ Use the Snellius (similar for e.g. sshfs/scp):
 ssh -X username@snellius.surf.nl
 ```
 
-## Use GPUs
+## Setup environment
+The first time to setup your environment, run below script:
+```bash
+module load 2022
+module load Anaconda3/2022.05 # version 4.12.0
+conda init bash
+```
 
-</br>
+After that, the basic virtualenv from conda can be created. See below e.g.:
+```bash
+conda create -n test python=3.8
+pip install torch # version 2.0.0+cu117
+```
+
+## Use GPUs
 
 **Run a job:**
 
@@ -34,9 +46,14 @@ e.g. runfile.sh:
 #SBATCH --time=14:00:00
 #SBATCH -o yolo8_train4_%j.out
 
-echo "cpus per task: $SLURM_CPUS_PER_TASK"
-echo "cpus on node $SLURM_CPUS_ON_NODE"
-echo "cpus per gpu $SLURM_CPUS_PER_GPU"
+echo "gpus $SLURM_GPUS on node: $SLURM_GPUS_ON_NODE"
+echo "nodes nnodes: $SLURM_NNODES, nodeid: $SLURM_NODEID, nodelist $SLURM_NODELIST"
+echo "cpus on node: $SLURM_CPUS_ON_NODE per gpu $SLURM_CPUS_PER_GPU per task $SLURM_CPUS_PER_TASK omp num thread $OMP_NUM_THREADS"
+echo "tasks per node $SLURM_TASKS_PER_NODE pid $SLURM_TASK_PID"
+
+# activate your environment
+source $HOME/.bashrc
+conda activate test # your conda venv
 
 echo "start training"
 yolo detect train data=/home/username/data/data8_v1/data.yaml model=/home/username/exp/runs/detect/bgr23/weights/best.pt imgsz=1920 batch=8 epochs=100 name=bgr cache=true close_mosaic=0 augment=True rect=False mosaic=1.0 mixup=0.0
@@ -114,7 +131,7 @@ Now, in the local machine, run `http://localhost:local_port`, e.g. `http://local
 This is same as sbatch with runfile.sh but parameters are set in srun. In this way, the bash will be active and you are in the machine.
 
 ```bash
-srun --gpus=1 --partition=gpu --partition=gpu --pty bash -il
+srun --gpus=1 --partition=gpu --pty bash -il
 ```
 
 **Multigpu in single or multi node**
