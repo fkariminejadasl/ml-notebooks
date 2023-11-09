@@ -1,8 +1,14 @@
 # ml-notebooks
 
-Examples for students
+This repository is meant for my students.
 
-## 🚀 model tutorials (28 notebooks)
+## Tutorials
+
+- [Access Snellius GPUs](tutorial/README.md)
+- [Git Basics: A Simple Manual](tutorial/git.md)
+
+
+## 🚀 Notebook Examples
 | **notebook** | **open in colab** |
 |:------------:|:-------------------------------------------------:|
 | [Colab basics](https://github.com/fkariminejadasl/ml-notebooks/blob/main/notebooks/colab_basics.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fkariminejadasl/ml-notebooks/blob/main/notebooks/colab_basics.ipynb)| 
