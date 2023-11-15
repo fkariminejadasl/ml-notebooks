@@ -4,8 +4,9 @@
 
 **Create an account**
 
-Create ticket or email servicedesk@surf.nl
+Create ticket from the below link under "Apply for access / On institute contract":
 https://servicedesk.surf.nl 
+In the case of an issue, email servicedesk@surf.nl or create a ticket under "Servicedesk / create a ticket". 
 
 https://portal.cua.surf.nl : first copied public key in here (only done once)
 
