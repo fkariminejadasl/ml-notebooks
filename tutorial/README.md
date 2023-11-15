@@ -84,7 +84,7 @@ So in a `runfile.sh`, the basic slurm settings are as:
 #SBATCH --partition=gpu
 #SBATCH --time=14:00:00
 ```
-> NB. `--cpus-per-gpu` or `--cpus-per-task` is automatically set for 1/4 of node, which in `gpu` partition is 18. For more info, check [Snellius accounting](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+usage+and+accounting), [SBU calculating](https://servicedesk.surf.nl/wiki/display/WIKI/Estimating+SBUs).
+> NB. `--cpus-per-gpu` or `--cpus-per-task` is automatically set for 1/4 of node, which in `gpu` partition is 18. For more info, check [SBU calculating](https://servicedesk.surf.nl/wiki/display/WIKI/Estimating+SBUs).
 
 </br>
 
@@ -160,7 +160,7 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`
 - `sacct`: get statistics on completed jobs
 - `accinfo` `accuse`, `budget-overview`: show how much credite is left (Snellius commands)
-- `myquota`: show the limit of files. They are also listed in [Snellius hardware and file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware+and+file+systems).
+- `myquota`: show the limit of files. They are also listed in [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) and [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems).
 - `gpustat -acp`: show the gpu usage. It should be installed with pip, `pip install gpustat`. It has the information from `nvidia-smi`, but one-liner. 
 
 Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands). 
@@ -168,7 +168,8 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 </br>
 
 **Useful links:**
-- [Snellius accounting](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+usage+and+accounting)
+- [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) 
+- [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems)
 - [SBU calculating](https://servicedesk.surf.nl/wiki/display/WIKI/Estimating+SBUs)
 - [Example job scripts](https://servicedesk.surf.nl/wiki/display/WIKI/Example+job+scripts)
 - [Convenient Slurm commands](https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands)
