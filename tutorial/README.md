@@ -31,6 +31,9 @@ conda create -n test python=3.8
 pip install torch # version 2.0.0+cu117
 ```
 
+## Schedule Tasks
+SLURM is a job scheduler used by many computer clusters and supercomputer, such as Snellius. It allocates resources to users and monitors work. It is a configurable workload manager. `squeue`, `sbatch`, `srun`, `sinfo`, and `scancel` are examples of the most commonly used commands in SLURM.
+
 ## Use GPUs
 
 **Run a job:**
