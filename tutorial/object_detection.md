@@ -2,41 +2,30 @@
 
 ## Introduction
 
-Object detection is a crucial task in computer vision that involves classifying and localizing objects within an image or video. Over the years, various methods have been developed to improve the efficiency and accuracy of object detection. In this manual, first, we'll look at the categories of object detection. Then, we'll explore prominent approaches: Faster R-CNN, YOLO (You Only Look Once), CenterNet, and DETR (DEtection Transformer). Finally, we'll look at open-set object detection.
-
+Object detection is a critical task in computer vision, involving the classification and localization of objects within an image or video. This manual provides a quick overview of various methods to enhance the efficiency and accuracy of object detection. We'll explore different categories of object detection, including Faster R-CNN, YOLO (You Only Look Once), CenterNet, and DETR (DEtection Transformer). Finally, we'll delve into open-set object detection and object detection with limited data.
 
 ## Categories of Object Detection Methods
 
-Object detection methods can be categorized based on several key attributes, each influencing their design and performance. Here are prominent categories to consider:
+Object detection methods can be categorized based on key attributes influencing their design and performance. Here are prominent categories:
 
-**Two-Stage vs. One-Stage Methods**
+- **Two-Stage vs. One-Stage Methods:**
+  - Two-stage methods, like Faster R-CNN, involve region proposal and subsequent classification, offering high accuracy but may be slower.
+  - One-stage methods, such as YOLO, perform object detection in a single step, providing faster inference for real-time applications.
 
-Two-stage methods, such as Faster R-CNN, follow a two-step process involving region proposal and subsequent classification. These methods often achieve high accuracy but may be relatively slower.
+- **Anchor-Based vs. Anchor-Free Methods:**
+  - Anchor-based methods, like Faster R-CNN, use predefined anchor boxes, while anchor-free methods, such as CenterNet, eliminate the need for predefined anchors.
 
-One-stage methods, such as YOLO (You Only Look Once), perform object detection in a single step, directly predicting bounding boxes and class probabilities. They are known for faster inference, making them suitable for real-time applications.
+- **Region-Based vs. Query-Based Methods:**
+  - Region-based methods divide an image into regions (e.g., Faster R-CNN), while query-based methods like DETR use transformer architectures for set prediction.
 
-**Anchor-Based vs. Anchor-Free Methods**
-
-Anchor-based methods, like Faster R-CNN, rely on predefined anchor boxes to guide the localization and classification of objects. While effective, they may require careful tuning of anchor scales.
-
-Anchor-free methods, such as CenterNet, eliminate the need for predefined anchors. These methods predict object centers and directly regress bounding box coordinates, simplifying the detection process.
-
-**Region-Based vs. Query-Based Methods**
-
-Region-based methods, like Faster R-CNN, focus on dividing an image into regions. 
-
-Query-based methods, such as DETR (DEtection Transfomer), formulate object detection as a set prediction problem. They use transformer architectures to simultaneously predict object classes and bounding box coordinates, offering a unique approach to detection.
-
-**Plain vs. Hierarchical Methods**
-
-Plain methods maintains a single-scale feature
-map, e.g., [ViTDet](https://arxiv.org/abs/2203.16527) and while hierarchical methods contain multi-scale features.
+- **Plain vs. Hierarchical Methods:**
+  - Plain methods maintain a single-scale feature map, e.g., [ViTDet](https://arxiv.org/abs/2203.16527), while hierarchical methods contain multi-scale features.
 
 ## Two-Stage Methods: Faster R-CNN
 
 **Faster R-CNN (Region-based Convolutional Neural Network):**
 
-- **Overview:** Faster R-CNN is a two-stage object detection framework that combines region proposal and object classification. It uses a region proposal network (RPN) to generate candidate object regions and then classifies and refines these regions.
+- **Overview:** A two-stage framework combining region proposal and object classification using a region proposal network (RPN).
   
 - **Links:** [R-CNN](https://arxiv.org/abs/1311.2524), [Fast R-CNN](https://arxiv.org/abs/1504.08083), [Faster R-CNN](https://arxiv.org/abs/1506.01497)
 
@@ -44,7 +33,7 @@ map, e.g., [ViTDet](https://arxiv.org/abs/2203.16527) and while hierarchical met
 
 **YOLO (You Only Look Once):**
 
-- **Overview:** YOLO is a one-stage object detection algorithm that divides the image into a grid and predicts bounding boxes and class probabilities directly. It provides real-time object detection.
+- **Overview:** A one-stage algorithm dividing the image into a grid and predicting bounding boxes and class probabilities directly for real-time object detection.
 
 - **Links:** [YOLO](https://arxiv.org/abs/1506.02640), [YOLO brief history](https://docs.ultralytics.com/#yolo-a-brief-history)
 
@@ -52,32 +41,30 @@ map, e.g., [ViTDet](https://arxiv.org/abs/2203.16527) and while hierarchical met
 
 **CenterNet:**
 
-- **Overview:** CenterNet is an anchorless approach that focuses on predicting object centers and regressing bounding box coordinates directly. It eliminates the need for predefined anchors.
+- **Overview:** An anchorless approach focusing on predicting object centers and regressing bounding box coordinates directly, eliminating the need for predefined anchors.
 
 - **Links:** [CenterNet](https://arxiv.org/abs/1904.07850)
 
-
 ## Transformer-Based Methods: DETR
 
-**DETR (DEtection Transfomer):**
+**DETR (DEtection Transformer):**
 
-- **Overview:** DETR is a transformer-based object detection model that formulates object detection as a set prediction problem. It simultaneously predicts object classes and their bounding box coordinates.
+- **Overview:** A transformer-based object detection model formulating object detection as a set prediction problem, simultaneously predicting object classes and bounding box coordinates.
 
 - **Links:** [DETR](https://arxiv.org/abs/2005.12872), [deformableDETR](https://arxiv.org/abs/2010.04159)
 
-
 ## Open-Set Object Detection | Open Vocabulary Object Detection (OVD)
 
-- **Overview:** OOpen-set object detection, also known as open vocabulary object detection, is a task in computer vision that aims to detect objects of novel categories beyond the training vocabulary. Traditional object detection models are trained on a fixed set of object categories and can only detect objects from that specific set. However, in open-set object detection, the goal is to scale up the vocabulary size and detect objects from categories that were not seen during training. 
+- **Overview:** Open-set object detection, or open vocabulary object detection, aims to detect objects of novel categories beyond the training vocabulary. Traditional models are limited to a fixed set, but open-set detection scales up the vocabulary size.
 
 - **Links:** [Grounding DINO](https://arxiv.org/abs/2303.05499), [OWL-VIT](https://arxiv.org/abs/2205.06230v2), [Detic](https://arxiv.org/abs/2201.02605), [paperwithcode list](https://paperswithcode.com/task/open-vocabulary-object-detection).
 
-<!-- GroundingDINO leverages the vision-language pre-training model DINO (unsupervised learning) and extends it for open-set object detection. It achieves this by grounding the visual features with textual features, allowing the model to generalize to new object classes. -->
+## Object Detection with Limited Data
 
-## Conclusion
+To address the challenge of limited labeled data, leveraging pre-training in self-supervised learning is an effective strategy. Two prominent methods are contrastive learning and reconstruction-based methods. In contrastive learning, data augmentation is applied, and the model learns by bringing the representation of augmented parts together while pushing non-augmented parts further apart. Another method involves removing part of the data, and the model attempts to reconstruct the missing portion, as seen in Masked Autoencoders ([MAE](https://arxiv.org/abs/2111.06377)).
 
-Object detection has witnessed significant advancements through various methodologies. The choice between two-stage, one-stage, anchorless, or transformer-based methods depends on the specific requirements of your application, such as speed, accuracy, and scalability. Consider experimenting with different approaches to find the one that best suits your research needs.
+Alternatively, foundation models—large models trained on extensive datasets—can serve as a pre-training step. These pre-trained models can be fine-tuned on specific tasks using a smaller dataset or used to distill knowledge into a smaller model, minimizing size while preserving performance.
 
-Remember to consult the respective papers and documentation for detailed implementation and parameter tuning guidance for each method.
+Another common approach involves training with different modalities, particularly text and image data, in a self-supervised manner. Following the success of models like [CLIP](https://arxiv.org/abs/2103.00020), various methods, such as [Grounding DINO](https://arxiv.org/abs/2303.05499) and [OWL-VIT](https://arxiv.org/abs/2205.06230v2), have adopted this approach for training.
 
-> Disclaimer: This manual was generated by ChatGPT and [you.com](https://you.com). I made some modifications.
+> Disclaimer: Part of this manual was generated by ChatGPT and [you.com](https://you.com) with my modification.
