@@ -7,6 +7,7 @@ This repository is meant for my students.
 - [Access Snellius GPUs](tutorial/README.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
 - [Object Detection Quick Overview](tutorial/object_detection.md)
+- [Training with Resource Limitations](tutorial/training_resource_limitations.md)
 
 
 ## 🚀 Notebook Examples

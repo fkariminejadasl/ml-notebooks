@@ -28,6 +28,7 @@ conda init bash
 After that, the basic virtualenv from conda can be created. See below e.g.:
 ```bash
 conda create -n test python=3.8
+conda activate test
 pip install torch # version 2.0.0+cu117
 ```
 
