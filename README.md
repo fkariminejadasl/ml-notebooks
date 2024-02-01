@@ -8,6 +8,7 @@ This repository is meant for my students.
 - [Git Basics: A Simple Manual](tutorial/git.md)
 - [Object Detection Quick Overview](tutorial/object_detection.md)
 - [Training with Resource Limitations](tutorial/training_resource_limitations.md)
+- [Improving Deep Learning Training Results](tutorial/improve_training_results.md)
 
 
 ## 🚀 Notebook Examples
