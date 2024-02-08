@@ -179,3 +179,4 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 - [Example job scripts](https://servicedesk.surf.nl/wiki/display/WIKI/Example+job+scripts)
 - [Convenient Slurm commands](https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands)
 - [Squeue help](https://slurm.schedmd.com/squeue.html): just use `squeue --help`
+- [uvadlc: Working with the Snellius cluster](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html)
