@@ -5,7 +5,7 @@ Training large deep learning models is notably resource-intensive, often present
 - **Training**: Gradient accumulation and gradient checkpointing. **Gradient accumulation** involves accumulating gradients over multiple mini-batches before updating model parameters. It's useful when the available memory is insufficient for a desired batch size. **Gradient checkpointing** reduces memory usage by not saving intermediate tensors required for the backward pass. These tensors are recomputed during the backward pass, which increases computation time.
 - **Fine-Tuning Tricks**: Fine-tune only a small number of parameters (PEFT), e.g., LoRA/controlNet.
 - **Specific to Attention Blocks in Transformers**: FlashAttention, Flash-decoding.
-- **Tricks for GPU**: Half-precision, quantization, paged optimizers (GPU to CPU transfer used in QLoRA for optimizer states). Examples are: fp32 -> fp16 -> int8 -> nf4 (normal float 4-bit).
+- **Tricks for GPU**: Half-precision, quantization, paged optimizers (GPU to CPU transfer used in QLoRA for optimizer states). Examples are: fp32 -> fp16 -> int8 -> nf4 (normal float 4-bit). [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html)
 
 #### N.B.
 
