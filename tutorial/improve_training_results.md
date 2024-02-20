@@ -18,5 +18,6 @@ Deep learning training outcomes can significantly improve by focusing on three m
 - **Optimizer Choice**: Switching optimizers, e.g., from Adam to AdamW, can improve results due to AdamW's weight decay feature, which acts as a regularizer.
 - **Scheduling**: Implementing schedulers, with or without options for warm-up phases, can fine-tune the learning rate adjustment process over time. Example schedulers include `StepLR`, `CosineAnnealingLR`, and `ExponentialLR`, with warm-up variations like `CosLR` and `LinearLR`. 
 
+**Note:** Weight decay, Dropout and Label Smoothing are the basic regularizers. 
 
 **Note:** The strategies outlined above are often detailed in academic papers.
