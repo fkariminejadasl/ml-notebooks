@@ -6,6 +6,7 @@ This repository is meant for my students.
 
 - [Access Snellius GPUs](tutorial/README.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
+- [Deep Learning and computer vison courses](tutorial/courses.md)
 - [Object Detection Quick Overview](tutorial/object_detection.md)
 - [Training with Resource Limitations](tutorial/training_resource_limitations.md)
 - [Practical information on data and training](tutorial/practical_info_data_training.md)
