@@ -16,3 +16,20 @@ For the example provided above, here is the code to download the data using curl
 curl -u "IS00bWerWu3MDJS:password" "https://surfdrive.surf.nl/files/public.php/webdav" -o mot
 unzip mot -d mot_data > /dev/null 2>&1
 ```
+
+### Access files from the Google Drive to Colab
+The below option is for sharing single file. It can be a zip file.
+
+Share the file with "Share/Share/Anyone with the link". Then "Share/Copy Link". You get the url like this:
+`https://drive.google.com/file/d/id_to_copy/view?usp=drive_link`. Use `id_to_copy` in `gdown`:
+```python
+!pip install -U gdown requests
+!gdown id_to_copy --output /content/
+```
+
+The other option is to mount the whole Google drive (not recommanded):
+```python
+from google.colab import drive
+drive.mount("/content/drive")
+!cp /content/test.yaml "/content/drive/MyDrive"
+```
