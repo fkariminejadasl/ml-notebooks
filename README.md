@@ -1,16 +1,16 @@
-# ml-notebooks
+# Deep Learning Tutorials and Notebooks
 
-This repository is meant for my students.
+This repository is for my students.
 
 ## Tutorials
 
 - [Access Snellius GPUs](tutorial/README.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
-- [Deep Learning and computer vison courses](tutorial/courses.md)
-- [Object Detection Quick Overview](tutorial/object_detection.md)
-- [Training with Resource Limitations](tutorial/training_resource_limitations.md)
-- [Practical information on data and training](tutorial/practical_info_data_training.md)
-- [Improving Deep Learning Training Results](tutorial/improve_training_results.md)
+- [Courses in Deep Learning and Computer Vision](tutorial/courses.md)
+- [Quick Overview of Object Detection](tutorial/object_detection.md)
+- [Training with Limited Resources](tutorial/training_resource_limitations.md)
+- [Practical Information about Data and Training](tutorial/practical_info_data_training.md)
+- [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
 
 
 ## 🚀 Notebook Examples
