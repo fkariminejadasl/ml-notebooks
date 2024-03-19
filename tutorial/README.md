@@ -25,6 +25,7 @@ ssh -X username@snellius.surf.nl
 ## Setup environment
 The first time to setup your environment, run below script:
 ```bash
+module purge # unload all modules
 module load 2022
 module load Anaconda3/2022.05 # version 4.12.0
 conda init bash
@@ -141,7 +142,7 @@ Now, in the local machine, run `http://localhost:local_port`, e.g. `http://local
 This is same as sbatch with runfile.sh but parameters are set in srun. In this way, the bash will be active and you are in the machine.
 
 ```bash
-srun --gpus=1 --partition=gpu --pty bash -il
+srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
 ```
 
 **Multigpu in single or multi node**
@@ -172,6 +173,12 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `accinfo` `accuse`, `budget-overview`: show how much credite is left (Snellius commands)
 - `myquota`: show the limit of files. They are also listed in [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) and [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems).
 - `gpustat -acp`: show the gpu usage. It should be installed with pip, `pip install gpustat`. It has the information from `nvidia-smi`, but one-liner. 
+- `module load/unload/purge/list/display/avail`: 
+     - `load/unload/purge`: e.g. `module load CUDA/11.8.0`: load this module and use `unload` to unload this module. `purge` unload all modules.
+    - `list`: e.g. `module list`: list of loaded modules. 
+    - `display`: e.g. `module display CUDA/11.8.0`: show information on where this module is. 
+    - `avail`: e.g. `module avail`: show list of all available modules, but first load 2022/2023/or higher version if available. 
+   
 
 Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands). 
 
@@ -185,3 +192,4 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 - [Convenient Slurm commands](https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands)
 - [Squeue help](https://slurm.schedmd.com/squeue.html): just use `squeue --help`
 - [uvadlc: Working with the Snellius cluster](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html)
+- [microhh](https://microhh.readthedocs.io/en/latest/computing_systems/snellius.html)
