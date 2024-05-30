@@ -1,6 +1,6 @@
 # Access Snellius GPUs
 
-For larger amount of compute please look at possible options in [Access to compute service](https://www.surf.nl/en/access-to-compute-services). Th
+For larger amount of compute please look at possible options in [Access to compute service](https://www.surf.nl/en/access-to-compute-services) or in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants). The
 [SURF services and rates 2024](https://www.surf.nl/files/2024-02/surf-services-and-rates-2024_version-feb-2024.pdf) are given here.
 
 To ge the small compute about 50K-100K SBUs for about three times a year, look at [Setup](#setup) section.
