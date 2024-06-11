@@ -4,13 +4,19 @@ This repository is for my students.
 
 ## Tutorials
 
+### General
 - [Access Snellius GPUs](tutorial/README.md)
+- [Practical Information about Data and Training](tutorial/practical_info_data_training.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
+
+### Training
+- [Training with Limited Resources](tutorial/training_resource_limitations.md)
+- [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
+
+### Courses and Literature
 - [Courses in Deep Learning and Computer Vision](tutorial/courses.md)
 - [Quick Overview of Object Detection](tutorial/object_detection.md)
-- [Training with Limited Resources](tutorial/training_resource_limitations.md)
-- [Practical Information about Data and Training](tutorial/practical_info_data_training.md)
-- [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
+
 
 
 ## 🚀 Notebook Examples

@@ -193,3 +193,14 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 - [Squeue help](https://slurm.schedmd.com/squeue.html): just use `squeue --help`
 - [uvadlc: Working with the Snellius cluster](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html)
 - [microhh](https://microhh.readthedocs.io/en/latest/computing_systems/snellius.html)
+
+
+# External GPUs
+
+- [Vast.ai](https://vast.ai/pricing)
+- [runpod.io](https://www.runpod.io/gpu-instance/pricing) 
+- Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
+- [Paperspace](https://www.paperspace.com/pricing)
+- [Jarvislabs](https://jarvislabs.ai/pricing)
+- GCP
+- AWS

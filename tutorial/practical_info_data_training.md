@@ -19,6 +19,8 @@ curl -u "IS00bWerWu3MDJS:password" "https://surfdrive.surf.nl/files/public.php/w
 unzip mot -d mot_data > /dev/null 2>&1
 ```
 
+There is some information on [surfnet](https://wiki.surfnet.nl/display/SURFdrive/Accessing+files+via+WebDAV), but I found it unclear.
+
 ### Copy Data from the Google Drive to the Google Colab
 The below option is for sharing single file. It can be a zip file.
 
