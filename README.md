@@ -6,11 +6,11 @@ This repository is for my students.
 
 ### General
 - [Access Snellius GPUs](tutorial/README.md)
-- [Practical Information about Data and Training](tutorial/practical_info_data_training.md)
+- [Practical Information about Data](tutorial/practical_info_data.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
 
-### Training
-- [Training with Limited Resources](tutorial/training_resource_limitations.md)
+### Training and Inference
+- [Training and Inference with Limited Resources](tutorial/resource_limitations.md)
 - [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
 
 ### Courses and Literature

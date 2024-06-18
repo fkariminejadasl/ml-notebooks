@@ -7,6 +7,11 @@ Training large deep learning models is notably resource-intensive, often present
 - **Specific to Attention Blocks in Transformers**: FlashAttention, Flash-decoding.
 - **Tricks for GPU**: Half-precision, quantization, paged optimizers (GPU to CPU transfer used in QLoRA for optimizer states). Examples are: fp32 -> fp16 -> int8 -> nf4 (normal float 4-bit). [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html)
 
+# Inference with Resource Limitations
+- **Model Parameters**: 
+    - Model distillation: Distill a large model as a teacher model to a student model using distillation loss.
+    - Quantization techniques: Weight clustering (aka low-bit parallelization) is a compression technique.
+
 #### N.B.
 
 - Memory consists of parameters (weights), gradients, optimizer states, and activations (batch size x largest layer).
