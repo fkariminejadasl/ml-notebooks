@@ -13,6 +13,7 @@ Deep Learning 1, Deep Learning 2, Computer Vision 1, Computer Vision 2 (mainly 3
 - Stanford CS231n: Deep Learning for Computer Vision: [Videos winter 2016](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC) and [lecture notes](https://cs231n.github.io). Deep learning based 2D computer vision. There is also [MIT 6.S191: Introduction to Deep Learning](https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI) and [Stanford CS 25 transformers united](https://m.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM&cbrd=1).
 - [Photogrammetry I & II by Cyrill Stachniss](https://www.youtube.com/playlist?list=PLgnQpQtFTOGRYjqjdZxTEQPZuFHQa7O7Y): Contains both tranditional and deep-learning based computer vision in 2D and 3D.
 - [Computer Vision by Andreas Geiger](https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGzis8AEHz7mg381_): Contains both tranditional and deep-learning based 2D and 3D computer vision.
+- [EfficientML.ai Lecture, Fall 2023, MIT 6.5940](https://www.youtube.com/playlist?list=PL80kAHvQbh-pT4lCkDT53zT8DKmhE0idB)
 
 
 #### Traditional Computer Vision
