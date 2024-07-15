@@ -4,7 +4,7 @@
 
 ### Copy Data from Surfdrive to Remote Machine (Google Colab/Snellius)
 
-You can copy your data to Surfdrive by zipping your data and using drag and drop to transfer the data. Then, use the share icon to share your data with a password and set it to have no expiration time. Use the "Copy to Clipboard" option to obtain the link. You will receive a link similar to `https://surfdrive.surf.nl/files/index.php/s/IS00bWerWu3MDJS`. The last element, e.g., `IS00bWerWu3MDJS`, represents your username. Utilize this username along with the password you specified when sharing this folder, as shown in the signature below, to download your data.
+You can copy your data to [Surfdrive](https://surfdrive.surf.nl) by zipping your data and using drag and drop to transfer the data. Then, use the share icon to share your data with a password and set it to have no expiration time. Use the "Copy to Clipboard" option to obtain the link. You will receive a link similar to `https://surfdrive.surf.nl/files/index.php/s/IS00bWerWu3MDJS`. The last element, e.g., `IS00bWerWu3MDJS`, represents your username. Utilize this username along with the password you specified when sharing this folder, as shown in the signature below, to download your data.
 
 ```bash
 curl -u username:password surf_public_link -o your_output_file
@@ -22,6 +22,7 @@ unzip mot -d mot_data > /dev/null 2>&1
 There is some information on [surfnet](https://wiki.surfnet.nl/display/SURFdrive/Accessing+files+via+WebDAV), but I found it unclear.
 
 ### Copy Data from the Google Drive to the Google Colab
+
 The below option is for sharing single file. It can be a zip file.
 
 Share the file with "Share/Share/Anyone with the link". Then "Share/Copy Link". You get the url like this:
@@ -37,3 +38,7 @@ from google.colab import drive
 drive.mount("/content/drive")
 !cp /content/test.yaml "/content/drive/MyDrive"
 ```
+
+## References
+
+- [Surfdrive](https://surfdrive.surf.nl)
