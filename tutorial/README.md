@@ -197,6 +197,7 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 
 # External GPUs
 
+- [Cloud GPU comparison](https://cloud-gpus.com)
 - [Vast.ai](https://vast.ai/pricing)
 - [runpod.io](https://www.runpod.io/gpu-instance/pricing) 
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).

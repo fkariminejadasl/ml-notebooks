@@ -22,3 +22,63 @@ Training large deep learning models is notably resource-intensive, often present
 - Fine-tuning of 7B model parameters on T4 from DeepLearning AI by Ludwig, presented by Travis Addair (watch from [here](https://youtu.be/g68qlo9Izf0?t=793) to [here](https://youtu.be/g68qlo9Izf0?t=2184).
 - [LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)
 
+
+#### Example code
+
+**Using fp16 (float16) in PyTorch:**
+
+```python
+import torch
+from torch.cuda.amp import GradScaler, autocast
+
+# Initialize model, optimizer, and other components
+model = MyModel().cuda()
+optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
+
+scaler = GradScaler()
+
+for inputs, labels in data_loader:
+    inputs, labels = inputs.cuda(), labels.cuda()
+
+    optimizer.zero_grad()
+    
+    # Casts operations to mixed precision
+    with autocast():
+        outputs = model(inputs)
+        loss = loss_fn(outputs, labels)
+    
+    # Scales the loss and calls backward()
+    scaler.scale(loss).backward()
+    
+    # Unscales gradients and calls optimizer step
+    scaler.step(optimizer)
+    scaler.update()
+```
+
+**Using bf16 (bfloat16) in PyTorch:**
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Check if bf16 is supported
+if torch.cuda.is_bf16_supported():
+    dtype = torch.bfloat16
+else:
+    raise RuntimeError("Bfloat16 not supported on this device")
+
+# Initialize model, optimizer, and other components
+model = MyModel().to(dtype=dtype, device='cuda')
+optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
+
+for inputs, labels in data_loader:
+    inputs, labels = inputs.to(dtype=dtype, device='cuda'), labels.to(device='cuda')
+
+    optimizer.zero_grad()
+    
+    outputs = model(inputs)
+    loss = loss_fn(outputs, labels)
+    
+    loss.backward()
+    optimizer.step()
+```
