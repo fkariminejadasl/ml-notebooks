@@ -8,6 +8,7 @@ This repository is for my students.
 - [Access Snellius GPUs](tutorial/README.md)
 - [Practical Information about Data](tutorial/practical_info_data.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
+- [Tmux Basics](tutorial/tmux.md)
 
 ### Training and Inference
 - [Training and Inference with Limited Resources](tutorial/resource_limitations.md)
