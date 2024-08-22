@@ -86,9 +86,8 @@ squeue -o "%.10i %.9P %.25j %.8u %.8T %.10M %.9l %.6D %.10Q %.20S %R"
 If the job is running, it will save the result in the output file with the name specified by `SBATCH -o` option. NB. `%j` in the name replaced by job id. In the example `yolo8_train4_%j.out`, the output file will be olo8_train4_2137977.out. The job id is the id you get after running sbatch.
 
 > **IMPORTANT**</br>
-Each person has a limited budget in the unit of SBU (system billing unit). It is basically for a GPU, calculated on this formula: </br>
-`sbu = # cores * hours * factor`. This factor is `7.11` for partition `gpu`. If you specify 1 GPU, it is 1/4 node, which has 18 cores. 
-For example, the SBU is 1280 for 1 GPU and 10 hours: `18 x 10 x 7.11 = ceil(1279.8) = 1280`. 
+Each person has a limited budget in the unit of SBU (system billing unit). It is also listed as accounting weight factor in [Snellius partitions and accounting](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+partitions+and+accounting).
+e.g. If you request for 1 A100 GPU, it is 1/4 node, which has 18 cores for 10 hours, the SBU is `128 * 10 = 1280`.
 So in a `runfile.sh`, the basic slurm settings are as:
 ```bash
 #SBATCH --gpus=1
@@ -170,7 +169,7 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `scontrol`: show detailed job information. e.g. show job detail: `scontrol show j 7605565`
 - `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`, `sinfo -p gpu`
 - `sacct`: get statistics on completed jobs
-- `accinfo` `accuse`, `budget-overview -p gpu`: show how much credite is left (Snellius commands)
+- `accinfo`, `budget-overview -p gpu`, `accuse`: show how much credite is left (Snellius commands)
 - `myquota`: show the limit of files. They are also listed in [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) and [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems).
 - `gpustat -acp`: show the gpu usage. It should be installed with pip, `pip install gpustat`. It has the information from `nvidia-smi`, but one-liner. 
 - `module load/unload/purge/list/display/avail`: 
@@ -196,12 +195,53 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 
 # Details
 
-### SLRUM
+#### SLRUM interactive mode
+
+In the interactive mode, you can see slurm variables. E.g. `echo $$SLURM_MEM_PER_CPU`, `echo $SLURM_CPUS_PER_TASK`.
 ```bash
-# interactive mode: request 2 CPUs (-c,--cpus-per-task)
+# interactive mode: request 2 CPUs (-c,--cpus-per-task), time can be unlimited (time=UNLIMITED)
 srun -c2 --mem-per-cpu=200G --pty bash -il
 # interactive mode: request 1 GPU
 srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
+```
+#### SLURM list of common commands
+```bash
+#SBATCH --job-name=result # appears in squeue
+#SBATCH -o exps/test_%j.out # -o,--output, %j=job id
+#SBATCH --error=test_%j.err
+#SBATCH --time=00:10:00 # time can be UNLIMITED
+#SBATCH --mem-per-cpu=1G
+#SBATCH --cpus-per-task=2 # -c,--cpus-per-task
+#SBATCH --gpus=1 # number of gpu
+#SBATCH --partition=gpu # type of gpu
+```
+
+Only these values are shown on snellius:
+```bash
+$SLURM_CPUS_ON_NODE:  the number of CPUs allocated to your job using the following environment variable:
+$SLURM_GPUS: This gives you the total number of GPUs allocated to your job.
+```
+
+These values are empty on snellius:
+```bash
+$SLURM_MEM_PER_NODE: This variable gives you the total amount of memory allocated per node in megabytes (MB)
+$SLURM_MEM_PER_CPU * $SLURM_CPUS_ON_NODE: in the case of requesting memory using --mem-per-cpu
+
+$SLURM_GPUS_PER_NODE: This gives the number of GPUs per node allocated to your job.
+$SLURM_JOB_GPUS: This gives you a list of the GPUs allocated to your job.
+
+echo "cpu pertask: $SLURM_CPUS_PER_TASK"
+echo "cpu per gpu: $SLURM_CPUS_PER_GPU"
+```
+
+#### SLURM task array
+Example using task array:
+
+```bash
+#SBATCH --output=test_%A_%a.out # -o,--output, %A=job id, %a=array number
+#SBATCH --array=0-1
+
+python your_script.py $SLURM_ARRAY_TASK_ID
 ```
 
 ### Get CPU and GPU information
