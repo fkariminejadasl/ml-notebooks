@@ -2,10 +2,10 @@
 
 Training large deep learning models is notably resource-intensive, often presenting challenges in both memory and computational demands. In contrast, smaller models, while less demanding, may lack descriptive power. A practical approach to training larger models involves starting with a pre-trained model and then fine-tuning a small subset of parameters, typically the head of the model. If your training time is limited to just a few hours, it's advisable to checkpoint the model and resume training from the last saved checkpoint. Below, we present a variety of techniques designed to either reduce memory usage or/and enhance computational efficiency.
 
-- **Training**: Gradient accumulation and gradient checkpointing. **Gradient accumulation** involves accumulating gradients over multiple mini-batches before updating model parameters. It's useful when the available memory is insufficient for a desired batch size. **Gradient checkpointing** reduces memory usage by not saving intermediate tensors required for the backward pass. These tensors are recomputed during the backward pass, which increases computation time.
+- **Training**: Gradient accumulation, gradient checkpointing and CPU offloading. **Gradient accumulation** involves accumulating gradients over multiple mini-batches before updating model parameters. It's useful when the available memory is insufficient for a desired batch size. **Gradient checkpointing** (also known as activation checkpointing)) reduces memory usage by not saving intermediate tensors required for the backward pass. These tensors are recomputed during the backward pass, which increases computation time. **CPU offloading** stores weights in CPU RAM rather than on the GPU when they are not in use.
 - **Fine-Tuning Tricks**: Fine-tune only a small number of parameters (PEFT), e.g., LoRA/controlNet.
 - **Specific to Attention Blocks in Transformers**: FlashAttention, Flash-decoding.
-- **Tricks for GPU**: Half-precision, quantization, paged optimizers (GPU to CPU transfer used in QLoRA for optimizer states). Examples are: fp32 -> fp16 -> int8 -> nf4 (normal float 4-bit). [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html)
+- **Tricks for GPU**: Half-precision, quantization, paged optimizers (GPU to CPU transfer used in QLoRA for optimizer states). Examples are: fp32 -> fp16/bf16 -> int8 -> nf4 (normal float 4-bit).
 
 # Inference with Resource Limitations
 - **Model Parameters**: 
@@ -20,12 +20,15 @@ Training large deep learning models is notably resource-intensive, often present
 #### References
 
 - Fine-tuning of 7B model parameters on T4 from DeepLearning AI by Ludwig, presented by Travis Addair (watch from [here](https://youtu.be/g68qlo9Izf0?t=793) to [here](https://youtu.be/g68qlo9Izf0?t=2184).
+- [train a 70b language model on two 24GB GPUs](https://www.answer.ai/posts/2024-03-06-fsdp-qlora.html): an open source system, based on FSDP and QLoRA, that can train a 70b model on two 24GB GPUs. They also used Gradient checkpointing, CPU offloading, and Flash Attention 2.
 - [LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)
 
 
 #### Example code
 
 **Using fp16 (float16) in PyTorch:**
+
+The detail explanation is in [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html).
 
 ```python
 import torch

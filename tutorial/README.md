@@ -167,14 +167,14 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `sbatch`: run a job
 - `squeue`: show the status of the job
 - `scancel`: cancel the job. 
-- `scontrol`: show detailed job information
-- `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`
+- `scontrol`: show detailed job information. e.g. show job detail: `scontrol show j 7605565`
+- `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`, `sinfo -p gpu`
 - `sacct`: get statistics on completed jobs
 - `accinfo` `accuse`, `budget-overview -p gpu`: show how much credite is left (Snellius commands)
 - `myquota`: show the limit of files. They are also listed in [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) and [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems).
 - `gpustat -acp`: show the gpu usage. It should be installed with pip, `pip install gpustat`. It has the information from `nvidia-smi`, but one-liner. 
 - `module load/unload/purge/list/display/avail`: 
-     - `load/unload/purge`: e.g. `module load CUDA/11.8.0`: load this module and use `unload` to unload this module. `purge` unload all modules.
+    - `load/unload/purge`: e.g. `module load CUDA/11.8.0`: load this module and use `unload` to unload this module. `purge` unload all modules.
     - `list`: e.g. `module list`: list of loaded modules. 
     - `display`: e.g. `module display CUDA/11.8.0`: show information on where this module is. 
     - `avail`: e.g. `module avail`: show list of all available modules, but first load 2022/2023/or higher version if available. 
@@ -194,6 +194,75 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 - [uvadlc: Working with the Snellius cluster](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html)
 - [microhh](https://microhh.readthedocs.io/en/latest/computing_systems/snellius.html)
 
+# Details
+
+### SLRUM
+```bash
+# interactive mode: request 2 CPUs (-c,--cpus-per-task)
+srun -c2 --mem-per-cpu=200G --pty bash -il
+# interactive mode: request 1 GPU
+srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
+```
+
+### Get CPU and GPU information
+
+When the job is running, you can get number of GPU, CPU, RAM.
+```bash
+# job_id = 7605565
+`scontrol show job 7605565`
+```
+
+#### CPU
+
+``` bash
+# RAM
+# ---
+# python
+f"{psutil.virtual_memory().total:,}" # total of the node
+# command line
+free -h # total of the node
+htop -u -d 0 # total of the node
+
+# disk space
+# ----------
+f"{psutil.disk_usage('/').total:,}" # total of the node
+# command line
+df -h --total # total of the node
+
+# Number of CPUs
+# --------------
+# python
+len(os.sched_getaffinity(0))
+# N.B: total cpu (72 for A100 not divided by 4)
+psutil.cpu_count(logical=True) # total of the node
+os.cpu_count() # total of the node
+# command line
+nproc
+htop -u -d 0 # total of the node
+```
+
+#### GPU
+```bash
+# GPU VRAM
+# --------
+# python
+f"{torch.cuda.get_device_properties(0).total_memory:,}"
+# command line
+nvidia-smi --query-gpu=memory.total --format=csv
+
+# GPU type
+# --------
+torch.cuda.get_device_name(0) 
+# command line
+nvidia-smi -L
+
+# Number of GPUs
+# --------------
+# python
+torch.cuda.device_count()
+# command line
+nvidia-smi -L
+```
 
 # External GPUs
 

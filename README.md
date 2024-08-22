@@ -9,6 +9,7 @@ This repository is for my students.
 - [Practical Information about Data](tutorial/practical_info_data.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
 - [Tmux Basics](tutorial/tmux.md)
+- [Example Tasks for Large Language, Multimodal, and Vision Models](tutorial/tasks.md)
 
 ### Training and Inference
 - [Training and Inference with Limited Resources](tutorial/resource_limitations.md)
