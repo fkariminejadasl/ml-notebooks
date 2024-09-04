@@ -41,8 +41,8 @@ This text provides a detailed overview of various tasks that different large mod
     - Multiple images/video task examples: action recognition, video object detection, multiple object tracking, visual object tracking, track anypoint, optical flow, 3D object reconstruction, SLAM/SfM.
 
 ### References
-- LLM and LMM: [Llama 3](https://arxiv.org/abs/2407.21783), [4M-21](https://arxiv.org/abs/2406.09406), [Unified-IO 2](https://arxiv.org/abs/2312.17172), [ImageBind](https://arxiv.org/abs/2305.05665) 
-- VLM: [DINOv2](https://arxiv.org/abs/2304.07193), [SAM](https://arxiv.org/abs/2304.02643), [SAM 2](https://arxiv.org/abs/2408.00714).
+- LLM, LMM, VLM: [Llama 3](https://arxiv.org/abs/2407.21783), [4M-21](https://arxiv.org/abs/2406.09406), [Unified-IO 2](https://arxiv.org/abs/2312.17172), Florence
+- LVM: [DINOv2](https://arxiv.org/abs/2304.07193), [SAM](https://arxiv.org/abs/2304.02643), [SAM 2](https://arxiv.org/abs/2408.00714). CLIP, SigLIP, [ImageBind](https://arxiv.org/abs/2305.05665)
 
 ### Finding Models
 
