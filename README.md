@@ -8,17 +8,20 @@ This repository is for my students.
 - [Access Snellius GPUs](tutorial/README.md)
 - [Practical Information about Data](tutorial/practical_info_data.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
+- [Python Basics](tutorial/python.md)
 - [Tmux Basics](tutorial/tmux.md)
-- [Example Tasks for Large Language, Multimodal, and Vision Models](tutorial/tasks.md)
 
 ### Training and Inference
 - [Training and Inference with Limited Resources](tutorial/resource_limitations.md)
 - [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
+- [DDP(Distributed Data Parallel) in PyTorch](tutorial/ddp.md)
 
 ### Courses and Literature
 - [Courses in Deep Learning and Computer Vision](tutorial/courses.md)
 - [Quick Overview of Object Detection](tutorial/object_detection.md)
 
+### Blogpost
+- [Example Tasks for Large Language, Multimodal, and Vision Models](tutorial/tasks.md)
 
 
 ## 🚀 Notebook Examples
