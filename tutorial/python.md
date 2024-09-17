@@ -22,6 +22,11 @@ conda activate some_name
 ```
 You can put `conda activate some_name` in your `~/.bashrc` to activate it when open a new terminal.
 
+Remove your conda environment:
+```bash
+conda remove -n some_name --all
+```
+
 
 ## Python Courses
 

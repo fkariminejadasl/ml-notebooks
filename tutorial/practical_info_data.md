@@ -2,15 +2,18 @@
 
 ## Data Transfer
 
-### Copy Data from Surfdrive to Remote Machine (Google Colab/Snellius)
+### Copy Data from Surfdrive / Research Drive to Remote Machine (Google Colab/Snellius)
 
-You can copy your data to [Surfdrive](https://surfdrive.surf.nl) by zipping your data and using drag and drop to transfer the data. Then, use the share icon to share your data with a password and set it to have no expiration time. Use the "Copy to Clipboard" option to obtain the link. You will receive a link similar to `https://surfdrive.surf.nl/files/index.php/s/IS00bWerWu3MDJS`. The last element, e.g., `IS00bWerWu3MDJS`, represents your username. Utilize this username along with the password you specified when sharing this folder, as shown in the signature below, to download your data.
+You can copy your data to [Surfdrive](https://surfdrive.surf.nl), [UvA Research Drive](https://uva.data.surfsara.nl), or [SURF Research Drive](https://researchdrive.surfsara.nl) by zipping your data and using drag and drop to transfer the data. Then, use the share icon to share your data with a password and set it to have no expiration time. Use the "Copy to Clipboard" option to obtain the link. You will receive a link similar to `https://surfdrive.surf.nl/files/index.php/s/IS00bWerWu3MDJS`. The last element, e.g., `IS00bWerWu3MDJS`, represents your username. Utilize this username along with the password you specified when sharing this folder, as shown in the signature below, to download your data.
 
 ```bash
 curl -u username:password surf_public_link -o your_output_file
 ```
 
-The Surf public link is: https://surfdrive.surf.nl/files/public.php/webdav
+**Public link**
+- The Surfdrive: https://surfdrive.surf.nl/files/public.php/webdav
+- The UvA Research Drive: https://uva.data.surfsara.nl/public.php/webdav
+- The SURF Research Drive: https://researchdrive.surfsara.nl/public.php/webdav
 
 For the example provided above, here is the code to download the data using curl and then unzip the data. The entire process of obtaining the data and unzipping it took less than 2 minutes for 2.2GB of data. When using with the Google Colab, remember to prefix each command with the ! sign.
 
@@ -19,7 +22,7 @@ curl -u "IS00bWerWu3MDJS:password" "https://surfdrive.surf.nl/files/public.php/w
 unzip mot -d mot_data > /dev/null 2>&1
 ```
 
-There is some information on [surfnet](https://wiki.surfnet.nl/display/SURFdrive/Accessing+files+via+WebDAV), but I found it unclear.
+There is some information on [SURF wiki for Research Drive](https://servicedesk.surf.nl/wiki/display/WIKI/Uploading+files+to+a+Public+link), [SURF wiki for SURFdrive](https://servicedesk.surf.nl/wiki/display/WIKI/Activating+WebDAV) or older one on [surfnet for SURFdrive](https://wiki.surfnet.nl/display/SURFdrive/Accessing+files+via+WebDAV), but I found it unclear.
 
 ### Copy Data from the Google Drive to the Google Colab
 
