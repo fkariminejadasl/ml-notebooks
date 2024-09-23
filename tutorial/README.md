@@ -1,7 +1,7 @@
 # Access Snellius GPUs
 
-For larger amount of compute please look at possible options in [Access to compute service](https://www.surf.nl/en/access-to-compute-services) or in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants). The
-[SURF services and rates 2024](https://www.surf.nl/files/2024-02/surf-services-and-rates-2024_version-feb-2024.pdf) are given here.
+For larger amount of compute please look at possible options in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants) or in [Access to compute service](https://www.surf.nl/en/access-to-compute-services). The
+[SURF services and rates 2024](https://www.surf.nl/files/2023-08/surf-services-and-rates-2024_version-aug-2023.pdf) are given here.
 
 To ge the small compute about 50K-100K SBUs for about three times a year, look at [Setup](#setup) section.
 
@@ -9,9 +9,9 @@ To ge the small compute about 50K-100K SBUs for about three times a year, look a
 
 **Create an account**
 
-Create ticket from the below link under "Apply for access / On institute contract":
-https://servicedesk.surf.nl 
-In the case of an issue, email servicedesk@surf.nl or create a ticket under "Servicedesk / create a ticket". 
+Create ticket from https://servicedesk.surf.nl under "Apply for access / Direct institute contract" or "Apply for access / Small Compute applications (NWO)".
+ 
+In the case of an issue, create in https://servicedesk.surf.nl a ticket under "Servicedesk / create a ticket" or email servicedesk@surf.nl. 
 
 https://portal.cua.surf.nl : first copied public key in here (only done once)
 
