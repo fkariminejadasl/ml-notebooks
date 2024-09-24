@@ -1,20 +1,27 @@
 # Access Snellius GPUs
 
-For larger amount of compute please look at possible options in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants) or in [Access to compute service](https://www.surf.nl/en/access-to-compute-services). The
-[SURF services and rates 2024](https://www.surf.nl/files/2023-08/surf-services-and-rates-2024_version-aug-2023.pdf) are given here.
+### Large Compute
+For larger amounts of compute, please refer to possible options in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants) or [Access to compute services](https://www.surf.nl/en/access-to-compute-services). 
 
-To ge the small compute about 50K-100K SBUs for about three times a year, look at [Setup](#setup) section.
+### Small or Medium Compute
+For more information, visit [RCSS: Research Capacity Computing Services](https://servicedesk.surf.nl/wiki/display/WIKI/RCCS+contract). The
+[SURF services and rates 2024](https://www.surf.nl/files/2023-08/surf-services-and-rates-2024_version-aug-2023.pdf) are provided here.
+
+### Small Compute
+The FNWI institute offers small compute resources about three times a year, with each allocation providing approximately 50K-100K SBUs. NWO also provides access to small compute resources.
+
+Create a ticket at https://servicedesk.surf.nl under "Apply for access / Direct institute contract" or "Apply for access / Small Compute applications (NWO)."
+
+Follow the instructions in the [Setup](#setup) section to create an account.
+
 
 ## Setup 
 
 **Create an account**
 
-Create ticket from https://servicedesk.surf.nl under "Apply for access / Direct institute contract" or "Apply for access / Small Compute applications (NWO)".
- 
-In the case of an issue, create in https://servicedesk.surf.nl a ticket under "Servicedesk / create a ticket" or email servicedesk@surf.nl. 
-
 https://portal.cua.surf.nl : first copied public key in here (only done once)
 
+In the case of an issue, create in https://servicedesk.surf.nl a ticket under "Servicedesk / create a ticket" or email servicedesk@surf.nl. 
 **Usage**
 
 Use the Snellius (similar for e.g. sshfs/scp):
