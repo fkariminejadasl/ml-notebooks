@@ -315,9 +315,10 @@ nvidia-smi -L
 
 - [Cloud GPU comparison](https://cloud-gpus.com)
 - [Vast.ai](https://vast.ai/pricing)
-- [runpod.io](https://www.runpod.io/gpu-instance/pricing) 
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
+- [runpod.io](https://www.runpod.io/pricing) 
 - [Paperspace](https://www.paperspace.com/pricing)
 - [Jarvislabs](https://jarvislabs.ai/pricing)
+- [HPC-AI](https://hpc-ai.com/)
 - GCP
 - AWS
