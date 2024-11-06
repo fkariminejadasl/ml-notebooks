@@ -176,3 +176,7 @@ git lfs status
 ```
 
 This command shows you which files are being tracked and which are pending to be pushed or committed.
+
+## Links
+
+- [More information on Git from coderefinery](https://coderefinery.github.io/git-collaborative/)

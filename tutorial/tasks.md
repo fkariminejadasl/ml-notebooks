@@ -49,7 +49,7 @@ This text provides a detailed overview of various tasks that different large mod
 #### VLM (Vision Language Models)
 - Find open-source models: The [Open VLM leaderboard](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) shows the scores of top VLMs, and you can see which models are open-source or proprietary.
 - [Vision Arena](https://huggingface.co/spaces/WildVision/vision-arena) from Hugging Face shows the current top VLMs.
-- Using and fine-tuning [VLM](https://huggingface.co/blog/vlms): Blog post on Hugging Face.
+- Blog post on VLM: [Implement a Vision Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/seemore-vision-language-model); [Vision Language Using and Finetuning](https://huggingface.co/blog/vlms); [vision language explanation](https://huggingface.co/blog/vision_language_pretraining);
 
 #### LLM (Large Language Models)
 - Find open-source models: [LLM Arena](https://arena.lmsys.org) from LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
