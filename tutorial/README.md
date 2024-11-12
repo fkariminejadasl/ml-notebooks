@@ -311,6 +311,38 @@ torch.cuda.device_count()
 nvidia-smi -L
 ```
 
+### Sinfo
+
+```bash
+sinfo -e -o "%9P %.6D %10X %4Y %24N %24f %32G" | grep gpu_a
+gpu_a100      36 4          18   gcn[37-72]               hwperf,scratch-node      gpu:a100:4(S:0-1),cpu:72
+```
+
+The `-e` option in sinfo stands for "extend" and is used to show information about all nodes, even those that are in states like down, drain, fail, or unknown. Without -e, sinfo typically only shows nodes that are available or idle.
+
+Breaking down each field:
+```
+    %9P: Partition name, gpu_a100.
+    %6D: Number of nodes, 36.
+    %10X: This shows the number of sockets.
+    %4Y: Number of GPUs per node.
+    %24N: List of nodes in this partition (in this case, gcn[37-72]).
+    %24f: Features of the nodes (e.g., hwperf,scratch-node).
+    %32G: Shows detailed information about GPU and CPU availability (e.g., gpu:a100:4(S:0-1),cpu:72).
+```
+
+```bash
+sinfo | grep gpu_a
+```
+```
+gpu_a100     up 5-00:00:00      5   resv gcn[47-49,69,71]
+    gpu_a100 is the partition name.
+    up 5-00:00:00 means the partition is up and available for 5 days.
+    5 represents the number of nodes available.
+    resv indicates that the nodes are reserved.
+    gcn[47-49,69,71] specifies the nodes within the gpu_a100 partition.
+```
+
 # External GPUs
 
 - [Cloud GPU comparison](https://cloud-gpus.com)
