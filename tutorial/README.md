@@ -324,8 +324,8 @@ Breaking down each field:
 ```
     %9P: Partition name, gpu_a100.
     %6D: Number of nodes, 36.
-    %10X: This shows the number of sockets.
-    %4Y: Number of GPUs per node.
+    %10X: Number of GPUs (sockets) per node, 4.
+    %4Y:  Number of cores per GPU (socket), 18.
     %24N: List of nodes in this partition (in this case, gcn[37-72]).
     %24f: Features of the nodes (e.g., hwperf,scratch-node).
     %32G: Shows detailed information about GPU and CPU availability (e.g., gpu:a100:4(S:0-1),cpu:72).

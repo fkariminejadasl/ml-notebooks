@@ -44,12 +44,33 @@ This text provides a detailed overview of various tasks that different large mod
 - LLM, LMM, VLM: [Llama 3](https://arxiv.org/abs/2407.21783), [4M-21](https://arxiv.org/abs/2406.09406), [Unified-IO 2](https://arxiv.org/abs/2312.17172), Florence
 - LVM: [DINOv2](https://arxiv.org/abs/2304.07193), [SAM](https://arxiv.org/abs/2304.02643), [SAM 2](https://arxiv.org/abs/2408.00714). CLIP, SigLIP, [ImageBind](https://arxiv.org/abs/2305.05665)
 
+### SOTA and Popular Off-the-Shelf Models:
+
+The following list highlights some of the current state-of-the-art (SOTA) and previously leading methods used in various domains such as tracking, depth estimation, optical flow, 3D reconstruction, segmentation, and language models. These methods are selected based on papers and research studies I have read, where they were commonly employed as off-the-shelf solutions.
+
+Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.
+
+- **Tracking:** SAM2 (Segment Anything Model 2) for image and video
+- **Depth Map:** Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
+- **Optical Flow:** SEA RAFT, RAFT
+- **3D Reconstruction:** COLMAP, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
+- **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
+- **Segmentation:** Grounding DINO combined with SAM
+- **Large Language Models (LLMs):** LLAMA-3 (Meta), Gemma (Google), Phi-3 (Microsoft), Claude3 (Anthropic)
+
 ### Finding Models
 
+#### Models in General
+
+- [Hugging Face](https://huggingface.co/models)
+- [Roboflow](https://roboflow.com/model-feature/zero-shot-detection) contains the list of top models.
+
 #### VLM (Vision Language Models)
+
 - Find open-source models: The [Open VLM leaderboard](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) shows the scores of top VLMs, and you can see which models are open-source or proprietary.
 - [Vision Arena](https://huggingface.co/spaces/WildVision/vision-arena) from Hugging Face shows the current top VLMs.
 - Blog post on VLM: [Implement a Vision Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/seemore-vision-language-model); [Vision Language Using and Finetuning](https://huggingface.co/blog/vlms); [vision language explanation](https://huggingface.co/blog/vision_language_pretraining);
 
 #### LLM (Large Language Models)
+
 - Find open-source models: [LLM Arena](https://arena.lmsys.org) from LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
