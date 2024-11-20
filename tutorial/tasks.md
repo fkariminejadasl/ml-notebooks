@@ -50,13 +50,17 @@ The following list highlights some of the current state-of-the-art (SOTA) and pr
 
 Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.
 
-- **Tracking:** SAM2 (Segment Anything Model 2) for image and video
+- **Vision Model Backbone:** Vision-Only Model Backbones: DINOv2, MAE (Masked Autoencoders), ResNet. Vision-Text Model Backbones: SigLIP, CLIP
 - **Depth Map:** Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
 - **Optical Flow:** SEA RAFT, RAFT
-- **3D Reconstruction:** COLMAP, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
+- **3D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
 - **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
-- **Segmentation:** Grounding DINO combined with SAM
-- **Large Language Models (LLMs):** LLAMA-3 (Meta), Gemma (Google), Phi-3 (Microsoft), Claude3 (Anthropic)
+- **Tracking:** SAM2 (Segment Anything Model 2) for image and video
+- **Object Detection:** Florence-2, Grounding DINO, PaliGemma
+- **Segmentation:** Grounding DINO combined with SAM, Florence-2
+- **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma
+- **Visual Question Answering:** Any of the VLMs such as Phi-3.5, PaliGemma
+- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen. Proprietary: Claude3 (Anthropic)
 
 ### Finding Models
 

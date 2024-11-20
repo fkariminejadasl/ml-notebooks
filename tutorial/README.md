@@ -343,6 +343,16 @@ gpu_a100     up 5-00:00:00      5   resv gcn[47-49,69,71]
     gcn[47-49,69,71] specifies the nodes within the gpu_a100 partition.
 ```
 
+# Free GPUs
+
+Here is a list of free GPUs:  
+- Google Colab
+- Kaggle
+- Gradient by Paperspace
+- Amazon SageMaker Studio Lab
+- Microsoft Azure (for student accounts)
+
+
 # External GPUs
 
 - [Cloud GPU comparison](https://cloud-gpus.com)
