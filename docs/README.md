@@ -5,24 +5,24 @@ This repository is for my students.
 ## Tutorials
 
 ### General
-- [Access Snellius GPUs](tutorial/README.md)
-- [Practical Information about Data](tutorial/practical_info_data.md)
-- [Git Basics: A Simple Manual](tutorial/git.md)
-- [Python Basics](tutorial/python.md)
-- [Docker Basics](tutorial/docker.md)
-- [Tmux Basics](tutorial/tmux.md)
+- [Access Snellius GPUs](gpu.md)
+- [Practical Information about Data](practical_info_data.md)
+- [Git Basics: A Simple Manual](git.md)
+- [Python Basics](python.md)
+- [Docker Basics](docker.md)
+- [Tmux Basics](tmux.md)
 
 ### Training and Inference
-- [Training and Inference with Limited Resources](tutorial/resource_limitations.md)
-- [Improve Deep Learning Training Results](tutorial/improve_training_results.md)
-- [DDP(Distributed Data Parallel) in PyTorch](tutorial/ddp.md)
+- [Training and Inference with Limited Resources](resource_limitations.md)
+- [Improve Deep Learning Training Results](improve_training_results.md)
+- [DDP(Distributed Data Parallel) in PyTorch](ddp.md)
 
 ### Courses and Literature
-- [Courses in Deep Learning and Computer Vision](tutorial/courses.md)
-- [Quick Overview of Object Detection](tutorial/object_detection.md)
+- [Courses in Deep Learning and Computer Vision](courses.md)
+- [Quick Overview of Object Detection](object_detection.md)
 
 ### Blogpost
-- [Example Tasks for Large Language, Multimodal, and Vision Models](tutorial/tasks.md)
+- [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
 
 
 ## 🚀 Notebook Examples
