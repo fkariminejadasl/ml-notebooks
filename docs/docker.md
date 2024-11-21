@@ -166,6 +166,36 @@ Here's a guide to essential Docker commands, followed by a cheat sheet for quick
   docker inspect <container_name_or_id>
   ```
 
+## Docker Compose
+
+Docker Compose is a tool that simplifies running applications with multiple containers. By defining services, networks, and volumes in a single YAML file, you can start and manage all components of your application with one command. 
+
+You can find an example of a Docker Compose file [here](https://github.com/fkariminejadasl/prev_homepage_academicpages/blob/main/docker-compose.yml). The description is provided below.
+
+### Creating a `docker-compose.yml` File
+
+Create a `docker-compose.yml` file with the following content:
+
+```yaml
+version: '3'
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    command: jekyll serve --watch --incremental
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+```
+
+### Running the Docker Compose File
+
+To start the services defined in your `docker-compose.yml` file, run:
+
+```bash
+docker-compose up
+```
+
 ## Cheat Sheet
 
 | Command                                      | Description                                      |
