@@ -9,6 +9,7 @@ diff --color -U 0 multigpu.py multigpu_torchrun.py
 ## Single node multiple GPU
 
 #### Imports
+
 ```python
 import torch.multiprocessing as mp
 from torch.utils.data.distributed import DistributedSampler
