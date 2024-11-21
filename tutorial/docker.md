@@ -26,13 +26,14 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 More information can be found on the [linux postinstall](https://docs.docker.com/engine/install/linux-postinstall).
 
 ```bash
-# Create the `docker` group.
+# Create the `docker` group. The Docker group already exists, so there is no need to run this command.
 sudo groupadd docker
 
 # Add your user to the docker group.
 sudo usermod -aG docker $USER
 
-# Activate the changes to groups
+# Activate the changes to groups. 
+# I think it is better to restart the system than to run this command. I encountered a weird issue when I installed Docker Compose.
 newgrp docker
 
 # Verify docker
