@@ -9,6 +9,7 @@ This repository is for my students.
 - [Practical Information about Data](tutorial/practical_info_data.md)
 - [Git Basics: A Simple Manual](tutorial/git.md)
 - [Python Basics](tutorial/python.md)
+- [Docker Basics](tutorial/docker.md)
 - [Tmux Basics](tutorial/tmux.md)
 
 ### Training and Inference
