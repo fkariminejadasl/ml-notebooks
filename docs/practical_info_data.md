@@ -70,4 +70,4 @@ scp fkariminej@145.38.194.242:/home/fkariminej/test.txt .
 
 ## References
 - [Surfdrive](https://surfdrive.surf.nl)
-- [SRC(SURF Research Cloud)][https://sram.surf.nl]
+- [SRC(SURF Research Cloud)](https://sram.surf.nl)
