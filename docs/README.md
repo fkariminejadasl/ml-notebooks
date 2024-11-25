@@ -6,6 +6,8 @@ This repository is for my students.
 
 ### General
 - [Access Snellius GPUs](gpu.md)
+- [Deep Learning Project Setup](deep_learning_project_setup.md)
+- [Pytorch Lightning](pytorch_lightning.md)
 - [Practical Information about Data](practical_info_data.md)
 - [Git Basics: A Simple Manual](git.md)
 - [Python Basics](python.md)
