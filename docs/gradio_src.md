@@ -72,7 +72,7 @@ sudo ln -s /etc/nginx/sites-available/testgradio /etc/nginx/sites-enabled
 #### Setup Gradio App as a Service
 Create the service file using `sudo vi /etc/systemd/system/gradio.service`:
 
-```ini
+```bash
 [Unit]
 Description=Service to launch Gradio app
 After=network.target

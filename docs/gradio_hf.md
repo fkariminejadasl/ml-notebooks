@@ -4,52 +4,54 @@
 
 ### Uploading a Model
 
-1. **Create a Model Repository**
-   
-   Go to Hugging Face and create a `New Model` under your profile, which essentially creates a repository for your models. Refer to [Hugging Face Repositories Getting Started](https://huggingface.co/docs/hub/en/repositories-getting-started) for detailed instructions. 
-   
-    Once created, you can clone the repository and proceed with the next steps on your local machine.
+#### Create a Model Repository
 
-2. **Set Up Git LFS (Large File Storage)**
-   
-   Hugging Face uses Git LFS to manage large files, such as model weights. Install and set up Git LFS as follows:
-   
-   ```bash
-   sudo apt install git-lfs
-   git lfs install
-   ```
+Go to Hugging Face and create a `New Model` under your profile, which essentially creates a repository for your models. Refer to [Hugging Face Repositories Getting Started](https://huggingface.co/docs/hub/en/repositories-getting-started) for detailed instructions. 
 
-3. **Configure Hugging Face Interface**
-   
-   Install the Hugging Face Hub library and set up authentication:
-   
-   ```bash
-   pip install huggingface_hub
-   
-   # Configure Git to store credentials
-   git config --global credential.helper store
-   
-   # Log in to Hugging Face CLI
-   huggingface-cli login
-   
-   # Your token will be saved in the following location:
-   cat $HOME/.cache/huggingface/token
-   
-   # Enable LFS support for large files
-   huggingface-cli lfs-enable-largefiles
-   ```
+   Once created, you can clone the repository and proceed with the next steps on your local machine.
 
-4. **Push a Large File**
+#### Set Up Git LFS (Large File Storage)
    
-   Once Git LFS is configured, you can push large files just like a normal Git commit:
+Hugging Face uses Git LFS to manage large files, such as model weights. Install and set up Git LFS as follows:
+
+```bash
+sudo apt install git-lfs
+git lfs install
+```
+
+#### Configure Hugging Face Interface
    
-   ```bash
-   git add your_model
-   git commit -m "Add a large file using Git LFS"
-   git push
-   ```
+Install the Hugging Face Hub library and set up authentication:
+
+```bash
+pip install huggingface_hub
+
+# Configure Git to store credentials
+git config --global credential.helper store
+
+# Log in to Hugging Face CLI
+huggingface-cli login
+
+# Your token will be saved in the following location:
+cat $HOME/.cache/huggingface/token
+
+# Enable LFS support for large files
+huggingface-cli lfs-enable-largefiles
+```
+
+#### Push a Large File
    
-   For more details on uploading models, refer to the [Hugging Face Model Uploading Guide](https://huggingface.co/docs/hub/en/models-uploading).
+Once Git LFS is configured, you can push large files just like a normal Git commit:
+
+```bash
+git add your_model
+git commit -m "Add a large file using Git LFS"
+git push
+```
+
+For more details on uploading models, refer to the [Hugging Face Model Uploading Guide](https://huggingface.co/docs/hub/en/models-uploading).
+
+---
 
 ### Downloading a Model
 
@@ -63,7 +65,7 @@ model_path = hf_hub_download(repo_id="fkariminejadasl/bird", filename="45_best.p
 
 For more downloading options, refer to the [Hugging Face Models Downloading Guide](https://huggingface.co/docs/hub/en/models-downloading).
 
----
+
 
 ## Creating a New Space on Hugging Face
 
@@ -77,19 +79,19 @@ Once your space is created, you can clone the repository to your local machine, 
   
 - **`requirements.txt`**: This file should list all the Python dependencies your app requires, including any custom libraries. An example `requirements.txt` might look like this:
 
-    ```txt
-    torch
-    gradio
-    huggingface_hub
-    git+https://github.com/username/repository_name.git@branch_name
-    ```
+```bash
+torch
+gradio
+huggingface_hub
+git+https://github.com/username/repository_name.git@branch_name
+```
 
-    - Note: The `branch_name` can also be replaced by `tag_name` or `commit_hash` depending on your need.
+- Note: The `branch_name` can also be replaced by `tag_name` or `commit_hash` depending on your need.
 
-    If the `pyproject.toml` file for a custom library is located in a subdirectory within the repository, you can specify the subdirectory like this:
+If the `pyproject.toml` file for a custom library is located in a subdirectory within the repository, you can specify the subdirectory like this:
 
-    ```txt
-    git+https://github.com/username/repository_name.git@branch_name#subdirectory=subdirectory_name
-    ```
+```bash
+git+https://github.com/username/repository_name.git@branch_name#subdirectory=subdirectory_name
+```
 
 For further details on how to use `pip install` with various options, refer to the [Pip Install Guide](https://pip.pypa.io/en/stable/cli/pip_install).
