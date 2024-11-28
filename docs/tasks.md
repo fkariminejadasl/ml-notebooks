@@ -50,17 +50,19 @@ The following list highlights some of the current state-of-the-art (SOTA) and pr
 
 Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.
 
-- **Vision Model Backbone:** Vision-Only Model Backbones: DINOv2, MAE (Masked Autoencoders), ResNet. Vision-Text Model Backbones: SigLIP, CLIP
+- **Vision Encoders:** Vision-Only Model Backbones: DINOv2, MAE (Masked Autoencoders), ResNet. Vision-Text Model Backbones: AIMv2, SigLIP, CLIP
 - **Depth Map:** Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
 - **Optical Flow:** SEA RAFT, RAFT
 - **3D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
 - **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
 - **Tracking:** SAM2 (Segment Anything Model 2) for image and video
-- **Object Detection:** Florence-2, Grounding DINO, PaliGemma
+- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma
 - **Segmentation:** Grounding DINO combined with SAM, Florence-2
 - **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma
 - **Visual Question Answering:** Any of the VLMs such as Phi-3.5, PaliGemma
-- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen. Proprietary: Claude3 (Anthropic)
+- **Text-to-Video Generation Models:** CogVideoX by Tsinghua University, Stable Video Diffusion by Stability AI, Pika Labs by Pika Labs, Movie Gen and Emu Video by Meta, Sora by OpenAI, Runway’s Gen-3 Alpha Runway AI
+- **Text-to-Image Generation Models:** FLUX1 by Black Forest Labs, Ideogram v2 by Ideogram, Midjourney v6 by Midjourney, Stable Diffusion 3.5 bu Stablity AI, DALLE 3 by OpenAI, Firefly 3 by Adobe
+- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen, OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic)
 
 ### Finding Models
 
@@ -69,12 +71,23 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - [Hugging Face](https://huggingface.co/models)
 - [Roboflow](https://roboflow.com/model-feature/zero-shot-detection) contains the list of top models.
 
-#### VLM (Vision Language Models)
+#### LMM (Large Multimodal Model) / VLM (Vision Language Model): 
 
 - Find open-source models: The [Open VLM leaderboard](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) shows the scores of top VLMs, and you can see which models are open-source or proprietary.
-- [Vision Arena](https://huggingface.co/spaces/WildVision/vision-arena) from Hugging Face shows the current top VLMs.
+- [Vision-Arena and Video-Arena Leaderboards](https://huggingface.co/spaces/WildVision/vision-arena) from Hugging Face shows the current top VLMs.
+- [Text-to-Video](https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard)
 - Blog post on VLM: [Implement a Vision Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/seemore-vision-language-model); [Vision Language Using and Finetuning](https://huggingface.co/blog/vlms); [vision language explanation](https://huggingface.co/blog/vision_language_pretraining);
 
 #### LLM (Large Language Models)
 
 - Find open-source models: [LLM Arena](https://arena.lmsys.org) from LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
+
+### Text-to-Speech and Speech-to-Text
+
+- [Speech Arena](https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard)
+
+### API Providers 
+
+[Artificial Analysis](https://artificialanalysis.ai)
+
+

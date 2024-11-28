@@ -4,15 +4,14 @@ This repository is for my students.
 
 ## Tutorials
 
-### General
+### Deep Learning General
 - [Access Snellius GPUs](gpu.md)
 - [Deep Learning Project Setup](deep_learning_project_setup.md)
 - [Pytorch Lightning](pytorch_lightning.md)
 - [Practical Information about Data](practical_info_data.md)
-- [Git Basics: A Simple Manual](git.md)
-- [Python Basics](python.md)
-- [Docker Basics](docker.md)
-- [Tmux Basics](tmux.md)
+- [Gradio App in SRC (SURF Research Cloud)](gradio_src.md)
+- [Hugging Face Guide](gradio_hf.md)
+- [Set Up a Custom Python Function within PostgreSQL](postgres_plpython3u.md)
 
 ### Training and Inference
 - [Training and Inference with Limited Resources](resource_limitations.md)
@@ -25,7 +24,13 @@ This repository is for my students.
 
 ### Blogpost
 - [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
+- [Handling Variable Sequence Lengths in Transformer Models](transformer_models_with_variable_sequence_lengths.md)
 
+### General
+- [Git Basics: A Simple Manual](git.md)
+- [Python Basics](python.md)
+- [Docker Basics](docker.md)
+- [Tmux Basics](tmux.md)
 
 ## 🚀 Notebook Examples
 | **notebook** | **open in colab** |
