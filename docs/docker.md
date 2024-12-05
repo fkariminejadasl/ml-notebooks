@@ -58,138 +58,173 @@ sudo rm /etc/apt/keyrings/docker.asc
 
 Here's a guide to essential Docker commands, followed by a cheat sheet for quick reference.
 
-**1. Listing Docker Images and Containers**
+### Listing Docker Images and Containers
 
-- **List Images**: To view all Docker images on your system:
-  ```bash
-  docker images
-  ```
-  This displays a table of images with details like repository, tag, and image ID.
+#### List Images: 
 
-- **List Running Containers**: To see all currently running containers:
-  ```bash
-  docker ps
-  ```
-  This shows a list of active containers with their IDs, names, and statuses.
+To view all Docker images on your system:
 
-- **List All Containers**: To list all containers, including those that are stopped:
+```bash
+docker images
+```
+
+This displays a table of images with details like repository, tag, and image ID.
+
+#### List Running Containers: 
+
+To see all currently running containers:
+
+```bash
+docker ps
+```
+
+This shows a list of active containers with their IDs, names, and statuses.
+
+#### List All Containers
+
+To list all containers, including those that are stopped:
+
   ```bash
   docker ps -a
   ```
   This provides a comprehensive list of all containers, regardless of their state.
 
-**2. Managing Docker Images**
+### Managing Docker Images
 
-- **Pull an Image**: To download an image from Docker Hub:
-  ```bash
-  docker pull <image_name>
-  ```
-  Replace `<image_name>` with the desired image, e.g., `ubuntu`.
+#### Pull an Image
 
-- **Remove an Image**: To delete a specific image:
-  ```bash
-  docker rmi <image_name_or_id>
-  ```
-  Use the image name or ID from the `docker images` list.
+To download an image from Docker Hub:
 
-**3. Building Docker Images**
+```bash
+docker pull <image_name>
+```
 
-- **Build an Image from a Dockerfile**: To create a Docker image from a Dockerfile:
+Replace `<image_name>` with the desired image, e.g., `ubuntu`.
 
-  ```bash
-  docker build -t <image_name> <path_to_dockerfile_directory>
-  ```
+#### Remove an Image
 
-  Replace `<image_name>` with your desired image name and `<path_to_dockerfile_directory>` with the path to the directory containing your Dockerfile. The `-t` flag tags the image with a name.
+To delete a specific image:
 
-  Example:
+```bash
+docker rmi <image_name_or_id>
+```
 
-  ```bash
-  docker build -t myapp:latest .
-  ```
+Use the image name or ID from the `docker images` list.
+
+### Building Docker Images
+
+#### Build an Image from a Dockerfile
+
+To create a Docker image from a Dockerfile:
+
+```bash
+docker build -t <image_name> <path_to_dockerfile_directory>
+```
+
+Replace `<image_name>` with your desired image name and `<path_to_dockerfile_directory>` with the path to the directory containing your Dockerfile. The `-t` flag tags the image with a name.
+
+Example:
+
+```bash
+docker build -t myapp:latest .
+```
   
-  This builds an image named `myapp` with the tag `latest` from the Dockerfile in the current directory.
+This builds an image named `myapp` with the tag `latest` from the Dockerfile in the current directory.
 
-**4. Running and Managing Containers**
+### Running and Managing Containers
 
-- **Run a Container**: To create and start a new container:
+#### Run a Container
+
+To create and start a new container:
   
-  ```bash
-  docker run [OPTIONS] <image_name>
-  ```
+```bash
+docker run [OPTIONS] <image_name>
+```
 
-  Common options include:
-  - `-d`: Run the container in detached mode (in the background).
-  - `-it`: Run the container in interactive mode with a terminal.
-  - `--name <container_name>`: Assign a name to the container.
-  - `-p <host_port>:<container_port>`: Map host port to container port.
-  - `-v <host_directory>:<container_directory>`: Mount a host directory as a volume in the container.
+Common options include:
+- `-d`: Run the container in detached mode (in the background).
+- `-it`: Run the container in interactive mode with a terminal.
+- `--name <container_name>`: Assign a name to the container.
+- `-p <host_port>:<container_port>`: Map host port to container port.
+- `-v <host_directory>:<container_directory>`: Mount a host directory as a volume in the container.
 
-  Example:
+Example:
 
-  ```bash
-  docker run -it bird-behavior bash
-  ```
+```bash
+docker run -it bird-behavior bash
+```
   
-  Example:
+Example:
 
-  This runs a container named `bird-behavior` and opens an interactive bash shell inside the `bird-behavior` container.
+This runs a container named `bird-behavior` and opens an interactive bash shell inside the `bird-behavior` container.
 
-  ```bash
-  docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
-  ```
+```bash
+docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
+```
 
-  This runs an Nginx container named `mynginx` in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory `/host/data` to `/container/data` in the container.
+This runs an Nginx container named `mynginx` in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory `/host/data` to `/container/data` in the container.
 
-- **Execute Commands in a Running Container**: To run a command inside a running container:
+#### Execute Commands in a Running Container
+
+To run a command inside a running container:
   
-  ```bash
-  docker exec [OPTIONS] <container_name_or_id> <command>
-  ```
+```bash
+docker exec [OPTIONS] <container_name_or_id> <command>
+ ```
 
-  Common options:
-  - `-it`: Run in interactive mode with a terminal.
+Common options:
+- `-it`: Run in interactive mode with a terminal.
 
-  Example:
+Example:
 
-  ```bash
-  docker exec -it mynginx /bin/bash
-  ```
+```bash
+docker exec -it mynginx /bin/bash
+```
 
-  This opens an interactive bash shell inside the `mynginx` container.
+This opens an interactive bash shell inside the `mynginx` container.
 
-- **Stop a Running Container**: To stop a container:
+#### Stop a Running Container
 
-  ```bash
-  docker stop <container_name_or_id>
-  ```
+To stop a container:
 
-- **Start a Stopped Container**: To start a container that has been stopped:
+```bash
+docker stop <container_name_or_id>
+```
+
+#### Start a Stopped Container
+
+To start a container that has been stopped:
   
-  ```bash
-  docker start <container_name_or_id>
-  ```
+```bash
+docker start <container_name_or_id>
+```
 
-- **Remove a Container**: To delete a container:
+#### Remove a Container
+
+To delete a container:
   
-  ```bash
-  docker rm <container_name_or_id>
-  ```
-  Note: Ensure the container is stopped before removing it.
+```bash
+docker rm <container_name_or_id>
+```
+Note: Ensure the container is stopped before removing it.
 
-**5. Viewing Logs and Inspecting Containers**
+### Viewing Logs and Inspecting Containers
 
-- **View Container Logs**: To see the logs of a container:
+#### View Container Logs
+
+To see the logs of a container:
   
-  ```bash
-  docker logs <container_name_or_id>
-  ```
+```bash
+docker logs <container_name_or_id>
+```
 
-- **Inspect Container Details**: To get detailed information about a container:
+#### Inspect Container Details
+
+To get detailed information about a container:
   
-  ```bash
-  docker inspect <container_name_or_id>
-  ```
+```bash
+docker inspect <container_name_or_id>
+```
 
 ## Docker Compose
 

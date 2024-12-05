@@ -65,6 +65,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen, OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind)
 - **Speech-to-Text**: Whisper (OpenAI), Wav2Vec (Meta)
 - **Control Video by Action**: Genie 2 (Google DeepMind)
+- **LMM**: Nova (Amazon)
 
 ### Finding Models
 
@@ -82,7 +83,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 
 #### LLM (Large Language Models)
 
-- Find open-source models: [LLM Arena](https://arena.lmsys.org) from LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
+- Find open-source models: [LLM Arena](https://lmarena.ai) LMArena formerly LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
 
 ### Text-to-Speech and Speech-to-Text
 
