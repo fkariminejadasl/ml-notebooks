@@ -95,15 +95,20 @@ The PyTorch Profiler is a tool that allows developers to understand and optimize
 
 ### Code Example with PyTorch Profiler
 
-Here is a step-by-step example of setting up and using the PyTorch Profiler.
+For more details take look at [Tensorboard Profiler Tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html).
+
+#### Code Example
+
+Here is a step-by-step example of setting up and using the PyTorch Profiler. 
 
 ```python
 import torch
 import torchvision.models as models
+from torchvision.models import ResNet18_Weights
 from torch.profiler import profile, record_function, ProfilerActivity
 
 # Set up a model and input data
-model = models.resnet18(pretrained=False)  # Load a ResNet-18 model
+model = models.resnet18(weights=ResNet18_Weights.DEFAULT)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
@@ -144,6 +149,12 @@ You can customize the profiler to include:
 - Exporting results: Save results to file using `prof.export_chrome_trace("trace.json")`.
 
 Notes: Use smaller models or batches for testing, as profiling large models can generate a lot of data.
+
+#### Visualize the profiler output
+
+After generating a trace, simply drag the `trace.json` generated in `log` file (example above) into [Perfetto UI](https://ui.perfetto.dev) or in chrome browser by typing `chrome://tracing` to visualize your profile.
+
+The TensorBoard integration with the PyTorch profiler is now deprecated. But if you still want to use TensorBoard you should install `pip install torch_tb_profiler` and then use `tensorboard --logdir=./log`
 
 
 ## References
