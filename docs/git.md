@@ -4,78 +4,81 @@
 
 Git is a version control system that helps you manage your code and collaborate with others. This manual will cover some basic Git commands to get you started.
 
-1. **Setting Up Git**
-   - Install Git on your computer. You can download it from [here](https://git-scm.com/downloads) and follow the installation instructions.
+#### Setting Up Git
+- Install Git on your computer. You can download it from [here](https://git-scm.com/downloads) and follow the installation instructions.
 
-2. **Configuring Git**
-   - After installation, set your name and email using the following commands:
-     ```
-     git config --global user.name "Your Name"
-     git config --global user.email "your.email@example.com"
-     ```
+#### Configuring Git
+- After installation, set your name and email using the following commands:
 
-3. **Creating a New Repository**
+```
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
 
-   - **Local Repository**: To start a new project with Git, create a new directory and navigate into it. Then run:
-     ```
-     git init
-     ```
-    > This step is better to be done on GitHub.
-   
-   - **Clone Repository**: To work on an existing project, clone it from a remote repository using:
-     ```
-     git clone <remote_url>
-     ```
-     
-   - **Switching Branches**: Create and switch to a new branch with:
-     ```
-     git checkout -b <branch_name>
-     ```
+#### Creating a New Repository
 
-4. **Basic Commands**
+- **Local Repository**: To start a new project with Git, create a new directory and navigate into it. Then run:
+
+```
+git init
+```
+
+> This step is better to be done on GitHub.
+
+- **Clone Repository**: To work on an existing project, clone it from a remote repository using:
+```
+git clone <remote_url>
+```
+
+- **Switching Branches**: Create and switch to a new branch with:
+```
+git checkout -b <branch_name>
+```
+
+#### Basic Commands
 
 
-   - **Adding Files**: Stage changes for commit using:
-     ```
-     git add <filename>
-     ```
+- **Adding Files**: Stage changes for commit using:
+```
+git add <filename>
+```
 
-   - **Committing Changes**: Save staged changes to your local repository with:
-     ```
-     git commit -m "Your commit message"
-     ```
-    Use `-a` to tell the command to automatically stage files that have been modified and deleted. So, you don't need to use `git add` anymore. For new files, `git add` should be used.
-     ```
-     git commit -am "Your commit message"
-     ```
+- **Committing Changes**: Save staged changes to your local repository with:
 
-5. **Collaboration**
+```
+git commit -m "Your commit message"
+```
+Use `-a` to tell the command to automatically stage files that have been modified and deleted. So, you don't need to use `git add` anymore. For new files, `git add` should be used.
 
-   - **Pushing Changes**: Upload your local commits to a remote repository using:
-     ```
-     git push origin <branch_name>
-     ```
+```
+git commit -am "Your commit message"
+```
 
-   - **Pulling Changes**: Retrieve and merge changes from the remote repository with:
-     ```
-     git pull origin <branch_name>
-     ```
-    
-6. **View Commands**
+#### Collaboration
 
-   - **Checking Status**: To see which files are staged or modified, use:
-     ```
-     git status
-     ```
+- **Pushing Changes**: Upload your local commits to a remote repository using:
 
-   - **Viewing Commit History**: See a list of past commits using:
-     ```
-     git log
-     ```
+```
+git push origin <branch_name>
+```
 
-### Conclusion
+- **Pulling Changes**: Retrieve and merge changes from the remote repository with:
 
-This manual covers the fundamental Git commands you'll need to get started. Remember, practice makes perfect! As you become more comfortable with Git, you can explore additional features and commands to enhance your workflow. Happy coding!
+```
+git pull origin <branch_name>
+```
+
+#### View Commands
+
+- **Checking Status**: To see which files are staged or modified, use:
+```
+git status
+```
+
+- **Viewing Commit History**: See a list of past commits using:
+```
+git log
+```
 
 ![Alt text](../assets/image.png)
 
@@ -109,28 +112,28 @@ Now, your Git repository is ready to handle large files.
 Specify which file types or individual large files you want Git LFS to track.
 
 - **Track by Extension**: To track all files with a certain extension (e.g., `.psd`), use:
-  
-  ```bash
-  git lfs track "*.psd"
-  ```
 
-  This will automatically add a line in the `.gitattributes` file, ensuring all `.psd` files are managed by Git LFS:
+```bash
+git lfs track "*.psd"
+```
 
-  ```
-  *.psd filter=lfs diff=lfs merge=lfs -text
-  ```
+This will automatically add a line in the `.gitattributes` file, ensuring all `.psd` files are managed by Git LFS:
+
+```
+*.psd filter=lfs diff=lfs merge=lfs -text
+```
 
 - **Track Individual Files**: For large files without a specific extension, you can track them individually by specifying the exact file path:
 
-  ```bash
-  git lfs track "my_large_file"
-  ```
+```bash
+git lfs track "my_large_file"
+```
 
-  This will add an entry to `.gitattributes` like:
+This will add an entry to `.gitattributes` like:
 
-  ```
-  my_large_file filter=lfs diff=lfs merge=lfs -text
-  ```
+```
+my_large_file filter=lfs diff=lfs merge=lfs -text
+```
 
 Note: Adding text manually in the `.gitattributes` is the same as running `git lfs track`. 
 
@@ -140,7 +143,7 @@ Once a file is tracked by Git LFS and pushed to the remote repository, Git store
 
 In the future, when you push or pull, Git will just handle the reference (which is small in size) in the main repository, while Git LFS takes care of storing or fetching the actual large file.
 
-#### tep 4: Add, Commit and Push Files to the Remote Repository
+#### Step 4: Add, Commit and Push Files to the Remote Repository
 
 Now, add the large files you want to commit to your repository as you normally would:
 

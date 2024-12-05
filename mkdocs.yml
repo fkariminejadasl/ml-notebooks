@@ -1,8 +1,6 @@
 site_name: "ML Notebooks"
-
 nav:
   - README.md
-
   - Deep Learning General:
     - Access Snellius GPUs: gpu.md
     - Deep Learning Project Setup: deep_learning_project_setup.md
@@ -11,28 +9,22 @@ nav:
     - Gradio App in SRC (SURF Research Cloud): gradio_src.md
     - Hugging Face Guide: gradio_hf.md
     - Set Up a Custom Python Function within PostgreSQL: postgres_plpython3u.md
-  
   - Training and Inference:
     - Training and Inference with Limited Resources: resource_limitations.md
     - Improve Deep Learning Training Results: improve_training_results.md
     - DDP(Distributed Data Parallel in PyTorch: ddp.md
-  
   - Courses and Literature:
     - Courses in Deep Learning and Computer Vision: courses.md
     - Quick Overview of Object Detection: object_detection.md
-  
   - Blogpost:
     - Example Tasks for Large Language, Multimodal, and Vision Models: tasks.md
     - Handling Variable Sequence Lengths in Transformer Models: transformer_models_with_variable_sequence_lengths.md
-  
   - General:
     - Git Basics: git.md
     - Python Basics: python.md
     - Docker Basics: docker.md
     - Tmux Basics: tmux.md
-
   - Examples:
     - Scheduler: scheuler.md
-
 theme:
   name: material #readthedocs
