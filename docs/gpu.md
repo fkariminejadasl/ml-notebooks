@@ -48,7 +48,15 @@ SLURM is a job scheduler used by many computer clusters and supercomputer, such 
 
 ## Use GPUs
 
-**Run a job:**
+#### Quick Test
+
+The `gcn1` node is available for quick GPU tests without the need to request a GPU. However, this node has limited resources. For reference examples, check out [Using IDEs](https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development) and [Remote Visualization](https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius).
+
+
+#### Run a job:
+
+There is a web-based interface to request resources for interactive session via [this link](https://ondemand.snellius.surf.nl). However, I recommend using a SLURM job instead; see below for details.
+
 
 NB. The run file should be executable. Make it executable with `chmod a+x runfile.sh`.
 ```bash
@@ -164,11 +172,15 @@ torchrun --node_rank=0 --nnodes=1 --nproc_per_node=2 ~/test/multigpu_torchrun.py
 For more information on ddp (distributed data parallel) in pytorch, look at the [tutorial](https://pytorch.org/tutorials/beginner/ddp_series_intro.html).
 
 **Wandb in Snellius**
+
 First run `wandb init` before sending the job via sbatch. Then run the code which has `wandb.init(project=project_name)`. `Project_name` is wandb project.
 
 **Useful commands**
 
+- `htop`, `nvtop`: monitor CPU and GPU respectively
 - `sbatch`: run a job
+- `srun`: run a job. e.g. run job in the interactive mode: `srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il` 
+- `salloc`: allocate resources interactively and then run a command. e.g `salloc --gpus=1 --partition=gpu --time=00:10:00`
 - `squeue`: show the status of the job
 - `scancel`: cancel the job. 
 - `scontrol`: show detailed job information. e.g. show job detail: `scontrol show j 7605565`
@@ -188,7 +200,8 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 
 </br>
 
-**Useful links:**
+#### Useful links:
+
 - [SURF service desk portal](https://servicedesk.surf.nl)
 - [SURF wiki](https://servicedesk.surf.nl/wiki)
 - [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) 
@@ -212,6 +225,7 @@ srun -c2 --mem-per-cpu=200G --pty bash -il
 srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
 ```
 #### SLURM list of common commands
+
 ```bash
 #SBATCH --job-name=result # appears in squeue
 #SBATCH -o exps/test_%j.out # -o,--output, %j=job id
@@ -289,6 +303,7 @@ htop -u -d 0 # total of the node
 ```
 
 #### GPU
+
 ```bash
 # GPU VRAM
 # --------
@@ -359,6 +374,7 @@ Here is a list of free GPUs:
 - [Vast.ai](https://vast.ai/pricing)
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
 - [runpod.io](https://www.runpod.io/pricing) 
+- [lightning.ai](https://lightning.ai/pricing) 
 - [Paperspace](https://www.paperspace.com/pricing)
 - [Jarvislabs](https://jarvislabs.ai/pricing)
 - [HPC-AI](https://hpc-ai.com/)

@@ -31,5 +31,8 @@ nav:
     - Docker Basics: docker.md
     - Tmux Basics: tmux.md
 
+  - Examples:
+    - Scheduler: scheuler.md
+
 theme:
   name: material #readthedocs

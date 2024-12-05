@@ -22,23 +22,23 @@ Training large deep learning models is notably resource-intensive, often present
 - Fine-tuning of 7B model parameters on T4 from DeepLearning AI by Ludwig, presented by Travis Addair (watch from [here](https://youtu.be/g68qlo9Izf0?t=793) to [here](https://youtu.be/g68qlo9Izf0?t=2184).
 - [train a 70b language model on two 24GB GPUs](https://www.answer.ai/posts/2024-03-06-fsdp-qlora.html): an open source system, based on FSDP and QLoRA, that can train a 70b model on two 24GB GPUs. They also used Gradient checkpointing, CPU offloading, and Flash Attention 2.
 - [LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)
+- [SURF course on Profiling](https://github.com/sara-nl/HPML-course-materials)
 
 
 #### Example code
 
 **Using fp16 (float16) in PyTorch:**
 
-The detail explanation is in [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html).
+The detail explanation is in [Automatic Mixed Precision](https://pytorch.org/docs/stable/amp.html) and [Example mixed precision training in pytroch](https://pytorch.org/docs/stable/notes/amp_examples.html).
 
 ```python
 import torch
-from torch.cuda.amp import GradScaler, autocast
 
 # Initialize model, optimizer, and other components
 model = MyModel().cuda()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
 
-scaler = GradScaler()
+scaler = torch.GradScaler()
 
 for inputs, labels in data_loader:
     inputs, labels = inputs.cuda(), labels.cuda()
@@ -46,7 +46,7 @@ for inputs, labels in data_loader:
     optimizer.zero_grad()
     
     # Casts operations to mixed precision
-    with autocast():
+    with torch.autocast(device_type="cuda", dtype=torch.float16)
         outputs = model(inputs)
         loss = loss_fn(outputs, labels)
     
@@ -59,6 +59,9 @@ for inputs, labels in data_loader:
 ```
 
 **Using bf16 (bfloat16) in PyTorch:**
+
+It can be the same as float16, without using scaler, or follow the code below.
+
 ```python
 import torch
 import torch.nn as nn
@@ -85,3 +88,65 @@ for inputs, labels in data_loader:
     loss.backward()
     optimizer.step()
 ```
+
+## Pytorch Profiling
+
+The PyTorch Profiler is a tool that allows developers to understand and optimize their PyTorch code by analyzing its performance. Here's an example of setting up and using the PyTorch Profiler:
+
+### Code Example with PyTorch Profiler
+
+Here is a step-by-step example of setting up and using the PyTorch Profiler.
+
+```python
+import torch
+import torchvision.models as models
+from torch.profiler import profile, record_function, ProfilerActivity
+
+# Set up a model and input data
+model = models.resnet18(pretrained=False)  # Load a ResNet-18 model
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
+# Generate dummy input data
+input_data = torch.randn(8, 3, 224, 224).to(device)  # Batch of 8 images
+
+# Define the profiling configuration
+with profile(
+    activities=[
+        ProfilerActivity.CPU,  # Monitor CPU activity
+        ProfilerActivity.CUDA  # Monitor CUDA activity (if applicable)
+    ],
+    on_trace_ready=torch.profiler.tensorboard_trace_handler("./log"),  # Save data for TensorBoard
+    record_shapes=True,  # Record tensor shapes
+    with_stack=True  # Capture stack traces
+) as prof:
+
+    # Use record_function for specific profiling scopes
+    with record_function("model_inference"):
+        output = model(input_data)  # Run the model inference
+
+# Analyze the profiler output
+print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
+
+# Visualize the profiler output using TensorBoard:
+# Run `tensorboard --logdir=./log` in the terminal
+```
+
+- **`profile` Context Manager**: This manages the profiling session and specifies which activities (CPU, CUDA) to profile.
+- **`record_function`**: Labels a specific code block for profiling, so you can see its performance separately.
+- **`tensorboard_trace_handler`**: Saves the profiling results in a format compatible with TensorBoard.
+- **`key_averages()`**: Aggregates and summarizes profiling results for analysis in the console.
+
+
+You can customize the profiler to include:
+- Custom intervals: Use `schedule` to specify profiling start and stop.
+- Memory profiling: Set `profile_memory=True` to track memory usage.
+- Exporting results: Save results to file using `prof.export_chrome_trace("trace.json")`.
+
+Notes: Use smaller models or batches for testing, as profiling large models can generate a lot of data.
+
+
+## References
+
+- [Performance Tuning Guide](https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html)
+- [What Every User Should Know About Mixed Precision Training in PyTorch](https://pytorch.org/blog/what-every-user-should-know-about-mixed-precision-training-in-pytorch/)

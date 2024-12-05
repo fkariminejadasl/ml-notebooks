@@ -95,23 +95,29 @@ Here's a guide to essential Docker commands, followed by a cheat sheet for quick
 **3. Building Docker Images**
 
 - **Build an Image from a Dockerfile**: To create a Docker image from a Dockerfile:
+
   ```bash
   docker build -t <image_name> <path_to_dockerfile_directory>
   ```
+
   Replace `<image_name>` with your desired image name and `<path_to_dockerfile_directory>` with the path to the directory containing your Dockerfile. The `-t` flag tags the image with a name.
 
   Example:
+
   ```bash
   docker build -t myapp:latest .
   ```
+  
   This builds an image named `myapp` with the tag `latest` from the Dockerfile in the current directory.
 
 **4. Running and Managing Containers**
 
 - **Run a Container**: To create and start a new container:
+  
   ```bash
   docker run [OPTIONS] <image_name>
   ```
+
   Common options include:
   - `-d`: Run the container in detached mode (in the background).
   - `-it`: Run the container in interactive mode with a terminal.
@@ -120,35 +126,52 @@ Here's a guide to essential Docker commands, followed by a cheat sheet for quick
   - `-v <host_directory>:<container_directory>`: Mount a host directory as a volume in the container.
 
   Example:
+
+  ```bash
+  docker run -it bird-behavior bash
+  ```
+  
+  Example:
+
+  This runs a container named `bird-behavior` and opens an interactive bash shell inside the `bird-behavior` container.
+
   ```bash
   docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
   ```
+
   This runs an Nginx container named `mynginx` in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory `/host/data` to `/container/data` in the container.
 
 - **Execute Commands in a Running Container**: To run a command inside a running container:
+  
   ```bash
   docker exec [OPTIONS] <container_name_or_id> <command>
   ```
+
   Common options:
   - `-it`: Run in interactive mode with a terminal.
 
   Example:
+
   ```bash
   docker exec -it mynginx /bin/bash
   ```
+
   This opens an interactive bash shell inside the `mynginx` container.
 
 - **Stop a Running Container**: To stop a container:
+
   ```bash
   docker stop <container_name_or_id>
   ```
 
 - **Start a Stopped Container**: To start a container that has been stopped:
+  
   ```bash
   docker start <container_name_or_id>
   ```
 
 - **Remove a Container**: To delete a container:
+  
   ```bash
   docker rm <container_name_or_id>
   ```
@@ -157,11 +180,13 @@ Here's a guide to essential Docker commands, followed by a cheat sheet for quick
 **5. Viewing Logs and Inspecting Containers**
 
 - **View Container Logs**: To see the logs of a container:
+  
   ```bash
   docker logs <container_name_or_id>
   ```
 
 - **Inspect Container Details**: To get detailed information about a container:
+  
   ```bash
   docker inspect <container_name_or_id>
   ```

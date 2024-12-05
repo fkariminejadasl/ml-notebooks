@@ -32,6 +32,9 @@ This repository is for my students.
 - [Docker Basics](docker.md)
 - [Tmux Basics](tmux.md)
 
+### Examples
+- [Scheduler](scheuler.md)
+
 ## 🚀 Notebook Examples
 | **notebook** | **open in colab** |
 |:------------:|:-------------------------------------------------:|
