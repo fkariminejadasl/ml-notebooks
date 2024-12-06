@@ -25,8 +25,7 @@ The methodology employed categorizes companies based on their primary focus or o
 - [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Dev, Dep, Model  
 - [DataRobot](https://www.datarobot.com/): Dev, Dep, Model  
 - [H2O.ai](https://www.h2o.ai/): Dev, Dep, Model  
-- [Domino Data Lab](https://www.dominodatalab.com/): Dev, Dep, Model  
-- [Algorithmia](https://algorithmia.com/): Dev, Dep, Model
+- [Domino Data Lab](https://www.dominodatalab.com/): Dev, Dep
 
 ### 2. Cloud GPU Infrastructure & Compute Platforms
 
@@ -55,18 +54,15 @@ The methodology employed categorizes companies based on their primary focus or o
 ### 4. Development Tools, Code Generation, and Productivity
 
 - [Cursor](https://www.cursor.so/): Dev  
-- [Replit AI](https://replit.com/): Dev  
-- [Devin](https://www.devin.com/): Dev  
-- [Cognition Labs](https://www.cognitionlabs.ai/): Dev  
-- [OpenHands](https://openhands.ai/): Dev  
+- [Replit AI](https://replit.com/): Dev 
 - [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/): Dev  
-- (Anthropic’s tools are included above under “Model Creators” and “Development” categories)
+- Computer Use (Anthropic)
 
 ### 5. API-First Model/Inference Providers
 
 - [OpenRouter](https://openrouter.ai/): API
 - [Replicate](https://replicate.com/): API, GPU, Custom  
-- [Groq.AI](https://groq.com/): API  
+- [Groq](https://groq.com/): API  
 - [Together AI](https://together.xyz/): API, FT, Custom, GPU  
 - [Novita.UI](https://novita.ui/): API  
 - [Lepton.ai](https://lepton.ai/): API  
