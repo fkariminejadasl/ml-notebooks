@@ -373,8 +373,10 @@ Here is a list of free GPUs:
 - [Cloud GPU comparison](https://cloud-gpus.com)
 - [Vast.ai](https://vast.ai/pricing)
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
-- [runpod.io](https://www.runpod.io/pricing) 
-- [lightning.ai](https://lightning.ai/pricing) 
+- [runpod.io](https://www.runpod.io/pricing)
+- [lightning.ai](https://lightning.ai/pricing)
+- [Hyperbolic.xyz](https://hyperbolic.xyz/)
+- [Latitude AI](https://www.latitude.sh/accelerate)
 - [Paperspace](https://www.paperspace.com/pricing)
 - [Jarvislabs](https://jarvislabs.ai/pricing)
 - [HPC-AI](https://hpc-ai.com/)

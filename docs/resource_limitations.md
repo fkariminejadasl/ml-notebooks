@@ -144,6 +144,7 @@ print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
 
 
 You can customize the profiler to include:
+
 - Custom intervals: Use `schedule` to specify profiling start and stop.
 - Memory profiling: Set `profile_memory=True` to track memory usage.
 - Exporting results: Save results to file using `prof.export_chrome_trace("trace.json")`.
