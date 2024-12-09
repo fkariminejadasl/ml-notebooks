@@ -56,10 +56,11 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **3D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
 - **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
 - **Tracking:** SAM2 (Segment Anything Model 2) for image and video
-- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma
+- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma 2
 - **Segmentation:** Grounding DINO combined with SAM, Florence-2
-- **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma
-- **Visual Question Answering:** Any of the VLMs such as Phi-3.5, PaliGemma
+- **Pose Estimation:** OpenPose
+- **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma 2
+- **Visual Question Answering:** Any of the VLMs such as Phi-3.5, PaliGemma 2
 - **Text-to-Video Generation Models / Generative Video Models:** CogVideoX by Tsinghua University, Stable Video Diffusion by Stability AI, Pika Labs by Pika Labs, Movie Gen and Emu Video by Meta, Sora by OpenAI, Gen-3 Alpha by Runway AI, Veo by Google DeepMind, HunyuanVideo by Tencent
 - **Text-to-Image Generation Models:** FLUX1 by Black Forest Labs, Ideogram v2 by Ideogram, Midjourney v6 by Midjourney, Stable Diffusion 3.5 bu Stablity AI, DALLE 3 by OpenAI, Firefly 3 by Adobe, Imagen 3 by Google DeepMind
 - **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen, OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind)

@@ -16,32 +16,14 @@ The methodology employed categorizes companies based on their primary focus or o
 
 ---
 
-### 1. End-to-End Cloud-Based ML Platforms
-
-- [Google Vertex AI](https://cloud.google.com/vertex-ai): API, Pre, FT, Custom, Dev, Dep, Model  
-- [Amazon Bedrock](https://aws.amazon.com/bedrock/): API, Pre, FT, Custom, Dev, Dep, Model  
-- [Microsoft Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/): API, Pre, FT, Custom, Dev, Dep, Model  
-- [Databricks](https://databricks.com/): API, Dev, Dep, Model  
-- [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Dev, Dep, Model  
-- [DataRobot](https://www.datarobot.com/): Dev, Dep, Model  
-- [H2O.ai](https://www.h2o.ai/): Dev, Dep, Model  
-- [Domino Data Lab](https://www.dominodatalab.com/): Dev, Dep
-
-### 2. Cloud GPU Infrastructure & Compute Platforms
-
-- [Paperspace Gradient](https://www.paperspace.com/gradient): Dev, Dep, GPU  
-- [Runpod](https://www.runpod.io/): GPU, Storage  
-- [Google Colab](https://colab.research.google.com/): Dev, GPU  
-- [Amazon SageMaker](https://aws.amazon.com/sagemaker/): API, Pre, FT, Custom, Dev, Dep, Model, GPU
-
-### 3. Model Creators / Foundation Model Providers
+### Model Creators / Foundation Model Providers
 
 - [OpenAI](https://openai.com/): Model, Pre, FT, API  
 - [Anthropic](https://www.anthropic.com/): Model, Pre, FT  
 - [Google DeepMind](https://www.deepmind.com/): Model, Pre, FT, API  
 - [xAI](https://x.ai/): Model, Pre, FT, API  
-- [Meta AI](https://ai.meta.com/): Model, Pre, FT, API
-- [Mistral](https://mistral.ai/): Model, Pre, FT, API
+- [Meta AI](https://ai.meta.com/): Model, Pre, FT, API  
+- [Mistral AI](https://mistral.ai/): Model, Pre, FT, API  
 - [Stability AI](https://stability.ai/): Model, Pre, FT  
 - [Nous Research](https://www.nousresearch.com/): Model, Pre, FT  
 - [Cohere](https://cohere.com/): Model, Pre, FT, API  
@@ -50,51 +32,27 @@ The methodology employed categorizes companies based on their primary focus or o
 - [AssemblyAI](https://www.assemblyai.com/): Model, API  
 - [Deepgram](https://deepgram.com/): Model, API  
 - [ElevenLabs](https://elevenlabs.io/): Model, API  
+- [Perplexity AI](https://www.perplexity.ai/): Model, API
 
-### 4. Development Tools, Code Generation, and Productivity
+### Development Tools, Code Generation, and Productivity
 
-- [Cursor](https://www.cursor.so/): Dev  
-- [Replit AI](https://replit.com/): Dev 
+- [Cursor](https://www.cursor.com/): Dev  
+- [Replit AI](https://replit.com/): Dev  
 - [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/): Dev  
-- Computer Use (Anthropic)
+- [GitHub Copilot](https://github.com/features/copilot): Dev  
+- [Codeium](https://www.codeium.com/): Dev  
 
-### 5. API-First Model/Inference Providers
+### Deployment Tools and Platforms
 
-- [OpenRouter](https://openrouter.ai/): API
-- [Replicate](https://replicate.com/): API, GPU, Custom  
-- [Groq](https://groq.com/): API  
-- [Together AI](https://together.xyz/): API, FT, Custom, GPU  
-- [Novita.UI](https://novita.ui/): API  
-- [Lepton.ai](https://lepton.ai/): API  
-- [Hyperbolic.xyz](https://hyperbolic.xyz/): API, GPU  
-- [Perplexity.ai](https://www.perplexity.ai/): API  
-- [Fireworks AI](https://fireworks.ai/): API  
-- [Baseten](https://www.baseten.co/): API  
-- [Deepinfra](https://deepinfra.com/): API  
-- [Octo AI](https://octoai.com/): API
+- [Vercel](https://vercel.com/): Dev, Dep  
 
-### 6. AI Tools
+### Libraries and Frameworks
 
-- [Notebook LM (Google)](https://www.google.com/notebooklm/): Dev  
-- [ChatGPT (OpenAI)](https://chat.openai.com/): API, Dev
-
-### 7. Libraries and Frameworks
-
-- [DSPy](https://dspy.ai/): Dev (Provides a programming model for developing and optimizing language model pipelines)
+- [DSPy](https://dspy.ai/): Dev (Provides a programming model for developing and optimizing language model pipelines)  
 - [Oxolotl (Daniel Han)](https://github.com/danielhan/oxolotl): Fast Training (Pre/FT related)  
 - [Torchrun](https://pytorch.org/docs/stable/elastic/torchrun.html): Dev  
 - [Cog (by Replicate)](https://github.com/replicate/cog): Packaging Custom ML Models for Deployment (Custom, Dep)  
 - [ComfyUI](https://comfyui.org/): GUI for Workflow (Dev)  
-- [Tinygrad](https://github.com/geohot/tinygrad): Dev
-
-### 8. Data Platforms and Providers
-
-- [Encord](https://encord.com/): Data  
-- [LlamaIndex](https://www.llamaindex.ai/): Dev, Data Indexing  
-- [LAION](https://laion.ai/): Data Provider, Open-Source Datasets
-
-### 9. Additional
-
-- [LM Studio](https://www.lmstudio.ai/): Dev (An open-source desktop application for fine-tuning and inference of large language models)  
-
-
+- [Tinygrad](https://github.com/geohot/tinygrad): Dev  
+- [LangChain](https://langchain.com/): Dev (develop agentic AI systems)  
+- [CrewAI](https://docs.crewai.com): Dev (develop agentic AI systems)
