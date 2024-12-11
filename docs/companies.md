@@ -56,3 +56,7 @@ The methodology employed categorizes companies based on their primary focus or o
 - [Tinygrad](https://github.com/geohot/tinygrad): Dev  
 - [LangChain](https://langchain.com/): Dev (develop agentic AI systems)  
 - [CrewAI](https://docs.crewai.com): Dev (develop agentic AI systems)
+
+### Others
+
+- [Encord](https://encord.com): Data pipeline

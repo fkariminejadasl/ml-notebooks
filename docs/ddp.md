@@ -147,3 +147,9 @@ The only diffeerence with previous one:
 torchrun --nnodes=2 --nproc_per_node=4 python_script.py arguments
 # torchrun --nnodes=2 --nproc_per_node=1 multigpu_torchrun.py 50 10
 ```
+
+## References
+
+- https://medium.com/pytorch/training-a-1-trillion-parameter-model-with-pytorch-fully-sharded-data-parallel-on-aws-3ac13aa96cff
+- https://medium.com/pytorch/pytorch-data-parallel-best-practices-on-google-cloud-6c8da2be180d
+- https://medium.com/pytorch/pytorch-sessions-at-nvidia-gtc-march-20-2023-b86210711c9b
