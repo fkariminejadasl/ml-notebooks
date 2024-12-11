@@ -9,6 +9,7 @@ This repository is for my students.
 - [Deep Learning Project Setup](deep_learning_project_setup.md)
 - [Pytorch Lightning](pytorch_lightning.md)
 - [Practical Information about Data](practical_info_data.md)
+- [Shared Jupyter Notebook in SRC (SURF Research Cloud)](jupyter_src.md)
 - [Gradio App in SRC (SURF Research Cloud)](gradio_src.md)
 - [Hugging Face Guide](gradio_hf.md)
 - [Set Up a Custom Python Function within PostgreSQL](postgres_plpython3u.md)
