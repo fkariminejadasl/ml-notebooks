@@ -62,8 +62,8 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma 2
 - **Visual Question Answering:** Any of the VLMs such as Phi-3.5, PaliGemma 2
 - **Text-to-Video Generation Models / Generative Video Models:** CogVideoX by Tsinghua University, Stable Video Diffusion by Stability AI, Pika Labs by Pika Labs, Movie Gen and Emu Video by Meta, Sora by OpenAI, Gen-3 Alpha by Runway AI, Veo by Google DeepMind, HunyuanVideo by Tencent
-- **Text-to-Image Generation Models:** FLUX1 by Black Forest Labs, Ideogram v2 by Ideogram, Midjourney v6 by Midjourney, Stable Diffusion 3.5 bu Stablity AI, DALLE 3 by OpenAI, Firefly 3 by Adobe, Imagen 3 by Google DeepMind
-- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen, OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind)
+- **Text-to-Image Generation Models:** FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), Sora, DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3 (Google DeepMind), Aurora of Grok (xAI)
+- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen (Alibaba), OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Deepseek
 - **Speech-to-Text**: Whisper (OpenAI), Wav2Vec (Meta)
 - **Control Video by Action**: Genie 2 (Google DeepMind)
 - **LMM**: Nova (Amazon)

@@ -33,6 +33,7 @@ This repository is for my students.
 - [Python Basics](python.md)
 - [Docker Basics](docker.md)
 - [Tmux Basics](tmux.md)
+- [Linux Basics](linux.md)
 
 ### Examples
 - [Scheduler](scheuler.md)
