@@ -49,6 +49,11 @@ These directories are accessible system-wide, so all users on the system can use
 | `less [file]`                    | View the contents of a file one screen at a time.                           |
 | `head [file]`                    | Display the first 10 lines of a file.                                       |
 | `tail [file]`                    | Display the last 10 lines of a file.                                        |
+| `diff [file1] [file2]`           | Compare two files line by line and display the differences.                 |
+| `readlink [link]`                | Display the target of a symbolic link.                                      |
+| `readlink -f [path]`             | Display the absolute path, resolving all symbolic links.                    |
+| `ln [target] [link_name]`        | Create a hard link to a file.                                               |
+| `ln -s [target] [link_name]`     | Create a symbolic (soft) link to a file or directory.                       |
 
 #### File Permissions and Ownership
 
@@ -173,4 +178,13 @@ pgrep process_name
 
 # Find processes by user:
 pgrep -u username
+
+# Find differences
+diff --color -U 0 file1 file2
+
+# Display the absolute path
+readlink -f $HOME
+
+# To create a symbolic link named `my_link` that points to a file `myfile.txt`
+ln -s myfile.txt my_link
 ```
