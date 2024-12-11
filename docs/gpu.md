@@ -48,6 +48,12 @@ SLURM is a job scheduler used by many computer clusters and supercomputer, such 
 
 ## Use GPUs
 
+#### Remote VSCode
+
+- Install the `Remote-SSH` extension from the Extensions view.
+- Run `Remote-SSH: Connect to Host` to connect to a remote host.  
+   - If you don’t have a `~/.ssh/config` file set up, you’ll need to run `Remote-SSH: Add New SSH Host` or set it up manually.
+
 #### Quick Test
 
 The `gcn1` node is available for quick GPU tests without the need to request a GPU. However, this node has limited resources. For reference examples, check out [Using IDEs](https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development) and [Remote Visualization](https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius).
