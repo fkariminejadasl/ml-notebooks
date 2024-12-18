@@ -22,6 +22,7 @@ nav:
     - Handling Variable Sequence Lengths in Transformer Models: transformer_models_with_variable_sequence_lengths.md
     - Companies: companies.md
   - General:
+    - Services: services.md
     - Git Basics: git.md
     - Python Basics: python.md
     - Docker Basics: docker.md

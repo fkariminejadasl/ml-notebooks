@@ -29,6 +29,7 @@ This repository is for my students.
 - [Companies](companies.md)
 
 ### General
+- [Services](services.md)
 - [Git Basics: A Simple Manual](git.md)
 - [Python Basics](python.md)
 - [Docker Basics](docker.md)

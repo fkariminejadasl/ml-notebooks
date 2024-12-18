@@ -187,4 +187,7 @@ readlink -f $HOME
 
 # To create a symbolic link named `my_link` that points to a file `myfile.txt`
 ln -s myfile.txt my_link
+
+# To unzip a file to a specific location
+unzip filename.zip -d /path/to/destination
 ```

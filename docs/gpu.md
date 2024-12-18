@@ -54,6 +54,20 @@ SLURM is a job scheduler used by many computer clusters and supercomputer, such 
 - Run `Remote-SSH: Connect to Host` to connect to a remote host.  
    - If you don’t have a `~/.ssh/config` file set up, you’ll need to run `Remote-SSH: Add New SSH Host` or set it up manually.
 
+> If you want to access the GPU machine (e.g., `gcn700`), you can directly connect via Snellius using the command `ssh gcn700`. However, if you want to debug using Visual Studio Code (VSCode) on your computer, you need to add the following lines to your `~/.ssh/config` file. The rest of the process is the same as using remote SSH. Note that you can use `ssh me`, `ssh gcn700`, or remote SSH in VSCode.
+
+```bash
+Host me
+	User myuser
+	HostName snellius.surf.nl
+	IdentityFile ~/.ssh/id_rsa
+Host gcn700
+    User myuser
+    HostName gcn700
+    ProxyJump me
+    IdentityFile ~/.ssh/id_rsa
+```
+
 #### Quick Test
 
 The `gcn1` node is available for quick GPU tests without the need to request a GPU. However, this node has limited resources. For reference examples, check out [Using IDEs](https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development) and [Remote Visualization](https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius).
@@ -190,7 +204,7 @@ First run `wandb init` before sending the job via sbatch. Then run the code whic
 - `squeue`: show the status of the job
 - `scancel`: cancel the job. 
 - `scontrol`: show detailed job information. e.g. show job detail: `scontrol show j 7605565`
-- `sinfo`: get information about GPUs. e.g. `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`, `sinfo -p gpu`
+- `sinfo`: get information about GPUs. e.g. `"%9P %70N %5t %32G %6D"`, `sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"`, `sinfo -p gpu`
 - `sacct`: get statistics on completed jobs
 - `accinfo`, `budget-overview -p gpu`, `accuse`: show how much credite is left (Snellius commands)
 - `myquota`: show the limit of files. They are also listed in [Snellius hardware](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware) and [file systems](https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems).
@@ -334,8 +348,30 @@ nvidia-smi -L
 
 ### Sinfo
 
+Status of the nodes:
+
 ```bash
-sinfo -e -o "%9P %.6D %10X %4Y %24N %24f %32G" | grep gpu_a
+sinfo -o "%9P %70N %5t %32G %6D"
+```
+
+```bash
+    %P is the partition name.
+    %N is the node name.
+    %t is the state of the node (e.g., idle, allocated, down).
+    %G is the generic resource information, including GPUs.
+    %D is the number of nodes.
+```
+
+You can get detailed node information via: `scontrol show node <node-name>`
+
+```bash 
+scontrol show nodes | awk '/NodeName/ {node=$1} /State=/ {state=$1} /Gres=gpu/ {print node, state}'
+```
+
+Get other information:
+
+```bash
+> sinfo -e -o "%9P %.6D %10X %4Y %24N %24f %32G" | grep gpu_a
 gpu_a100      36 4          18   gcn[37-72]               hwperf,scratch-node      gpu:a100:4(S:0-1),cpu:72
 ```
 
@@ -353,10 +389,14 @@ Breaking down each field:
 ```
 
 ```bash
-sinfo | grep gpu_a
-```
-```
+> sinfo | grep gpu_a
+
 gpu_a100     up 5-00:00:00      5   resv gcn[47-49,69,71]
+```    
+
+Explanation:
+
+```bash
     gpu_a100 is the partition name.
     up 5-00:00:00 means the partition is up and available for 5 days.
     5 represents the number of nodes available.
@@ -367,6 +407,7 @@ gpu_a100     up 5-00:00:00      5   resv gcn[47-49,69,71]
 # Free GPUs
 
 Here is a list of free GPUs:  
+
 - Google Colab
 - Kaggle
 - Gradient by Paperspace
