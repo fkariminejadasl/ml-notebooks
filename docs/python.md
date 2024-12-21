@@ -120,7 +120,18 @@ Check for and remove any remaining Conda-related cache files:
 rm -rf ~/.cache/conda
 ```
 
- ## Python Courses
+## Useful pip Commands
+
+```bash
+pip -U install package1 packag2 # -U: for update
+pip uinstall package
+pip-autoremove -y package1 package2  # Remove package completely. First install `pip install -y pip-autoremove`
+pip freeze
+pip list
+pip check
+```
+
+## Python Courses
 
 From https://software-carpentry.org/lessons, below courses are offered. 
 - [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)

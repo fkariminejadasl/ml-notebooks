@@ -34,18 +34,20 @@ The methodology employed categorizes companies based on their primary focus or o
 - [ElevenLabs](https://elevenlabs.io/): Model, API  
 - [Perplexity AI](https://www.perplexity.ai/): Model, API
 
+There are much more companes in cluding: Midjourney, Ideogram, Black Forest Labs, Pika Labs, Mistral.
+
 ### API/Inference Providers
 
 - [OpenRouter](https://openrouter.ai/): API
 - [Replicate](https://replicate.com/): API, GPU, Custom  
 - [Groq.AI](https://groq.com/): API  
 - [Together AI](https://together.xyz/): API, FT, Custom, GPU  
-- [Novita.UI](https://novita.ui/): API  
-- [Lepton.ai](https://lepton.ai/): API  
+- [Novita.ai](https://novita.ai/): API, GPU 
+- [Lepton.ai](https://lepton.ai/): API, GPU
 - [Hyperbolic.xyz](https://hyperbolic.xyz/): API, GPU  
-- [Fireworks AI](https://fireworks.ai/): API  
+- [Fireworks AI](https://fireworks.ai/): API, GPU  
 - [Baseten](https://www.baseten.co/): API  
-- [Deepinfra](https://deepinfra.com/): API  
+- [Deepinfra](https://deepinfra.com/): API, GPU
 - [Octo AI](https://octoai.com/): API
 
 ### Development Tools, Code Generation, and Productivity
@@ -94,3 +96,6 @@ The methodology employed categorizes companies based on their primary focus or o
 - [Domino Data Lab](https://www.dominodatalab.com/): Dev, Dep, Model  
 - [Algorithmia](https://algorithmia.com/): Dev, Dep, Model
 
+Codeium / Windsurf
+Vercel's VO, Bolt, Anthropic's Artifacts
+Dynamiq

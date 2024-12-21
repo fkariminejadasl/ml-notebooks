@@ -44,6 +44,7 @@ pip install torch # version 2.0.0+cu117
 ```
 
 ## Schedule Tasks
+    
 SLURM is a job scheduler used by many computer clusters and supercomputer, such as Snellius. It allocates resources to users and monitors work. It is a configurable workload manager. `squeue`, `sbatch`, `srun`, `sinfo`, and `scancel` are examples of the most commonly used commands in SLURM.
 
 ## Use GPUs
@@ -233,7 +234,7 @@ Some examples are given in [Convenient Slurm commands](https://docs.rc.fas.harva
 - [uvadlc: Working with the Snellius cluster](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html)
 - [microhh](https://microhh.readthedocs.io/en/latest/computing_systems/snellius.html)
 
-# Details
+## Details
 
 #### SLRUM interactive mode
 
@@ -404,7 +405,7 @@ Explanation:
     gcn[47-49,69,71] specifies the nodes within the gpu_a100 partition.
 ```
 
-# Free GPUs
+## Free GPUs
 
 Here is a list of free GPUs:  
 
@@ -415,13 +416,19 @@ Here is a list of free GPUs:
 - Microsoft Azure (for student accounts)
 
 
-# External GPUs
+## External GPUs
 
 - [Cloud GPU comparison](https://cloud-gpus.com)
 - [GPU Cloud Providers Pricing info](https://www.gpucloudpricing.com)
 - [Vast.ai](https://vast.ai/pricing)
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
-- [runpod.io](https://www.runpod.io/pricing)
+- [RunPod.io](https://www.runpod.io/pricing)
+- [Together.ai](https://www.together.ai/pricing)
+- [Fireworks AI](https://fireworks.ai/pricing)
+- [deepinfra](https://deepinfra.com/pricing)
+- [Lepton AI](https://www.lepton.ai/pricing)
+- [VULTR](https://www.vultr.com/pricing/)
+- [Novita](https://novita.ai/gpu-instance/pricing)
 - [lightning.ai](https://lightning.ai/pricing)
 - [Hyperbolic.xyz](https://hyperbolic.xyz/)
 - [Latitude AI](https://www.latitude.sh/accelerate)
