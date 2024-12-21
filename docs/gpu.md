@@ -418,6 +418,7 @@ Here is a list of free GPUs:
 # External GPUs
 
 - [Cloud GPU comparison](https://cloud-gpus.com)
+- [GPU Cloud Providers Pricing info](https://www.gpucloudpricing.com)
 - [Vast.ai](https://vast.ai/pricing)
 - Lambda Labs: [On demand](https://lambdalabs.com/service/gpu-cloud#pricing), [One, two & three year contracts](https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing).
 - [runpod.io](https://www.runpod.io/pricing)
