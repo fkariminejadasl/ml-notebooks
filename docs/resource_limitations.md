@@ -21,7 +21,7 @@ Training large deep learning models is notably resource-intensive, often present
 
 - Fine-tuning of 7B model parameters on T4 from DeepLearning AI by Ludwig, presented by Travis Addair (watch from [here](https://youtu.be/g68qlo9Izf0?t=793) to [here](https://youtu.be/g68qlo9Izf0?t=2184).
 - [train a 70b language model on two 24GB GPUs](https://www.answer.ai/posts/2024-03-06-fsdp-qlora.html): an open source system, based on FSDP and QLoRA, that can train a 70b model on two 24GB GPUs. They also used Gradient checkpointing, CPU offloading, and Flash Attention 2.
-- [LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)
+- [LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora), [LoQT: Low-Rank Adapters for Quantized Pretraining](https://arxiv.org/abs/2405.16528)
 - [SURF course on Profiling](https://github.com/sara-nl/HPML-course-materials)
 
 

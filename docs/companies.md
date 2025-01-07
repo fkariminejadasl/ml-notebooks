@@ -20,11 +20,10 @@ The methodology employed categorizes companies based on their primary focus or o
 
 - [OpenAI](https://openai.com/): Model, Pre, FT, API  
 - [Anthropic](https://www.anthropic.com/): Model, Pre, FT  
-- [Google DeepMind](https://www.deepmind.com/): Model, Pre, FT, API  
+- [Google DeepMind, Google](https://www.deepmind.com/): Model, Pre, FT, API  
 - [xAI](https://x.ai/): Model, Pre, FT, API  
 - [Meta AI](https://ai.meta.com/): Model, Pre, FT, API  
 - [Mistral AI](https://mistral.ai/): Model, Pre, FT, API  
-- [Stability AI](https://stability.ai/): Model, Pre, FT  
 - [Nous Research](https://www.nousresearch.com/): Model, Pre, FT  
 - [Cohere](https://cohere.com/): Model, Pre, FT, API  
 - [Allen Institute for AI (Ai2)](https://allenai.org/): Model, Pre, FT  
@@ -33,8 +32,18 @@ The methodology employed categorizes companies based on their primary focus or o
 - [Deepgram](https://deepgram.com/): Model, API  
 - [ElevenLabs](https://elevenlabs.io/): Model, API  
 - [Perplexity AI](https://www.perplexity.ai/): Model, API
+- [Stability AI](https://stability.ai/): Model, Pre, FT  
+- Ideogram: Model
+- Midjourney: Model
+- Black Forest Labs: Model
+- Pika Labs: Model
+- Luma Labs: Model
+- Minimax: Model
+- Tencent AI Lab: Model
+- ByteDance (owns TikTok): Model
+- Inflection AI: Model
+- Character.AI: Model
 
-There are much more companes in cluding: Midjourney, Ideogram, Black Forest Labs, Pika Labs, Mistral.
 
 ### API/Inference Providers
 
@@ -52,19 +61,23 @@ There are much more companes in cluding: Midjourney, Ideogram, Black Forest Labs
 
 ### Development Tools, Code Generation, and Productivity
 
-- [Cursor](https://www.cursor.com/): Dev 
-- [Replit AI](https://replit.com/): Dev  
-- [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/): Dev
+- [Codeium](https://www.codeium.com/): Dev (It developed both the Codeium AI code acceleration platform and the Windsurf IDE.)
+- [Replit AI](https://replit.com/): Dev
+- Bolt from StackBlitz: Dev (Bolt platform)
 - Anthropic Computer Use
+- [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/): Dev
 - [GitHub Copilot](https://github.com/features/copilot): Dev  
-- [Codeium](https://www.codeium.com/): Dev 
-- [Devin](https://www.devin.com/): Dev  
+- [Cursor](https://www.cursor.com/): Dev
 - [Cognition Labs](https://www.cognitionlabs.ai/): Dev  
-- [OpenHands](https://openhands.ai/): Dev  
+
+Other tools related:
+
+- Llama Stack developed by Meta is a collection of APIs that standardize the building blocks necessary for developing generative AI applications.
+- Adept's ACT-1: Adept AI has developed ACT-1, an AI model designed to interact with software applications through natural language commands.  It can perform tasks such as navigating web pages, clicking buttons, and entering data, effectively acting as a digital assistant to automate workflows.
 
 ### Deployment Tools and Platforms
 
-- [Vercel](https://vercel.com/): Dev, Dep  
+- [Vercel](https://vercel.com/): Dev, Dep (V0 by Vercel generates UI from text)
 
 ### Libraries and Frameworks
 
@@ -74,9 +87,8 @@ There are much more companes in cluding: Midjourney, Ideogram, Black Forest Labs
 - [Cog (by Replicate)](https://github.com/replicate/cog): Packaging Custom ML Models for Deployment (Custom, Dep)  
 - [ComfyUI](https://comfyui.org/): GUI for Workflow (Dev)  
 - [Tinygrad](https://github.com/geohot/tinygrad): Dev  
-- [LangChain](https://langchain.com/): Dev (develop agentic AI systems)  
-- [CrewAI](https://docs.crewai.com): Dev (develop agentic AI systems)
-
+- Agentic AI systems: [LangChain](https://langchain.com), [CrewAI](https://docs.crewai.com), LlamaIndex, Haystack, [Devin](https://www.devin.com)  
+- [OpenHands](https://openhands.ai): Dev (providing frameworks for building AI-driven applications with agentic capabilities)  
 
 ### Data Platforms and Providers
 
@@ -95,7 +107,3 @@ There are much more companes in cluding: Midjourney, Ideogram, Black Forest Labs
 - [H2O.ai](https://www.h2o.ai/): Dev, Dep, Model  
 - [Domino Data Lab](https://www.dominodatalab.com/): Dev, Dep, Model  
 - [Algorithmia](https://algorithmia.com/): Dev, Dep, Model
-
-Codeium / Windsurf
-Vercel's VO, Bolt, Anthropic's Artifacts
-Dynamiq

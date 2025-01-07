@@ -21,7 +21,9 @@ This repository is for my students.
 
 ### Courses and Literature
 - [Courses in Deep Learning and Computer Vision](courses.md)
-- [Quick Overview of Object Detection](object_detection.md)
+- [Object Detection](object_detection.md)
+- [Object Tracking](tracking.md)
+- [Localization, Mapping, 3D Reconstruction](slam.md)
 
 ### Blogpost
 - [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
