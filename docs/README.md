@@ -24,6 +24,7 @@ This repository is for my students.
 - [Object Detection](object_detection.md)
 - [Object Tracking](tracking.md)
 - [Localization, Mapping, 3D Reconstruction](slam.md)
+- [Time Series](time_series.md)
 
 ### Blogpost
 - [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
