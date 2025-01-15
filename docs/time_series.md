@@ -14,6 +14,24 @@
 
 ### General Time-Series Models
 
-[Autoformer](https://arxiv.org/abs/2106.13008), [Informer](https://arxiv.org/pdf/2012.07436), Reformer for the long-term forecasting. Some of these methods are provided in [HuggingFace Time Series Models](https://huggingface.co/docs/transformers/en/model_doc/autoformer). In [Transformers Effective for Time Series Forecasting?](https://arxiv.org/abs/2205.13504), argues the transformers are not needed. 
+[MOIRAI-MOE](https://arxiv.org/abs/2410.10469): Time-series foundation model, which uses mixture of expertes 
+to select for different data frequencies. It is build upon [MOIRAI](https://arxiv.org/abs/2402.02592). 
+Other time-series foundation models are [Moment](https://github.com/moment-timeseries-foundation-model/moment), 
+[MOIRAI](https://arxiv.org/abs/2402.02592), [Chronos](https://arxiv.org/abs/2403.07815), [PatchTST](https://arxiv.org/abs/2211.14730)
+[TimesFM](https://arxiv.org/abs/2310.10688), [Lag-Llama](https://github.com/time-series-foundation-models/lag-llama), [TimeGPT-1].
+
+[Autoformer](https://arxiv.org/abs/2106.13008), [Informer](https://arxiv.org/pdf/2012.07436), 
+Reformer for the long-term forecasting. Some of these methods are 
+provided in [HuggingFace Time Series Models](https://huggingface.co/docs/transformers/en/model_doc/autoformer). 
+In [Transformers Effective for Time Series Forecasting?](https://arxiv.org/abs/2205.13504), argues the transformers are not needed. 
 
 
+### Discriminative Representation
+
+The representation that can be used in `GCN (Generalized Category Discovery)` ([GCN](https://arxiv.org/abs/2201.02609), [SelEx](https://arxiv.org/abs/2408.14371)). 
+
+Contrastive learning, Sparse autoencoder or older method such as [DEC (Deep Embedded Clustering)](https://arxiv.org/abs/1511.06335), SOM (Self Organizing Maps).
+
+#### Characteristics of Time Series
+
+[Implicit Reasoning in Deep Time Series Forecasting](https://arxiv.org/pdf/2409.10840): It is observed that certain linear, MLP-based, and patch-based Transformer models generalize effectively in carefully structured out-of-distribution scenarios, suggesting underexplored reasoning capabilities beyond simple pattern memorization.

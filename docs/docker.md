@@ -164,6 +164,12 @@ docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
 
 This runs an Nginx container named `mynginx` in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory `/host/data` to `/container/data` in the container.
 
+**Resource constraints**: For more details check [here](https://docs.docker.com/engine/containers/resource_constraints).
+
+```bash
+docker run --cpus="4" --memory="8g" ...
+```
+
 #### Execute Commands in a Running Container
 
 To run a command inside a running container:
@@ -275,6 +281,35 @@ docker-compose up
 | `docker inspect <container_name_or_id>`      | Inspect detailed information of a container      |
 
 
+## Apptainer
 
+In Snellius, there is Apptainer instead of Docker.
 
+Apptainer (formerly Singularity) is a containerization tool designed for high-performance computing (HPC), scientific workloads, and secure application deployment. Unlike Docker, Apptainer focuses on security, reproducibility, and portability, allowing users to run containers without requiring root privileges. It uses single-file SIF (Singularity Image Format) images, making it ideal for environments like HPC clusters and supercomputers.
+
+The equivalent commands for the Docker commands you mentioned are:
+
+| Command                                      | Description                                      |
+| `apptainer cache list`                       | `docker images`                                  |
+| `apptainer instance list`                    | `docker ps -a`                                   |
+| `apptainer cache clean`                      | `docker rmi imageid`. See example below.         |
+| `docker rm containerid`                      | `apptainer instance stop <instance_name>`        |
+
+These directories store the downloaded images.
+
+```bash
+ls ~/.apptainer/cache/library
+ls ~/.apptainer/cache/oci-tmp
+```
+
+E.g. If you pulled docker using apptainer pull, it should have been saved as a `.sif` file in your working directory 
+
+```bash
+apptainer pull docker://godlovedc/lolcow 
+apptainer inspect lolcow_latest.sif
+# Since Apptainer doesn’t use a centralized image store like Docker, you typically just remove the .sif file:
+rm lolcow_latest.sif
+# If you want to clean the cache (which includes OCI blobs and temporary files), use:
+apptainer cache clean
+```
 
