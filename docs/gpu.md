@@ -52,7 +52,7 @@ SLURM is a job scheduler used by many computer clusters and supercomputer, such 
 #### Remote VSCode
 
 - Install the `Remote-SSH` extension from the Extensions view.
-- Run `Remote-SSH: Connect to Host` to connect to a remote host.  
+- Press F1 (or Ctrl+p + >) and type `Remote-SSH: Connect to Host` to connect to a remote host.  
    - If you don’t have a `~/.ssh/config` file set up, you’ll need to run `Remote-SSH: Add New SSH Host` or set it up manually.
 
 > If you want to access the GPU machine (e.g., `gcn700`), you can directly connect via Snellius using the command `ssh gcn700`. However, if you want to debug using Visual Studio Code (VSCode) on your computer, you need to add the following lines to your `~/.ssh/config` file. The rest of the process is the same as using remote SSH. Note that you can use `ssh me`, `ssh gcn700`, or remote SSH in VSCode.
