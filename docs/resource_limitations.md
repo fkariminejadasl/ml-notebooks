@@ -122,6 +122,7 @@ with profile(
         ProfilerActivity.CUDA  # Monitor CUDA activity (if applicable)
     ],
     on_trace_ready=torch.profiler.tensorboard_trace_handler("./log"),  # Save data for TensorBoard
+    profile_memory=True,
     record_shapes=True,  # Record tensor shapes
     with_stack=True  # Capture stack traces
 ) as prof:
@@ -137,7 +138,7 @@ print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
 # Run `tensorboard --logdir=./log` in the terminal
 ```
 
-- **`profile` Context Manager**: This manages the profiling session and specifies which activities (CPU, CUDA) to profile.
+- **`profile`** Context Manager: This manages the profiling session and specifies which activities (CPU, CUDA) to profile.
 - **`record_function`**: Labels a specific code block for profiling, so you can see its performance separately.
 - **`tensorboard_trace_handler`**: Saves the profiling results in a format compatible with TensorBoard.
 - **`key_averages()`**: Aggregates and summarizes profiling results for analysis in the console.
@@ -156,6 +157,32 @@ Notes: Use smaller models or batches for testing, as profiling large models can 
 After generating a trace, simply drag the `trace.json` generated in `log` file (example above) into [Perfetto UI](https://ui.perfetto.dev) or in chrome browser by typing `chrome://tracing` to visualize your profile.
 
 The TensorBoard integration with the PyTorch profiler is now deprecated. But if you still want to use TensorBoard you should install `pip install torch_tb_profiler` and then use `tensorboard --logdir=./log`
+
+
+## CUDA Memory Usage
+
+For more details take look at [torch_cuda_memory](https://pytorch.org/docs/stable/torch_cuda_memory.html) or [understanding-gpu-memory-1](https://pytorch.org/blog/understanding-gpu-memory-1/).
+
+Disclaimer: The example below is taken from AlphaSignal.
+
+```python
+import torch
+from torch import nn
+
+# Start recording memory snapshot history
+torch.cuda.memory._record_memory_history(max_entries=100000)
+
+# Example model and computation
+model = nn.Linear(10_000, 50_000, device="cuda")
+for _ in range(3):
+    inputs = torch.randn(5_000, 10_000, device="cuda")
+    outputs = model(inputs)
+
+# Dump memory history to a file and stop recording
+torch.cuda.memory._dump_snapshot("profile.pkl")
+torch.cuda.memory._record_memory_history(enabled=None)
+```
+The code generates `profile.pkl` file. Open it in [pytorch.org/memory_viz](https://pytorch.org/memory_viz).
 
 
 ## References
