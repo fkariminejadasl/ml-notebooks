@@ -270,6 +270,7 @@ CREATE USER fkariminej WITH SUPERUSER CREATEDB CREATEROLE;
 SHOW data_directory; -- PGDATA SHOW data_directory;
 SELECT current_user; -- PGUSER here fkariminej
 SELECT current_database(); -- PGDATABASE here test
+\df  -- Show list of functions
 
 -- A specific function (e.g. my_func), a specific schema (e.g., my_schema)
 SELECT my_func(); -- Run the function
