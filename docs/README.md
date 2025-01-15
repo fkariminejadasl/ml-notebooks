@@ -28,8 +28,10 @@ This repository is for my students.
 
 ### Blogpost
 - [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
-- [Handling Variable Sequence Lengths in Transformer Models](transformer_models_with_variable_sequence_lengths.md)
 - [Companies](companies.md)
+- [Handling Variable Sequence Lengths in Transformer Models](transformer_models_with_variable_sequence_lengths.md)
+- [PointCloud](pointclouds.md)
+- [Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models](AIEnhancement.md)
 
 ### General
 - [Services](services.md)
