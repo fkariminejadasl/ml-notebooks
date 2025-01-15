@@ -96,6 +96,21 @@ To begin using Git LFS, you need to install it on your system:
 sudo apt install git-lfs
 ```
 
+If you don't have sudo rights, follow these steps instead:
+
+```bash
+mkdir -p ~/bin
+cd ~/bin
+wget https://github.com/git-lfs/git-lfs/releases/latest/download/git-lfs-linux-amd64-v3.6.1.tar.gz
+tar -xvzf git-lfs-linux-amd64-v3.6.1.tar.gz
+rm git-lfs-linux-amd64-v3.6.1.tar.gz
+echo 'export PATH=$HOME/bin/git-lfs-3.6.1:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+> Note: Check the latest version at https://github.com/git-lfs/git-lfs/releases and adjust the version number in the commands accordingly. The version shown here (3.6.1) might be outdated.
+
+
 #### Step 2: Initialize Git LFS in Your Repository
 
 After installation, you need to enable Git LFS in your project:
