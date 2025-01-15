@@ -56,17 +56,18 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **3D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
 - **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
 - **Tracking:** SAM2 (Segment Anything Model 2) for image and video
-- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma 2
+- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma 2, moondream2
 - **Segmentation:** Grounding DINO combined with SAM, Florence-2
 - **Pose Estimation:** OpenPose
 - **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma 2
-- **Visual Question Answering:** Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics 
+- **Visual Question Answering:** Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2, moondream2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics 
 - **Text-to-Video Generation Models / Generative Video Models:** CogVideoX (Tsinghua University), Stable Video Diffusion (Stability AI), Pika Labs (Pika Labs), Movie Gen and Emu Video (Meta), [Sora](https://icml.cc/virtual/2024/39514) (OpenAI), Gen-3 Alpha (Runway AI), Veo2 (Google DeepMind), HunyuanVideo (Tencent), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform) Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), DynamiCrafter (Tencent AI Lab)
-- **Text-to-Image Generation Models:** FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral)
-- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen (Alibaba), OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), DeepSeek v3 (DeepSeek)
+- **Text-to-Image Generation Models:** [SANA](https://huggingface.co/Efficient-Large-Model/Sana_1600M_1024px) (MIT, NVIDIA, Tsinghua), FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral)
 - **Speech-to-Text**: Whisper (OpenAI), Wav2Vec (Meta)
 - **Control Video by Action**: Genie 2 (Google DeepMind)
-- **LMM**: Nova (Amazon)
+- **Vision Language Models (VLMs)**: image, multi-image, video. Open VLMs: Cosmos Nemotron (NVidia), DeepSeek-VL2 (DeepSeek), QWen2-VL (Alibaba), InternVL2 (OpenGVLab), LLAVA 1.5, LLama3.2 (mainly LLM), Cambrian-1, CogVLM2 (Tsinghua University), MolMo (Ai2). Proprietary: GPT-40 (OpenAI), Claude Sonnet 3.5 (Claude), Gemini 1.5 Pro (Google)
+- **Large Language Models (LLMs):**  Open source: DeepSeek v3 (DeepSeek),Qwen (Alibaba), LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google),  OLMo 2 (Ai2), Helium-1 (Kyutai), Sky-T1-32B (UC Berkeley), Cerebras-GPT (Cerebras). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Nova (Amazon)
+- **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta)
 
 ### Finding Models
 
