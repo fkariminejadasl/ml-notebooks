@@ -51,7 +51,7 @@ Object detection methods can be categorized based on key attributes influencing 
 
 - **Overview:** A transformer-based object detection model formulating object detection as a set prediction problem, simultaneously predicting object classes and bounding box coordinates.
 
-- **Links:** [DETR](https://arxiv.org/abs/2005.12872), [deformableDETR](https://arxiv.org/abs/2010.04159)
+- **Links:** [LW-DETR](https://arxiv.org/abs/2406.03459), [RT-DETR](https://arxiv.org/abs/2304.08069), [D-FINE](https://arxiv.org/abs/2410.13842), [DETR](https://arxiv.org/abs/2005.12872), [deformableDETR](https://arxiv.org/abs/2010.04159)
 
 ## Open-Set Object Detection | Open Vocabulary Object Detection (OVD)
 

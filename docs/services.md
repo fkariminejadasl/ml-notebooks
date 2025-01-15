@@ -16,3 +16,12 @@
 | FNWI Faculty Research Drive | [uva.data.surfsara.nl](https://uva.data.surfsara.nl) |
 | HIPSTER cluster from FNWI | [Feiog HIPSTER](https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html) |
 | European Open Science Cloud (EOSC) | [EOSC piolot](https://www.eosc-beyond.eu/pilots) |
+
+#### General Services
+
+Some of the phone numbers and services are mentioned in the following locations:
+
+| Name               | URL                               |
+|--------------------|-----------------------------------|
+| IBED  | Team/IBED/General/Files/IBED general information*.pdf |
+| FNWI A-Z list  | [Direct Link](https://medewerker.uva.nl/en/science/az/a-z.html)  or via staff.uva.nl/Faculty of Science/A-Z|

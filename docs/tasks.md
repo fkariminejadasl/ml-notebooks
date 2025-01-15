@@ -50,23 +50,26 @@ The following list highlights some of the current state-of-the-art (SOTA) and pr
 
 Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.
 
-- **Vision Encoders:** Vision-Only Model Backbones: DINOv2, MAE (Masked Autoencoders), ResNet. Vision-Text Model Backbones: AIMv2, SigLIP, CLIP
+- **Vision Encoders:** Vision-Only Model Encoders: PE (Perception Encoder, Mets), DINOv2, MAE (Masked Autoencoders), ResNet. Vision-Text Model Encoders: AIMv2, SigLIP, CLIP. Vision-Text Encoder for Generation: LlamGen. E.g. In Janus (DeepSeek), LlamaGen is used for Geneneation Encoder and SigLIP for Understanding Encoder.
 - **Depth Map:** Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
 - **Optical Flow:** SEA RAFT, RAFT
-- **3D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R
+- **3D/4D Reconstruction:** COLMAP (Non-Deep Learning), ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), DuSt3R, MASt3R and its relatives VGGT, 4D (St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human). VideoMimic
 - **Point Matching:** SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT)
 - **Tracking:** SAM2 (Segment Anything Model 2) for image and video
-- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma 2
+- **Object Detection:** Florence-2, Grounding DINO / DINO-X, PaliGemma 2, moondream2, small: Yolo Family (latest [Generalist YOLO paper](https://openaccess.thecvf.com/content/WACV2025/papers/Chang_Generalist_YOLO_Towards_Real-Time_End-to-End_Multi-Task_Visual_Language_Models_WACV_2025_paper.pdf), YOLO12)
 - **Segmentation:** Grounding DINO combined with SAM, Florence-2
 - **Pose Estimation:** OpenPose
+- **Unified Multimodal Image Understanding and Generation:** BLIP3-o (Saleforce), Jaus Pro (DeepSeek), EMU3 (Beijing Baai), MetaQuery, Metamorph, Chameleon(Meta)
 - **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma 2
-- **Visual Question Answering:** Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics 
-- **Text-to-Video Generation Models / Generative Video Models:** CogVideoX (Tsinghua University), Stable Video Diffusion (Stability AI), Pika Labs (Pika Labs), Movie Gen and Emu Video (Meta), [Sora](https://icml.cc/virtual/2024/39514) (OpenAI), Gen-3 Alpha (Runway AI), Veo2 (Google DeepMind), HunyuanVideo (Tencent), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform) Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), DynamiCrafter (Tencent AI Lab)
-- **Text-to-Image Generation Models:** FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral)
-- **Large Language Models (LLMs):**  Open source: LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma (Google), Qwen (Alibaba), OLMo 2 (Ai2). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), DeepSeek v3 (DeepSeek)
-- **Speech-to-Text**: Whisper (OpenAI), Wav2Vec (Meta)
+- **Visual Question Answering:** Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2, moondream2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics 
+- **Generative Video Models, Text-to-Video Generation Models:** CogVideoX (THUDM Tsinghua University), Pika Labs (Pika Labs), Stable Video Diffusion (Stability AI), Movie Gen and Emu Video (Meta), [Sora](https://icml.cc/virtual/2024/39514) (OpenAI), Gen-3 Alpha (Runway AI), Veo2 (Google DeepMind), Flux (Black Forest Labs), Hunyuan Video, DynamiCrafter, VideoCrafter (Tencent AI Lab), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform), MiniMax T2V-01, Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), Kling (Kuaishou), Open-Sora (HPC AI Tech)
+- **Text-to-Image Generation Models:** [SANA](https://huggingface.co/Efficient-Large-Model/Sana_1600M_1024px) (MIT, NVIDIA, Tsinghua), FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral), PixArt-alpha (Huawei), Janus (DeepSeek), CogView4 (THUDM Tsinghua University)
+- **Speech Models: Speech-to-Text, Text-to-Speech, Speech-to-Speech**: Moshi (Kyutai), ElevenLabs, Google, OpenAI, Speech-to-Text: Whisper (OpenAI), Wav2Vec (Meta), SuperWhisper/Wisper Flow
 - **Control Video by Action**: Genie 2 (Google DeepMind)
-- **LMM**: Nova (Amazon)
+- **Vision Language Models (VLMs)**: image, multi-image, video. Open VLMs: PLM (Perception LM, Meta), Cosmos Nemotron (NVidia), DeepSeek-VL2 (DeepSeek), QWen2-VL (Alibaba), InternVL2 (OpenGVLab), LLAVA 1.5, LLama3.2 (mainly LLM), Cambrian-1, CogVLM2 (Tsinghua University), MolMo (Ai2), SmolVLM (Hugging Face). Proprietary: GPT-40 (OpenAI), Claude Sonnet 3.5 (Claude), Gemini 1.5 Pro (Google)
+- **Large Language Models (LLMs):**  Open source: DeepSeek v3 (DeepSeek),Qwen (Alibaba), LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma 3 (Google),  OLMo 2 (Ai2), Helium-1 (Kyutai), Sky-T1-32B (UC Berkeley), Cerebras-GPT (Cerebras). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Nova (Amazon), Flash 3, Nexus (Reka AI)
+  Note that: Some of the models are Multimodal.
+- **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V
 
 ### Finding Models
 
@@ -78,15 +81,15 @@ Please note that the field of machine learning and computer vision is rapidly ev
 #### LMM (Large Multimodal Model) / VLM (Vision Language Model): 
 
 - Find open-source models: The [Open VLM leaderboard](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard) shows the scores of top VLMs, and you can see which models are open-source or proprietary.
-- [Vision-Arena and Video-Arena Leaderboards](https://huggingface.co/spaces/WildVision/vision-arena) from Hugging Face shows the current top VLMs.
+- [Hugging Face Video Generation Leaderboards](https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard), [artificialanalysislu](https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard)
 - [Text-to-Video](https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard)
 - Blog post on VLM: [Implement a Vision Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/seemore-vision-language-model); [Vision Language Using and Finetuning](https://huggingface.co/blog/vlms); [vision language explanation](https://huggingface.co/blog/vision_language_pretraining);
 
 #### LLM (Large Language Models)
 
-- Find open-source models: [LLM Arena](https://lmarena.ai) LMArena formerly LMSYS shows the current top LLMs. You can see which models are open-source or proprietary.
+- Find open-source models: [LLM Arena](https://lmarena.ai) LMArena formerly LMSYS shows the current top LLMs. You can see which models are open-source or proprietary. [scale.com](https://scale.com/leaderboard).
 
-### Text-to-Speech and Speech-to-Text
+### Speech Models
 
 - [Speech Arena](https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard)
 
