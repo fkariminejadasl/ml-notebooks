@@ -24,10 +24,10 @@
 
 # Pane Management (Dividing a Window)
 
-- **Split Window Horizontally**:  
+- **Split Window Vertically**:  
   `Ctrl-b %` — This splits the current window into two panes side by side.
 
-- **Split Window Vertically**:  
+- **Split Window Horizontally**:  
   `Ctrl-b "` — This splits the current window into two panes, one above the other.
 
 - **Switch Between Panes**:  
@@ -36,6 +36,7 @@
   `Ctrl-b ←, →, ↑, ↓`  — This navigates between panes in the respective direction.
 
 - **Resize Panes**:  
+  `Ctrl-b Ctrl ←, →, ↑, ↓` — Resize pane.  
   `Ctrl-b :resize-pane -D` — Resize pane downwards.  
   `Ctrl-b :resize-pane -U` — Resize pane upwards.  
   `Ctrl-b :resize-pane -L` — Resize pane to the left.  

@@ -16,6 +16,7 @@ Linux distributions typically follow the Filesystem Hierarchy Standard (FHS), wh
   - **/var/log**: Log files.
 - **/opt**: Optional or third-party software, often self-contained packages.
 - **/lib**, **/lib64**: Core system libraries (for `/bin` and `/sbin`).
+- **$HOME/.config/autostart**: Applications that run at startup for a specific user. Similar to `systemctl`, but `autostart` is for user-specific applications, whereas systemctl manages system-wide services.
 
 When you install packages using a package manager like `apt`, the files typically go into these shared directories depending on their type:
 
@@ -54,6 +55,7 @@ These directories are accessible system-wide, so all users on the system can use
 | `readlink -f [path]`             | Display the absolute path, resolving all symbolic links.                    |
 | `ln [target] [link_name]`        | Create a hard link to a file.                                               |
 | `ln -s [target] [link_name]`     | Create a symbolic (soft) link to a file or directory.                       |
+| `lsb_release -a`                 | Show Linux version info. If not installed, run `cat /etc/os-release`.       |    
 
 #### File Permissions and Ownership
 
@@ -83,8 +85,6 @@ These directories are accessible system-wide, so all users on the system can use
 |----------------------------------|-----------------------------------------------------------------------------|
 | `df -h`                          | Display disk space usage in human-readable format.                          |
 | `du -sh [directory]`             | Display the size of a directory and its contents.                           |
-| `mount [device] [mount_point]`   | Mount a device to the filesystem.                                           |
-| `umount [device]`                | Unmount a device from the filesystem.                                       |
 
 #### Networking
 
@@ -102,7 +102,13 @@ These directories are accessible system-wide, so all users on the system can use
 | Command                                     | Description                                                                 |
 |---------------------------------------------|-----------------------------------------------------------------------------|
 | `scp [source] [user@host:destination]`      | Securely copy files between hosts over a network.                           |
-| `rsync [options] [source] [destination]`    | Synchronize files and directories between two locations efficiently.        |
+| `rsync [source] [user@host:destination]`    | Synchronize files and directories between two locations efficiently.        |
+| `mount [device] [mount_point]`              | Mount a device to the filesystem.                                           |
+| `umount [device]`                           | Unmount a device from the filesystem.                                       |
+| `sshfs user@remote:/remote/path /local/mountpoint`| Mount remote files and open them in your file browser as if they were local.|
+| `fusermount -uz /path/to/mountpoint` <br> or `umount -l /path/to/mountpoint` | Unmount remote files, which was mounted by sshfs. | 
+
+* `fusermount -z` or `umount -l` is for lazy unmounting. This allows you to move on without waiting for the system to resolve the issue.
 
 #### User Management
 
@@ -132,7 +138,12 @@ These directories are accessible system-wide, so all users on the system can use
 | `apt upgrade`                    | Upgrade all installed packages to their latest versions.                    |
 | `apt install [package]`          | Install a new package.                                                      |
 | `apt remove [package]`           | Remove an installed package.                                                |
+| `apt purge [package]`            | Remove an installed package completely.                                     |
 | `apt search [package]`           | Search for a package in the repositories.                                   |
+| `snap install [package]`         | Install a new package.                                                      |
+| `snap remove [package]` <br> `rm -rf ~/snap/[package]` | Remove an installed package completely, including its leftover data. |
+
+Note: `apt` and `snap` should be run with `sudo`, e.g., `sudo apt purge cloudcompare`.
 
 #### Text Processing
 
@@ -173,7 +184,17 @@ rsync -avz /path/to/local/directory/ user@remote_host:/path/to/remote/directory/
 # Synchronize a remote directory to the local machine:
 rsync -avz user@remote_host:/path/to/remote/directory/ /path/to/local/directory/
 
+# Mounts a USB drive at /mnt/usb so you can access its files.
+mount /dev/sdb1 /mnt/usb
+# To unmount the filesystem mounted with:
+umount /dev/sdb1
+# or
+umount /mnt/usb
+# If the device is busy and won't unmount, try:
+umount -l /mnt/usb  # Lazy unmount
+
 # Find the process ID(s) of a running program:
+# pgrep -ifa porcesss_name: -i: ingore case, -f only process id, -a: full command, similar to ps aux | grep process name
 pgrep process_name
 
 # Find processes by user:
@@ -190,4 +211,20 @@ ln -s myfile.txt my_link
 
 # To unzip a file to a specific location
 unzip filename.zip -d /path/to/destination
+
+# Save both standard output and error to a file. The output is also displayed on the screen.
+# tee: Copy standard input to each FILE, and also to standard output.
+# 2>&1: redirects stderr (2) to stdout (1).
+your_command > output.txt 2>&1
+your_command 2>&1 | tee output.txt
+
+# Convert png to pdf by ImageMagick
+sudo apt install imagemagick
+# ImageMagick has a security policy that restricts writing PDFs. You can fix this by modifying the ImageMagick policy file and then convert your file.
+# Open the policy file for editing:
+sudo nano /etc/ImageMagick-6/policy.xml
+# Find and modify the PDF policy:
+# change `<policy domain="coder" rights="none" pattern="PDF" />` to `<policy domain="coder" rights="read | write" pattern="PDF" />` 
+# Convert the png to pdf 
+convert your_image.png -density 300 your_image.pdf
 ```

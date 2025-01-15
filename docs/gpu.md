@@ -28,20 +28,40 @@ ssh -X username@snellius.surf.nl
 ```
 
 ## Setup environment
+
 The first time to setup your environment, run below script:
+
 ```bash
 module purge # unload all modules
-module load 2022
-module load Anaconda3/2022.05 # version 4.12.0
+module load 2024
+module load Miniconda3/24.7.1-0 # version 24.7.1
 conda init bash
 ```
 
 After that, the basic virtualenv from conda can be created. See below e.g.:
+
 ```bash
-conda create -n test python=3.8
+conda create -n test python=3.10
 conda activate test
-pip install torch # version 2.0.0+cu117
+pip install torch # version 2.7.1+cu126
 ```
+
+> When you install PyTorch using `pip install torch`, the GPU-enabled build is installed by default—even on machines without a GPU. You can verify this by running:
+
+```
+>> ssh gcn1
+>> python
+import torch
+torch.tensor([1,2], device="cuda")
+```
+
+You can allocate a GPU in interactive mode with the following command:
+
+```bash
+salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
+```
+
+Obtain the `partition` name from `accinfo` or by checking the `Snellius partitions/ partitions name` list.
 
 ## Schedule Tasks
     
@@ -52,7 +72,7 @@ SLURM is a job scheduler used by many computer clusters and supercomputer, such 
 #### Remote VSCode
 
 - Install the `Remote-SSH` extension from the Extensions view.
-- Run `Remote-SSH: Connect to Host` to connect to a remote host.  
+- Press F1 (or Ctrl+p + >) and type `Remote-SSH: Connect to Host` to connect to a remote host.  
    - If you don’t have a `~/.ssh/config` file set up, you’ll need to run `Remote-SSH: Add New SSH Host` or set it up manually.
 
 > If you want to access the GPU machine (e.g., `gcn700`), you can directly connect via Snellius using the command `ssh gcn700`. However, if you want to debug using Visual Studio Code (VSCode) on your computer, you need to add the following lines to your `~/.ssh/config` file. The rest of the process is the same as using remote SSH. Note that you can use `ssh me`, `ssh gcn700`, or remote SSH in VSCode.
@@ -71,7 +91,21 @@ Host gcn700
 
 #### Quick Test
 
-The `gcn1` node is available for quick GPU tests without the need to request a GPU. However, this node has limited resources. For reference examples, check out [Using IDEs](https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development) and [Remote Visualization](https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius).
+The `int3` GPU machine is available for quick GPU tests without requiring a formal GPU allocation. It is based on MIG (Multi-Instance GPU) technology. You can view its configuration using `nvidia-smi`, `nvidia-smi -L`, or by inspecting `/etc/slurm/gres.conf`. However, this node has limited resources. For reference examples, check out [Interactive Development GPU Node](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/74225195/Interactive+development+GPU+node), [Using IDEs](https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development) and [Remote Visualization](https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius).
+
+To connect to the `int3` GPU machine, run:
+
+```bash
+ssh int3 # also the same `ssh gcn1`
+```
+
+In the case of using `ssh gcn1`, if get the error, `Certificate invalid`, remove the old known-hosts entry manually from `.ssh/known_hosts` or by command:
+
+If you see the error `Certificate invalid`, remove the old host key entry from your known hosts by either manually editing `~/.ssh/known_hosts` and deleting the gcn1 line, or running:
+
+```bash
+ssh-keygen -R gcn1
+```
 
 
 #### Run a job:
@@ -418,6 +452,7 @@ Here is a list of free GPUs:
 
 ## External GPUs
 
+- University: [LUMI](https://www.lumi-supercomputer.eu), Snellius
 - [Cloud GPU comparison](https://cloud-gpus.com)
 - [GPU Cloud Providers Pricing info](https://www.gpucloudpricing.com)
 - [Vast.ai](https://vast.ai/pricing)

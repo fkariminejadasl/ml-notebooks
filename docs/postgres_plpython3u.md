@@ -1,6 +1,6 @@
 # Set Up a Custom Python Function within PostgreSQL
 
-Before proceeding with the following steps, ensure you have set up a new environment on your system with a custom Python virtual environment located at `/scratch/venv/envs/p310`. For additional setup instructions, refer to [apps.md](./apps.md).
+Before proceeding with the following steps, ensure you have set up a new environment on your system with a custom Python virtual environment located at `/scratch/venv/envs/p310`. For additional setup instructions, refer to [here](./gradio_src.md#install-miniconda).
 
 Follow these steps to get everything working from scratch:
 
@@ -270,6 +270,7 @@ CREATE USER fkariminej WITH SUPERUSER CREATEDB CREATEROLE;
 SHOW data_directory; -- PGDATA SHOW data_directory;
 SELECT current_user; -- PGUSER here fkariminej
 SELECT current_database(); -- PGDATABASE here test
+\df  -- Show list of functions
 
 -- A specific function (e.g. my_func), a specific schema (e.g., my_schema)
 SELECT my_func(); -- Run the function
