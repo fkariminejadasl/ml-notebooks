@@ -4,7 +4,7 @@
 In the SRC Dashboard, create an `Ubuntu 2204 - SUDO enabled` machine. 
 
 #### Install Miniconda
-Follow the instructions [here](https://github.com/fkariminejadasl/ml-notebooks/blob/main/tutorial/python.md#setup-python) or below:
+Follow the instructions [here](./python.md#setup-python) or below:
 
 ```bash
 mkdir /scratch/venv

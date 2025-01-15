@@ -84,10 +84,16 @@ This shows a list of active containers with their IDs, names, and statuses.
 
 To list all containers, including those that are stopped:
 
-  ```bash
-  docker ps -a
-  ```
-  This provides a comprehensive list of all containers, regardless of their state.
+```bash
+docker ps -a
+```
+This provides a comprehensive list of all containers, regardless of their state.
+
+To display the full command without truncation:
+
+```
+docker ps -a --no-trunc
+```
 
 ### Managing Docker Images
 
@@ -163,6 +169,12 @@ docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
 ```
 
 This runs an Nginx container named `mynginx` in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory `/host/data` to `/container/data` in the container.
+
+**Resource constraints**: For more details check [here](https://docs.docker.com/engine/containers/resource_constraints).
+
+```bash
+docker run --cpus="4" --memory="8g" ...
+```
 
 #### Execute Commands in a Running Container
 
@@ -275,6 +287,116 @@ docker-compose up
 | `docker inspect <container_name_or_id>`      | Inspect detailed information of a container      |
 
 
+## Installing the NVIDIA Container Toolkit
 
+Follow these instructions from [NVIDIA Container Toolkit Installation Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) to enable GPU support in Docker containers:
 
+First, back up your NVIDIA packages in case anything breaks during installation:
+
+```bash
+dpkg --get-selections | grep -i nvidia > ~/nvidia-packages-backup.txt
+```
+
+Then proceed with the installation steps below.
+
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt update
+sudo apt install -y nvidia-container-toolkit
+```
+
+#### Configuring Docker with NVIDIA Runtime
+
+1. After installing the NVIDIA Container Toolkit, configure Docker to use the NVIDIA runtime:
+
+```bash
+sudo nvidia-ctk runtime configure --runtime=docker
+```
+
+This command updates `/etc/docker/daemon.json` to enable NVIDIA GPU support in containers. The file will contain:
+
+```json
+{
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+    }
+}
+```
+
+2. Restart the Docker daemon:
+
+```bash
+sudo systemctl restart docker
+```
+
+3. Verify the installation:
+
+```bash
+docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-sm
+```
+
+#### Rollback Installation
+
+```bash
+# Rollback Installation
+# Remove the Nvidia GPG Key
+sudo rm -f /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+# Remove the Nvidia Container Source List
+sudo rm -f /etc/apt/sources.list.d/nvidia-container-toolkit.list
+# Refresh the Package List
+sudo apt update
+sudo apt remove --purge nvidia-container-toolkit
+sudo apt autoremove
+
+# Reinstall Your Nvidia Drivers
+# If your GPU stops working, reinstall the driver listed in your backup (e.g., nvidia-driver-535):
+sudo apt install --reinstall nvidia-driver-535  # adjust version to match your backup
+
+# If you had issues with missing dependencies after reinstalling the driver, running the full 
+# reinstall command ensures everything is restored.
+cat ~/nvidia-packages-backup.txt | awk '{print $1}' | xargs sudo apt install --reinstall -y
+
+# Reboot and Check
+sudo reboot
+nvidia-smi
+```
+
+## Apptainer
+
+In Snellius, there is Apptainer instead of Docker.
+
+Apptainer (formerly Singularity) is a containerization tool designed for high-performance computing (HPC), scientific workloads, and secure application deployment. Unlike Docker, Apptainer focuses on security, reproducibility, and portability, allowing users to run containers without requiring root privileges. It uses single-file SIF (Singularity Image Format) images, making it ideal for environments like HPC clusters and supercomputers.
+
+The equivalent commands for the Docker commands you mentioned are:
+
+| Command                                      | Description                                      |
+|----------------------------------------------|--------------------------------------------------|
+| `apptainer cache list`                       | `docker images`                                  |
+| `apptainer instance list`                    | `docker ps -a`                                   |
+| `apptainer cache clean`                      | `docker rmi imageid`. See example below.         |
+| `docker rm containerid`                      | `apptainer instance stop <instance_name>`        |
+
+These directories store the downloaded images.
+
+```bash
+ls ~/.apptainer/cache/library
+ls ~/.apptainer/cache/oci-tmp
+```
+
+E.g. If you pulled docker using apptainer pull, it should have been saved as a `.sif` file in your working directory 
+
+```bash
+apptainer pull docker://godlovedc/lolcow 
+apptainer inspect lolcow_latest.sif
+# Since Apptainer doesn’t use a centralized image store like Docker, you typically just remove the .sif file:
+rm lolcow_latest.sif
+# If you want to clean the cache (which includes OCI blobs and temporary files), use:
+apptainer cache clean
+```
 

@@ -79,28 +79,28 @@ Conda adds initialization code to your shell's configuration file (e.g., `.bashr
 
 - Open the configuration file in a text editor:
 
-  ```bash
-  nano ~/.bashrc
-  ```
+```bash
+nano ~/.bashrc
+```
 
 - Scroll to the section managed by 'conda init', which looks like:
 
-  ```
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/home/username/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-  if [ $? -eq 0 ]; then
-      eval "$__conda_setup"
-  else
-      if [ -f "/home/username/miniconda3/etc/profile.d/conda.sh" ]; then
-          . "/home/username/miniconda3/etc/profile.d/conda.sh"
-      else
-          export PATH="/home/username/miniconda3/bin:$PATH"
-      fi
-  fi
-  unset __conda_setup
-  # <<< conda initialize <<<
-  ```
+```bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/username/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/username/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/username/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/username/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
 
 - Delete this entire block.
 
@@ -108,9 +108,9 @@ Conda adds initialization code to your shell's configuration file (e.g., `.bashr
 
 - Apply the changes by sourcing the file:
 
-  ```bash
-  source ~/.bashrc
-  ```
+```bash
+source ~/.bashrc
+```
 
 #### Remove Any Remaining Conda-Related Cache
 
@@ -118,6 +118,39 @@ Check for and remove any remaining Conda-related cache files:
 
 ```bash
 rm -rf ~/.cache/conda
+```
+
+
+## Pytest
+
+### Running Tests
+
+You can run your tests using:
+
+```bash
+pytest tests
+# Ignore tests with specific markers
+pytest tests -m "not ignore and not local"
+```
+
+### Debugging in VS Code
+
+To configure Pytest in VS Code, press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS), then search for **"Python: Configure Tests"** and select it.
+
+Once configured correctly:
+- You should see **"Run Test | Debug Test"** options above each test function.
+- Click **"Debug Test"** to start debugging.
+
+
+## Conda Commands Cheat Sheet
+
+```bash
+conda create -n some_name python=3.10 # Create a new Conda virtual env
+conda activate some_name # Activate the Conda virtual env
+conda remove -n some_name --all # Remove the Conda virtual env
+conda install openblas-devel -c anaconda # Install a package from Conda
+conda list | grep blas # Search for a package in the installed list (similar to `pip freeze | grep blas`)
+echo $CONDA_PREFIX # Path of the currently active env (e.g., ~/miniconda3/envs/some_name)
 ```
 
 ## Useful pip Commands

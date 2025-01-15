@@ -193,20 +193,24 @@ val_split: 0.2  # 20% of data used for validation
 ### Running the Code
 
 1. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+```bash
+pip install -r requirements.txt
+```
 
 2. **Run the Training**:
-   ```bash
-   python main.py
-   ```
+
+```bash
+python main.py
+```
 
 3. **Launch TensorBoard**:
-   ```bash
-   tensorboard --port 4004 --logdir=runs
-   ```
-   Open the provided URL in your browser to access the TensorBoard dashboard.
+
+```bash
+tensorboard --port 4004 --logdir=runs
+```
+   
+Open the provided URL in your browser to access the TensorBoard dashboard.
 
 By integrating PyTorch's `random_split` function, you can effectively partition your dataset into training and validation sets, facilitating model evaluation without the need for external libraries. 
 
@@ -217,7 +221,8 @@ For a more concise approach to hyperparameter tuning, consider using a configura
 #### Define Hyperparameter Sets:
 
 Create a YAML file listing different hyperparameter configurations:
-```yaml
+
+```bash
 # configs/hyperparams.yaml
 experiments:
     - batch_size: 16
@@ -232,6 +237,7 @@ experiments:
 
 #### Modify the Main Script:
 Update your `main.py` to load and iterate over these configurations:
+
 ```python
 # main.py
 import yaml
@@ -251,5 +257,6 @@ if __name__ == "__main__":
 This approach allows you to manage multiple experiments efficiently, with each configuration's results logged separately for easy comparison.
 
 #### References:
+
 - [How to use TensorBoard with PyTorch](https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html)
 - [Visualizing Models, Data, and Training with TensorBoard](https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html) 
