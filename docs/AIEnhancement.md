@@ -15,7 +15,8 @@ The typical methods are:
 - RM (Reward Model) rule-based RM or model-based RM
 - DPO (Direct Preference Optimization)
 - PPO (Proximal Policy Optimization)
-- GRPO (Group Relative Policy Optimization)
+- GRPO (Group Relative Policy Optimization), arXiv:2402.03300 from DeepSeekMath
+- Sequence Policy Optimization (GSPO), arXiv:2507.18071 from Alibaba Qwen announced Group 
 - RLVR (Reinforcement Learning with Verifiable Reward)
 
 #### Examples
@@ -63,7 +64,8 @@ Agents:
 
 ### Courses
 
-[smol-course](https://github.com/huggingface/smol-course) on Agents and post-trainig.
+- [deeplearning.ai short courses: post training of llms](https://www.deeplearning.ai/short-courses/post-training-of-llms)
+- [smol-course](https://github.com/huggingface/smol-course) on Agents and post-trainig.
 
 ### (Fully) Open Models
 

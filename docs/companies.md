@@ -16,7 +16,7 @@ The methodology employed categorizes companies based on their primary focus or o
 
 ## Highlights
 
-Models are accessed via their respective companies, such as OpenAI (ChatGPT 4o, o1, o3), DeepSeek (DeepSeek-R1), Anthropic (Claude Sonnet), and Google (Gemini). `LM Studio` is a desktop application for running models locally. `Together AI` provides a platform for running models that might not fit on your local machine. There are other serving locations, such as the [Hugging Face Inference Playground](https://huggingface.co/spaces/huggingface/inference-playground), and `Hyperbolic.xyz`, which also offers base models. 
+Models are accessed via their respective companies, such as OpenAI (ChatGPT), DeepSeek, Anthropic (Claude), and Google (Gemini). `Hugging Face`, `vLLM`, `LM Studio`, `llama.cpp`, `Ollama`, `Jan.ai` are designed to let you run LLMs locally. `Together AI` provides a platform for running models that might not fit on your local machine. There are other serving locations, such as the [Hugging Face Inference Playground](https://huggingface.co/spaces/huggingface/inference-playground), and `Hyperbolic.xyz`, which also offers base models. 
 
 Manus AI (Monica.im) autonomously executes complex, goal-driven workflows as an [AI agent](https://huggingface.co/blog/LLMhacker/manus-ai-best-ai-agent), Devin AI serves as an AI-powered software engineer for coding and build automation, and Cursor functions as an intelligent IDE assistant that augments human developers across the software development lifecycle.
 
@@ -25,7 +25,7 @@ For better prompting, it’s recommended to add a `llms.txt` file at your site�
 
 The Model Context Protocol (MCP), introduced by Anthropic, is an open standard for connecting LLMs to external data sources and tools—much like a USB-C port for AI applications (e.g., see [How to Build an MCP Server with Gradio](https://huggingface.co/blog/gradio-mcp)).
 
-`DeepWiki`, from Cognition Labs, offers AI-powered, interactive documentation for any GitHub repository. Just replace `github.com` with `deepwiki.com` in your repo URL to generate searchable, context-rich docs instantly.
+DeepWiki, from Cognition Labs, offers AI-powered, interactive documentation for any GitHub repository. Just replace `github.com` with `deepwiki.com` in your repo URL to generate searchable, context-rich docs instantly.
 
 ---
 
@@ -97,7 +97,7 @@ Other tools related:
 
 ### Libraries and Frameworks
 
-- Ollama, vLLM: tool designed to run LLMs locally. It can be used with [Chatbox.ai](https://chatboxai.app) app desktop, mobile and web-based app.
+- Ollama, vLLM: an open‑source, high‑throughput inference engine designed to run LLMs locally. It can be used with [Chatbox.ai](https://chatboxai.app) app desktop, mobile and web-based app.
 - unsloth (Daniel Han), torchtune, Oxolotl: Fast Training (Pre/FT related).  They enhance the speed and efficiency of LLM fine-tuning.
 - LiteLLM: LiteLLM is an open-source Python library designed to streamline interactions with a wide range of LLMs by providing a unified interface.
 - [ai-gradio](https://github.com/AK391/ai-gradio): A Python package that makes it easy for developers to create machine learning apps powered by various AI providers. Built on top of Gradio, it provides a unified interface for multiple AI models and services.
