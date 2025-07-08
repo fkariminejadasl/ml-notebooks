@@ -1,4 +1,5 @@
 site_name: "ML Notebooks"
+site_url: https://fkariminejadasl.github.io/ml-notebooks/
 nav:
   - README.md
   - Deep Learning General:

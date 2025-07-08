@@ -62,7 +62,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Unified Multimodal Image Understanding and Generation:** BLIP3-o (Saleforce), Jaus Pro (DeepSeek), EMU3 (Beijing Baai), MetaQuery, Metamorph, Chameleon(Meta)
 - **Image Captioning:** xGen-MM (BLIP-3), CogVLM2, PaliGemma 2
 - **Visual Question Answering:** Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2, moondream2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics 
-- **Generative Video Models, Text-to-Video Generation Models:** CogVideoX (THUDM Tsinghua University), Pika Labs (Pika Labs), Stable Video Diffusion (Stability AI), Movie Gen and Emu Video (Meta), [Sora](https://icml.cc/virtual/2024/39514) (OpenAI), Gen-3 Alpha (Runway AI), Veo2 (Google DeepMind), Flux (Black Forest Labs), Hunyuan Video, DynamiCrafter, VideoCrafter (Tencent AI Lab), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform), MiniMax T2V-01, Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), Kling (Kuaishou), Open-Sora (HPC AI Tech)
+- **Generative Video Models, Text-to-Video Generation Models:** CogVideoX (THUDM Tsinghua University), Pika Labs (Pika Labs), Stable Video Diffusion (Stability AI), Movie Gen and Emu Video (Meta), [Sora](https://icml.cc/virtual/2024/39514) (OpenAI), Gen-3 Alpha (Runway AI), Veo (Google DeepMind), Flux (Black Forest Labs), Hunyuan Video, DynamiCrafter, VideoCrafter (Tencent AI Lab), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform), MiniMax T2V-01, Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), Kling (Kuaishou), Alibaba (Wan), Open-Sora (HPC AI Tech)
 - **Text-to-Image Generation Models:** [SANA](https://huggingface.co/Efficient-Large-Model/Sana_1600M_1024px) (MIT, NVIDIA, Tsinghua), FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral), PixArt-alpha (Huawei), Janus (DeepSeek), CogView4 (THUDM Tsinghua University)
 - **Speech Models: Speech-to-Text, Text-to-Speech, Speech-to-Speech**: Moshi (Kyutai), ElevenLabs, Google, OpenAI, Speech-to-Text: Whisper (OpenAI), Wav2Vec (Meta), SuperWhisper/Wisper Flow
 - **Control Video by Action**: Genie 2 (Google DeepMind)
@@ -70,6 +70,12 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Large Language Models (LLMs):**  Open source: DeepSeek v3 (DeepSeek),Qwen (Alibaba), LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma 3 (Google),  OLMo 2 (Ai2), Helium-1 (Kyutai), Sky-T1-32B (UC Berkeley), Cerebras-GPT (Cerebras). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Nova (Amazon), Flash 3, Nexus (Reka AI)
   Note that: Some of the models are Multimodal.
 - **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V
+
+### Companies
+
+OpenAI (ChatGPT), Anthropic (Claude), X (Grok), Meta (LLaMa) 
+
+DeepSeek, Moonshot AI (Kimi), Alibaba (QWen, Wan), Zhipu AI (GLM), MiniMax (Hailuo), ByteDance / TikTok, Tencent Hunyuan
 
 ### Finding Models
 

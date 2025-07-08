@@ -1,9 +1,11 @@
 # Basic Session Management
 
 - **Create a New Session**:  
-  `tmux new -s session_name`  
+  `tmux new -s session_name` or just `tmux`
   Or within an active session:  
   `:new-session -s session_name`
+- **Scroll Up/Down and Copy Mode**
+  `Ctrl-b [`: When finish hit `q`
 
 # Window (Page) Management
 
