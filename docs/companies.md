@@ -25,7 +25,7 @@ For better prompting, it’s recommended to add a `llms.txt` file at your site�
 
 The Model Context Protocol (MCP), introduced by Anthropic, is an open standard for connecting LLMs to external data sources and tools—much like a USB-C port for AI applications (e.g., see [How to Build an MCP Server with Gradio](https://huggingface.co/blog/gradio-mcp)).
 
-`DeepWiki`, from Cognition Labs, offers AI-powered, interactive documentation for any GitHub repository. Just replace `github.com` with `deepwiki.com` in your repo URL to generate searchable, context-rich docs instantly.
+DeepWiki, from Cognition Labs, offers AI-powered, interactive documentation for any GitHub repository. Just replace `github.com` with `deepwiki.com` in your repo URL to generate searchable, context-rich docs instantly.
 
 ---
 
