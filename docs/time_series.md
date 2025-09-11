@@ -45,7 +45,8 @@ Some GCD or NCD (Novel Category Discovery) e.g. [UNO](https://arxiv.org/pdf/2108
 - [SimGCD](https://arxiv.org/pdf/2211.11727v4): Clustering is trained jointly with the representation learning network. This is not an imbalanced data setting. However, entropy is used as a regularization to prevent the model from over-predicting certain label classes. This issue is more about imbalanced prediction, which arises during joint learning of clustering and representation, but not in separate training as done in the original GCD method. [MASA: Multi-Activity Sequence Alignment via Implicit Clustering](https://arxiv.org/pdf/2503.12519) is related in terms of parametric clustering, though it addresses a different task.
 - [LegoGCD](https://openaccess.thecvf.com/content/CVPR2024/papers/Cao_Solving_the_Catastrophic_Forgetting_Problem_in_Generalized_Category_Discovery_CVPR_2024_paper.pdf)
 - [AGCD](https://arxiv.org/pdf/2403.04272)
-- [BaCon](https://proceedings.neurips.cc/paper_files/paper/2023/file/b7216f4a324864e1f592c18de4d83d10-Paper-Conference.pdf)
+- [BaCon: Towards Distribution-Agnostic Generalized Category Discovery](https://arxiv.org/pdf/2310.01376)
+- [Long-Tailed Learning for Generalized Category Discovery](https://arxiv.org/pdf/2506.06965)
 - [Generalized Category Discovery under the Long-Tailed Distribution](https://openreview.net/pdf?id=0CIS2nthtK)
 - [DebiasGCD](https://openreview.net/pdf?id=JRcfgNg2ZJ)
 - [Long-tailed GCD](https://arxiv.org/pdf/2401.05352v2)
