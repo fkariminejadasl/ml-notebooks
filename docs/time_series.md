@@ -37,6 +37,9 @@ Reformer for the long-term forecasting. Some of these methods are provided in [H
 
 [SelEx](https://arxiv.org/pdf/2408.14371) is based on GCD, with improvements coming from the clustering component to ensure balanced clusters during training, as well as from the use of both supervised and unsupervised self-expertise. Self-Expertise assigns different weights to samples depending on whether they are positive or negative, and this weighting is influenced by their class hierarchies (coarse or fine-grained).
 
+Some GCD or NCD (Novel Category Discovery) e.g. [UNO](https://arxiv.org/pdf/2108.08536) methods are based on pioneering works such as [SeLa (Asano)](https://arxiv.org/pdf/1911.05371): self-labeling via simultaneous clustering and representation learning, and [SwAV](https://arxiv.org/pdf/2006.09882).
+
+
 ### Imbalanced Generalized Category Discovery (GCD)
 
 - [SimGCD](https://arxiv.org/pdf/2211.11727v4): Clustering is trained jointly with the representation learning network. This is not an imbalanced data setting. However, entropy is used as a regularization to prevent the model from over-predicting certain label classes. This issue is more about imbalanced prediction, which arises during joint learning of clustering and representation, but not in separate training as done in the original GCD method. [MASA: Multi-Activity Sequence Alignment via Implicit Clustering](https://arxiv.org/pdf/2503.12519) is related in terms of parametric clustering, though it addresses a different task.
