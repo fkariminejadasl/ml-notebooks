@@ -194,23 +194,25 @@ The code generates `profile.pkl` file. Open it in [pytorch.org/memory_viz](https
 
 ## Glossary
 
+Model has L layers applys on the data of B batch size, S sequence length and D dimension (B x S x D). Parallelism applies on each part. Here is the names:
+
+- Data Parallelism splits on B dimension (DP). Examples are DDP, FSDP (Fully Sharded Data Parallel), HSDP (Hybrid Sharded Data Parallel)
+- Context Parallelism splits on S dimension (CP)
+- Tensor Parallelism splits on D (TP)
+- Pipeline Parallelism splits on L (PP)
+
+For more information watch [the CS231N lecture on large distributed training](https://www.youtube.com/watch?v=9MvD-XsowsE&list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&index=11)
+or check the [Huggging Face ultrascal playbook](https://huggingface.co/spaces/nanotron/ultrascale-playbook).
+
 **Data Parallelism** — Splits data across multiple devices, each running the same model. Every GPU holds a full copy of the model, processes a different mini-batch, and then all-reduces gradients to keep weights in sync.
 
 **FSDP (Fully Sharded Data Parallel)** — Shards model parameters, gradients, and optimizer states across data-parallel workers, cutting memory per GPU while still syncing each training step.
 
-**Model Parallelism** — Splits the model itself across multiple devices; each device handles a portion of the forward/back-prop pass so no single GPU needs all the weights.
-
 **Pipeline Parallelism** — Divides model layers into sequential stages on different GPUs; many micro-batches flow through the pipeline so stages run concurrently.
 
-**Context Parallelism** — Partitions long input sequences over GPUs, letting transformers handle contexts that would otherwise overflow memory.
+**Context Parallelism** — Partitions long input sequences over GPUs.
 
-**Key Differences and Goals Summary** —
-
-* **Focus:** Model parallel splits the model, pipeline parallel splits the workflow, FSDP shards parameters, data parallel splits data, and context parallel splits the input context.
-* **Goal Alignment:** All aim at large-scale training, but optimize for different constraints—memory (FSDP, model parallel), compute efficiency (pipeline, data parallel), or context length (context parallel).
-* **Trade-offs:** Data parallel is simplest but memory-intensive; pipeline and model parallel add complexity for efficiency; FSDP balances memory and scalability; context parallel excels for long-sequence tasks.
-
-**Training, Fine-Tuning & Inference Tools** —
+**Training, Fine-Tuning & Inference Tools**
 
 * **PyTorch (torchrun, DDP, FSDP):** `torchrun` launches multi-process jobs across GPUs.
 * **DeepSpeed:** Adds ZeRO stages that shard optimizer states/gradients and offers optional pipeline or tensor parallelism.
