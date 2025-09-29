@@ -167,8 +167,11 @@ pip check
 ## Python Courses
 
 From https://software-carpentry.org/lessons, below courses are offered. 
+
 - [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
 - [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder)
+
+A CS50 course offered [here](https://cs50.harvard.edu/python/).
 
 For more on software engineering side, you could also attend this course:
 - [Intermediate Research Software Development with Python](https://www.esciencecenter.nl/event/intermediate-research-software-development-with-python-3)
