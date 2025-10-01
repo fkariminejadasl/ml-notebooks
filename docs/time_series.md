@@ -35,6 +35,8 @@ Reformer for the long-term forecasting. Some of these methods are provided in [H
 
 [GCD](https://arxiv.org/pdf/2201.02609) (Generalized Category Discovery) uses supervised contrastive and self-supervised contrastive learning to obtain representations. These representations are then clustered with supervised K-means, enforcing that the labeled samples remain in their original cluster. A Hungarian matching assignment computes clustering accuracy on the labeled data, and this accuracy determines the number of clusters. [SimGCD](https://arxiv.org/pdf/2211.11727): is a parametric extension of GCD that employs both supervised and unsupervised contrastive losses for representation learning, alongside supervised and unsupervised clustering losses with mean-entropy maximization to shape the clusters. Further [SPTNet](https://arxiv.org/pdf/2403.13684) Builds on SimGCD by introducing Spatial Prompt Tuning—additional prompt parameters learned on image patches—to further improve clustering performance. [μGCD](https://arxiv.org/pdf/2311.17055) Similar to SimGCD, but maintains a teacher model whose weights are updated via exponential moving average (EMA). Note that in both SimGCD and SPTNet, the teacher network is never trained directly, it is simply a detached version of the student model.
 
+[GET: Unlocking the Multi-modal Potential of CLIP for Generalized Category Discovery](https://arxiv.org/pdf/2403.09974) outperforms SimGCD in visual similar categories using CLIP text encoder. 
+
 [SelEx](https://arxiv.org/pdf/2408.14371) is based on GCD, with improvements coming from the clustering component to ensure balanced clusters during training, as well as from the use of both supervised and unsupervised self-expertise. Self-Expertise assigns different weights to samples depending on whether they are positive or negative, and this weighting is influenced by their class hierarchies (coarse or fine-grained).
 
 Some GCD or NCD (Novel Category Discovery) e.g. [UNO](https://arxiv.org/pdf/2108.08536) methods are based on pioneering works such as [SeLa (Asano)](https://arxiv.org/pdf/1911.05371): self-labeling via simultaneous clustering and representation learning, and [SwAV](https://arxiv.org/pdf/2006.09882).
@@ -78,3 +80,6 @@ Contrastive learning, Sparse autoencoder or older method such as [DEC (Deep Embe
 #### Characteristics of Time Series
 
 [Implicit Reasoning in Deep Time Series Forecasting](https://arxiv.org/pdf/2409.10840): It is observed that certain linear, MLP-based, and patch-based Transformer models generalize effectively in carefully structured out-of-distribution scenarios, suggesting underexplored reasoning capabilities beyond simple pattern memorization.
+
+### Other literature
+

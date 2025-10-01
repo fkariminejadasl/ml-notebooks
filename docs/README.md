@@ -34,6 +34,7 @@ This repository is for my students.
 - [Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models](AIEnhancement.md)
 - [Generative AI](generative.md)
 - [Time Series Augmentation](ts_augmentation.md)
+- [Metrics for Comparing Distributions](distribution_metrics.md)
 
 ### General
 - [Services](services.md)
