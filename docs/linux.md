@@ -169,8 +169,9 @@ This cheat sheet provides a quick reference to common Linux commands. For more d
 ## Examples
 
 ```bash
-# Copy a local file to a remote host:
-scp /path/to/local/file.txt user@remote_host:/path/to/remote/directory/
+# Copy a local file(s) to a remote host:
+# -r: copy directories recursively.
+scp -r /path/to/local/file.txt user@remote_host:/path/to/remote/directory/
 
 # Copy a file from a remote host to the local machine:
 scp user@remote_host:/path/to/remote/file.txt /path/to/local/directory/
@@ -178,11 +179,12 @@ scp user@remote_host:/path/to/remote/file.txt /path/to/local/directory/
 # Synchronize a local directory to a remote host:
 # `-a`: Archive mode (preserves permissions, times, symbolic links, etc.).
 # `-v`: Verbose output.
-# `-z`: Compress data during transfer.
-rsync -avz /path/to/local/directory/ user@remote_host:/path/to/remote/directory/
+# `-z`: Compress data during transfer. Slow option.
+# `-P`: shows progress and allows resume with the same command if interrupted
+rsync -avP /path/to/local/directory/ user@remote_host:/path/to/remote/directory/
 
 # Synchronize a remote directory to the local machine:
-rsync -avz user@remote_host:/path/to/remote/directory/ /path/to/local/directory/
+rsync -avP user@remote_host:/path/to/remote/directory/ /path/to/local/directory/
 
 # Mounts a USB drive at /mnt/usb so you can access its files.
 mount /dev/sdb1 /mnt/usb
