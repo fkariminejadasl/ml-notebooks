@@ -1,11 +1,30 @@
-# Basic Session Management
+# Session Management
+
+Note that all `Ctrl-b` commands are executed within a tmux session. If you are on a cluster (HPC) and run tmux, your session remains active even if your connection to the cluster is lost or the terminal is closed. This is especially useful, for example, when you interactively allocate a GPU using `salloc --gpus=1 --partition=gpu_a100 --time=00:05:00`.
 
 - **Create a New Session**:  
-  `tmux new -s session_name` or just `tmux`
+  `tmux` — Start a new session with a default name  
+  `tmux new -s session_name` — Start a new session and assign it a name
   Or within an active session:  
   `:new-session -s session_name`
-- **Scroll Up/Down and Copy Mode**
-  `Ctrl-b [`: When finish hit `q`
+
+- **Detach from Session**:  
+  `Ctrl-b d` — This detaches you from the current session, leaving it running in the background. 
+  With `tmux ls`, this session will appear in the list unless it has been explicitly killed.
+
+- **Kill a Session**:
+  Simply type `exit`
+  Or within an active session:
+  `Ctrl-b :kill-session -t session_name`
+
+- **Reattach to a Session**:  
+  `tmux a -t session_name` — Attach to a specific session by its name.  
+  You can get the session name from `tmux ls`. For example, if the output is `0: 1 windows`, the command would be `tmux a -t 0`.
+
+  - **List Sessions**:  
+  `tmux ls `  — This lists all sessions   
+  `Ctrl-b s` — This lists all sessions, allowing you to switch between them. 
+
 
 # Window (Page) Management
 
@@ -46,18 +65,3 @@
 
 - **Close a Pane**:  
   `Ctrl-b x` — This closes the current pane.
-
-# Session Management
-
-- **Detach from Session**:  
-  `Ctrl-b d` — This detaches you from the current session, leaving it running in the background.
-
-- **Reattach to a Session**:  
-  `tmux attach -t session_name`
-
-- **List Sessions**:  
-  `tmux ls `  — This lists all sessions   
-  `Ctrl-b s` — This lists all sessions, allowing you to switch between them. 
-
-- **Kill a Session**:  
-  `Ctrl-b :kill-session -t session_name`

@@ -33,8 +33,8 @@ The first time to setup your environment, run below script:
 
 ```bash
 module purge # unload all modules
-module load 2024
-module load Miniconda3/24.7.1-0 # version 24.7.1
+module load 2025 # Check available modules first with `module avail` to ensure you can use this version.
+module load Miniconda3/25.5.1-1 # Check available modules first with `module avail`
 conda init bash
 ```
 
@@ -43,17 +43,33 @@ After that, the basic virtualenv from conda can be created. See below e.g.:
 ```bash
 conda create -n test python=3.10
 conda activate test
-pip install torch # version 2.7.1+cu126
+```
+
+Or instead of `conda` use python virtual env which is faster and lighter. But then you only limited to the python version provided by the cluster. In conda, python versions can be selected.
+
+
+```bash
+module load Python/3.13.1-GCCcore-14.2.0
+python -m venv venv_name  # Or use a full/relative path, e.g. /home/youruser/ven_dir/venv_name
+source /path/to/venv_name/bin/activate  # Or `. /path/to/venv_name/bin/activate` to activate the virtual environment. 
+```
+
+Then install for example `pytorch`. 
+
+```bash
+pip install torch numpy # torch version 2.8.0+cu128
 ```
 
 > When you install PyTorch using `pip install torch`, the GPU-enabled build is installed by default—even on machines without a GPU. You can verify this by running:
 
+``` bash
+ssh gcn1 # Don't forget to activate your Python environment after connecting, as this is a new machine.
+python
+ >> import torch
+ >> torch.tensor([1,2], device="cuda")
 ```
->> ssh gcn1
->> python
-import torch
-torch.tensor([1,2], device="cuda")
-```
+
+> **Note:** If you close your terminal where you typed `ssh` or lose your SSH connection, the allocation will be terminated. To avoid this, start a `tmux` session before running `salloc` so your session persists even if the connection drops. First type `tmux`, then in `tmux` run the `salloc` command.
 
 You can allocate a GPU in interactive mode with the following command:
 
@@ -62,6 +78,8 @@ salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
 ```
 
 Obtain the `partition` name from `accinfo` or by checking the `Snellius partitions/ partitions name` list.
+
+Once a GPU is allocated, you can connect to it via SSH (e.g., `ssh gcn46`). Remember to activate your virtual environment after connecting, as each GPU node is a separate machine.
 
 ## Schedule Tasks
     
