@@ -14,7 +14,8 @@
 | SURF Drive                | [surfdrive.surf.nl](https://surfdrive.surf.nl) |
 | SURF Research Drive       | [researchdrive.surfsara.nl](https://researchdrive.surfsara.nl)  |
 | FNWI Faculty Research Drive | [uva.data.surfsara.nl](https://uva.data.surfsara.nl) |
-| HIPSTER cluster from FNWI | [Feiog HIPSTER](https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html) |
+| HIPSTER cluster for FNWI | [Feiog HIPSTER](https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html) |
+| Crunchomics (CPU-only) cluster for IBED | [Crunchomics](https://crunchomics-documentation.readthedocs.io/en/latest/intro_crunchomics.html#getting-your-environment-ready)|
 | European Open Science Cloud (EOSC) | [EOSC piolot](https://www.eosc-beyond.eu/pilots) |
 
 #### General Services

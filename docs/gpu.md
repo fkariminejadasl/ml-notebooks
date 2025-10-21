@@ -1,4 +1,6 @@
-# Access Snellius GPUs
+# Access GPUs
+
+## Access Snellius GPUs
 
 ### Small Compute via FNWI Faculty and NWO
 The FNWI institute offers small compute resources about three times a year, with each allocation providing approximately 50K-100K SBUs. NWO also provides access to small compute resources.
@@ -8,26 +10,83 @@ Create a ticket at https://servicedesk.surf.nl under "Apply for access / Direct 
 Follow the instructions in the [Setup](#setup) section to create an account.
 
 ### NWO Large Compute
+
 For larger amounts of compute, please refer to possible options in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants) or [Access to compute services](https://www.surf.nl/en/access-to-compute-services). 
 
 ### Research Capacity Computing Services (RCCS)
+
 For more information, visit [RCSS: Research Capacity Computing Services](https://servicedesk.surf.nl/wiki/display/WIKI/RCCS+contract). To find the latest rates for services, search for "SURF Services and Rates" on Google.
+
+## Access Hipster GPUs (FNWI research cluster)
+
+Hipster is the FNWI (Faculty of Science) research cluster. To access Hipster GPUs, see the "Who can use it?" section on the [HIPSTER page](https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html).
+
+## Access Crunchomics (CPU Only)
+
+Crunchomics is the Genomics Compute Environment for SILS and IBED. It provides only CPU resources—no GPUs are available. To request an account, contact the current administrator as listed on the [Crunchomics documentation page](https://crunchomics-documentation.readthedocs.io/en/latest/intro_crunchomics.html#getting-your-environment-ready). The contact person may change, so always check the documentation for the latest information. As of now, you can contact Wim de Leeuw (`w.c.deleeuw@uva.nl`).
+
+Once your account is created, you will receive a username for access (e.g., `username@omics-h0.science.uva.nl`), which you can use to connect via SSH `ssh username@omics-h0.science.uva.nl`. 
 
 ## Setup 
 
+### Setup SSH keys
+
+Create an SSH key or use the one you already have.
+
+To generate a new SSH key, open a terminal and run:
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+This command creates a modern, secure Ed25519 key. If your system or remote service does not support Ed25519, you can generate an RSA key instead:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+When prompted, press **Enter** to accept the default file location, and optionally set a passphrase for added security.
+Once created, your public key will be stored in `~/.ssh/id_ed25519.pub`.
+You can display it with:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copy the contents of this file and add it to your remote service (e.g., GitHub, GitLab, or a server) under **SSH keys**.
+You can then test the connection with:
+
+```bash
+ssh -T git@github.com
+```
+
+#### Snellius
+
 **Create an account**
 
-https://portal.cua.surf.nl : first copied public key in here (only done once)
+https://portal.cua.surf.nl : first copied public key content in here (only done once)
 
 In the case of an issue, create in https://servicedesk.surf.nl a ticket under "Servicedesk / create a ticket" or email servicedesk@surf.nl. 
+
 **Usage**
 
 Use the Snellius (similar for e.g. sshfs/scp):
+
 ```bash
 ssh -X username@snellius.surf.nl
 ```
 
-## Setup environment
+#### Hipster
+
+Access the machine using:
+
+```bash
+ssh -X username@hipster.science.uva.nl
+```
+
+You will be prompted for your password. To enable passwordless access, add your public SSH key to the `~/.ssh/authorized_keys` file on the Hipster machine.
+
+### Setup environment
 
 The first time to setup your environment, run below script:
 
@@ -35,7 +94,7 @@ The first time to setup your environment, run below script:
 module purge # unload all modules
 module load 2025 # Check available modules first with `module avail` to ensure you can use this version.
 module load Miniconda3/25.5.1-1 # Check available modules first with `module avail`
-conda init bash
+conda init # Sets up conda in your shell by adding initialization code to ~/.bashrc so conda activates automatically
 ```
 
 After that, the basic virtualenv from conda can be created. See below e.g.:
@@ -54,7 +113,25 @@ python -m venv venv_name  # Or use a full/relative path, e.g. /home/youruser/ven
 source /path/to/venv_name/bin/activate  # Or `. /path/to/venv_name/bin/activate` to activate the virtual environment. 
 ```
 
-Then install for example `pytorch`. 
+> On Hipster, available modules may differ and can change over time. Always check the [HIPSTER page](https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html) for the latest information.
+
+```bash
+module use /cvmfs/software.eessi.io/init/modules
+module load EESSI/2023.06 # After `module use`, if you do `module avail` this module `EESSI/2023.06` will be listed.
+module load Python/3.11.5-GCCcore-13.2.0 # Hipster seems not have conda. So use python instead. 
+module load CUDA/12.4.0 # This module should be loaded, which is not needed in Snellius.
+```
+
+The rest of creating the virtual environment is the same as above: 
+
+```bash
+python -m venv venv_name  # Or use a full/relative path, e.g. /home/youruser/ven_dir/venv_name
+source /path/to/venv_name/bin/activate  # Or `. /path/to/venv_name/bin/activate` to activate the virtual environment. 
+```
+
+**Check GPU Usage**
+
+Run `nvidia-smi` or install for example `pytorch`. 
 
 ```bash
 pip install torch numpy # torch version 2.8.0+cu128
@@ -63,10 +140,15 @@ pip install torch numpy # torch version 2.8.0+cu128
 > When you install PyTorch using `pip install torch`, the GPU-enabled build is installed by default—even on machines without a GPU. You can verify this by running:
 
 ``` bash
-ssh gcn1 # Don't forget to activate your Python environment after connecting, as this is a new machine.
 python
- >> import torch
- >> torch.tensor([1,2], device="cuda")
+>>> import torch
+>>> torch.tensor([1,2], device="cuda")
+```
+
+In Snellius, first connect to a GPU node such as `gcn1` before running your jobs or activating your Python environment.
+
+```bash
+ssh gcn1 # Don't forget to activate your Python environment after connecting, as this is a new machine.
 ```
 
 > **Note:** If you close your terminal where you typed `ssh` or lose your SSH connection, the allocation will be terminated. To avoid this, start a `tmux` session before running `salloc` so your session persists even if the connection drops. First type `tmux`, then in `tmux` run the `salloc` command.
