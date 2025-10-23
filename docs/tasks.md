@@ -73,6 +73,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
   Note that: Some of the models are Multimodal.
 - **Point Cloud Encoders**: Point Transformer V3 (PTv3), MinkowskiNet
 - **Point Cloud with Text**: OpenScene (Open-vocabulary 3D Scene Understanding/ OV search in 3)
+- **Multimodal**: OmniVinci (NVIDIA)
 - **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V
 
 ### Companies
