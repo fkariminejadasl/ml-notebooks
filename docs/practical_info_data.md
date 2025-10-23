@@ -13,8 +13,10 @@ curl -u username:password surf_public_link -o your_output_file
 **Public link**
 
 - The Surfdrive: https://surfdrive.surf.nl/files/public.php/webdav
-- The UvA Research Drive: https://uva.data.surfsara.nl/public.php/webdav
+- The UvA Research Drive: https://uva.data.surf.nl/public.php/dav/files
 - The SURF Research Drive: https://researchdrive.surfsara.nl/public.php/webdav
+
+> For UvA Research Drive, you need to be logged in first. Use this link: https://uva.data.surf.nl/apps/files.
 
 For the example provided above, here is the code to download the data using curl and then unzip the data. The entire process of obtaining the data and unzipping it took less than 2 minutes for 2.2GB of data. When using with the Google Colab, remember to prefix each command with the ! sign.
 
@@ -24,6 +26,12 @@ unzip mot -d mot_data > /dev/null 2>&1
 ```
 
 There is some information on [SURF wiki for Research Drive](https://servicedesk.surf.nl/wiki/display/WIKI/Uploading+files+to+a+Public+link), [SURF wiki for SURFdrive](https://servicedesk.surf.nl/wiki/display/WIKI/Activating+WebDAV) or older one on [surfnet for SURFdrive](https://wiki.surfnet.nl/display/SURFdrive/Accessing+files+via+WebDAV), but I found it unclear.
+
+This is another example for the UvA Research Drive:
+
+```bash
+curl -u "jKF3B43Ti6Z6PWB:password" https://uva.data.surf.nl/public.php/dav/files/jKF3B43Ti6Z6PWB/?accept=zip -o file.zip
+```
 
 ### Copy Data from the Google Drive to the Google Colab
 
