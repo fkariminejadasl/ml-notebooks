@@ -157,11 +157,19 @@ ssh gcn1 # Don't forget to activate your Python environment after connecting, as
 
 You can allocate a GPU in interactive mode with the following command:
 
+> **Note:** The `salloc` command differs slightly between Snellius and Hipster. The command for Hipster will not work on Snellius, and vice versa, due to differences in SLURM configuration and possibly SLURM versions.
+
+
 ```bash
+# Snellius
 salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
+
+# Hipster
+salloc --gpus=l4:1 --time=00:05:00
+salloc --gres=gpu:l4:1 --cpus-per-task=16 --time=00:5:00 # --cpus-per-task must be given
 ```
 
-Obtain the `partition` name from `accinfo` or by checking the `Snellius partitions/ partitions name` list.
+Obtain the partition name using `sinfo -o "%G"`. On Snellius, `accinfo` also displays the available partitions.
 
 Once a GPU is allocated, you can connect to it via SSH (e.g., `ssh gcn46`). Remember to activate your virtual environment after connecting, as each GPU node is a separate machine.
 
