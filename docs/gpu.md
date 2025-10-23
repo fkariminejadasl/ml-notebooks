@@ -27,6 +27,8 @@ Crunchomics is the Genomics Compute Environment for SILS and IBED. It provides o
 
 Once your account is created, you will receive a username for access (e.g., `username@omics-h0.science.uva.nl`), which you can use to connect via SSH `ssh username@omics-h0.science.uva.nl`. 
 
+For more information, please see [this tutorial](https://ndombrowski.github.io/MicEco2025/source/hpc_howto.html).
+
 ## Setup 
 
 ### Setup SSH keys
