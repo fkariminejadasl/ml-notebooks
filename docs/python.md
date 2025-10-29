@@ -166,7 +166,7 @@ pip check
 
 ## Python Courses
 
-From https://software-carpentry.org/lessons, below courses are offered. 
+From [Software Carpentry](https://software-carpentry.org/lessons), below courses are offered. 
 
 - [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
 - [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder)

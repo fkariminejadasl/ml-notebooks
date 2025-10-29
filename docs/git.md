@@ -198,3 +198,7 @@ This command shows you which files are being tracked and which are pending to be
 ## Links
 
 - [More information on Git from coderefinery](https://coderefinery.github.io/git-collaborative/)
+
+## Courses
+
+From [Software Carpentry](https://software-carpentry.org/lessons), follow "Version control with Git" course.

@@ -1,5 +1,15 @@
 # Access GPUs
 
+1 H100 GPU: 3352 GB/s
+Server: 4/8 GPU 900 GB/s
+Rack = 2 Server
+Pod = 192 Racks 50 GB/s
+
+1 H100 GPU: 3352 GB/s
+Server: 4/8 GPU
+Rack = 2 Server
+Pod = 192 Racks
+
 ## Access Snellius GPUs
 
 ### Small Compute via FNWI Faculty and NWO
@@ -319,7 +329,11 @@ Now, in the local machine, run `http://localhost:local_port`, e.g. `http://local
 This is same as sbatch with runfile.sh but parameters are set in srun. In this way, the bash will be active and you are in the machine.
 
 ```bash
+# srun
 srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
+# salloc: allocates resources but does not connect via SSH; you need to SSH manually.
+salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
+ssh machine_name # e.g. ssh gcn1003
 ```
 
 **Multigpu in single or multi node**

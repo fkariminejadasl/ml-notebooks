@@ -230,3 +230,7 @@ sudo nano /etc/ImageMagick-6/policy.xml
 # Convert the png to pdf 
 convert your_image.png -density 300 your_image.pdf
 ```
+
+## Courses
+
+From [Software Carpentry](https://software-carpentry.org/lessons), follow "The Unix Shell" course.
