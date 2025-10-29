@@ -326,7 +326,7 @@ Now, in the local machine, run `http://localhost:local_port`, e.g. `http://local
 
 > **IMPORTANT**: This part is not recommended. Use it if you want to have a short check and want to use a bash.
 
-This is same as sbatch with runfile.sh but parameters are set in srun. In this way, the bash will be active and you are in the machine.
+This is similar to using `sbatch` with a `runfile.sh`, but here the parameters are set directly in the `srun` or `salloc` command. This way, you get an interactive shell on the allocated machine. You can use either `srun` or `salloc` for this purpose.
 
 ```bash
 # srun
