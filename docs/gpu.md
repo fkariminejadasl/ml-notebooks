@@ -1,15 +1,5 @@
 # Access GPUs
 
-1 H100 GPU: 3352 GB/s
-Server: 4/8 GPU 900 GB/s
-Rack = 2 Server
-Pod = 192 Racks 50 GB/s
-
-1 H100 GPU: 3352 GB/s
-Server: 4/8 GPU
-Rack = 2 Server
-Pod = 192 Racks
-
 ## Access Snellius GPUs
 
 ### Small Compute via FNWI Faculty and NWO
