@@ -40,9 +40,9 @@ This repository is for my students.
 - [Services](services.md)
 - [Git Basics: A Simple Manual](git.md)
 - [Python Basics](python.md)
+- [Linux Basics](linux.md)
 - [Docker Basics](docker.md)
 - [Tmux Basics](tmux.md)
-- [Linux Basics](linux.md)
 
 ### Examples
 - [Scheduler](scheuler.md)

@@ -34,9 +34,9 @@ nav:
     - Services: services.md
     - Git Basics: git.md
     - Python Basics: python.md
+    - Linux Basics: linux.md
     - Docker Basics: docker.md
     - Tmux Basics: tmux.md
-    - Linux Basics: linux.md
   - Examples:
     - Scheduler: scheuler.md
 theme:

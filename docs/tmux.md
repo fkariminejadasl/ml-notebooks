@@ -1,4 +1,6 @@
-# Session Management
+# TMUX
+
+## Session Management
 
 Note that all `Ctrl-b` commands are executed within a tmux session. If you are on a cluster (HPC) and run tmux, your session remains active even if your connection to the cluster is lost or the terminal is closed. This is especially useful, for example, when you interactively allocate a GPU using `salloc --gpus=1 --partition=gpu_a100 --time=00:05:00`.
 
@@ -25,8 +27,33 @@ Note that all `Ctrl-b` commands are executed within a tmux session. If you are o
   `tmux ls `  — This lists all sessions   
   `Ctrl-b s` — This lists all sessions, allowing you to switch between them. 
 
+## Pane Management (Dividing a Window)
 
-# Window (Page) Management
+- **Enter copy/scroll mode**:
+  `Ctrl-b [` — Then you can scroll by `↑, ↓`. To exit, press `q` or `esc`.
+
+- **Split Window Vertically**:  
+  `Ctrl-b %` — This splits the current window into two panes side by side.
+
+- **Split Window Horizontally**:  
+  `Ctrl-b "` — This splits the current window into two panes, one above the other.
+
+- **Switch Between Panes**:  
+  `Ctrl-b ←, →, ↑, ↓`  — This navigates between panes in the respective direction.
+  `Ctrl-b o`  — This cycles through open panes in the current window.  
+  `Ctrl-b ;`  — This toggles between the last two active panes.  
+
+- **Resize Panes**:  
+  `Ctrl-b Ctrl ←, →, ↑, ↓` — Resize pane.  
+  `Ctrl-b :resize-pane -D` — Resize pane downwards.  
+  `Ctrl-b :resize-pane -U` — Resize pane upwards.  
+  `Ctrl-b :resize-pane -L` — Resize pane to the left.  
+  `Ctrl-b :resize-pane -R` — Resize pane to the right.
+
+- **Close a Pane**:  
+  `Ctrl-b x` — This closes the current pane.
+
+## Window (Page) Management
 
 - **Create a New Window (Page)**:  
   `Ctrl-b c`
@@ -43,25 +70,3 @@ Note that all `Ctrl-b` commands are executed within a tmux session. If you are o
 - **Close a Window (Page)**:  
   `Ctrl-b &` — This closes the current window.
 
-# Pane Management (Dividing a Window)
-
-- **Split Window Vertically**:  
-  `Ctrl-b %` — This splits the current window into two panes side by side.
-
-- **Split Window Horizontally**:  
-  `Ctrl-b "` — This splits the current window into two panes, one above the other.
-
-- **Switch Between Panes**:  
-  `Ctrl-b o`  — This cycles through open panes in the current window.  
-  `Ctrl-b ;`  — This toggles between the last two active panes.  
-  `Ctrl-b ←, →, ↑, ↓`  — This navigates between panes in the respective direction.
-
-- **Resize Panes**:  
-  `Ctrl-b Ctrl ←, →, ↑, ↓` — Resize pane.  
-  `Ctrl-b :resize-pane -D` — Resize pane downwards.  
-  `Ctrl-b :resize-pane -U` — Resize pane upwards.  
-  `Ctrl-b :resize-pane -L` — Resize pane to the left.  
-  `Ctrl-b :resize-pane -R` — Resize pane to the right.
-
-- **Close a Pane**:  
-  `Ctrl-b x` — This closes the current pane.
