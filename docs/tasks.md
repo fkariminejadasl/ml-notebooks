@@ -53,7 +53,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Vision Encoders:** Vision-Only Model Encoders: PE (Perception Encoder, Mets), DINO, MAE (Masked Autoencoders), ResNet. Vision-Text Model Encoders: AIMv2, SigLIP, CLIP, BLIP. Vision-Text Encoder for Generation: LlamGen. E.g. In Janus (DeepSeek), LlamaGen is used for Geneneation Encoder and SigLIP for Understanding Encoder.
 - **Depth Map:** DepthAnything, Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
 - **Optical Flow:** SEA RAFT, RAFT
-- **3D/4D Reconstruction:** VGGT, COLMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), 
+- **3D/4D Reconstruction:** ViPE, VGGT, COLMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (ViPE, St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), 
 - **Point Matching and Point Tracking:** TAP (CoTracker3, TAPIR, PIP), SAM2 (Segment and Tracking Anything: SAM combined with DeAOT);SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, 
 - **Multi-Object Tracking (MOT):**: SAM2 (Segment Anything Model 2) for image and video, MOTR, ByteTrack, BoT-Sort, FairMOT
 - **Referred Multi-Object Tracking / Text-guided Spatial Video Grounding (SVG):** TempRMOT
