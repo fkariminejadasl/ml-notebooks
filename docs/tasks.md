@@ -71,7 +71,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Vision Language Models (VLMs)**: image, multi-image, video. Open VLMs: PLM (Perception LM, Meta), Cosmos Nemotron (NVidia), DeepSeek-VL2 (DeepSeek), QWen2-VL (Alibaba), InternVL2 (OpenGVLab), LLAVA 1.5, LLama3.2 (mainly LLM), Cambrian-1, CogVLM2 (Tsinghua University), MolMo (Ai2), SmolVLM (Hugging Face). Proprietary: GPT-40 (OpenAI), Claude Sonnet 3.5 (Claude), Gemini 1.5 Pro (Google)
 - **Large Language Models (LLMs):**  Open source: DeepSeek v3 (DeepSeek),Qwen (Alibaba), LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma 3 (Google),  OLMo 2 (Ai2), Helium-1 (Kyutai), Sky-T1-32B (UC Berkeley), Cerebras-GPT (Cerebras). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Nova (Amazon), Flash 3, Nexus (Reka AI)
   Note that: Some of the models are Multimodal.
-- **Point Cloud Encoders**: Point Transformer V3 (PTv3), MinkowskiNet
+- **Point Cloud Encoders**: Sonata, Point Transformer V3 (PTv3), MinkowskiNet
 - **Point Cloud with Text**: OpenScene (Open-vocabulary 3D Scene Understanding/ OV search in 3)
 - **Multimodal**: OmniVinci (NVIDIA)
 - **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V
