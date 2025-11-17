@@ -47,6 +47,9 @@ This repository is for my students.
 ### Examples
 - [Scheduler](scheuler.md)
 
+### Miscellaneous:
+- [GEE](GEE.md)
+
 ## 🚀 Notebook Examples
 | **notebook** | **open in colab** |
 |:------------:|:-------------------------------------------------:|

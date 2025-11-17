@@ -39,5 +39,7 @@ nav:
     - Tmux Basics: tmux.md
   - Examples:
     - Scheduler: scheuler.md
+  - Miscellaneous:
+    - Google Earth Engine: GEE.md
 theme:
   name: material #readthedocs
