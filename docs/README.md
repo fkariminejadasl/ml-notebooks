@@ -30,11 +30,12 @@ This repository is for my students.
 - [Example Tasks for Large Language, Multimodal, and Vision Models](tasks.md)
 - [Companies](companies.md)
 - [Handling Variable Sequence Lengths in Transformer Models](transformer_models_with_variable_sequence_lengths.md)
-- [PointCloud](pointclouds.md)
+- [Installing Deep Learning Tools for Point Cloud Segmentation](segmenttree_install.md)
 - [Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models](AIEnhancement.md)
 - [Generative AI](generative.md)
 - [Time Series Augmentation](ts_augmentation.md)
 - [Metrics for Comparing Distributions](distribution_metrics.md)
+- [Simulation: Generation / Editing](simulation.md)
 
 ### General
 - [Services](services.md)
