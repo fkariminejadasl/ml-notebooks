@@ -1,13 +1,3 @@
-# Access GPUs
-1 H100 GPU: 3352 GB/s
-Server: 4/8 GPU 900 GB/s
-Rack = 2 Server
-Pod = 192 Racks 50 GB/s
-
-1 H100 GPU: 3352 GB/s
-Server: 4/8 GPU
-Rack = 2 Server
-Pod = 192 Racks
 ## Access Snellius GPUs
 
 ### Small Compute via FNWI Faculty and NWO
@@ -228,7 +218,7 @@ ssh-keygen -R gcn1
 
 #### Run a job:
 
-There is a web-based interface to request resources for interactive session via [this link](https://ondemand.snellius.surf.nl). However, I recommend using a SLURM job instead; see below for details.
+There is a web-based interface to request resources for interactive session via [ondemand](https://ondemand.snellius.surf.nl). However, I recommend using a SLURM job instead; see below for details.
 
 
 NB. The run file should be executable. Make it executable with `chmod a+x runfile.sh`.
