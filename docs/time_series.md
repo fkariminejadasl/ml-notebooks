@@ -5,8 +5,8 @@
 In all these works, the code, model and weights are released: 
 
 - [MOMENT (Auton Lab, 2024)](https://github.com/moment-timeseries-foundation-model/moment)
-- [Chronos (AWS, 2024)](https://arxiv.org/abs/2403.07815), 
-- [MOIRAI-MOE (Silvio Savarese, Salesforce Research, 2024)](https://arxiv.org/abs/2410.10469): Time-series foundation model, which uses mixture of expertes to select for different data frequencies. It is build upon [MOIRAI (Salesforce Research, 2024)](https://arxiv.org/abs/2402.02592). 
+- [Chronos-2](https://arxiv.org/pdf/2510.15821), [Chronos (AWS, 2024)](https://arxiv.org/abs/2403.07815)
+- [Moirai 2.0](https://www.arxiv.org/pdf/2511.11698), [MOIRAI-MOE (Silvio Savarese, Salesforce Research, 2024)](https://arxiv.org/abs/2410.10469): Time-series foundation model, which uses mixture of expertes to select for different data frequencies. It is build upon [MOIRAI (Salesforce Research, 2024)](https://arxiv.org/abs/2402.02592). 
 - [Timer-XL (Tsinghua University, 2025)](https://arxiv.org/abs/2410.04803) implemented other methods as well in [here](https://github.com/thuml/OpenLTM/blob/main/models/moirai.py). The older work is [Timer (2024)](https://arxiv.org/abs/2402.02368) and the newer work [Sundial (2025)](https://arxiv.org/abs/2502.00816).
 - [TOTO (Datadog, 2025)](https://arxiv.org/pdf/2505.14766) comes with code and weights
 - [TOTEM (Georgia Gkioxari, Caltech, 2024)](https://arxiv.org/abs/2402.16412)
