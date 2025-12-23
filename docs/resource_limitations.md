@@ -61,34 +61,7 @@ for inputs, labels in data_loader:
 
 **Using bf16 (bfloat16) in PyTorch:**
 
-It can be the same as float16 or follow the code below for using without scaler.
-
-```python
-import torch
-import torch.nn as nn
-import torch.optim as optim
-
-# Check if bf16 is supported
-if torch.cuda.is_bf16_supported():
-    dtype = torch.bfloat16
-else:
-    raise RuntimeError("Bfloat16 not supported on this device")
-
-# Initialize model, optimizer, and other components
-model = MyModel().to(dtype=dtype, device='cuda')
-optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
-
-for inputs, labels in data_loader:
-    inputs, labels = inputs.to(dtype=dtype, device='cuda'), labels.to(device='cuda')
-
-    optimizer.zero_grad()
-    
-    outputs = model(inputs)
-    loss = loss_fn(outputs, labels)
-    
-    loss.backward()
-    optimizer.step()
-```
+It is the same as fp16 but without a scaler.
 
 ## Pytorch Profiling
 
