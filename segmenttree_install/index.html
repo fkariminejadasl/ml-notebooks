@@ -1,0 +1,2669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/segmenttree_install/">
+      
+      
+        <link rel="prev" href="../transformer_models_with_variable_sequence_lengths/">
+      
+      
+        <link rel="next" href="../AIEnhancement/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Installing Deep Learning Tools for Point Cloud Segmentation - ML Notebooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#minkowskiengine-installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ML Notebooks" class="md-header__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ML Notebooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installing Deep Learning Tools for Point Cloud Segmentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ML Notebooks" class="md-nav__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ML Notebooks
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Tutorials and Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Snellius GPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning_project_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Project Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_lightning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pytorch Lightning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical_info_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Information about Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared Jupyter Notebook in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradio App in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_hf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hugging Face Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres_plpython3u/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up a Custom Python Function within PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training and Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference with Limited Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../improve_training_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Improve Deep Learning Training Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDP(Distributed Data Parallel in PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses and Literature
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses and Literature
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses in Deep Learning and Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Detection: A Quick Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Localization, Mapping, 3D Reconstruction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blogpost
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blogpost
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example Tasks for Large Language, Multimodal, and Vision Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../companies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer_models_with_variable_sequence_lengths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Variable Sequence Lengths in Transformer Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Deep Learning Tools for Point Cloud Segmentation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Deep Learning Tools for Point Cloud Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minkowskiengine-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MinkowskiEngine Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MinkowskiEngine Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Snellius
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="On Snellius">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-cuda-12-with-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker CUDA 12 with the Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-minkowskiengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test MinkowskiEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-other-packages-for-segmentanytree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install other packages For SegmentAnyTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-segmentanytree-from-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run SegmentAnyTree From Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run SegmentAnyTree From Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-a-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On a local computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-snellius_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-treelearn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install TreeLearn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-forainet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install ForAINet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-compute-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU Compute Capability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-modules-available-on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA modules available on Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-modules-paths-on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA modules paths on Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tried-but-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tried but failed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tried but failed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip-deprecation-build-option-and-global-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip DEPRECATION: --build-option and --global-option
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distutil-issue-with-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distutil issue with Numpy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-openbals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find openbals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-installation-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA installation in Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AIEnhancement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ts_augmentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series Augmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics for Comparing Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation: Generation / Editing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tmux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revealjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slides from Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheuler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Miscellaneous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GEE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minkowskiengine-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MinkowskiEngine Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MinkowskiEngine Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Snellius
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="On Snellius">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-cuda-12-with-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker CUDA 12 with the Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-minkowskiengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test MinkowskiEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-other-packages-for-segmentanytree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install other packages For SegmentAnyTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-segmentanytree-from-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run SegmentAnyTree From Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run SegmentAnyTree From Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-a-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On a local computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-snellius_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-treelearn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install TreeLearn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-forainet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install ForAINet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-compute-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU Compute Capability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-modules-available-on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA modules available on Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-modules-paths-on-snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA modules paths on Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tried-but-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tried but failed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tried but failed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip-deprecation-build-option-and-global-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip DEPRECATION: --build-option and --global-option
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distutil-issue-with-numpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distutil issue with Numpy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-openbals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find openbals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-installation-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA installation in Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Installing Deep Learning Tools for Point Cloud Segmentation</h1>
+
+<h2 id="minkowskiengine-installation">MinkowskiEngine Installation</h2>
+<h3 id="on-snellius">On Snellius</h3>
+<p><code>conda</code> should be installed first. This part doesn't require GPU machine and only done once.</p>
+<pre><code class="language-bash">module load 2023
+module load Anaconda3/2023.07-2
+conda init
+</code></pre>
+<p>After <code>conda init</code>, the terminal should be closed. So be careful, if you allocated the GPU, you will loss your GPUs, unless you do <code>ssh</code> to the allocated machine. E.g. <code>ssh gcn14</code>. </p>
+<blockquote>
+<p><code>MinkowskiEngine</code> requires GPU. You can ask for GPU by <code>salloc</code>.</p>
+</blockquote>
+<h4 id="cuda-11">CUDA 11</h4>
+<pre><code class="language-bash">salloc --gpus=1 --partition=gpu --time=02:00:00
+
+# MinkowskiEngine==0.5.4
+conda create -n mink2 python=3.8
+python activate mink2
+module load 2022
+module load CUDA/11.7.0 # CUDA/11.6.0 was giving error
+conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+conda install openblas-devel -c anaconda
+
+git clone https://github.com/NVIDIA/MinkowskiEngine.git
+cd MinkowskiEngine
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<p>Note that CUDA is backwards compatible, so <code>CUDA 11.1</code> can be also used for all packages.</p>
+<pre><code class="language-bash">pip install numpy==1.19.5
+conda install pytorch=1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=11.1 -c pytorch -c nvidia
+</code></pre>
+<h4 id="cuda-12">CUDA 12</h4>
+<p>Only runs on H100. <code>MinkowskiEngine</code> doesn't work before some changes in the <code>MinkowskiEngine</code> code. This fix is described here.</p>
+<p><strong>Fix</strong>: There is an issue described in <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/594#issuecomment-2294860926">here</a>. This fix is based on <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/543#issuecomment-1773458776">this link</a>.</p>
+<ul>
+<li>Get the code</li>
+</ul>
+<pre><code class="language-bash">git clone https://github.com/NVIDIA/MinkowskiEngine.git 
+cd MinkowskiCu12
+</code></pre>
+<ul>
+<li>Fix the code</li>
+</ul>
+<pre><code class="language-bash">1 - .../MinkowskiEngine/src/convolution_kernel.cuh
+
+Add header:
+#include &lt;thrust/execution_policy.h&gt;
+
+2 - .../MinkowskiEngine/src/coordinate_map_gpu.cu
+
+Add headers:
+
+#include &lt;thrust/unique.h&gt;
+#include &lt;thrust/remove.h&gt;
+
+3 - .../MinkowskiEngine/src/spmm.cu
+
+Add headers:
+
+#include &lt;thrust/execution_policy.h&gt;
+#include &lt;thrust/reduce.h&gt; 
+#include &lt;thrust/sort.h&gt;
+
+4 - .../MinkowskiEngine/src/3rdparty/concurrent_unordered_map.cuh
+
+Add header:
+#include &lt;thrust/execution_policy.h&gt;
+</code></pre>
+<ul>
+<li>Installation</li>
+</ul>
+<pre><code class="language-bash">salloc --gpus=1 --partition=gpu_h100 --time=02:00:00
+
+module load 2023
+module load CUDA/12.1.1
+conda create -n mink-cu12 python=3.8
+conda activate mink-cu12
+# https://pytorch.org/get-started/previous-versions/
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install openblas-devel -c anaconda
+
+cd ~/dev/MinkowskiCu12
+# Before this command apply the Fix. 
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<h4 id="docker-cuda-12-with-the-fix">Docker CUDA 12 with the Fix</h4>
+<p>This information is from <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/543#issuecomment-2371637255">here</a>.</p>
+<p>The base image is <code>nvidia/cuda:12.1.1-devel-ubuntu20.04</code> with <code>PyTorch 2.3.1</code> and <code>CUDA 12.1</code>.</p>
+<pre><code class="language-bash">ENV CUDA_HOME=/usr/local/cuda
+ENV TORCH_CUDA_ARCH_LIST=&quot;6.0 6.1 6.2 7.0 7.2 7.5 8.0 8.6 8.9&quot;
+ENV TORCH_NVCC_FLAGS=&quot;-Xfatbin -compress-all&quot;
+RUN git clone https://github.com/NVIDIA/MinkowskiEngine.git /tmp/MinkowskiEngine \
+    &amp;&amp; cd /tmp/MinkowskiEngine \
+    &amp;&amp; sed -i '31i #include &lt;thrust/execution_policy.h&gt;' ./src/convolution_kernel.cuh \
+    &amp;&amp; sed -i '39i #include &lt;thrust/unique.h&gt;\n#include &lt;thrust/remove.h&gt;' ./src/coordinate_map_gpu.cu \
+    &amp;&amp; sed -i '38i #include &lt;thrust/execution_policy.h&gt;\n#include &lt;thrust/reduce.h&gt;\n#include &lt;thrust/sort.h&gt;' ./src/spmm.cu \
+    &amp;&amp; sed -i '38i #include &lt;thrust/execution_policy.h&gt;' ./src/3rdparty/concurrent_unordered_map.cuh \
+    &amp;&amp; python setup.py install --force_cuda --blas=openblas \
+    &amp;&amp; cd - \
+    &amp;&amp; rm -rf /tmp/MinkowskiEngine
+</code></pre>
+<h4 id="test-minkowskiengine">Test MinkowskiEngine</h4>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import MinkowskiEngine as ME
+import sys
+sys.path.insert(0,&quot;~/dev/MinkowskiEngine/tests/python&quot;)
+from common import data_loader
+
+class ExampleNetwork(ME.MinkowskiNetwork):
+    def __init__(self, in_feat, out_feat, D):
+        super(ExampleNetwork, self).__init__(D)
+        self.conv1 = nn.Sequential(
+            ME.MinkowskiConvolution(
+                in_channels=in_feat,
+                out_channels=64,
+                kernel_size=3,
+                stride=2,
+                dilation=1,
+                bias=False,
+                dimension=D),
+            ME.MinkowskiBatchNorm(64),
+            ME.MinkowskiReLU())
+        self.conv2 = nn.Sequential(
+            ME.MinkowskiConvolution(
+                in_channels=64,
+                out_channels=128,
+                kernel_size=3,
+                stride=2,
+                dimension=D),
+            ME.MinkowskiBatchNorm(128),
+            ME.MinkowskiReLU())
+        self.pooling = ME.MinkowskiGlobalPooling()
+        self.linear = ME.MinkowskiLinear(128, out_feat)
+    def forward(self, x):
+        out = self.conv1(x)
+        out = self.conv2(out)
+        out = self.pooling(out)
+        return self.linear(out)
+
+criterion = nn.CrossEntropyLoss()
+net = ExampleNetwork(in_feat=3, out_feat=5, D=2)
+print(net)
+
+# a data loader must return a tuple of coords, features, and labels.
+coords, feat, label = data_loader()
+input = ME.SparseTensor(feat, coordinates=coords)
+# Forward
+output = net(input)
+
+# Loss
+loss = criterion(output.F, label)
+</code></pre>
+<h2 id="install-other-packages-for-segmentanytree">Install other packages For SegmentAnyTree</h2>
+<pre><code class="language-bash"># open3d, torch-sparse, torch-spline-conv: very slow
+# torch-points-kernels: different version of numpy, sklearn
+# Issue with pip install torch-scatter, torch-sparse, torch-cluster, torch-geometric. 
+# I use it from: https://github.com/prs-eth/PanopticSegForLargeScalePointCloud
+pip install torch-scatter==2.0.8 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-sparse==0.6.12 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.2.1 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html 
+pip install torch-geometric==1.7.2
+
+pip install -U pip
+pip install hydra-core wandb tqdm gdown types-six types-requests h5py
+pip install numpy scikit-image numba 
+pip install matplotlib
+pip install plyfile
+pip install torchnet tensorboard
+pip install open3d
+pip install torch-scatter torch-sparse torch-cluster torch-geometric pytorch_metric_learning torch-points-kernels
+TORCH_CUDA_ARCH_LIST=&quot;6.0;7.0;7.5;8.0;8.6;9.0&quot; FORCE_CUDA=1
+pip install cython
+pip install torch-spline-conv
+pip install git+https://github.com/mit-han-lab/torchsparse.git # failed to install
+</code></pre>
+<h2 id="run-segmentanytree-from-docker">Run SegmentAnyTree From Docker</h2>
+<h4 id="on-a-local-computer">On a local computer</h4>
+<p>You need to install the NVIDIA Container Toolkit. Follow the instructions <a href="../docker/#installing-the-nvidia-container-toolkit">here</a>.</p>
+<pre><code class="language-bash">docker pull donaldmaen/segment-any-tree
+
+docker run -it --gpus all --name SAT     --mount type=bind,source=/home/fatemeh/Downloads/tree/SAT/,target=/home/nibio/mutable-outside-world/bucket_in_folder     --mount type=bind,source=/home/fatemeh/Downloads/tree/SAT/out,target=/home/nibio/mutable-outside-world/bucket_out_folder   --mount type=bind,source=/home/fatemeh/Downloads/tree/ds,target=/home/datascience  donaldmaen/segment-any-tree
+</code></pre>
+<h4 id="on-snellius_1">On Snellius</h4>
+<p>Since Snellius uses <code>apptainer</code> instead of Docker, follow these steps:</p>
+<pre><code class="language-bash"># On Snellius, the GPU container option is enabled. Run this command inside Apptainer to check if it detects the GPU:
+# First, request a GPU with the following command:
+salloc --gpus=1 --partition=gpu --time=01:00:00
+
+# Test GPU visibility inside Apptainer:
+apptainer run --nv docker://nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi
+
+# Pull the container image:
+apptainer pull docker://donaldmaen/segment-any-tree
+
+# Start an interactive shell session with Apptainer:
+apptainer shell --nv  --bind /home/user/data/tree/sat:/home/nibio/mutable-outside-world/bucket_in_folder     --bind /home/user/data/tree/sat/output:/home/nibio/mutable-outside-world/bucket_out_folder  --bind /home/user/data/tree/ds:/home/datascience    /home/user/segment-any-tree_latest.sif
+
+# Once inside Apptainer, run the following commands:
+Apptainer&gt; cd dev/SegmentAnyTree/
+Apptainer&gt; bash run_oracle_pipeline.sh
+</code></pre>
+<p>Note that if you use apptainer run instead of apptainer shell, it runs everything automatically.</p>
+<h2 id="install-treelearn">Install TreeLearn</h2>
+<p>This content is adapted from the <a href="https://github.com/ecker-lab/TreeLearn/blob/main/TreeLearn_Pipeline.ipynb">TreeLearn Pipeline Notebook</a>.</p>
+<pre><code class="language-bash"># Note that newer version laspy[lazrs] gives error 
+# spconv-cu120 comes with warnings and then Floating point exception (core dumped).
+conda create -n treelearn python=3.9
+conda activate treelearn
+pip install torch torch-scatter timm laspy[lazrs]==2.5.1 munch pandas plyfile pyyaml scikit-learn six tqdm open3d-cpu jakteristics shapely geopandas alphashape spconv-cu114 tensorboard tensorboardX
+cd ~/dev
+git clone https://github.com/ecker-lab/TreeLearn.git
+cd TreeLearn
+pip install -e .
+
+mkdir -p ~/Downloads/tree/treelearn/checkpoints
+cd ~/Downloads/tree/treelearn
+mkdir -p pipeline/forests
+
+wget https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/1JMEQV -O checkpoints/model_weights.pth
+# https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/C1AHQW for model_weights_diverse_training_data.pth
+
+wget https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/0WDXL6 -O pipeline/forests/plot_7_cut.laz
+
+cd ~/dev/TreeLearn
+python
+</code></pre>
+<p>For Snellius with CUDA11: </p>
+<pre><code class="language-bash">module load 2022
+module load Anaconda3/2022.05
+conda init
+# exit and ssh again then conda will be in .bashrc
+
+module load 2022
+module load CUDA/11.7.0
+
+conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+# pytorch 1.11 has issue with new numpy
+pip install numpy==1.26
+# I install torch-scatter first to see if there is an issue. 
+pip install torch-scatter
+# Install the rest as above
+</code></pre>
+<pre><code class="language-python"># for python path
+sys.path.append(&quot;/home/user/dev/TreeLearn/tools/pipeline&quot;)
+config_path = &quot;/home/user/dev/TreeLearn/configs/pipeline/pipeline.yaml&quot;
+config.forest_path = &quot;/home/user/data/tree/treelearn/pipeline/forests/plot_7_cut.laz&quot;
+config.dataset_test.data_root = &quot;/home/user/data/tree/treelearn/pipeline/forests/tiles&quot;
+config.pretrain = &quot;/home/user/data/tree/treelearn/checkpoints/model_weights.pth&quot;
+</code></pre>
+<pre><code class="language-python">import sys
+sys.path.append(&quot;/home/fatemeh/dev/TreeLearn/tools/pipeline&quot;)
+from pipeline import run_treelearn_pipeline
+import argparse, pprint
+from tree_learn.util import get_config
+
+config_path = &quot;/home/fatemeh/dev/TreeLearn/configs/pipeline/pipeline.yaml&quot;
+config = get_config(config_path)
+
+# adjust config
+config.forest_path = &quot;/home/fatemeh/Downloads/tree/treelearn/pipeline/forests/plot_7_cut.laz&quot;
+config.dataset_test.data_root = &quot;/home/fatemeh/Downloads/tree/treelearn/pipeline/forests/tiles&quot;
+config.pretrain = &quot;/home/fatemeh/Downloads/tree/treelearn/checkpoints/model_weights.pth&quot;
+config.tile_generation = True
+config.sample_generation.stride = 0.9 # small overlap of tiles
+config.shape_cfg.outer_remove = False # default value = 13.5
+config.save_cfg.save_treewise = False
+config.save_cfg.return_type = &quot;voxelized_and_filtered&quot;
+print(pprint.pformat(config.toDict(), indent=2))
+
+import logging
+logger = logging.getLogger(&quot;TreeLearn&quot;)
+for handler in logger.handlers[:]:
+    logger.removeHandler(handler)
+logging.basicConfig()
+ch = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+logger.setLevel(logging.INFO)
+
+run_treelearn_pipeline(config)
+</code></pre>
+<h2 id="install-forainet">Install ForAINet</h2>
+<p>Follow the rest of the <a href="https://github.com/prs-eth/PanopticSegForLargeScalePointCloud?tab=readme-ov-file#example-1-of-installation">installation guide</a>. However, a few changes need to be made. Follow the steps below:</p>
+<ul>
+<li>The guide mentions that <code>requirements.txt</code> should be installed, but the file is not provided. Additionally, <code>torch-cluster</code> should be installed from a separate file.</li>
+<li><code>MinkowskiEngine</code> should be installed locally.  </li>
+</ul>
+<pre><code class="language-bash"># make requirements.txt from https://github.com/nicolas-chaulet/torch-points3d/blob/master/requirements.txt
+# remove: omegaconf, hydra-core and replace by hydra-core&gt;=1.0.0,&lt;1.1.0
+# remove: torch-scatter, torch-sparse, torch-cluster, torch-geometric, torch, torchvision, numpy
+pip install torch-scatter==2.0.8 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-sparse==0.6.12 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-geometric==1.7.2
+
+# Don't do: export CUDA_HOME=/usr/local/cuda-11
+# Don't do: pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --install-option=&quot;--blas_include_dirs=${CONDA_PREFIX}/include&quot; –install-option=&quot;--blas=openblas&quot;
+module load 2022
+module load CUDA/11.7.0 # CUDA/11.6.0 was giving error
+git clone https://github.com/NVIDIA/MinkowskiEngine.git
+cd MinkowskiEngine
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<h2 id="tools">Tools</h2>
+<p><a href="https://github.com/ch-sa/labelCloud">labelCloud</a> is installed both on python 3.9, 3.10 but run with errors. </p>
+<p>point cloud annotation tools:
+https://chatgpt.com/share/67adeacf-bef8-8011-ba02-c59ae671126c</p>
+<ul>
+<li>cloudcompare for visualization: <code>sudo snap install cloudcompare</code>. Note that <code>sudo apt install cloudcompare</code> can't open <code>.laz</code> file.</li>
+</ul>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<h4 id="gpu-compute-capability">GPU Compute Capability</h4>
+<p>You can define from the below code or from <a href="https://developer.nvidia.com/cuda-gpus">GPU Compute Capability</a>.</p>
+<pre><code class="language-python">import torch
+torch.cuda.get_device_capability()
+</code></pre>
+<p>H100: 9.0, A100: 8.6</p>
+<h4 id="cuda-modules-available-on-snellius">CUDA modules available on Snellius</h4>
+<pre><code class="language-bash"># module load 2024
+CUDA/12.6.0
+cuDNN/9.5.0.50-CUDA-12.6.0
+
+# module load 2023
+CUDA/12.1.1 
+CUDA/12.4.0
+cuDNN/8.9.2.26-CUDA-12.1.1
+
+# module load 2022
+CUDA/11.6.0    
+CUDA/11.7.0
+CUDA/11.8.0
+cuDNN/8.4.1.50-CUDA-11.7.0
+cuDNN/8.6.0.163-CUDA-11.8.0
+</code></pre>
+<h4 id="cuda-modules-paths-on-snellius">CUDA modules paths on Snellius</h4>
+<p>To get the path information such as <code>CUDA_HOME</code>, <code>CUDA_PATH</code>, <code>PAHT</code>, <code>LIBRARY_PATH</code>, <code>LD_LIBRARY_PATH</code> use: </p>
+<pre><code class="language-bash">module load CUDA/12.6.0
+module display CUDA/12.6.0
+</code></pre>
+<h3 id="tried-but-failed">Tried but failed</h3>
+<p>These are my previos attemps to solve issues encountered. But resolvinig issues didn't install MinkowskiEngine. But it is worth mentioning them here.</p>
+<h4 id="pip-deprecation-build-option-and-global-option">pip DEPRECATION: --build-option and --global-option</h4>
+<p>This option doesn't work, even with the <code>--no-build-isolation</code> fix.</p>
+<pre><code class="language-bash">export CXX=g++
+pip install -U git+https://github.com/NVIDIA/MinkowskiEngine --no-build-isolation -v --config-settings=build_option=--force_cuda --config-settings=blas_include_dirs=${CONDA_PREFIX}/include --config-settings=blas=openblas
+</code></pre>
+<p>MinkowskiEngine requires torch at build time, pip’s default build isolation can cause “Pytorch not found” errors. <code>--no-build-isolation</code> tells pip not to create a temporary/isolated environment at build time and instead to use the packages in your current conda/pip environment (where you have PyTorch installed).</p>
+<h4 id="distutil-issue-with-numpy">Distutil issue with Numpy</h4>
+<p><code>numpy.distutils</code> removed after numpy=1.24.</p>
+<pre><code class="language-bash">conda install &quot;numpy=1.23.*&quot; setuptools pip wheel
+</code></pre>
+<h4 id="find-openbals">Find openbals</h4>
+<pre><code class="language-bash">OPENBLAS=$(find ~/.conda/envs/test -name &quot;libopenblas.so&quot; | head -n 1)
+export LD_LIBRARY_PATH=$(dirname $OPENBLAS):$LD_LIBRARY_PATH
+pip install --no-cache-dir --force-reinstall numpy
+</code></pre>
+<pre><code class="language-bash"># &gt;&gt;&gt; np.__config__.show()
+  &quot;Build Dependencies&quot;: {
+    &quot;blas&quot;: {
+      &quot;name&quot;: &quot;scipy-openblas&quot;,
+      &quot;found&quot;: true,
+      &quot;version&quot;: &quot;0.3.28&quot;,
+      &quot;detection method&quot;: &quot;pkgconfig&quot;,
+      &quot;include directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/include&quot;,
+      &quot;lib directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/lib&quot;,
+      &quot;openblas configuration&quot;: &quot;OpenBLAS 0.3.28  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64&quot;,
+      &quot;pc file directory&quot;: &quot;/project/.openblas&quot;
+    },
+    &quot;lapack&quot;: {
+      &quot;name&quot;: &quot;scipy-openblas&quot;,
+      &quot;found&quot;: true,
+      &quot;version&quot;: &quot;0.3.28&quot;,
+      &quot;detection method&quot;: &quot;pkgconfig&quot;,
+      &quot;include directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/include&quot;,
+      &quot;lib directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/lib&quot;,
+      &quot;openblas configuration&quot;: &quot;OpenBLAS 0.3.28  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64&quot;,
+      &quot;pc file directory&quot;: &quot;/project/.openblas&quot;
+    }
+  }
+</code></pre>
+<h4 id="cuda-installation-in-docker">CUDA installation in Docker</h4>
+<pre><code class="language-bash"># docker pull or From
+# nvidia/cuda:12.6.0-runtime-ubuntu22.04
+# nvidia/cuda:12.6.0-devel-ubuntu22.04
+# nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
+
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
+sh cuda_11.1.1_455.32.00_linux.run --silent --toolkit
+
+export PATH=/usr/local/cuda-11.1/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64:$LD_LIBRARY_PATH
+export CUDA_HOME=/usr/local/cuda-11.1
+</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li>TreeLearn: ~30M parameters <a href="https://github.com/ecker-lab/TreeLearn/tree/main">github</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1574954124004308">paper</a></li>
+<li>SegmentAnyTree: ~12M parameters, <a href="https://github.com/SmartForest-no/SegmentAnyTree">paper</a></li>
+<li>ForAINet: <a href="https://arxiv.org/pdf/2312.15084">paper</a>, <a href="https://github.com/prs-eth/ForAINet/tree/main">github</a></li>
+</ul>
+<p>TreeLearn, SegmentAnyTree, and ForAINet are based on <a href="https://arxiv.org/abs/2004.01658">PointGroup</a> model. NB <a href="https://arxiv.org/abs/2203.01509">SoftGroup</a> is improved version of the <a href="https://arxiv.org/abs/2004.01658">PointGroup</a>.</p>
+<p><a href="https://arxiv.org/pdf/2305.02651">Point2Tree</a> utilizes PointNet++ for semantic segmentation and employs a "Bayesian flow approach," a non-deep-learning method, for instance segmentation.</p>
+<p><a href="https://www.mdpi.com/2072-4292/13/8/1413">FSCT</a>(<a href="https://github.com/SKrisanski/FSCT">code</a>) is a semantic segmentation model, seemingly based on PointNet++.</p>
+<p><a href="https://github.com/philwilkes">TLS2Tree</a> performs instance segmentation of individual trees, leveraging the FSCT semantic segmentation model as a preprocessing step. Notably, it does not rely on deep learning.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
