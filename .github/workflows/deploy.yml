@@ -26,6 +26,7 @@ jobs:
       run: |
         pip install mkdocs
         pip install mkdocs-material  # Only if using the Material theme
+        pip install pymdown-extensions  # for formula support
 
     - name: Deploy to GitHub Pages
       run: |

@@ -45,3 +45,8 @@ nav:
     - Google Earth Engine: GEE.md
 theme:
   name: material #readthedocs
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
