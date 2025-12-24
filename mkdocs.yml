@@ -38,6 +38,7 @@ nav:
     - Linux Basics: linux.md
     - Docker Basics: docker.md
     - Tmux Basics: tmux.md
+    - Slides from Markdown: revealjs.md
   - Examples:
     - Scheduler: scheuler.md
   - Miscellaneous:

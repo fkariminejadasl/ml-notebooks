@@ -44,6 +44,7 @@ This repository is for my students.
 - [Linux Basics](linux.md)
 - [Docker Basics](docker.md)
 - [Tmux Basics](tmux.md)
+- [Making a Reveal.js presentation from Markdown (with Python + Pandoc)](revealjs.md)
 
 ### Examples
 - [Scheduler](scheuler.md)
