@@ -74,6 +74,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Point Cloud Encoders**: Sonata, Point Transformer V3 (PTv3), MinkowskiNet
 - **Point Cloud with Text**: OpenScene (Open-vocabulary 3D Scene Understanding/ OV search in 3)
 - **Multimodal**: OmniVinci (NVIDIA)
+- **Multi-teacher (Agglomerative)**: Chorus (Oswald), AM-RADIOv2.5 (NVIDIA), COVT (Darrell, chain of visual thought) (not really multi teacher. Different models trains to generates tokens)
 - **Other Foundation Models**: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V
 
 ### Companies
