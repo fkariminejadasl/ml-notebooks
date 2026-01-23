@@ -1,0 +1,2094 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/tasks/">
+      
+      
+        <link rel="prev" href="../time_series/">
+      
+      
+        <link rel="next" href="../companies/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Example Tasks for Large Language, Multimodal, and Vision Models - ML Notebooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-large-language-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ML Notebooks" class="md-header__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ML Notebooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Example Tasks for Large Language, Multimodal, and Vision Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ML Notebooks" class="md-nav__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ML Notebooks
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Tutorials and Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Snellius GPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning_project_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Project Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_lightning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pytorch Lightning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical_info_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Information about Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared Jupyter Notebook in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradio App in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_hf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hugging Face Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres_plpython3u/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up a Custom Python Function within PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training and Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference with Limited Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../improve_training_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Improve Deep Learning Training Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDP(Distributed Data Parallel in PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses and Literature
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses and Literature
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses in Deep Learning and Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Detection: A Quick Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Localization, Mapping, 3D Reconstruction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blogpost
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blogpost
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example Tasks for Large Language, Multimodal, and Vision Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example Tasks for Large Language, Multimodal, and Vision Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llm-large-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM (Large Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lmm-large-multimodal-model-vlm-vision-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LMM (Large Multimodal Model) / VLM (Vision Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-large-vision-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM (Large Vision Model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sota-and-popular-off-the-shelf-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOTA and Popular Off-the-Shelf Models:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#models-in-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Models in General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lmm-large-multimodal-model-vlm-vision-language-model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LMM (Large Multimodal Model) / VLM (Vision Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM (Large Language Models)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speech-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speech Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../companies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer_models_with_variable_sequence_lengths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Variable Sequence Lengths in Transformer Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../segmenttree_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Deep Learning Tools for Point Cloud Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AIEnhancement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ts_augmentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series Augmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics for Comparing Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation: Generation / Editing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tmux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revealjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slides from Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheuler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Miscellaneous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GEE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#llm-large-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM (Large Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lmm-large-multimodal-model-vlm-vision-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LMM (Large Multimodal Model) / VLM (Vision Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-large-vision-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM (Large Vision Model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sota-and-popular-off-the-shelf-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOTA and Popular Off-the-Shelf Models:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#models-in-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Models in General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lmm-large-multimodal-model-vlm-vision-language-model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LMM (Large Multimodal Model) / VLM (Vision Language Model):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM (Large Language Models)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speech-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speech Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Example Tasks for Large Language, Multimodal, and Vision Models</h1>
+
+<p>This text provides a detailed overview of various tasks that different large models, such as Large Language Models (LLMs), Large Multimodal Models (LMMs), and Large Vision Models (LVMs), are capable of handling, including text generation, translation, image analysis, multimodal reasoning, and more, illustrating the diverse applications of these advanced AI systems.</p>
+<h3 id="llm-large-language-model">LLM (Large Language Model):</h3>
+<ul>
+<li>
+<p>Examples: </p>
+<ul>
+<li>Text generation and writing: content creation, summarization, paraphrasing, scriptwriting, poetry, social media posts, email drafting, product descriptions, resume/cover letter writing, letter writing.</li>
+<li>Text comprehension and analysis: question answering, text analysis, critical review, legal document analysis, code understanding.</li>
+<li>Translation and language tasks: language translation, language learning assistance, text correction, dialect and style adaptation.</li>
+<li>Research and information retrieval: fact-checking, information gathering, historical context, current events analysis.</li>
+<li>Creative and artistic assistance: creative brainstorming, character creation, plot development, meme creation.</li>
+<li>Programming and technical tasks: code generation, debugging assistance, algorithm explanation, data analysis, simulation, and modeling.</li>
+<li>Decision-making support: pros and cons analysis, risk assessment, scenario planning, strategic planning.</li>
+<li>Education and tutoring: subject tutoring, test preparation, essay assistance, learning resources.</li>
+<li>Communication and interaction: chatbot support, role-playing, interview simulation.</li>
+<li>Entertainment: game dialogue creation, trivia and quizzes, interactive storytelling.</li>
+<li>Personal assistance: task management, goal setting, personal advice.</li>
+<li>Customization and personalization: persona development, tone adjustment, content filtering.</li>
+<li>Simulation and modeling: scenario simulation, market analysis, behavioral modeling.</li>
+<li>Explanation: explaining complex concepts.</li>
+<li>Ethics and philosophy: ethical analysis, debate simulation.</li>
+</ul>
+</li>
+<li>
+<p>Examples from Llama 3: general knowledge and instruction following, code, math, reasoning, tool use (search engine, Python interpreter, mathematical computational engine), multilingual capabilities, long context (code reasoning, summarization, question answering).</p>
+</li>
+</ul>
+<h3 id="lmm-large-multimodal-model-vlm-vision-language-model">LMM (Large Multimodal Model) / VLM (Vision Language Model):</h3>
+<ul>
+<li>
+<p>Examples from Unified-IO 2 (images, text, audio, action, points, bounding boxes, keypoints, and camera poses): image editing, image generation, free-form VQA, depth and normal generation, visual-based audio generation, robotic manipulation, reference image generation, multiview image completion, visual parsing and segmentation, keypoint estimation, visual audio localization, future frame prediction.</p>
+</li>
+<li>
+<p>Examples from 4M-21: multimodal retrieval (e.g., given image retrieve caption, segment), multimodal generation (e.g., given image generate depth), out-of-the-box (zero-shot) tasks (e.g., normal, depth, semantic segmentation, instance segmentation, 3D human pose estimation, clustering). </p>
+</li>
+<li>
+<p>Examples from ImageBind (images, text, audio, depth, thermal, and IMU): cross-modal retrieval, embedding-space arithmetic, audio to image generation.</p>
+</li>
+<li>
+<p>Examples from Llama 3 on image: visual grounding (grounding information such as points, bounding boxes, and masks), MMMU or multimodal reasoning (understand images and solve college-level problems in multiple-choice and open-ended questions), VQA / ChartQA / TextVQA / DocVQA (image, chart, diagram, text in the image).</p>
+</li>
+<li>Examples from Llama 3 on video: QA: PerceptionTest (answer temporal reasoning questions focusing on skills like memory, abstraction, physics, semantics, and different types of reasoning such as descriptive, explanatory, predictive, counterfactual), temporal and causal reasoning, with a focus on open-ended question answering, compositional reasoning requiring spatiotemporal localization of relevant moments, recognition of visual concepts, and joint reasoning with subtitle-based dialogue, reasoning over long video clips to understand actions, spatial relations, temporal relations, and counting.</li>
+<li>
+<p>Examples from Llama 3 on speech: speech recognition, speech translation, spoken question answering.</p>
+</li>
+<li>
+<p>Examples: something (audio, text) to image generation, open-set object detection, image captioning, image description, visual question answering, visual commonsense reasoning, text-based image retrieval, image-based text generation, text-guided image manipulation, data visualization.</p>
+</li>
+</ul>
+<h3 id="lvm-large-vision-model">LVM (Large Vision Model)</h3>
+<ul>
+<li>Examples from SAM2: promptable visual segmentation (prompts: clicks, boxes, or masks), promptable segmentation.</li>
+<li>Examples from SAM: (prompts: point, box, segment, text): zero-shot single point valid mask evaluation (segmenting an object from a single foreground point), zero-shot edge detection, zero-shot object proposals, zero-shot instance segmentation, zero-shot text-to-mask. </li>
+<li>Fine-tuning on specific tasks. <ul>
+<li>Image task examples: classification, object detection, semantic segmentation, instance segmentation, image generation, style transfer, super-resolution, image inpainting, face recognition and analysis, optical character recognition, scene understanding, anomaly detection, gesture and pose recognition, image retrieval, emotion recognition, visual enhancement.</li>
+<li>Multiple images/video task examples: action recognition, video object detection, multiple object tracking, visual object tracking, track anypoint, optical flow, 3D object reconstruction, SLAM/SfM.</li>
+</ul>
+</li>
+</ul>
+<h3 id="references">References</h3>
+<ul>
+<li>LLM, LMM, VLM: <a href="https://arxiv.org/abs/2407.21783">Llama 3</a>, <a href="https://arxiv.org/abs/2406.09406">4M-21</a>, <a href="https://arxiv.org/abs/2312.17172">Unified-IO 2</a>, Florence</li>
+<li>LVM: <a href="https://arxiv.org/abs/2304.07193">DINOv2</a>, <a href="https://arxiv.org/abs/2304.02643">SAM</a>, <a href="https://arxiv.org/abs/2408.00714">SAM 2</a>. CLIP, SigLIP, <a href="https://arxiv.org/abs/2305.05665">ImageBind</a></li>
+</ul>
+<h3 id="sota-and-popular-off-the-shelf-models">SOTA and Popular Off-the-Shelf Models:</h3>
+<p>The following list highlights some of the current state-of-the-art (SOTA) and previously leading methods used in various domains such as tracking, depth estimation, optical flow, 3D reconstruction, segmentation, and language models. These methods are selected based on papers and research studies I have read, where they were commonly employed as off-the-shelf solutions.</p>
+<p>Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.</p>
+<ul>
+<li><strong>Vision Encoders:</strong> Vision-Only Model Encoders: PE (Perception Encoder, Mets), DINO, MAE (Masked Autoencoders), ResNet. Vision-Text Model Encoders: AIMv2, SigLIP, CLIP, BLIP. Vision-Text Encoder for Generation: LlamGen. E.g. In Janus (DeepSeek), LlamaGen is used for Geneneation Encoder and SigLIP for Understanding Encoder.</li>
+<li><strong>Depth Map:</strong> DepthAnything, Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth</li>
+<li><strong>Optical Flow:</strong> SEA RAFT, RAFT</li>
+<li><strong>3D/4D Reconstruction:</strong> D4RT (EepMind), V-DPM (Vedaldi), Depth Anything 3, MapAnything, ViPE (Nvidia), VGGT, COLMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (ViPE, St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction), </li>
+<li><strong>Point Matching and Point Tracking:</strong> TAP (CoTracker3, TAPIR, PIP), SAM3 (Segment and Tracking Anything: SAM combined with DeAOT);SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, </li>
+<li><strong>Multi-Object Tracking (MOT):</strong>: SAM3 (Segment Anything Model) for image and video, MOTR, ByteTrack, BoT-Sort, FairMOT</li>
+<li><strong>Referred Multi-Object Tracking / Text-guided Spatial Video Grounding (SVG):</strong> TempRMOT</li>
+<li><strong>Text-guided Video Temporal Grounding (VTG):</strong> VTG aims to get start and end frames by prompting the action. FlashVTG</li>
+<li><strong>Object Detection:</strong> Florence-2, Grounding DINO / DINO-X, PaliGemma 2, moondream2, small: Yolo Family (latest <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Chang_Generalist_YOLO_Towards_Real-Time_End-to-End_Multi-Task_Visual_Language_Models_WACV_2025_paper.pdf">Generalist YOLO paper</a>, YOLO12)</li>
+<li><strong>Segmentation:</strong> Grounding DINO combined with SAM, Florence-2</li>
+<li><strong>Pose Estimation:</strong> OpenPose</li>
+<li><strong>Unified Multimodal Image Understanding and Generation:</strong> BLIP3-o (Saleforce), Jaus Pro (DeepSeek), EMU3 (Beijing Baai), MetaQuery, Metamorph, Chameleon(Meta)</li>
+<li><strong>Image Captioning:</strong> xGen-MM (BLIP-3), RAM (Recognize Anything), CogVLM2, PaliGemma 2</li>
+<li><strong>Visual Question Answering:</strong> Any of the VLMs or LMM such as Phi-3.5, PaliGemma 2, moondream2. older ones for multi-image LMM: Mantis, OpenFlamingo, Emu, Idefics </li>
+<li><strong>Generative Video Models, Text-to-Video Generation Models:</strong> LYRA, SANA-Video, GEN3C (nvidia), CogVideoX (THUDM Tsinghua University), Pika Labs (Pika Labs), Stable Video Diffusion (Stability AI), Movie Gen and Emu Video (Meta), <a href="https://icml.cc/virtual/2024/39514">Sora</a> (OpenAI), Gen-3 Alpha (Runway AI), Veo (Google DeepMind), Flux (Black Forest Labs), Hunyuan Video, DynamiCrafter, VideoCrafter (Tencent AI Lab), PixelDance and Seaweed (ByteDance owns TikTok can access via Jimeng AI platform), MiniMax T2V-01, Video-01 (Minimax can access via Hailuo AI platform), Luma Dream Machine (Luma Labs), Kling (Kuaishou), Alibaba (Wan), Open-Sora (HPC AI Tech)</li>
+<li><strong>Text-to-Image Generation Models:</strong> <a href="https://huggingface.co/Efficient-Large-Model/Sana_1600M_1024px">SANA</a> (MIT, NVIDIA, Tsinghua), FLUX1 (Black Forest Labs), Ideogram v2 (Ideogram), Midjourney v6 (Midjourney), Stable Diffusion 3.5 (Stablity AI), DALLE 3 (OpenAI), Firefly 3 (Adobe), Imagen 3, Flamingo (Google DeepMind), Aurora of Grok (xAI), Pixtral (Mistral), PixArt-alpha (Huawei), Janus (DeepSeek), CogView4 (THUDM Tsinghua University)</li>
+<li><strong>Speech Models: Speech-to-Text, Text-to-Speech, Speech-to-Speech</strong>: Moshi (Kyutai), ElevenLabs, Google, OpenAI, Speech-to-Text: Whisper (OpenAI), Wav2Vec (Meta), SuperWhisper/Wisper Flow</li>
+<li><strong>Control Video by Action</strong>: Genie 3 (Google DeepMind)</li>
+<li><strong>Vision Language Models (VLMs)</strong>: image, multi-image, video. Open VLMs: PLM (Perception LM, Meta), Cosmos Nemotron (NVidia), DeepSeek-VL2 (DeepSeek), QWen2-VL (Alibaba), InternVL2 (OpenGVLab), LLAVA 1.5, LLama3.2 (mainly LLM), Cambrian-1, CogVLM2 (Tsinghua University), MolMo (Ai2), SmolVLM (Hugging Face). Proprietary: GPT-40 (OpenAI), Claude Sonnet 3.5 (Claude), Gemini 1.5 Pro (Google)</li>
+<li><strong>Large Language Models (LLMs):</strong>  Open source: DeepSeek v3 (DeepSeek),Qwen (Alibaba), LLAMA-3 (Meta), Phi-3 (Microsoft), Gemma 3 (Google),  OLMo 2 (Ai2), Helium-1 (Kyutai), Sky-T1-32B (UC Berkeley), Cerebras-GPT (Cerebras). Proprietary: Claude3 (Anthropic), Gemini (Google DeepMind), Nova (Amazon), Flash 3, Nexus (Reka AI)
+  Note that: Some of the models are Multimodal.</li>
+<li><strong>Point Cloud Encoders</strong>: Sonata, Point Transformer V3 (PTv3), MinkowskiNet</li>
+<li><strong>Point Cloud with Text</strong>: OpenScene (Open-vocabulary 3D Scene Understanding/ OV search in 3)</li>
+<li><strong>Multimodal</strong>: OmniVinci (NVIDIA)</li>
+<li><strong>Multi-teacher (Agglomerative)</strong>: Chorus (Oswald), AM-RADIOv2.5 (NVIDIA), COVT (Darrell, chain of visual thought) (not really multi teacher. Different models trains to generates tokens)</li>
+<li><strong>Other Foundation Models</strong>: Motor Control: HOVER. Weather Forcast: FourCastNet (NVidia), GenCast (DeepMind). Multilingual: SeamlessM4T (Meta), Brain2Qwerty (Meta). Remote Sensing: LISAT (Darrell), EarthGPT, RS-GPT4V</li>
+</ul>
+<h3 id="companies">Companies</h3>
+<p>OpenAI (ChatGPT), Anthropic (Claude), X (Grok), Meta (LLaMa) </p>
+<p>DeepSeek, Moonshot AI (Kimi), Alibaba (QWen, Wan), Zhipu AI (GLM), MiniMax (Hailuo), ByteDance / TikTok, Tencent Hunyuan</p>
+<h3 id="finding-models">Finding Models</h3>
+<h4 id="models-in-general">Models in General</h4>
+<ul>
+<li><a href="https://huggingface.co/models">Hugging Face</a></li>
+<li><a href="https://roboflow.com/model-feature/zero-shot-detection">Roboflow</a> contains the list of top models.</li>
+</ul>
+<h4 id="lmm-large-multimodal-model-vlm-vision-language-model_1">LMM (Large Multimodal Model) / VLM (Vision Language Model):</h4>
+<ul>
+<li>Find open-source models: The <a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard">Open VLM leaderboard</a> shows the scores of top VLMs, and you can see which models are open-source or proprietary.</li>
+<li><a href="https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard">Hugging Face Video Generation Leaderboards</a>, <a href="https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard">artificialanalysislu</a></li>
+<li><a href="https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard">Text-to-Video</a></li>
+<li>Blog post on VLM: <a href="https://huggingface.co/blog/AviSoori1x/seemore-vision-language-model">Implement a Vision Language Model from Scratch</a>; <a href="https://huggingface.co/blog/vlms">Vision Language Using and Finetuning</a>; <a href="https://huggingface.co/blog/vision_language_pretraining">vision language explanation</a>;</li>
+</ul>
+<h4 id="llm-large-language-models">LLM (Large Language Models)</h4>
+<ul>
+<li>Find open-source models: <a href="https://lmarena.ai">LLM Arena</a> LMArena formerly LMSYS shows the current top LLMs. You can see which models are open-source or proprietary. <a href="https://scale.com/leaderboard">scale.com</a>.</li>
+</ul>
+<h3 id="speech-models">Speech Models</h3>
+<ul>
+<li><a href="https://artificialanalysis.ai/text-to-video/arena?tab=Leaderboard">Speech Arena</a></li>
+</ul>
+<h3 id="api-providers">API Providers</h3>
+<p><a href="https://artificialanalysis.ai">Artificial Analysis</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
