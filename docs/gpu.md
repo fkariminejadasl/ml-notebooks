@@ -11,9 +11,9 @@ Follow the instructions in the [Setup](#setup) section to create an account.
 
 For larger amounts of compute, please refer to possible options in [NWO grants](https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants) or [Access to compute services](https://www.surf.nl/en/access-to-compute-services). 
 
-### Research Capacity Computing Services (RCCS)
+### Direct Purchase Contract
 
-For more information, visit [RCSS: Research Capacity Computing Services](https://servicedesk.surf.nl/wiki/display/WIKI/RCCS+contract). To find the latest rates for services, search for "SURF Services and Rates" on Google.
+For more information, visit [Direct Purchase Contract](https://www.surf.nl/en/direct-access-to-compute-services). To find the latest rates for services, search for "SURF Services and Rates" on Google.
 
 ## Access Hipster GPUs (FNWI research cluster)
 
