@@ -1,0 +1,2794 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/gpu/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../deep_learning_project_setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Access Snellius GPUs - ML Notebooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#access-snellius-gpus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ML Notebooks" class="md-header__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ML Notebooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Access Snellius GPUs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ML Notebooks" class="md-nav__button md-logo" aria-label="ML Notebooks" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ML Notebooks
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Tutorials and Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Snellius GPUs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Snellius GPUs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-snellius-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Snellius GPUs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Snellius GPUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#small-compute-via-fnwi-faculty-and-nwo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small Compute via FNWI Faculty and NWO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nwo-large-compute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NWO Large Compute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-purchase-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Purchase Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-hipster-gpus-fnwi-research-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Hipster GPUs (FNWI research cluster)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-crunchomics-cpu-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Crunchomics (CPU Only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup SSH keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup SSH keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hipster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hipster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use GPUs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use GPUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a job:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful links:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slrum-interactive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLRUM interactive mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurm-list-of-common-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM list of common commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurm-task-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM task array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-cpu-and-gpu-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get CPU and GPU information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get CPU and GPU information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep_learning_project_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Learning Project Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytorch_lightning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pytorch Lightning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical_info_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical Information about Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared Jupyter Notebook in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradio App in SRC (SURF Research Cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradio_hf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hugging Face Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres_plpython3u/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set Up a Custom Python Function within PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training and Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource_limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training and Inference with Limited Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../improve_training_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Improve Deep Learning Training Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ddp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDP(Distributed Data Parallel in PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses and Literature
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses and Literature
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses in Deep Learning and Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Detection: A Quick Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Localization, Mapping, 3D Reconstruction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blogpost
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blogpost
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example Tasks for Large Language, Multimodal, and Vision Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../companies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer_models_with_variable_sequence_lengths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Variable Sequence Lengths in Transformer Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../segmenttree_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing Deep Learning Tools for Point Cloud Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AIEnhancement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ts_augmentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Series Augmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribution_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics for Comparing Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation: Generation / Editing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tmux Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revealjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slides from Markdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheuler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Miscellaneous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GEE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Earth Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-snellius-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Snellius GPUs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Snellius GPUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#small-compute-via-fnwi-faculty-and-nwo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small Compute via FNWI Faculty and NWO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nwo-large-compute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NWO Large Compute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-purchase-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Purchase Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-hipster-gpus-fnwi-research-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Hipster GPUs (FNWI research cluster)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-crunchomics-cpu-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Crunchomics (CPU Only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup SSH keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup SSH keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snellius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snellius
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hipster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hipster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use GPUs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use GPUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a job:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful links:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slrum-interactive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLRUM interactive mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurm-list-of-common-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM list of common commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurm-task-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLURM task array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-cpu-and-gpu-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get CPU and GPU information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get CPU and GPU information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Access Snellius GPUs</h1>
+
+<h2 id="access-snellius-gpus">Access Snellius GPUs</h2>
+<h3 id="small-compute-via-fnwi-faculty-and-nwo">Small Compute via FNWI Faculty and NWO</h3>
+<p>The FNWI institute offers small compute resources about three times a year, with each allocation providing approximately 50K-100K SBUs. NWO also provides access to small compute resources.</p>
+<p>Create a ticket at https://servicedesk.surf.nl under "Apply for access / Direct institute contract" or "Apply for access / Small Compute applications (NWO)."</p>
+<p>Follow the instructions in the <a href="#setup">Setup</a> section to create an account.</p>
+<h3 id="nwo-large-compute">NWO Large Compute</h3>
+<p>For larger amounts of compute, please refer to possible options in <a href="https://servicedesk.surf.nl/wiki/display/WIKI/NWO+grants">NWO grants</a> or <a href="https://www.surf.nl/en/access-to-compute-services">Access to compute services</a>. </p>
+<h3 id="direct-purchase-contract">Direct Purchase Contract</h3>
+<p>For more information, visit <a href="https://www.surf.nl/en/direct-access-to-compute-services">Direct Purchase Contract</a>. To find the latest rates for services, search for "SURF Services and Rates" on Google.</p>
+<h2 id="access-hipster-gpus-fnwi-research-cluster">Access Hipster GPUs (FNWI research cluster)</h2>
+<p>Hipster is the FNWI (Faculty of Science) research cluster. To access Hipster GPUs, see the "Who can use it?" section on the <a href="https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html">HIPSTER page</a>.</p>
+<h2 id="access-crunchomics-cpu-only">Access Crunchomics (CPU Only)</h2>
+<p>Crunchomics is the Genomics Compute Environment for SILS and IBED. It provides only CPU resources—no GPUs are available. To request an account, contact the current administrator as listed on the <a href="https://crunchomics-documentation.readthedocs.io/en/latest/intro_crunchomics.html#getting-your-environment-ready">Crunchomics documentation page</a>. The contact person may change, so always check the documentation for the latest information. As of now, you can contact Wim de Leeuw (<code>w.c.deleeuw@uva.nl</code>).</p>
+<p>Once your account is created, you will receive a username for access (e.g., <code>username@omics-h0.science.uva.nl</code>), which you can use to connect via SSH <code>ssh username@omics-h0.science.uva.nl</code>. </p>
+<p>For more information, please see <a href="https://ndombrowski.github.io/MicEco2025/source/hpc_howto.html">this tutorial</a>.</p>
+<h2 id="setup">Setup</h2>
+<h3 id="setup-ssh-keys">Setup SSH keys</h3>
+<p>Create an SSH key or use the one you already have.</p>
+<p>To generate a new SSH key, open a terminal and run:</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p>This command creates a modern, secure Ed25519 key. If your system or remote service does not support Ed25519, you can generate an RSA key instead:</p>
+<pre><code class="language-bash">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p>When prompted, press <strong>Enter</strong> to accept the default file location, and optionally set a passphrase for added security.
+Once created, your public key will be stored in <code>~/.ssh/id_ed25519.pub</code>.
+You can display it with:</p>
+<pre><code class="language-bash">cat ~/.ssh/id_ed25519.pub
+</code></pre>
+<p>Copy the contents of this file and add it to your remote service (e.g., GitHub, GitLab, or a server) under <strong>SSH keys</strong>.
+You can then test the connection with:</p>
+<pre><code class="language-bash">ssh -T git@github.com
+</code></pre>
+<h4 id="snellius">Snellius</h4>
+<p><strong>Create an account</strong></p>
+<p>https://portal.cua.surf.nl : first copied public key content in here (only done once)</p>
+<p>In the case of an issue, create in https://servicedesk.surf.nl a ticket under "Servicedesk / create a ticket" or email servicedesk@surf.nl. </p>
+<p><strong>Usage</strong></p>
+<p>Use the Snellius (similar for e.g. sshfs/scp):</p>
+<pre><code class="language-bash">ssh -X username@snellius.surf.nl
+</code></pre>
+<h4 id="hipster">Hipster</h4>
+<p>Access the machine using:</p>
+<pre><code class="language-bash">ssh -X username@hipster.science.uva.nl
+</code></pre>
+<p>You will be prompted for your password. To enable passwordless access, add your public SSH key to the <code>~/.ssh/authorized_keys</code> file on the Hipster machine.</p>
+<h3 id="setup-environment">Setup environment</h3>
+<p>The first time to setup your environment, run below script:</p>
+<pre><code class="language-bash">module purge # unload all modules
+module load 2025 # Check available modules first with `module avail` to ensure you can use this version.
+module load Miniconda3/25.5.1-1 # Check available modules first with `module avail`
+conda init # Sets up conda in your shell by adding initialization code to ~/.bashrc so conda activates automatically
+</code></pre>
+<p>After that, the basic virtualenv from conda can be created. See below e.g.:</p>
+<pre><code class="language-bash">conda create -n test python=3.10
+conda activate test
+</code></pre>
+<p>Or instead of <code>conda</code> use python virtual env which is faster and lighter. But then you only limited to the python version provided by the cluster. In conda, python versions can be selected.</p>
+<pre><code class="language-bash">module load Python/3.13.1-GCCcore-14.2.0
+python -m venv venv_name  # Or use a full/relative path, e.g. /home/youruser/ven_dir/venv_name
+source /path/to/venv_name/bin/activate  # Or `. /path/to/venv_name/bin/activate` to activate the virtual environment. 
+</code></pre>
+<blockquote>
+<p>On Hipster, available modules may differ and can change over time. Always check the <a href="https://feiog.science.uva.nl/ClusterComputing/Clusters/hipster.html">HIPSTER page</a> for the latest information.</p>
+</blockquote>
+<pre><code class="language-bash">module use /cvmfs/software.eessi.io/init/modules
+module load EESSI/2023.06 # After `module use`, if you do `module avail` this module `EESSI/2023.06` will be listed.
+module load Python/3.11.5-GCCcore-13.2.0 # Hipster seems not have conda. So use python instead. 
+module load CUDA/12.4.0 # This module should be loaded, which is not needed in Snellius.
+</code></pre>
+<p>The rest of creating the virtual environment is the same as above: </p>
+<pre><code class="language-bash">python -m venv venv_name  # Or use a full/relative path, e.g. /home/youruser/ven_dir/venv_name
+source /path/to/venv_name/bin/activate  # Or `. /path/to/venv_name/bin/activate` to activate the virtual environment. 
+</code></pre>
+<p><strong>Check GPU Usage</strong></p>
+<p>Run <code>nvidia-smi</code> or install for example <code>pytorch</code>. </p>
+<pre><code class="language-bash">pip install torch numpy # torch version 2.8.0+cu128
+</code></pre>
+<blockquote>
+<p>When you install PyTorch using <code>pip install torch</code>, the GPU-enabled build is installed by default—even on machines without a GPU. You can verify this by running:</p>
+</blockquote>
+<pre><code class="language-bash">python
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; torch.tensor([1,2], device=&quot;cuda&quot;)
+</code></pre>
+<p>In Snellius, first connect to a GPU node such as <code>gcn1</code> before running your jobs or activating your Python environment.</p>
+<pre><code class="language-bash">ssh gcn1 # Don't forget to activate your Python environment after connecting, as this is a new machine.
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> If you close your terminal where you typed <code>ssh</code> or lose your SSH connection, the allocation will be terminated. To avoid this, start a <code>tmux</code> session before running <code>salloc</code> so your session persists even if the connection drops. First type <code>tmux</code>, then in <code>tmux</code> run the <code>salloc</code> command.</p>
+</blockquote>
+<p>You can allocate a GPU in interactive mode with the following command:</p>
+<blockquote>
+<p><strong>Note:</strong> The <code>salloc</code> command differs slightly between Snellius and Hipster. The command for Hipster will not work on Snellius, and vice versa, due to differences in SLURM configuration and possibly SLURM versions.</p>
+</blockquote>
+<pre><code class="language-bash"># Snellius
+salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
+
+# Hipster
+salloc --gpus=l4:1 --time=00:05:00
+salloc --gres=gpu:l4:1 --cpus-per-task=16 --time=00:5:00 # --cpus-per-task must be given
+</code></pre>
+<p>Obtain the partition name using <code>sinfo -o "%G"</code>. On Snellius, <code>accinfo</code> also displays the available partitions.</p>
+<p>Once a GPU is allocated, you can connect to it via SSH (e.g., <code>ssh gcn46</code>). Remember to activate your virtual environment after connecting, as each GPU node is a separate machine.</p>
+<h2 id="schedule-tasks">Schedule Tasks</h2>
+<p>SLURM is a job scheduler used by many computer clusters and supercomputer, such as Snellius. It allocates resources to users and monitors work. It is a configurable workload manager. <code>squeue</code>, <code>sbatch</code>, <code>srun</code>, <code>sinfo</code>, and <code>scancel</code> are examples of the most commonly used commands in SLURM.</p>
+<h2 id="use-gpus">Use GPUs</h2>
+<h4 id="remote-vscode">Remote VSCode</h4>
+<ul>
+<li>Install the <code>Remote-SSH</code> extension from the Extensions view.</li>
+<li>Press F1 (or Ctrl+p + &gt;) and type <code>Remote-SSH: Connect to Host</code> to connect to a remote host.  </li>
+<li>If you don’t have a <code>~/.ssh/config</code> file set up, you’ll need to run <code>Remote-SSH: Add New SSH Host</code> or set it up manually.</li>
+</ul>
+<blockquote>
+<p>If you want to access the GPU machine (e.g., <code>gcn700</code>), you can directly connect via Snellius using the command <code>ssh gcn700</code>. However, if you want to debug using Visual Studio Code (VSCode) on your computer, you need to add the following lines to your <code>~/.ssh/config</code> file. The rest of the process is the same as using remote SSH. Note that you can use <code>ssh me</code>, <code>ssh gcn700</code>, or remote SSH in VSCode.</p>
+</blockquote>
+<pre><code class="language-bash">Host me
+    User myuser
+    HostName snellius.surf.nl
+    IdentityFile ~/.ssh/id_rsa
+Host gcn700
+    User myuser
+    HostName gcn700
+    ProxyJump me
+    IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<h4 id="quick-test">Quick Test</h4>
+<p>The <code>int3</code> GPU machine is available for quick GPU tests without requiring a formal GPU allocation. It is based on MIG (Multi-Instance GPU) technology. You can view its configuration using <code>nvidia-smi</code>, <code>nvidia-smi -L</code>, or by inspecting <code>/etc/slurm/gres.conf</code>. However, this node has limited resources. For reference examples, check out <a href="https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/74225195/Interactive+development+GPU+node">Interactive Development GPU Node</a>, <a href="https://servicedesk.surf.nl/wiki/display/WIKI/PyCharm+and+other+JetBrains+IDEs+for+remote+development">Using IDEs</a> and <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Remote+visualization+desktop+on+Snellius">Remote Visualization</a>.</p>
+<p>To connect to the <code>int3</code> GPU machine, run:</p>
+<pre><code class="language-bash">ssh int3 # also the same `ssh gcn1`
+</code></pre>
+<p>In the case of using <code>ssh gcn1</code>, if get the error, <code>Certificate invalid</code>, remove the old known-hosts entry manually from <code>.ssh/known_hosts</code> or by command:</p>
+<p>If you see the error <code>Certificate invalid</code>, remove the old host key entry from your known hosts by either manually editing <code>~/.ssh/known_hosts</code> and deleting the gcn1 line, or running:</p>
+<pre><code class="language-bash">ssh-keygen -R gcn1
+</code></pre>
+<h4 id="run-a-job">Run a job:</h4>
+<p>There is a web-based interface to request resources for interactive session via <a href="https://ondemand.snellius.surf.nl">ondemand</a>. However, I recommend using a SLURM job instead; see below for details.</p>
+<p>NB. The run file should be executable. Make it executable with <code>chmod a+x runfile.sh</code>.</p>
+<pre><code class="language-bash">sbatch runfile.sh
+</code></pre>
+<p>e.g. runfile.sh:</p>
+<pre><code class="language-bash">#!/bin/bash
+#SBATCH --gpus=1
+#SBATCH --partition=gpu
+#SBATCH --time=14:00:00
+#SBATCH -o yolo8_train4_%j.out
+
+echo &quot;gpus $SLURM_GPUS on node: $SLURM_GPUS_ON_NODE&quot;
+echo &quot;nodes nnodes: $SLURM_NNODES, nodeid: $SLURM_NODEID, nodelist $SLURM_NODELIST&quot;
+echo &quot;cpus on node: $SLURM_CPUS_ON_NODE per gpu $SLURM_CPUS_PER_GPU per task $SLURM_CPUS_PER_TASK omp num thread $OMP_NUM_THREADS&quot;
+echo &quot;tasks per node $SLURM_TASKS_PER_NODE pid $SLURM_TASK_PID&quot;
+
+# activate your environment
+source $HOME/.bashrc
+conda activate test # your conda venv
+
+echo &quot;start training&quot;
+yolo detect train data=/home/username/data/data8_v1/data.yaml model=/home/username/exp/runs/detect/bgr23/weights/best.pt imgsz=1920 batch=8 epochs=100 name=bgr cache=true close_mosaic=0 augment=True rect=False mosaic=1.0 mixup=0.0
+echo &quot;end training&quot;
+</code></pre>
+<p>More SBATCH options and the "output environmental variables" can be found from the <a href="https://slurm.schedmd.com/sbatch.html">sbatch help</a>. </p>
+<p></br></p>
+<p><strong>Check job is running</strong></p>
+<p>User squeue with job id or username. </p>
+<pre><code class="language-bash">squeue -j jobid
+squeue -u username
+# squeue with more options
+squeue -o &quot;%.10i %.9P %.25j %.8u %.8T %.10M %.9l %.6D %.10Q %.20S %R&quot;
+</code></pre>
+<p>If the job is running, it will save the result in the output file with the name specified by <code>SBATCH -o</code> option. NB. <code>%j</code> in the name replaced by job id. In the example <code>yolo8_train4_%j.out</code>, the output file will be olo8_train4_2137977.out. The job id is the id you get after running sbatch.</p>
+<blockquote>
+<p><strong>IMPORTANT</strong></br>
+Each person has a limited budget in the unit of SBU (system billing unit). It is also listed as accounting weight factor in <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+partitions+and+accounting">Snellius partitions and accounting</a>.
+e.g. If you request for 1 A100 GPU, it is 1/4 node, which has 18 cores for 10 hours, the SBU is <code>128 * 10 = 1280</code>.
+So in a <code>runfile.sh</code>, the basic slurm settings are as:</p>
+</blockquote>
+<pre><code class="language-bash">#SBATCH --gpus=1
+#SBATCH --partition=gpu
+#SBATCH --time=14:00:00
+</code></pre>
+<blockquote>
+<p>NB. <code>--cpus-per-gpu</code> or <code>--cpus-per-task</code> is automatically set for 1/4 of node, which in <code>gpu</code> partition is 18. For more info, check <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Estimating+SBUs">SBU calculating</a>.</p>
+</blockquote>
+<p></br></p>
+<p>There are more options for variables such as below. You can get the full list from the <a href="https://slurm.schedmd.com/sbatch.html">sbatch help</a>. </p>
+<pre><code class="language-bash">#SBATCH --gpus-per-node=1
+#SBATCH --cpus-per-gpu=18
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+</code></pre>
+<blockquote>
+<p><strong>NB</strong>: Jobs that require more resources and or running for a long time (walltime: <code>SBATCH --time</code>) are not easily scheduled. Try to first test if everything is OK by running one or two epochs, then request for resources. Moreover, estimate the time your experiment runs by roughly calculating how long each epoch takes and multiply by epochs and then increase this time for a bit counting for caching, data transfer.</p>
+</blockquote>
+<p></br></p>
+<p><strong>Check finished jobs</strong></p>
+<pre><code class="language-bash">sacct -j jobid -o &quot;JobID,JobName,MaxRSS,Elapsed,NNodes,NodeList&quot;
+</code></pre>
+<p>More options are in the <a href="https://slurm.schedmd.com/sacct.html">sacct help page</a>.</p>
+<p></br></p>
+<p><strong>Run tensorboard from remote computer</strong>
+Connect to Snellius and map your local port to remote port:</p>
+<pre><code class="language-bash">ssh -X username@snellius.surf.nl -L your_local_port:127.0.0.1:remote_port
+</code></pre>
+<p>In Snellius machine, run tensorboard with the remote port:</p>
+<pre><code class="language-bash">tensorboard --logdir_spec=18:/home/username/exp18,12:/home/username/exp12 --port remote_port # remote_port = 60011
+</code></pre>
+<p>Now, in the local machine, run <code>http://localhost:local_port</code>, e.g. <code>http://localhost:36999</code>. </p>
+<p></br></p>
+<p><strong>Interactive mode</strong></p>
+<blockquote>
+<p><strong>IMPORTANT</strong>: This part is not recommended. Use it if you want to have a short check and want to use a bash.</p>
+</blockquote>
+<p>This is similar to using <code>sbatch</code> with a <code>runfile.sh</code>, but here the parameters are set directly in the <code>srun</code> or <code>salloc</code> command. This way, you get an interactive shell on the allocated machine. You can use either <code>srun</code> or <code>salloc</code> for this purpose.</p>
+<pre><code class="language-bash"># srun
+srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
+# salloc: allocates resources but does not connect via SSH; you need to SSH manually.
+salloc --gpus=1 --partition=gpu_a100 --time=01:00:00
+ssh machine_name # e.g. ssh gcn1003
+</code></pre>
+<p><strong>Multigpu in single or multi node</strong>
+For every GPU there is 18 CPU no matter if specified in slurm or not. Slurm, batch scheduler, will ignore if another value for CPU is specified. Each task runs on one CPU. So <code>ntasks-per-node</code> or <code>ntasks</code> are the same here. Apparently, <code>with OMP_NUM_THREADS=4</code>, or other value, we can tell torchrun to use 4 threads per CPU.</p>
+<p>Basically, only specifiying number of gpus and the partition is enough. Below example uses 2 GPUs on a single Node, with 1 threads per CPU. </p>
+<pre><code class="language-bash">#!/bin/bash
+#SBATCH --gpus=2
+#SBATCH --partition=gpu
+#changing the  OMP_NUM_THREADS env variable is the same as --cpus-per-task
+export OMP_NUM_THREADS=1
+torchrun --node_rank=0 --nnodes=1 --nproc_per_node=2 ~/test/multigpu_torchrun.py 50 10
+</code></pre>
+<p>For more information on ddp (distributed data parallel) in pytorch, look at the <a href="https://pytorch.org/tutorials/beginner/ddp_series_intro.html">tutorial</a>.</p>
+<p><strong>Wandb in Snellius</strong></p>
+<p>First run <code>wandb init</code> before sending the job via sbatch. Then run the code which has <code>wandb.init(project=project_name)</code>. <code>Project_name</code> is wandb project.</p>
+<p><strong>Useful commands</strong></p>
+<ul>
+<li><code>htop</code>, <code>nvtop</code>: monitor CPU and GPU respectively</li>
+<li><code>sbatch</code>: run a job</li>
+<li><code>srun</code>: run a job. e.g. run job in the interactive mode: <code>srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il</code> </li>
+<li><code>salloc</code>: allocate resources interactively and then run a command. e.g <code>salloc --gpus=1 --partition=gpu --time=00:10:00</code></li>
+<li><code>squeue</code>: show the status of the job</li>
+<li><code>scancel</code>: cancel the job. </li>
+<li><code>scontrol</code>: show detailed job information. e.g. show job detail: <code>scontrol show j 7605565</code></li>
+<li><code>sinfo</code>: get information about GPUs. e.g. <code>"%9P %70N %5t %32G %6D"</code>, <code>sinfo -e -o  "%9P %.6D %10X %4Y %24N %24f %32G"</code>, <code>sinfo -p gpu</code></li>
+<li><code>sacct</code>: get statistics on completed jobs</li>
+<li><code>accinfo</code>, <code>budget-overview -p gpu</code>, <code>accuse</code>: show how much credite is left (Snellius commands)</li>
+<li><code>myquota</code>: show the limit of files. They are also listed in <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware">Snellius hardware</a> and <a href="https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems">file systems</a>.</li>
+<li><code>gpustat -acp</code>: show the gpu usage. It should be installed with pip, <code>pip install gpustat</code>. It has the information from <code>nvidia-smi</code>, but one-liner. </li>
+<li><code>module load/unload/purge/list/display/avail</code>: <ul>
+<li><code>load/unload/purge</code>: e.g. <code>module load CUDA/11.8.0</code>: load this module and use <code>unload</code> to unload this module. <code>purge</code> unload all modules.</li>
+<li><code>list</code>: e.g. <code>module list</code>: list of loaded modules. </li>
+<li><code>display</code>: e.g. <code>module display CUDA/11.8.0</code>: show information on where this module is. </li>
+<li><code>avail</code>: e.g. <code>module avail</code>: show list of all available modules, but first load 2022/2023/or higher version if available. </li>
+</ul>
+</li>
+</ul>
+<p>Some examples are given in <a href="https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands">Convenient Slurm commands</a>. </p>
+<p></br></p>
+<h4 id="useful-links">Useful links:</h4>
+<ul>
+<li><a href="https://servicedesk.surf.nl">SURF service desk portal</a></li>
+<li><a href="https://servicedesk.surf.nl/wiki">SURF wiki</a></li>
+<li><a href="https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+hardware">Snellius hardware</a> </li>
+<li><a href="https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+filesystems">file systems</a></li>
+<li><a href="https://servicedesk.surf.nl/wiki/display/WIKI/Estimating+SBUs">SBU calculating</a></li>
+<li><a href="https://servicedesk.surf.nl/wiki/display/WIKI/Example+job+scripts">Example job scripts</a></li>
+<li><a href="https://docs.rc.fas.harvard.edu/kb/convenient-slurm-commands">Convenient Slurm commands</a></li>
+<li><a href="https://slurm.schedmd.com/squeue.html">Squeue help</a>: just use <code>squeue --help</code></li>
+<li><a href="https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial1/Lisa_Cluster.html">uvadlc: Working with the Snellius cluster</a></li>
+<li><a href="https://microhh.readthedocs.io/en/latest/computing_systems/snellius.html">microhh</a></li>
+</ul>
+<h2 id="details">Details</h2>
+<h4 id="slrum-interactive-mode">SLRUM interactive mode</h4>
+<p>In the interactive mode, you can see slurm variables. E.g. <code>echo $$SLURM_MEM_PER_CPU</code>, <code>echo $SLURM_CPUS_PER_TASK</code>.</p>
+<pre><code class="language-bash"># interactive mode: request 2 CPUs (-c,--cpus-per-task), time can be unlimited (time=UNLIMITED)
+srun -c2 --mem-per-cpu=200G --pty bash -il
+# interactive mode: request 1 GPU
+srun --gpus=1 --partition=gpu --time=00:10:00 --pty bash -il
+</code></pre>
+<h4 id="slurm-list-of-common-commands">SLURM list of common commands</h4>
+<pre><code class="language-bash">#SBATCH --job-name=result # appears in squeue
+#SBATCH -o exps/test_%j.out # -o,--output, %j=job id
+#SBATCH --error=test_%j.err
+#SBATCH --time=00:10:00 # time can be UNLIMITED
+#SBATCH --mem-per-cpu=1G
+#SBATCH --cpus-per-task=2 # -c,--cpus-per-task
+#SBATCH --gpus=1 # number of gpu
+#SBATCH --partition=gpu # type of gpu
+</code></pre>
+<p>Only these values are shown on snellius:</p>
+<pre><code class="language-bash">$SLURM_CPUS_ON_NODE:  the number of CPUs allocated to your job using the following environment variable:
+$SLURM_GPUS: This gives you the total number of GPUs allocated to your job.
+</code></pre>
+<p>These values are empty on snellius:</p>
+<pre><code class="language-bash">$SLURM_MEM_PER_NODE: This variable gives you the total amount of memory allocated per node in megabytes (MB)
+$SLURM_MEM_PER_CPU * $SLURM_CPUS_ON_NODE: in the case of requesting memory using --mem-per-cpu
+
+$SLURM_GPUS_PER_NODE: This gives the number of GPUs per node allocated to your job.
+$SLURM_JOB_GPUS: This gives you a list of the GPUs allocated to your job.
+
+echo &quot;cpu pertask: $SLURM_CPUS_PER_TASK&quot;
+echo &quot;cpu per gpu: $SLURM_CPUS_PER_GPU&quot;
+</code></pre>
+<h4 id="slurm-task-array">SLURM task array</h4>
+<p>Example using task array:</p>
+<pre><code class="language-bash">#SBATCH --output=test_%A_%a.out # -o,--output, %A=job id, %a=array number
+#SBATCH --array=0-1
+
+python your_script.py $SLURM_ARRAY_TASK_ID
+</code></pre>
+<h3 id="get-cpu-and-gpu-information">Get CPU and GPU information</h3>
+<p>When the job is running, you can get number of GPU, CPU, RAM.</p>
+<pre><code class="language-bash"># job_id = 7605565
+`scontrol show job 7605565`
+</code></pre>
+<h4 id="cpu">CPU</h4>
+<pre><code class="language-bash"># RAM
+# ---
+# python
+f&quot;{psutil.virtual_memory().total:,}&quot; # total of the node
+# command line
+free -h # total of the node
+htop -u -d 0 # total of the node
+
+# disk space
+# ----------
+f&quot;{psutil.disk_usage('/').total:,}&quot; # total of the node
+# command line
+df -h --total # total of the node
+
+# Number of CPUs
+# --------------
+# python
+len(os.sched_getaffinity(0))
+# N.B: total cpu (72 for A100 not divided by 4)
+psutil.cpu_count(logical=True) # total of the node
+os.cpu_count() # total of the node
+# command line
+nproc
+htop -u -d 0 # total of the node
+</code></pre>
+<h4 id="gpu">GPU</h4>
+<pre><code class="language-bash"># GPU VRAM
+# --------
+# python
+f&quot;{torch.cuda.get_device_properties(0).total_memory:,}&quot;
+# command line
+nvidia-smi --query-gpu=memory.total --format=csv
+
+# GPU type
+# --------
+torch.cuda.get_device_name(0) 
+# command line
+nvidia-smi -L
+
+# Number of GPUs
+# --------------
+# python
+torch.cuda.device_count()
+# command line
+nvidia-smi -L
+</code></pre>
+<h3 id="sinfo">Sinfo</h3>
+<p>Status of the nodes:</p>
+<pre><code class="language-bash">sinfo -o &quot;%9P %70N %5t %32G %6D&quot;
+</code></pre>
+<pre><code class="language-bash">    %P is the partition name.
+    %N is the node name.
+    %t is the state of the node (e.g., idle, allocated, down).
+    %G is the generic resource information, including GPUs.
+    %D is the number of nodes.
+</code></pre>
+<p>You can get detailed node information via: <code>scontrol show node &lt;node-name&gt;</code></p>
+<pre><code class="language-bash">scontrol show nodes | awk '/NodeName/ {node=$1} /State=/ {state=$1} /Gres=gpu/ {print node, state}'
+</code></pre>
+<p>Get other information:</p>
+<pre><code class="language-bash">&gt; sinfo -e -o &quot;%9P %.6D %10X %4Y %24N %24f %32G&quot; | grep gpu_a
+gpu_a100      36 4          18   gcn[37-72]               hwperf,scratch-node      gpu:a100:4(S:0-1),cpu:72
+</code></pre>
+<p>The <code>-e</code> option in sinfo stands for "extend" and is used to show information about all nodes, even those that are in states like down, drain, fail, or unknown. Without -e, sinfo typically only shows nodes that are available or idle.</p>
+<p>Breaking down each field:</p>
+<pre><code>    %9P: Partition name, gpu_a100.
+    %6D: Number of nodes, 36.
+    %10X: Number of GPUs (sockets) per node, 4.
+    %4Y:  Number of cores per GPU (socket), 18.
+    %24N: List of nodes in this partition (in this case, gcn[37-72]).
+    %24f: Features of the nodes (e.g., hwperf,scratch-node).
+    %32G: Shows detailed information about GPU and CPU availability (e.g., gpu:a100:4(S:0-1),cpu:72).
+</code></pre>
+<pre><code class="language-bash">&gt; sinfo | grep gpu_a
+
+gpu_a100     up 5-00:00:00      5   resv gcn[47-49,69,71]
+</code></pre>
+<p>Explanation:</p>
+<pre><code class="language-bash">    gpu_a100 is the partition name.
+    up 5-00:00:00 means the partition is up and available for 5 days.
+    5 represents the number of nodes available.
+    resv indicates that the nodes are reserved.
+    gcn[47-49,69,71] specifies the nodes within the gpu_a100 partition.
+</code></pre>
+<h2 id="free-gpus">Free GPUs</h2>
+<p>Here is a list of free GPUs:  </p>
+<ul>
+<li>Google Colab</li>
+<li>Kaggle</li>
+<li>Gradient by Paperspace</li>
+<li>Amazon SageMaker Studio Lab</li>
+<li>Microsoft Azure (for student accounts)</li>
+</ul>
+<h2 id="external-gpus">External GPUs</h2>
+<ul>
+<li>University: <a href="https://www.lumi-supercomputer.eu">LUMI</a>, Snellius</li>
+<li><a href="https://cloud-gpus.com">Cloud GPU comparison</a></li>
+<li><a href="https://www.gpucloudpricing.com">GPU Cloud Providers Pricing info</a></li>
+<li><a href="https://vast.ai/pricing">Vast.ai</a></li>
+<li>Lambda Labs: <a href="https://lambdalabs.com/service/gpu-cloud#pricing">On demand</a>, <a href="https://lambdalabs.com/service/gpu-cloud/reserved-cloud-pricing">One, two &amp; three year contracts</a>.</li>
+<li><a href="https://www.runpod.io/pricing">RunPod.io</a></li>
+<li><a href="https://www.together.ai/pricing">Together.ai</a></li>
+<li><a href="https://fireworks.ai/pricing">Fireworks AI</a></li>
+<li><a href="https://deepinfra.com/pricing">deepinfra</a></li>
+<li><a href="https://www.lepton.ai/pricing">Lepton AI</a></li>
+<li><a href="https://www.vultr.com/pricing/">VULTR</a></li>
+<li><a href="https://novita.ai/gpu-instance/pricing">Novita</a></li>
+<li><a href="https://lightning.ai/pricing">lightning.ai</a></li>
+<li><a href="https://hyperbolic.xyz/">Hyperbolic.xyz</a></li>
+<li><a href="https://www.latitude.sh/accelerate">Latitude AI</a></li>
+<li><a href="https://www.paperspace.com/pricing">Paperspace</a></li>
+<li><a href="https://jarvislabs.ai/pricing">Jarvislabs</a></li>
+<li><a href="https://hpc-ai.com/">HPC-AI</a></li>
+<li>GCP</li>
+<li>AWS</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
