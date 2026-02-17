@@ -150,6 +150,7 @@ Note: `apt` and `snap` should be run with `sudo`, e.g., `sudo apt purge cloudcom
 | Command                          | Description                                                                 |
 |----------------------------------|-----------------------------------------------------------------------------|
 | `grep [pattern] [file]`          | Search for a pattern in a file.                                             |
+| `rg [pattern] [path]`            | Search for a pattern in files under a path (or in a file). Install with `sudo apt install ripgrep`|
 | `sed 's/[old]/[new]/' [file]`    | Replace text in a file using stream editor.                                 |
 | `awk '{print $1}' [file]`        | Pattern scanning and processing language.                                   |
 
@@ -201,6 +202,10 @@ pgrep process_name
 
 # Find processes by user:
 pgrep -u username
+
+# Find patterns with line numbers
+rg -n "detach|__main__" # n: line number (default), e: regular expression (works without n, e in this example)
+grep -RInE 'detach|__main__' . # n: line number, E: regular expression, R: recursive, I: ingore binaries
 
 # Find differences
 diff --color -U 0 file1 file2
