@@ -36,6 +36,7 @@ This repository is for my students.
 - [Time Series Augmentation](ts_augmentation.md)
 - [Metrics for Comparing Distributions](distribution_metrics.md)
 - [Simulation: Generation / Editing](simulation.md)
+- [Install Ubuntu on a Windows Laptop with NVIDIA](ubuntu_install.md)
 
 ### General
 - [Services](services.md)
