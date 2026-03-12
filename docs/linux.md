@@ -236,6 +236,14 @@ sudo nano /etc/ImageMagick-6/policy.xml
 convert your_image.png -density 300 your_image.pdf
 ```
 
+```bash
+# Copy many small files
+tar -cf archive.tar /path/to/source
+split -b 2000M archive.tar archive.tar.part. # FAT32 max 4GB
+# rsync -ah --info=progress2 archive.tar /media/your_usb/ # or just copy
+tar -xf archive.tar
+```
+
 ## Courses
 
 From [Software Carpentry](https://software-carpentry.org/lessons), follow "The Unix Shell" course.

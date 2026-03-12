@@ -25,6 +25,7 @@ Panoptic Lidar: Taixe -->
 - Flow matching /  [Lipman](https://arxiv.org/abs/2210.02747), [Lipman Guide and Code](https://arxiv.org/abs/2412.06264), [Introduction by Cambridge](https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html); [GMFlow](https://arxiv.org/abs/2504.05304)
 - Rectified Flow: [Liu](https://arxiv.org/abs/2209.03003); [Liu](https://arxiv.org/pdf/2209.14577)
 - Normalizing Flow
+- Consistency model
 
 #### TO be organized
 
