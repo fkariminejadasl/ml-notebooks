@@ -1,5 +1,7 @@
 site_name: "ML Notebooks"
 site_url: https://fkariminejadasl.github.io/ml-notebooks/
+# docs_dir: docs
+# site_dir: site
 nav:
   - README.md
   - Deep Learning General:
@@ -45,7 +47,7 @@ nav:
   - Miscellaneous:
     - Google Earth Engine: GEE.md
 theme:
-  name: material #readthedocs
+  name: mkdocs # readthedocs, material, mkdocs, ...
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
