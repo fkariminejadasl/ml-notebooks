@@ -18,6 +18,8 @@
 | Crunchomics (CPU-only) cluster for IBED | [Crunchomics](https://crunchomics-documentation.readthedocs.io/en/latest/intro_crunchomics.html#getting-your-environment-ready)|
 | European Open Science Cloud (EOSC) | [EOSC piolot](https://www.eosc-beyond.eu/pilots) |
 
+> To choose the right storge option, check: https://dsa.uva.nl
+
 #### General Services
 
 Some of the phone numbers and services are mentioned in the following locations:
