@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/companies/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Companies - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../tasks/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../transformer_models_with_variable_sequence_lengths/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#companies" class="nav-link">Companies</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#highlights" class="nav-link">Highlights</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="companies">Companies</h1>
+<p>The methodology employed categorizes companies based on their primary focus or offerings, detailing each company's capabilities alongside its name.</p>
+<p><strong>Key to Keywords:</strong><br />
+- <strong>Pre:</strong> Pretraining capabilities or services<br />
+- <strong>FT:</strong> Finetuning services<br />
+- <strong>Custom:</strong> Support for building custom models<br />
+- <strong>API:</strong> Offers an API to integrate ML functionality<br />
+- <strong>Dev:</strong> Development tools or environments<br />
+- <strong>Dep:</strong> Deployment tools or platforms<br />
+- <strong>Model:</strong> Develops or provides their own ML models<br />
+- <strong>GPU:</strong> GPU-based compute resource provider<br />
+- <strong>Storage:</strong> Data storage provider<br />
+- <strong>Data:</strong> Data platform or data indexing provider</p>
+<h2 id="highlights">Highlights</h2>
+<p>Models are accessed via their respective companies, such as OpenAI (ChatGPT), DeepSeek, Anthropic (Claude), and Google (Gemini). <code>Hugging Face</code>, <code>vLLM</code>, <code>LM Studio</code>, <code>llama.cpp</code>, <code>Ollama</code>, <code>Jan.ai</code> are designed to let you run LLMs locally. <code>Together AI</code> provides a platform for running models that might not fit on your local machine. There are other serving locations, such as the <a href="https://huggingface.co/spaces/huggingface/inference-playground">Hugging Face Inference Playground</a>, and <code>Hyperbolic.xyz</code>, which also offers base models. </p>
+<p>Manus AI (Monica.im) autonomously executes complex, goal-driven workflows as an <a href="https://huggingface.co/blog/LLMhacker/manus-ai-best-ai-agent">AI agent</a>, Devin AI serves as an AI-powered software engineer for coding and build automation, and Cursor functions as an intelligent IDE assistant that augments human developers across the software development lifecycle.</p>
+<p>For better prompting, it’s recommended to add a <code>llms.txt</code> file at your site’s root (analogous to <code>robots.txt</code>) to provide large language models with structured, machine-readable guidance. Additionally, <a href="https://gitingest.com">Gitingest</a> converts any Git repository into a single, prompt-friendly text digest—complete with directory structure and file content—making it ideal for feeding codebases into LLMs.</p>
+<p>The Model Context Protocol (MCP), introduced by Anthropic, is an open standard for connecting LLMs to external data sources and tools—much like a USB-C port for AI applications (e.g., see <a href="https://huggingface.co/blog/gradio-mcp">How to Build an MCP Server with Gradio</a>).</p>
+<p>DeepWiki, from Cognition Labs, offers AI-powered, interactive documentation for any GitHub repository. Just replace <code>github.com</code> with <code>deepwiki.com</code> in your repo URL to generate searchable, context-rich docs instantly.</p>
+<hr />
+<h3 id="model-creators-foundation-model-providers">Model Creators / Foundation Model Providers</h3>
+<ul>
+<li><a href="https://openai.com/">OpenAI</a>: Model, Pre, FT, API  </li>
+<li><a href="https://www.anthropic.com/">Anthropic</a>: Model, Pre, FT  </li>
+<li><a href="https://www.deepmind.com/">Google DeepMind, Google</a>: Model, Pre, FT, API  </li>
+<li><a href="https://x.ai/">xAI</a>: Model, Pre, FT, API  </li>
+<li><a href="https://ai.meta.com/">Meta AI</a>: Model, Pre, FT, API  </li>
+<li><a href="https://mistral.ai/">Mistral AI</a>: Model, Pre, FT, API  </li>
+<li><a href="https://www.nousresearch.com/">Nous Research</a>: Model, Pre, FT  </li>
+<li><a href="https://cohere.com/">Cohere</a>: Model, Pre, FT, API  </li>
+<li><a href="https://allenai.org/">Allen Institute for AI (Ai2)</a>: Model, Pre, FT  </li>
+<li><a href="https://www.eleuther.ai/">EleutherAI</a>: Model (Open-Source Models)  </li>
+<li><a href="https://www.assemblyai.com/">AssemblyAI</a>: Model, API  </li>
+<li><a href="https://deepgram.com/">Deepgram</a>: Model, API  </li>
+<li><a href="https://elevenlabs.io/">ElevenLabs</a>: Model, API  </li>
+<li><a href="https://www.perplexity.ai/">Perplexity AI</a>: Model, API</li>
+<li><a href="https://stability.ai/">Stability AI</a>: Model, Pre, FT  </li>
+<li>Ideogram: Model</li>
+<li>Midjourney: Model</li>
+<li>Black Forest Labs: Model</li>
+<li>Pika Labs: Model</li>
+<li>Luma Labs: Model</li>
+<li>Minimax: Model</li>
+<li>Tencent AI Lab: Model</li>
+<li>ByteDance (owns TikTok): Model</li>
+<li>Inflection AI: Model</li>
+<li>Character.AI: Model</li>
+</ul>
+<h3 id="apiinference-providers">API/Inference Providers</h3>
+<ul>
+<li><a href="https://replicate.com/">Replicate</a>: API, GPU, Custom</li>
+<li><a href="https://together.xyz/">Together AI</a>: API, FT, Custom, GPU. Also finetune by WebUI.</li>
+<li><a href="https://openrouter.ai/">OpenRouter</a>: API</li>
+<li><a href="https://groq.com/">Groq.AI</a>: API  </li>
+<li><a href="https://novita.ai/">Novita.ai</a>: API, GPU </li>
+<li><a href="https://lepton.ai/">Lepton.ai</a>: API, GPU</li>
+<li><a href="https://hyperbolic.xyz/">Hyperbolic.xyz</a>: API, GPU  </li>
+<li><a href="https://fireworks.ai/">Fireworks AI</a>: API, GPU  </li>
+<li><a href="https://www.baseten.co/">Baseten</a>: API  </li>
+<li><a href="https://deepinfra.com/">Deepinfra</a>: API, GPU</li>
+<li><a href="https://octoai.com/">Octo AI</a>: API</li>
+</ul>
+<h3 id="development-tools-code-generation-and-productivity">Development Tools, Code Generation, and Productivity</h3>
+<ul>
+<li><a href="https://www.codeium.com/">Codeium</a>: Dev (It developed both the Codeium AI code acceleration platform and the Windsurf IDE.)</li>
+<li><a href="https://replit.com/">Replit AI</a>: Dev</li>
+<li>Bolt from StackBlitz: Dev (Bolt platform)</li>
+<li>Anthropic Computer Use</li>
+<li><a href="https://aws.amazon.com/codewhisperer/">Amazon CodeWhisperer</a>: Dev</li>
+<li><a href="https://github.com/features/copilot">GitHub Copilot</a>: Dev  </li>
+<li><a href="https://www.cursor.com/">Cursor</a>: Dev</li>
+<li><a href="https://www.cognitionlabs.ai/">Cognition Labs</a>: Dev  </li>
+</ul>
+<p>Platforms like Bolt, Replit Agent, Vercel V0 use agentic workflows to improve code quality. They also help deploy generated applications. </p>
+<p>Other tools related:</p>
+<ul>
+<li>Llama Stack developed by Meta is a collection of APIs that standardize the building blocks necessary for developing generative AI applications.</li>
+<li>Adept's ACT-1: Adept AI has developed ACT-1, an AI model designed to interact with software applications through natural language commands.  It can perform tasks such as navigating web pages, clicking buttons, and entering data, effectively acting as a digital assistant to automate workflows.</li>
+</ul>
+<h3 id="deployment-tools-and-platforms">Deployment Tools and Platforms</h3>
+<ul>
+<li><a href="https://vercel.com/">Vercel</a>: Dev, Dep (V0 by Vercel generates UI from text)</li>
+<li>Open WebUI: Dep (Manage and deploy AI models locally. UI for interacting with various LLMs. Integrate with LLM runners like Ollama and OpenAI-compatible APIs)</li>
+</ul>
+<h3 id="libraries-and-frameworks">Libraries and Frameworks</h3>
+<ul>
+<li>Ollama, vLLM: an open‑source, high‑throughput inference engine designed to run LLMs locally. It can be used with <a href="https://chatboxai.app">Chatbox.ai</a> app desktop, mobile and web-based app.</li>
+<li>unsloth (Daniel Han), torchtune, Oxolotl: Fast Training (Pre/FT related).  They enhance the speed and efficiency of LLM fine-tuning.</li>
+<li>LiteLLM: LiteLLM is an open-source Python library designed to streamline interactions with a wide range of LLMs by providing a unified interface.</li>
+<li><a href="https://github.com/AK391/ai-gradio">ai-gradio</a>: A Python package that makes it easy for developers to create machine learning apps powered by various AI providers. Built on top of Gradio, it provides a unified interface for multiple AI models and services.</li>
+<li><a href="https://dspy.ai/">DSPy</a>: Dev (Provides a programming model for developing and optimizing language model pipelines)  </li>
+<li><a href="https://pytorch.org/docs/stable/elastic/torchrun.html">Torchrun</a>: Dev  </li>
+<li><a href="https://github.com/replicate/cog">Cog (by Replicate)</a>: Packaging Custom ML Models for Deployment (Custom, Dep)  </li>
+<li><a href="https://comfyui.org/">ComfyUI</a>: Dev (GUI for Workflow)  </li>
+<li><a href="https://github.com/geohot/tinygrad">Tinygrad</a>: Dev  </li>
+<li>Agentic AI systems: LangChain, CrewAI, LlamaIndex, Haystack, Devin (Cognition)</li>
+<li><a href="https://openhands.ai">OpenHands</a>: Dev (providing frameworks for building AI-driven applications with agentic capabilities)  </li>
+</ul>
+<h3 id="data-platforms-and-providers">Data Platforms and Providers</h3>
+<ul>
+<li><a href="https://encord.com/">Encord</a>: Data  </li>
+<li><a href="https://www.llamaindex.ai/">LlamaIndex</a>: Dev, Data Indexing  </li>
+<li><a href="https://laion.ai/">LAION</a>: Data Provider, Open-Source Datasets</li>
+</ul>
+<h3 id="end-to-end-cloud-based-ml-platforms">End-to-End Cloud-Based ML Platforms</h3>
+<ul>
+<li>Google Vertex AI, AI Studio, GenAI SDK: API, Pre, FT, Custom, Dev, Dep, Model</li>
+<li><a href="https://aws.amazon.com/bedrock/">Amazon Bedrock</a>: API, Pre, FT, Custom, Dev, Dep, Model  </li>
+<li><a href="https://azure.microsoft.com/en-us/services/machine-learning/">Microsoft Azure Machine Learning</a>: API, Pre, FT, Custom, Dev, Dep, Model  </li>
+<li><a href="https://databricks.com/">Databricks</a>: API, Dev, Dep, Model  </li>
+<li><a href="https://www.ibm.com/cloud/watson-studio">IBM Watson Studio</a>: Dev, Dep, Model  </li>
+<li><a href="https://www.datarobot.com/">DataRobot</a>: Dev, Dep, Model  </li>
+<li><a href="https://www.h2o.ai/">H2O.ai</a>: Dev, Dep, Model  </li>
+<li><a href="https://www.dominodatalab.com/">Domino Data Lab</a>: Dev, Dep, Model  </li>
+<li><a href="https://algorithmia.com/">Algorithmia</a>: Dev, Dep, Model</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

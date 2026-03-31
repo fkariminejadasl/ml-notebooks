@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/transformer_models_with_variable_sequence_lengths/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Handling Variable Sequence Lengths in Transformer Models - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../companies/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../segmenttree_install/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#handling-variable-sequence-lengths-in-transformer-models" class="nav-link">Handling Variable Sequence Lengths in Transformer Models</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#example-1-transformer-model-with-sinusoidal-positional-encoding" class="nav-link">Example 1: Transformer Model with Sinusoidal Positional Encoding</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-2-transformer-model-with-learned-positional-embeddings" class="nav-link">Example 2: Transformer Model with Learned Positional Embeddings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-3-transformer-model-with-learned-positional-embeddings-initialized-with-sinusoidal-positional-encoding" class="nav-link">Example 3: Transformer Model with Learned Positional Embeddings Initialized with Sinusoidal Positional Encoding</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#considerations-when-training-with-learned-positional-embeddings" class="nav-link">Considerations When Training with Learned Positional Embeddings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="handling-variable-sequence-lengths-in-transformer-models">Handling Variable Sequence Lengths in Transformer Models</h1>
+<p>This guide provides code examples for handling variable sequence lengths in Transformer models using positional encodings. It includes examples of both sinusoidal (fixed) and learned positional embeddings, along with considerations when training on sequences of varying lengths.</p>
+<hr />
+<h2 id="example-1-transformer-model-with-sinusoidal-positional-encoding">Example 1: Transformer Model with Sinusoidal Positional Encoding</h2>
+<p>The following code demonstrates a Transformer model using sinusoidal positional encoding, which can handle variable sequence lengths without modification. </p>
+<p>This example is adapted from <a href="https://guyuena.github.io/PyTorch-study-Tutorials/beginner/transformer_tutorial.html">this source</a>.</p>
+<pre><code class="language-python">import math
+import torch
+from torch import nn, Tensor
+from torch.nn import TransformerEncoder, TransformerEncoderLayer
+
+class PositionalEncoding(nn.Module):
+
+    def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000):
+        super().__init__()
+        self.dropout = nn.Dropout(p=dropout)
+
+        position = torch.arange(max_len).unsqueeze(1)  # Shape: [max_len, 1]
+        div_term = torch.exp(torch.arange(0, d_model, 2) * 
+                             (-math.log(10000.0) / d_model))  # Shape: [d_model/2]
+
+        pe = torch.zeros(max_len, d_model)  # Shape: [max_len, d_model]
+        pe[:, 0::2] = torch.sin(position * div_term)  # Apply sine to even indices
+        pe[:, 1::2] = torch.cos(position * div_term)  # Apply cosine to odd indices
+        self.register_buffer('pe', pe)
+
+    def forward(self, x: Tensor) -&gt; Tensor:
+        &quot;&quot;&quot;
+        Args:
+            x: Tensor of shape [seq_len, batch_size, d_model]
+        &quot;&quot;&quot;
+        x = x + self.pe[:x.size(0), :]  # Add positional encoding
+        return self.dropout(x)
+
+class TransformerModel(nn.Module):
+
+    def __init__(self, ntoken: int, d_model: int, nhead: int, 
+                 d_hid: int, nlayers: int, dropout: float = 0.5):
+        super().__init__()
+        self.pos_encoder = PositionalEncoding(d_model, dropout)
+        encoder_layers = TransformerEncoderLayer(d_model, nhead, 
+                                                 d_hid, dropout)
+        self.transformer_encoder = TransformerEncoder(encoder_layers, nlayers)
+        self.encoder = nn.Embedding(ntoken, d_model)
+        self.d_model = d_model
+        self.decoder = nn.Linear(d_model, ntoken)
+
+        self.init_weights()
+
+    def init_weights(self) -&gt; None:
+        initrange = 0.1
+        nn.init.uniform_(self.encoder.weight, -initrange, initrange)
+        nn.init.zeros_(self.decoder.bias)
+        nn.init.uniform_(self.decoder.weight, -initrange, initrange)
+
+    def forward(self, src: Tensor, src_mask: Tensor) -&gt; Tensor:
+        &quot;&quot;&quot;
+        Args:
+            src: Tensor of shape [seq_len, batch_size]
+            src_mask: Tensor of shape [seq_len, seq_len]
+        &quot;&quot;&quot;
+        src = self.encoder(src) * math.sqrt(self.d_model)
+        src = self.pos_encoder(src)
+        output = self.transformer_encoder(src, src_mask)
+        output = self.decoder(output)
+        return output
+
+def generate_square_subsequent_mask(sz: int) -&gt; Tensor:
+    return torch.triu(torch.ones(sz, sz) * float('-inf'), diagonal=1)
+
+# Initialize the model
+ntokens = 1000  # Vocabulary size
+d_model = 512   # Embedding dimension
+nhead = 8       # Number of attention heads
+d_hid = 2048    # Feedforward network dimension
+nlayers = 6     # Number of Transformer layers
+dropout = 0.5   # Dropout rate
+
+model = TransformerModel(ntokens, d_model, nhead, d_hid, nlayers, dropout)
+
+# Prepare input data with variable sequence length
+seq_len = 10    # Sequence length can vary
+batch_size = 2  # Batch size
+x = torch.randint(0, ntokens, (seq_len, batch_size))  # Random input
+
+src_mask = generate_square_subsequent_mask(seq_len)
+
+# Run the model
+output = model(x, src_mask)
+</code></pre>
+<hr />
+<h2 id="example-2-transformer-model-with-learned-positional-embeddings">Example 2: Transformer Model with Learned Positional Embeddings</h2>
+<p>In this example, positional embeddings are learned parameters, allowing the model to potentially capture position-specific patterns.</p>
+<pre><code class="language-python">import torch
+from torch import nn, Tensor
+from torch.nn import TransformerEncoder, TransformerEncoderLayer
+
+class LearnedPositionalEncoding(nn.Module):
+
+    def __init__(self, max_len: int, d_model: int):
+        super().__init__()
+        self.pos_embedding = nn.Embedding(max_len, d_model)
+
+    def forward(self, x: Tensor) -&gt; Tensor:
+        &quot;&quot;&quot;
+        Args:
+            x: Tensor of shape [seq_len, batch_size, d_model]
+        &quot;&quot;&quot;
+        seq_len = x.size(0)
+        position_ids = torch.arange(seq_len, dtype=torch.long, device=x.device)
+        position_ids = position_ids.unsqueeze(1).expand(seq_len, x.size(1))
+        position_embeddings = self.pos_embedding(position_ids)
+        return x + position_embeddings
+</code></pre>
+<hr />
+<h2 id="example-3-transformer-model-with-learned-positional-embeddings-initialized-with-sinusoidal-positional-encoding">Example 3: Transformer Model with Learned Positional Embeddings Initialized with Sinusoidal Positional Encoding</h2>
+<p>In this example, positional embeddings are learned parameters initialized with Sinusoidal Positional Encoding.</p>
+<pre><code class="language-python">class SinusoidalInitializedPositionalEncoding(nn.Module):
+    def __init__(self, max_len: int, d_model: int):
+        super().__init__()
+        # Create a learnable positional embedding parameter
+        self.pos_embedding = nn.Parameter(torch.zeros(max_len, d_model))
+
+        # Initialize with sinusoidal positional encoding
+        position = torch.arange(0, max_len, dtype=torch.float32).unsqueeze(1)  # [max_len, 1]
+        div_term = torch.exp(torch.arange(0, d_model, 2, dtype=torch.float32) *
+                             (-math.log(10000.0) / d_model))  # [d_model/2]
+
+        sinusoidal_embedding = torch.zeros(max_len, d_model)  # [max_len, d_model]
+        sinusoidal_embedding[:, 0::2] = torch.sin(position * div_term)  # Even indices
+        sinusoidal_embedding[:, 1::2] = torch.cos(position * div_term)  # Odd indices
+
+        # Assign the sinusoidal values to the parameter without tracking gradients
+        with torch.no_grad():
+            self.pos_embedding.copy_(sinusoidal_embedding)
+
+    def forward(self, x: Tensor) -&gt; Tensor:
+        &quot;&quot;&quot;
+        Args:
+            x: Tensor of shape [seq_len, batch_size, d_model]
+        &quot;&quot;&quot;
+        seq_len = x.size(0)
+        x = x + self.pos_embedding[:seq_len, :].unsqueeze(1)
+        return x
+</code></pre>
+<hr />
+<h2 id="considerations-when-training-with-learned-positional-embeddings">Considerations When Training with Learned Positional Embeddings</h2>
+<p>Training a model with learned positional embeddings (PE) where the majority of sequence lengths are significantly shorter than the specified <code>max_len</code> can indeed present challenges:</p>
+<ul>
+<li>
+<p><strong>Underrepresentation of Longer Positions</strong>: If most training sequences are short, embeddings corresponding to higher positions (i.e., positions near <code>max_len</code>) receive minimal updates during training. This lack of exposure can lead to poor generalization for longer sequences during inference, as the model hasn't adequately learned representations for these positions.</p>
+</li>
+<li>
+<p><strong>Inefficient Resource Utilization</strong>: Allocating parameters for positions up to <code>max_len</code> consumes memory and computational resources. If these positions are seldom used during training, this allocation becomes inefficient.</p>
+</li>
+</ul>
+<h3 id="mitigation-strategies">Mitigation Strategies:</h3>
+<ul>
+<li>
+<p><strong>Dynamic Positional Embeddings</strong>: Instead of a fixed <code>max_len</code>, employ dynamic positional embeddings that adjust based on the actual sequence lengths encountered during training. This approach ensures that the model learns appropriate embeddings for the positions it processes.</p>
+</li>
+<li>
+<p><strong>Curriculum Learning</strong>: Start training with shorter sequences and progressively introduce longer ones. This method helps the model gradually adapt to various sequence lengths, ensuring that embeddings for higher positions are adequately trained.</p>
+</li>
+<li>
+<p><strong>Data Augmentation</strong>: Artificially increase the length of training sequences by padding or concatenating sequences. This technique exposes the model to a broader range of positions, aiding in the learning of embeddings across the entire range up to <code>max_len</code>.</p>
+</li>
+<li>
+<p><strong>Regularization Techniques</strong>: Apply regularization methods to prevent overfitting to shorter sequences, encouraging the model to generalize better to longer sequences.</p>
+</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li>
+<p><strong>Sinusoidal Positional Encoding</strong>: Handles variable sequence lengths naturally without the need for learned parameters tied to specific positions.</p>
+</li>
+<li>
+<p><strong>Learned Positional Embeddings</strong>: Require careful consideration of sequence length distribution in the training data to ensure embeddings for all positions are adequately trained.</p>
+</li>
+<li>
+<p><strong>Training Strategies</strong>: Adjust your data and training process, not the model code, to handle variable sequence lengths effectively.</p>
+</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
