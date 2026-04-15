@@ -110,3 +110,61 @@ This is normal. It matters only if you want GRUB to auto-detect other OS install
 - BIOS/UEFI: firmware settings for boot order, Secure Boot, storage mode (RST/VMD), etc.
 - TTY: text console for recovery when graphics fails
 - PSR (Panel Self Refresh): Intel display power-saving feature; disabling can fix flicker
+
+
+## Post-install setup for a new computer
+
+After Ubuntu is installed and working, set up the essentials for daily use.
+
+- Development: SSH key settings for github and clusters (e.g. fnwi, snellius), git, vscode, miniconda 
+- Connection: VPN (Ivanti) 
+- Usuful softwares: flameshot, QGIS, dbevear 
+- vscode: python, remote-ssh
+
+
+## Useful troubleshooting commands
+
+Run these commands to collect system information when diagnosing boot, graphics, driver, or Secure Boot issues.
+
+
+```bash
+echo "=== KERNEL ==="
+uname -r
+
+echo
+echo "=== PCI DEVICES ==="
+sudo lspci -nnk | grep -A4 -E 'VGA|3D|Display'
+
+echo
+echo "=== NVIDIA / NOUVEAU MODULES ==="
+lsmod | grep -E '^nvidia|^nouveau'
+
+echo
+echo "=== INTEL MODULES ==="
+lsmod | grep -E '^i915|^xe'
+
+echo
+echo "=== NVIDIA MODINFO ==="
+modinfo nvidia | grep -E '^(filename|version):'
+
+echo
+echo "=== DKMS STATUS ==="
+dkms status
+
+echo
+echo "=== SECURE BOOT ==="
+mokutil --sb-state
+
+echo
+echo "=== NVIDIA PACKAGES ==="
+dpkg -l | grep -E 'nvidia|libnvidia|cuda'
+
+echo
+echo "=== OEM PACKAGE ==="
+dpkg -l | grep -i oem
+apt policy oem-sutton-datu-meta
+
+echo
+echo "=== RECENT DMESG NVIDIA/INTEL ==="
+sudo dmesg -T | grep -iE 'nvidia|nouveau|i915|xe' | tail -n 200
+```
