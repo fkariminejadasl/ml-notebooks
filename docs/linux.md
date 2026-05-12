@@ -96,6 +96,13 @@ These directories are accessible system-wide, so all users on the system can use
 | `wget [url]`                     | Download files from the internet.                                           |
 | `curl [url]`                     | Transfer data from or to a server.                                          |
 | `ssh [user]@[host]`              | Connect to a remote host via SSH.                                           |
+| `nmcli device status`            | Show whether network devices are connected, disconnected, or unavailable.   |
+| `nmcli device show [interface]`  | Show IP address, gateway, DNS, and other details for a network interface.   |
+| `nmcli connection show [name]`   | Show saved settings for a network connection profile.                       |
+| `nmcli connection down [name]`   | Disconnect a saved network connection profile.                              |
+| `nmcli connection up [name]`     | Reconnect a saved network connection profile.                               |
+| `ip route`                       | Show the routing table and default network path.                            |
+| `ethtool [interface]`            | Show Ethernet link status, speed, duplex, and cable connection state.       |
 
 #### File Transfer
 
@@ -234,14 +241,26 @@ sudo nano /etc/ImageMagick-6/policy.xml
 # change `<policy domain="coder" rights="none" pattern="PDF" />` to `<policy domain="coder" rights="read | write" pattern="PDF" />` 
 # Convert the png to pdf 
 convert your_image.png -density 300 your_image.pdf
-```
 
-```bash
 # Copy many small files
 tar -cf archive.tar /path/to/source
 split -b 2000M archive.tar archive.tar.part. # FAT32 max 4GB
 # rsync -ah --info=progress2 archive.tar /media/your_usb/ # or just copy
 tar -xf archive.tar
+
+# Shows saved wired connection settings, including 802.1X config.
+nmcli connection show 'Wired connection 1'
+# Reconnects wired networking so new security settings apply.
+nmcli connection down 'Wired connection 1'
+nmcli connection up 'Wired connection 1'
+# Shows whether traffic is going through wired or Wi-Fi.
+ip route
+# Shows whether Ethernet is connected, unavailable, or disconnected. Show ethernet-interface names to be used in command such as `nmcli device show <ethernet-interface>, e.g. enp134s0
+nmcli device status
+# Shows wired IP address, gateway, DNS, and carrier state.
+nmcli device show <ethernet-interface> # nmcli device show enp134s0
+# Shows physical link status, speed, duplex, and whether the cable/port has carrier.
+ethtool <ethernet-interface> # ethtool enp134s0
 ```
 
 ## Courses
