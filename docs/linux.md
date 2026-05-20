@@ -214,6 +214,11 @@ pgrep -u username
 rg -n "detach|__main__" # n: line number (default), e: regular expression (works without n, e in this example)
 grep -RInE 'detach|__main__' . # n: line number, E: regular expression, R: recursive, I: ingore binaries
 
+# Some grep examples: both returns:
+# 243348,"2025-05-01 00:02:30","2025-05-01","00:02:30","GPS",7,4143,99,0,1.2,51.966053,4.091862,86,0,195,31,-284,-200,-183,492,228,912,NA,0.46459379209882,0.215299562192136,0.861198248768544,1.00192999596723
+grep -E '"GPS",([0-9]+,){4}[0-9]+(\.[0-9]+)?,51.966053,4.091862' all_devices_calibrated.csv
+grep -E "\"GPS\",.*51.966053,4.091862" all_devices_calibrated.csv
+
 # Find differences
 diff --color -U 0 file1 file2
 diff <(awk 'NR>1 {print $1}' results_fixed.csv) <(awk 'NR>1 {print $1}' results.csv)
