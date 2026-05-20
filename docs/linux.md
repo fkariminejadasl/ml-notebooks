@@ -216,6 +216,10 @@ grep -RInE 'detach|__main__' . # n: line number, E: regular expression, R: recur
 
 # Find differences
 diff --color -U 0 file1 file2
+diff <(awk 'NR>1 {print $1}' results_fixed.csv) <(awk 'NR>1 {print $1}' results.csv)
+
+# Print only lines 1000 through 397180 from data.csv and save them to data_1000_397180.csv
+sed -n '1000,397180p' data.csv > data_1000_397180.csv
 
 # Display the absolute path
 readlink -f $HOME
