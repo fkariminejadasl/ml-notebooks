@@ -55,7 +55,7 @@ Please note that the field of machine learning and computer vision is rapidly ev
 - **Optical Flow:** SEA RAFT, RAFT
 - **3D/4D Reconstruction:** D4RT (EepMind), V-DPM (Vedaldi), Depth Anything 3, MapAnything, ViPE (Nvidia), VGGT, COLMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (VGGT Omega, ViPE, St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction),
 - **Calibration**: CalibAnyView, GeoCalib, VGGT, COLMAP, DroidCalib
-- **Point Matching and Point Tracking:** TAP (CoTracker3, TAPIR, PIP), SAM3 (Segment and Tracking Anything: SAM combined with DeAOT);SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, 
+- **Point Matching and Point Tracking:** RoMa-v2, TAP (CoTracker3, TAPIR, PIP), SAM3 (Segment and Tracking Anything: SAM combined with DeAOT);SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, 
 - **Multi-Object Tracking (MOT):**: SAM3 (Segment Anything Model) for image and video, MOTR, ByteTrack, BoT-Sort, FairMOT
 - **Referred Multi-Object Tracking / Text-guided Spatial Video Grounding (SVG):** TempRMOT
 - **Text-guided Video Temporal Grounding (VTG):** VTG aims to get start and end frames by prompting the action. FlashVTG
