@@ -51,9 +51,10 @@ The following list highlights some of the current state-of-the-art (SOTA) and pr
 Please note that the field of machine learning and computer vision is rapidly evolving, and new models are frequently introduced. This list reflects a snapshot of current practices, but advancements in the field may lead to newer and potentially better-performing techniques over time.
 
 - **Vision Encoders:** Vision-Only Model Encoders: PE (Perception Encoder, Mets), DINO, MAE (Masked Autoencoders), ResNet. Vision-Text Model Encoders: AIMv2, SigLIP, CLIP, BLIP. Vision-Text Encoder for Generation: LlamGen. E.g. In Janus (DeepSeek), LlamaGen is used for Geneneation Encoder and SigLIP for Understanding Encoder.
+- Image retrieval: MegaLoc
 - **Depth Map:** DepthAnything, Depth Pro, DepthCrafter (for video), MiDaS, Depth Anything v2, DPT, ZoeDepth
 - **Optical Flow:** SEA RAFT, RAFT
-- **3D/4D Reconstruction:** D4RT (EepMind), V-DPM (Vedaldi), Depth Anything 3, MapAnything, ViPE (Nvidia), VGGT, COLMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (VGGT Omega, ViPE, St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction),
+- **3D/4D Reconstruction:** D4RT (EepMind), V-DPM (Vedaldi), Depth Anything 3, MapAnything, ViPE (Nvidia), VGGT, COLMAP / GLOMAP (Non-Deep Learning), DuSt3R, MASt3R, 4D (VGGT Omega, ViPE, St4RTrack, Easi3D, CUT3R, DAS3R, MonST3R, Dynamic Point Maps), 4D Online (ODHSR, only human), VideoMimic, ACE Zero (ACE0), noposplat (potentially for sparse reconstruction),
 - **Calibration**: CalibAnyView, GeoCalib, VGGT, COLMAP, DroidCalib
 - **Point Matching and Point Tracking:** RoMa-v2, TAP (CoTracker3, TAPIR, PIP), SAM3 (Segment and Tracking Anything: SAM combined with DeAOT);SuperPoint combined with lightGLUE or SuperGLUE, MASt3R, 
 - **Multi-Object Tracking (MOT):**: SAM3 (Segment Anything Model) for image and video, MOTR, ByteTrack, BoT-Sort, FairMOT
