@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/git/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Git Basics - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../services/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../python/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#git" class="nav-link">Git</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#git-basics-a-simple-manual" class="nav-link">Git Basics: A Simple Manual</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#git-advanced" class="nav-link">Git Advanced</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#links" class="nav-link">Links</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#courses" class="nav-link">Courses</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="git">Git</h1>
+<h2 id="git-basics-a-simple-manual">Git Basics: A Simple Manual</h2>
+<p>Git is a version control system that helps you manage your code and collaborate with others. This manual will cover some basic Git commands to get you started.</p>
+<h4 id="setting-up-git">Setting Up Git</h4>
+<ul>
+<li>Install Git on your computer. You can download it from <a href="https://git-scm.com/downloads">here</a> and follow the installation instructions.</li>
+</ul>
+<h4 id="configuring-git">Configuring Git</h4>
+<ul>
+<li>After installation, set your name and email using the following commands:</li>
+</ul>
+<pre><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@example.com&quot;
+</code></pre>
+<h4 id="creating-a-new-repository">Creating a New Repository</h4>
+<ul>
+<li><strong>Local Repository</strong>: To start a new project with Git, create a new directory and navigate into it. Then run:</li>
+</ul>
+<pre><code>git init
+</code></pre>
+<blockquote>
+<p>This step is better to be done on GitHub.</p>
+</blockquote>
+<ul>
+<li><strong>Clone Repository</strong>: To work on an existing project, clone it from a remote repository using:</li>
+</ul>
+<pre><code>git clone &lt;remote_url&gt;
+</code></pre>
+<ul>
+<li><strong>Switching Branches</strong>: Create and switch to a new branch with:</li>
+</ul>
+<pre><code>git checkout -b &lt;branch_name&gt;
+</code></pre>
+<h4 id="basic-commands">Basic Commands</h4>
+<ul>
+<li><strong>Adding Files</strong>: Stage changes for commit using:</li>
+</ul>
+<pre><code>git add &lt;filename&gt;
+</code></pre>
+<ul>
+<li><strong>Committing Changes</strong>: Save staged changes to your local repository with:</li>
+</ul>
+<pre><code>git commit -m &quot;Your commit message&quot;
+</code></pre>
+<p>Use <code>-a</code> to tell the command to automatically stage files that have been modified and deleted. So, you don't need to use <code>git add</code> anymore. For new files, <code>git add</code> should be used.</p>
+<pre><code>git commit -am &quot;Your commit message&quot;
+</code></pre>
+<h4 id="collaboration">Collaboration</h4>
+<ul>
+<li><strong>Pushing Changes</strong>: Upload your local commits to a remote repository using:</li>
+</ul>
+<pre><code>git push origin &lt;branch_name&gt;
+</code></pre>
+<ul>
+<li><strong>Pulling Changes</strong>: Retrieve and merge changes from the remote repository with:</li>
+</ul>
+<pre><code>git pull origin &lt;branch_name&gt;
+</code></pre>
+<h4 id="view-commands">View Commands</h4>
+<ul>
+<li><strong>Checking Status</strong>: To see which files are staged or modified, use:</li>
+</ul>
+<pre><code>git status
+</code></pre>
+<ul>
+<li><strong>Viewing Commit History</strong>: See a list of past commits using:</li>
+</ul>
+<pre><code>git log
+</code></pre>
+<p><img alt="Alt text" src="../assets/image.png" /></p>
+<h2 id="git-advanced">Git Advanced</h2>
+<h3 id="git-lfs-large-file-storage-guide">Git LFS (Large File Storage) Guide</h3>
+<p>Git LFS is a tool that helps manage large files in Git repositories efficiently. It stores large files (like images, videos, etc.) outside the repository while keeping references to them in your version control system. This reduces the size of your Git repository and optimizes performance.</p>
+<h4 id="step-1-install-git-lfs">Step 1: Install Git LFS</h4>
+<p>To begin using Git LFS, you need to install it on your system:</p>
+<pre><code class="language-bash">sudo apt install git-lfs
+</code></pre>
+<p>If you don't have sudo rights, follow these steps instead:</p>
+<pre><code class="language-bash">mkdir -p ~/bin
+cd ~/bin
+wget https://github.com/git-lfs/git-lfs/releases/latest/download/git-lfs-linux-amd64-v3.6.1.tar.gz
+tar -xvzf git-lfs-linux-amd64-v3.6.1.tar.gz
+rm git-lfs-linux-amd64-v3.6.1.tar.gz
+echo 'export PATH=$HOME/bin/git-lfs-3.6.1:$PATH' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<blockquote>
+<p>Note: Check the latest version at https://github.com/git-lfs/git-lfs/releases and adjust the version number in the commands accordingly. The version shown here (3.6.1) might be outdated.</p>
+</blockquote>
+<h4 id="step-2-initialize-git-lfs-in-your-repository">Step 2: Initialize Git LFS in Your Repository</h4>
+<p>After installation, you need to enable Git LFS in your project:</p>
+<pre><code class="language-bash">git lfs install
+</code></pre>
+<p>Now, your Git repository is ready to handle large files.</p>
+<h4 id="step-3-track-large-files">Step 3: Track Large Files</h4>
+<p>Specify which file types or individual large files you want Git LFS to track.</p>
+<ul>
+<li><strong>Track by Extension</strong>: To track all files with a certain extension (e.g., <code>.psd</code>), use:</li>
+</ul>
+<pre><code class="language-bash">git lfs track &quot;*.psd&quot;
+</code></pre>
+<p>This will automatically add a line in the <code>.gitattributes</code> file, ensuring all <code>.psd</code> files are managed by Git LFS:</p>
+<pre><code>*.psd filter=lfs diff=lfs merge=lfs -text
+</code></pre>
+<ul>
+<li><strong>Track Individual Files</strong>: For large files without a specific extension, you can track them individually by specifying the exact file path:</li>
+</ul>
+<pre><code class="language-bash">git lfs track &quot;my_large_file&quot;
+</code></pre>
+<p>This will add an entry to <code>.gitattributes</code> like:</p>
+<pre><code>my_large_file filter=lfs diff=lfs merge=lfs -text
+</code></pre>
+<p>Note: Adding text manually in the <code>.gitattributes</code> is the same as running <code>git lfs track</code>. </p>
+<p>By tracking files this way, Git LFS ensures large files are stored separately while keeping references in your Git repository.</p>
+<p>Once a file is tracked by Git LFS and pushed to the remote repository, Git stores a reference (pointer) to the large file in your regular Git repository. The actual large file is stored separately on the Git LFS server (which could be GitHub or another remote LFS storage). </p>
+<p>In the future, when you push or pull, Git will just handle the reference (which is small in size) in the main repository, while Git LFS takes care of storing or fetching the actual large file.</p>
+<h4 id="step-4-add-commit-and-push-files-to-the-remote-repository">Step 4: Add, Commit and Push Files to the Remote Repository</h4>
+<p>Now, add the large files you want to commit to your repository as you normally would:</p>
+<pre><code class="language-bash">git add .gitattributes
+git add large_file.psd
+git commit -m &quot;Add large file using Git LFS&quot;
+git push
+</code></pre>
+<h4 id="step-5-pull-files-from-a-remote-repository">Step 5: Pull Files from a Remote Repository</h4>
+<p>When you or someone else pulls the project, Git LFS will automatically download the large files referenced in the repository:</p>
+<pre><code class="language-bash">git pull
+</code></pre>
+<p>If you only pull the references to the large files, you can use the following command to explicitly download the large files:</p>
+<pre><code class="language-bash">git lfs pull
+</code></pre>
+<blockquote>
+<p>When using <code>git clone</code>, all files, including those tracked by LFS, are downloaded. If LFS-tracked files have been updated, running <code>git lfs pull</code> will download only the updated large files. <code>git lfs push</code> can be used to push only the large files to the LFS server without pushing other changes to the repository. However, in most cases, just running <code>git push</code> is sufficient, as Git LFS automatically handles the large files.</p>
+</blockquote>
+<h4 id="step-6-check-git-lfs-status"><strong>Step 6: Check Git LFS Status</strong></h4>
+<p>To check the current status of tracked files in Git LFS, use:</p>
+<pre><code class="language-bash">git lfs status
+</code></pre>
+<p>This command shows you which files are being tracked and which are pending to be pushed or committed.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://coderefinery.github.io/git-collaborative/">More information on Git from coderefinery</a></li>
+</ul>
+<h2 id="courses">Courses</h2>
+<p>From <a href="https://software-carpentry.org/lessons">Software Carpentry</a>, follow "Version control with Git" course.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

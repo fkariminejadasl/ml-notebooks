@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/python/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Python Basics - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../git/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../linux/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#setup-python" class="nav-link">Setup Python</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#remove-conda" class="nav-link">Remove Conda</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#pytest" class="nav-link">Pytest</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#conda-commands-cheat-sheet" class="nav-link">Conda Commands Cheat Sheet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#useful-pip-commands" class="nav-link">Useful pip Commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#python-courses" class="nav-link">Python Courses</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="setup-python">Setup Python</h2>
+<p>Look at the guide in <a href="https://docs.anaconda.com/miniconda/#quick-command-line-install">here</a> or follow bellow steps.</p>
+<p>Install conda:</p>
+<pre><code class="language-bash">mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+</code></pre>
+<p>After installing, initialize your newly-installed Miniconda.</p>
+<pre><code class="language-bash">~/miniconda3/bin/conda init bash
+</code></pre>
+<p>Setup your python:</p>
+<pre><code class="language-bash">conda create -n some_name python=3.10
+conda activate some_name
+</code></pre>
+<p>You can put <code>conda activate some_name</code> in your <code>~/.bashrc</code> to activate it when open a new terminal.</p>
+<p>Remove your conda environment:</p>
+<pre><code class="language-bash">conda remove -n some_name --all
+</code></pre>
+<h2 id="remove-conda">Remove Conda</h2>
+<p>To completely remove Miniconda from your Ubuntu system, including all associated configurations and files, follow these steps:</p>
+<h4 id="jupyter-kernel">Jupyter Kernel</h4>
+<pre><code class="language-bash"># This process installs a new Jupyter kernel named test with the display name &quot;bird&quot;.
+pip install ipykernel
+sudo python -m ipykernel install --name test --display-name bird
+
+# Location of the Installed Kernel
+jupyter kernelspec list
+# This command will display a list of all installed kernels along with their corresponding paths. 
+#  test       /home/your_username/.local/share/jupyter/kernels/test
+
+# Removing the Installed Kernel
+jupyter kernelspec uninstall test
+</code></pre>
+<h4 id="deactivate-any-active-conda-environments">Deactivate Any Active Conda Environments</h4>
+<p>Ensure that no Conda environments are active by running:</p>
+<pre><code class="language-bash">conda deactivate
+</code></pre>
+<h4 id="remove-the-miniconda-installation-directory">Remove the Miniconda Installation Directory</h4>
+<p>Delete the directory where Miniconda is installed. By default, this is <code>~/miniconda3</code>. Use the following command, adjusting the path if necessary:</p>
+<pre><code class="language-bash">rm -rf ~/miniconda3/
+</code></pre>
+<p><em>Note: Replace <code>~/miniconda3/</code> with the correct path if you installed Miniconda elsewhere.</em></p>
+<h4 id="remove-conda-related-hidden-files-and-directories">Remove Conda-Related Hidden Files and Directories</h4>
+<p>Remove hidden files and directories in your home directory that Conda uses:</p>
+<pre><code class="language-bash">rm -rf ~/.conda ~/.condarc ~/.continuum
+</code></pre>
+<p><em>These directories store Conda environments and settings.</em></p>
+<h4 id="remove-conda-initialization-from-shell-configuration">Remove Conda Initialization from Shell Configuration</h4>
+<p>Conda adds initialization code to your shell's configuration file (e.g., <code>.bashrc</code>). To remove these lines:</p>
+<ul>
+<li>Open the configuration file in a text editor:</li>
+</ul>
+<pre><code class="language-bash">nano ~/.bashrc
+</code></pre>
+<ul>
+<li>Scroll to the section managed by 'conda init', which looks like:</li>
+</ul>
+<pre><code class="language-bash"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup=&quot;$('/home/username/miniconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/home/username/miniconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/home/username/miniconda3/etc/profile.d/conda.sh&quot;
+    else
+        export PATH=&quot;/home/username/miniconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre>
+<ul>
+<li>
+<p>Delete this entire block.</p>
+</li>
+<li>
+<p>Save the file and exit the editor (in nano, press <code>CTRL+O</code> to save and <code>CTRL+X</code> to exit).</p>
+</li>
+<li>
+<p>Apply the changes by sourcing the file:</p>
+</li>
+</ul>
+<pre><code class="language-bash">source ~/.bashrc
+</code></pre>
+<h4 id="remove-any-remaining-conda-related-cache">Remove Any Remaining Conda-Related Cache</h4>
+<p>Check for and remove any remaining Conda-related cache files:</p>
+<pre><code class="language-bash">rm -rf ~/.cache/conda
+</code></pre>
+<h2 id="pytest">Pytest</h2>
+<h3 id="running-tests">Running Tests</h3>
+<p>You can run your tests using:</p>
+<pre><code class="language-bash">pytest tests
+# Ignore tests with specific markers
+pytest tests -m &quot;not ignore and not local&quot;
+</code></pre>
+<h3 id="debugging-in-vs-code">Debugging in VS Code</h3>
+<p>To configure Pytest in VS Code, press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on macOS), then search for <strong>"Python: Configure Tests"</strong> and select it.</p>
+<p>Once configured correctly:
+- You should see <strong>"Run Test | Debug Test"</strong> options above each test function.
+- Click <strong>"Debug Test"</strong> to start debugging.</p>
+<h2 id="conda-commands-cheat-sheet">Conda Commands Cheat Sheet</h2>
+<pre><code class="language-bash">conda create -n some_name python=3.10 # Create a new Conda virtual env
+conda activate some_name # Activate the Conda virtual env
+conda remove -n some_name --all # Remove the Conda virtual env
+conda install openblas-devel -c anaconda # Install a package from Conda
+conda list | grep blas # Search for a package in the installed list (similar to `pip freeze | grep blas`)
+echo $CONDA_PREFIX # Path of the currently active env (e.g., ~/miniconda3/envs/some_name)
+</code></pre>
+<h2 id="useful-pip-commands">Useful pip Commands</h2>
+<pre><code class="language-bash">pip -U install package1 packag2 # -U: for update
+pip uinstall package
+pip-autoremove -y package1 package2  # Remove package completely. First install `pip install -y pip-autoremove`
+pip freeze
+pip list
+pip check
+</code></pre>
+<h2 id="python-courses">Python Courses</h2>
+<p>From <a href="https://software-carpentry.org/lessons">Software Carpentry</a>, below courses are offered. </p>
+<ul>
+<li><a href="https://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a></li>
+<li><a href="https://swcarpentry.github.io/python-novice-gapminder">Plotting and Programming in Python</a></li>
+</ul>
+<p>A CS50 course offered <a href="https://cs50.harvard.edu/python/">here</a>.</p>
+<p>For more on software engineering side, you could also attend this course:
+- <a href="https://www.esciencecenter.nl/event/intermediate-research-software-development-with-python-3">Intermediate Research Software Development with Python</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

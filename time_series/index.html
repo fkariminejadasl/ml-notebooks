@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/time_series/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Time Series - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../slam/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../tasks/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#time-series" class="nav-link">Time Series</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="time-series">Time Series</h1>
+<h3 id="general-time-series-models">General Time-Series Models</h3>
+<p>In all these works, the code, model and weights are released: </p>
+<ul>
+<li><a href="https://github.com/moment-timeseries-foundation-model/moment">MOMENT (Auton Lab, 2024)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.15821">Chronos-2</a>, <a href="https://arxiv.org/abs/2403.07815">Chronos (AWS, 2024)</a></li>
+<li><a href="https://www.arxiv.org/pdf/2511.11698">Moirai 2.0</a>, <a href="https://arxiv.org/abs/2410.10469">MOIRAI-MOE (Silvio Savarese, Salesforce Research, 2024)</a>: Time-series foundation model, which uses mixture of expertes to select for different data frequencies. It is build upon <a href="https://arxiv.org/abs/2402.02592">MOIRAI (Salesforce Research, 2024)</a>. </li>
+<li><a href="https://arxiv.org/abs/2410.04803">Timer-XL (Tsinghua University, 2025)</a> implemented other methods as well in <a href="https://github.com/thuml/OpenLTM/blob/main/models/moirai.py">here</a>. The older work is <a href="https://arxiv.org/abs/2402.02368">Timer (2024)</a> and the newer work <a href="https://arxiv.org/abs/2502.00816">Sundial (2025)</a>.</li>
+<li><a href="https://arxiv.org/pdf/2505.14766">TOTO (Datadog, 2025)</a> comes with code and weights</li>
+<li><a href="https://arxiv.org/abs/2511.19256">SimDiff</a> Diffusion-based model in time series forecasting </li>
+<li><a href="https://arxiv.org/abs/2402.16412">TOTEM (Georgia Gkioxari, Caltech, 2024)</a></li>
+<li><a href="https://arxiv.org/abs/2310.10688">TimesFM (Google Research, 2024)</a></li>
+<li><a href="https://github.com/time-series-foundation-models/lag-llama">Lag-Llama (ServiceNow, 2024)</a></li>
+<li><a href="https://arxiv.org/abs/2503.04118">TimeFound (2025)</a></li>
+<li><a href="https://arxiv.org/abs/2401.03955">TTMs (IBM, 2024)</a></li>
+</ul>
+<p>Older works: <a href="https://arxiv.org/abs/2211.14730">PatchTST (2022)</a>, <a href="https://arxiv.org/abs/2310.03589v3">TimeGPT-1 (Nixtla, 2023)</a>, <a href="https://arxiv.org/abs/2310.01728">TIME-LLM</a>, <a href="https://arxiv.org/abs/2310.07820">LLMTime</a>, <a href="https://arxiv.org/abs/2402.02370">AutoTimes</a>, <a href="https://arxiv.org/abs/2302.11939">GPT-4TS or FPT (2023)</a>.</p>
+<p><a href="https://arxiv.org/abs/2106.13008">Autoformer</a>, <a href="https://arxiv.org/pdf/2012.07436">Informer</a>, 
+Reformer for the long-term forecasting. Some of these methods are provided in <a href="https://huggingface.co/docs/transformers/en/model_doc/autoformer">HuggingFace Time Series Models</a>. In <a href="https://arxiv.org/abs/2205.13504">Transformers Effective for Time Series Forecasting?</a>, argues the transformers are not needed.</p>
+<h3 id="time-series-representation-learning">Time-Series Representation Learning</h3>
+<ul>
+<li><a href="https://zitniklab.hms.harvard.edu/projects/TF-C">TF-C</a>: Time-Frequency Consistency (TF-C) Model (Harvard MIMS Lab, NeurIPS 2022) - A cross-domain time-series representation model that leverages contrastive learning between time-domain and frequency-domain views of the same signal​. By enforcing consistent embeddings in both domains, TF-C learns general features transferable to diverse sensors (EEG, accelerometer, etc.). Weights are available.</li>
+<li><a href="https://arxiv.org/abs/2106.14112">TS-TCC</a>: Time-Series Representation Learning via Temporal and Contextual Contrasting: contrastive. augmentation: jitter, scale the amplitude and permutation.</li>
+<li><a href="https://arxiv.org/abs/2312.15709">TimesURL</a>: Learning Universal Representations of Time Series via Contrastive Learning: contrastive and reconstruction based (MAE) based on <strong>TS2Ve</strong> model. augmentation: left-righ cropping with frequency swaping of the negative example. hard negatives are temporal and instance based. In temporal way, the augmentation mix in different time. In the instance-based augmentation, this mixing occurs in mixing the different instances.</li>
+<li><a href="https://arxiv.org/abs/2106.10466">TS2Vec</a>: Towards universal representation of time series. Augmentation: croping</li>
+<li><a href="https://arxiv.org/abs/1807.03748">CPC</a>: Representation Learning with Contrastive Predictive Coding: The contrastive learning works such as SimCLR, MoCo, SwAV, DINO are based on the self distillation introduced in this paper. The postive are the predictions.</li>
+<li><a href="https://arxiv.org/abs/2106.00750">TNC</a> (Temporal Neighborhood Coding): Triplet loss (neighbor positive and further negative)</li>
+</ul>
+<h3 id="generalized-category-discovery-gcd">Generalized Category Discovery (GCD)</h3>
+<p><a href="https://arxiv.org/pdf/2201.02609">GCD</a> (Generalized Category Discovery) uses supervised contrastive and self-supervised contrastive learning to obtain representations. These representations are then clustered with supervised K-means, enforcing that the labeled samples remain in their original cluster. A Hungarian matching assignment computes clustering accuracy on the labeled data, and this accuracy determines the number of clusters. <a href="https://arxiv.org/pdf/2211.11727">SimGCD</a>: is a parametric extension of GCD that employs both supervised and unsupervised contrastive losses for representation learning, alongside supervised and unsupervised clustering losses with mean-entropy maximization to shape the clusters. Further <a href="https://arxiv.org/pdf/2403.13684">SPTNet</a> Builds on SimGCD by introducing Spatial Prompt Tuning—additional prompt parameters learned on image patches—to further improve clustering performance. <a href="https://arxiv.org/pdf/2311.17055">μGCD</a> Similar to SimGCD, but maintains a teacher model whose weights are updated via exponential moving average (EMA). Note that in both SimGCD and SPTNet, the teacher network is never trained directly, it is simply a detached version of the student model.</p>
+<p><a href="https://arxiv.org/pdf/2403.09974">GET: Unlocking the Multi-modal Potential of CLIP for Generalized Category Discovery</a> outperforms SimGCD in visual similar categories using CLIP text encoder. </p>
+<p><a href="https://arxiv.org/pdf/2408.14371">SelEx</a> is based on GCD, with improvements coming from the clustering component to ensure balanced clusters during training, as well as from the use of both supervised and unsupervised self-expertise. Self-Expertise assigns different weights to samples depending on whether they are positive or negative, and this weighting is influenced by their class hierarchies (coarse or fine-grained).</p>
+<p>Some GCD or NCD (Novel Category Discovery) e.g. <a href="https://arxiv.org/pdf/2108.08536">UNO</a> methods are based on pioneering works such as <a href="https://arxiv.org/pdf/1911.05371">SeLa (Asano)</a>: self-labeling via simultaneous clustering and representation learning, and <a href="https://arxiv.org/pdf/2006.09882">SwAV</a>.</p>
+<h3 id="imbalanced-generalized-category-discovery-gcd">Imbalanced Generalized Category Discovery (GCD)</h3>
+<ul>
+<li><a href="https://arxiv.org/pdf/2211.11727v4">SimGCD</a>: Clustering is trained jointly with the representation learning network. This is not an imbalanced data setting. However, entropy is used as a regularization to prevent the model from over-predicting certain label classes. This issue is more about imbalanced prediction, which arises during joint learning of clustering and representation, but not in separate training as done in the original GCD method. <a href="https://arxiv.org/pdf/2503.12519">MASA: Multi-Activity Sequence Alignment via Implicit Clustering</a> is related in terms of parametric clustering, though it addresses a different task.</li>
+<li><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Cao_Solving_the_Catastrophic_Forgetting_Problem_in_Generalized_Category_Discovery_CVPR_2024_paper.pdf">LegoGCD</a></li>
+<li><a href="https://arxiv.org/pdf/2403.04272">AGCD</a></li>
+<li><a href="https://arxiv.org/pdf/2310.01376">BaCon: Towards Distribution-Agnostic Generalized Category Discovery</a></li>
+<li><a href="https://arxiv.org/pdf/2506.06965">Long-Tailed Learning for Generalized Category Discovery</a></li>
+<li><a href="https://openreview.net/pdf?id=0CIS2nthtK">Generalized Category Discovery under the Long-Tailed Distribution</a></li>
+<li><a href="https://openreview.net/pdf?id=JRcfgNg2ZJ">DebiasGCD</a></li>
+<li><a href="https://arxiv.org/pdf/2401.05352v2">Long-tailed GCD</a></li>
+<li><a href="https://arxiv.org/pdf/2401.05353">ImbaGCD</a></li>
+</ul>
+<h3 id="multimodal-time-series">Multimodal Time Series</h3>
+<p><strong>Time-series → text (captioning).</strong>
+<a href="https://arxiv.org/abs/2501.01832">TSML</a> introduces a multimodal encoder–decoder that merges a 1-D CNN–based time-series encoder with a positional text‐token stream, and learns this stack end-to-end on an in-context–generated, cross-modally denoised synthetic caption corpus—setting a new state-of-the-art in descriptive accuracy across multiple benchmarks. <a href="https://arxiv.org/abs/2504.11441">TADACap</a>, in contrast, requires no gradient updates: it employs a novel diverse‐retrieval strategy to pull the most relevant series–caption pairs from a domain‐specific memory bank and reuses those captions directly—achieving comparable semantic quality with dramatically lower annotation effort and zero fine-tuning. Together, these approaches illustrate the full spectrum—from fully trained specialist decoders to pure retrieval–plus–reuse pipelines—for interpretable time-series narration.</p>
+<p><strong>Chat-style time-series assistants.</strong>
+<a href="https://arxiv.org/abs/2412.03104">ChatTS</a> treats multivariate time series as a first-class modality by generating attribute-rich synthetic data (via an attribute-based time-series generator and the Time Series Evol-Instruct algorithm) and fine-tuning both a lightweight context-aware time-series encoder and a 14 B LLM on six alignment and four reasoning tasks—yielding a chat interface that can answer questions, detect anomalies, and explain forecasts directly from raw numbers. <a href="https://arxiv.org/abs/2412.11376">ChatTime</a>, by contrast, reframes each normalized and discretized numeric value as a new “foreign-language” token, expands a 1 B-parameter LLM’s vocabulary accordingly, and then applies continuous pre-training plus instruction fine-tuning—updating only the added token embeddings and heads (≈ 350 M trainable parameters)—to deliver zero-shot forecasting and seamless bidirectional dialogue between time series and text without touching the core model weights. Together, they span the design space from full LLM fine-tuning for maximal conversational fidelity to parameter-efficient tuning for lightweight, on-device time-series assistants.</p>
+<p><strong>Forecasting &amp; reasoning with LLMs in the loop.</strong>
+<a href="https://arxiv.org/abs/2503.01013">TimeXL</a> integrates a prototype‐based multimodal encoder with a closed-loop trio of LLM stages—prediction, reflection, and refinement—to produce up to an 8.9 % AUC improvement alongside human-centric, case-based rationales, without requiring full LLM fine-tuning. <a href="https://arxiv.org/abs/2505.10774">CAPTime</a> freezes both its pretrained time-series encoder and base LLM, then aligns temporal patterns with exogenous text via learnable interactions and a mixture-of-distribution experts, yielding calibrated, multimodal probabilistic forecasts. <a href="https://arxiv.org/abs/2503.03594">SMETimes</a> systematically evaluates sub-3 B-parameter “Small Language Models” using statistical prompting, an adaptive fusion embedding architecture, and a dynamic mixture-of-experts framework to rival 7 B baselines—achieving 3.8× faster training, 5.2× lower memory, and state-of-the-art accuracy. <a href="https://arxiv.org/abs/2406.01638">TimeCMA</a> employs dual-branch encoding—weak, disentangled time-series embeddings alongside robust LLM-derived prompt embeddings—and aligns them via cross-modality similarity, passing only the last token to downstream predictors to cut computation, outperforming prior methods on eight datasets.</p>
+<p>Only ChatTS, ChatTime, SMETimes weights are released.</p>
+<h3 id="discriminative-representation">Discriminative Representation</h3>
+<p>The representation that can be used in <code>GCN (Generalized Category Discovery)</code> (<a href="https://arxiv.org/pdf/2201.02609">GCN</a>, <a href="https://arxiv.org/pdf/2408.14371">SelEx</a>). </p>
+<p>Contrastive learning, Sparse autoencoder or older method such as <a href="https://arxiv.org/abs/1511.06335">DEC (Deep Embedded Clustering)</a>, SOM (Self Organizing Maps).</p>
+<h4 id="characteristics-of-time-series">Characteristics of Time Series</h4>
+<p><a href="https://arxiv.org/pdf/2409.10840">Implicit Reasoning in Deep Time Series Forecasting</a>: It is observed that certain linear, MLP-based, and patch-based Transformer models generalize effectively in carefully structured out-of-distribution scenarios, suggesting underexplored reasoning capabilities beyond simple pattern memorization.</p>
+<h3 id="other-literature">Other literature</h3></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
