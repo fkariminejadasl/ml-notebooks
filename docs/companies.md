@@ -16,6 +16,8 @@ The methodology employed categorizes companies based on their primary focus or o
 
 ## Highlights
 
+Agentic coding tools can be proprietary, such as `Claude Code`, or open source, such as `OpenCode`. These agents can access models through different providers, including first-party cloud APIs such as the `Anthropic API`, multi-provider cloud services such as `OpenRouter`, or local runtimes such as `LM Studio`.
+
 Models are accessed via their respective companies, such as OpenAI (ChatGPT), DeepSeek, Anthropic (Claude), and Google (Gemini). `Hugging Face`, `vLLM`, `LM Studio`, `llama.cpp`, `Ollama`, `Jan.ai` are designed to let you run LLMs locally. `Together AI` provides a platform for running models that might not fit on your local machine. There are other serving locations, such as the [Hugging Face Inference Playground](https://huggingface.co/spaces/huggingface/inference-playground), and `Hyperbolic.xyz`, which also offers base models. 
 
 Manus AI (Monica.im) autonomously executes complex, goal-driven workflows as an [AI agent](https://huggingface.co/blog/LLMhacker/manus-ai-best-ai-agent), Devin AI serves as an AI-powered software engineer for coding and build automation, and Cursor functions as an intelligent IDE assistant that augments human developers across the software development lifecycle.
