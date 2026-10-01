@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/segmenttree_install/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Installing Deep Learning Tools for Point Cloud Segmentation - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../transformer_models_with_variable_sequence_lengths/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../AIEnhancement/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#minkowskiengine-installation" class="nav-link">MinkowskiEngine Installation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#install-other-packages-for-segmentanytree" class="nav-link">Install other packages For SegmentAnyTree</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#run-segmentanytree-from-docker" class="nav-link">Run SegmentAnyTree From Docker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#install-treelearn" class="nav-link">Install TreeLearn</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#install-forainet" class="nav-link">Install ForAINet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#tools" class="nav-link">Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#miscellaneous" class="nav-link">Miscellaneous</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="minkowskiengine-installation">MinkowskiEngine Installation</h2>
+<h3 id="on-snellius">On Snellius</h3>
+<p><code>conda</code> should be installed first. This part doesn't require GPU machine and only done once.</p>
+<pre><code class="language-bash">module load 2023
+module load Anaconda3/2023.07-2
+conda init
+</code></pre>
+<p>After <code>conda init</code>, the terminal should be closed. So be careful, if you allocated the GPU, you will loss your GPUs, unless you do <code>ssh</code> to the allocated machine. E.g. <code>ssh gcn14</code>. </p>
+<blockquote>
+<p><code>MinkowskiEngine</code> requires GPU. You can ask for GPU by <code>salloc</code>.</p>
+</blockquote>
+<h4 id="cuda-11">CUDA 11</h4>
+<pre><code class="language-bash">salloc --gpus=1 --partition=gpu --time=02:00:00
+
+# MinkowskiEngine==0.5.4
+conda create -n mink2 python=3.8
+python activate mink2
+module load 2022
+module load CUDA/11.7.0 # CUDA/11.6.0 was giving error
+conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+conda install openblas-devel -c anaconda
+
+git clone https://github.com/NVIDIA/MinkowskiEngine.git
+cd MinkowskiEngine
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<p>Note that CUDA is backwards compatible, so <code>CUDA 11.1</code> can be also used for all packages.</p>
+<pre><code class="language-bash">pip install numpy==1.19.5
+conda install pytorch=1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=11.1 -c pytorch -c nvidia
+</code></pre>
+<h4 id="cuda-12">CUDA 12</h4>
+<p>Only runs on H100. <code>MinkowskiEngine</code> doesn't work before some changes in the <code>MinkowskiEngine</code> code. This fix is described here.</p>
+<p><strong>Fix</strong>: There is an issue described in <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/594#issuecomment-2294860926">here</a>. This fix is based on <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/543#issuecomment-1773458776">this link</a>.</p>
+<ul>
+<li>Get the code</li>
+</ul>
+<pre><code class="language-bash">git clone https://github.com/NVIDIA/MinkowskiEngine.git 
+cd MinkowskiCu12
+</code></pre>
+<ul>
+<li>Fix the code</li>
+</ul>
+<pre><code class="language-bash">1 - .../MinkowskiEngine/src/convolution_kernel.cuh
+
+Add header:
+#include &lt;thrust/execution_policy.h&gt;
+
+2 - .../MinkowskiEngine/src/coordinate_map_gpu.cu
+
+Add headers:
+
+#include &lt;thrust/unique.h&gt;
+#include &lt;thrust/remove.h&gt;
+
+3 - .../MinkowskiEngine/src/spmm.cu
+
+Add headers:
+
+#include &lt;thrust/execution_policy.h&gt;
+#include &lt;thrust/reduce.h&gt; 
+#include &lt;thrust/sort.h&gt;
+
+4 - .../MinkowskiEngine/src/3rdparty/concurrent_unordered_map.cuh
+
+Add header:
+#include &lt;thrust/execution_policy.h&gt;
+</code></pre>
+<ul>
+<li>Installation</li>
+</ul>
+<pre><code class="language-bash">salloc --gpus=1 --partition=gpu_h100 --time=02:00:00
+
+module load 2023
+module load CUDA/12.1.1
+conda create -n mink-cu12 python=3.8
+conda activate mink-cu12
+# https://pytorch.org/get-started/previous-versions/
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install openblas-devel -c anaconda
+
+cd ~/dev/MinkowskiCu12
+# Before this command apply the Fix. 
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<h4 id="docker-cuda-12-with-the-fix">Docker CUDA 12 with the Fix</h4>
+<p>This information is from <a href="https://github.com/NVIDIA/MinkowskiEngine/issues/543#issuecomment-2371637255">here</a>.</p>
+<p>The base image is <code>nvidia/cuda:12.1.1-devel-ubuntu20.04</code> with <code>PyTorch 2.3.1</code> and <code>CUDA 12.1</code>.</p>
+<pre><code class="language-bash">ENV CUDA_HOME=/usr/local/cuda
+ENV TORCH_CUDA_ARCH_LIST=&quot;6.0 6.1 6.2 7.0 7.2 7.5 8.0 8.6 8.9&quot;
+ENV TORCH_NVCC_FLAGS=&quot;-Xfatbin -compress-all&quot;
+RUN git clone https://github.com/NVIDIA/MinkowskiEngine.git /tmp/MinkowskiEngine \
+    &amp;&amp; cd /tmp/MinkowskiEngine \
+    &amp;&amp; sed -i '31i #include &lt;thrust/execution_policy.h&gt;' ./src/convolution_kernel.cuh \
+    &amp;&amp; sed -i '39i #include &lt;thrust/unique.h&gt;\n#include &lt;thrust/remove.h&gt;' ./src/coordinate_map_gpu.cu \
+    &amp;&amp; sed -i '38i #include &lt;thrust/execution_policy.h&gt;\n#include &lt;thrust/reduce.h&gt;\n#include &lt;thrust/sort.h&gt;' ./src/spmm.cu \
+    &amp;&amp; sed -i '38i #include &lt;thrust/execution_policy.h&gt;' ./src/3rdparty/concurrent_unordered_map.cuh \
+    &amp;&amp; python setup.py install --force_cuda --blas=openblas \
+    &amp;&amp; cd - \
+    &amp;&amp; rm -rf /tmp/MinkowskiEngine
+</code></pre>
+<h4 id="test-minkowskiengine">Test MinkowskiEngine</h4>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import MinkowskiEngine as ME
+import sys
+sys.path.insert(0,&quot;~/dev/MinkowskiEngine/tests/python&quot;)
+from common import data_loader
+
+class ExampleNetwork(ME.MinkowskiNetwork):
+    def __init__(self, in_feat, out_feat, D):
+        super(ExampleNetwork, self).__init__(D)
+        self.conv1 = nn.Sequential(
+            ME.MinkowskiConvolution(
+                in_channels=in_feat,
+                out_channels=64,
+                kernel_size=3,
+                stride=2,
+                dilation=1,
+                bias=False,
+                dimension=D),
+            ME.MinkowskiBatchNorm(64),
+            ME.MinkowskiReLU())
+        self.conv2 = nn.Sequential(
+            ME.MinkowskiConvolution(
+                in_channels=64,
+                out_channels=128,
+                kernel_size=3,
+                stride=2,
+                dimension=D),
+            ME.MinkowskiBatchNorm(128),
+            ME.MinkowskiReLU())
+        self.pooling = ME.MinkowskiGlobalPooling()
+        self.linear = ME.MinkowskiLinear(128, out_feat)
+    def forward(self, x):
+        out = self.conv1(x)
+        out = self.conv2(out)
+        out = self.pooling(out)
+        return self.linear(out)
+
+criterion = nn.CrossEntropyLoss()
+net = ExampleNetwork(in_feat=3, out_feat=5, D=2)
+print(net)
+
+# a data loader must return a tuple of coords, features, and labels.
+coords, feat, label = data_loader()
+input = ME.SparseTensor(feat, coordinates=coords)
+# Forward
+output = net(input)
+
+# Loss
+loss = criterion(output.F, label)
+</code></pre>
+<h2 id="install-other-packages-for-segmentanytree">Install other packages For SegmentAnyTree</h2>
+<pre><code class="language-bash"># open3d, torch-sparse, torch-spline-conv: very slow
+# torch-points-kernels: different version of numpy, sklearn
+# Issue with pip install torch-scatter, torch-sparse, torch-cluster, torch-geometric. 
+# I use it from: https://github.com/prs-eth/PanopticSegForLargeScalePointCloud
+pip install torch-scatter==2.0.8 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-sparse==0.6.12 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.2.1 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html 
+pip install torch-geometric==1.7.2
+
+pip install -U pip
+pip install hydra-core wandb tqdm gdown types-six types-requests h5py
+pip install numpy scikit-image numba 
+pip install matplotlib
+pip install plyfile
+pip install torchnet tensorboard
+pip install open3d
+pip install torch-scatter torch-sparse torch-cluster torch-geometric pytorch_metric_learning torch-points-kernels
+TORCH_CUDA_ARCH_LIST=&quot;6.0;7.0;7.5;8.0;8.6;9.0&quot; FORCE_CUDA=1
+pip install cython
+pip install torch-spline-conv
+pip install git+https://github.com/mit-han-lab/torchsparse.git # failed to install
+</code></pre>
+<h2 id="run-segmentanytree-from-docker">Run SegmentAnyTree From Docker</h2>
+<h4 id="on-a-local-computer">On a local computer</h4>
+<p>You need to install the NVIDIA Container Toolkit. Follow the instructions <a href="../docker/#installing-the-nvidia-container-toolkit">here</a>.</p>
+<pre><code class="language-bash">docker pull donaldmaen/segment-any-tree
+
+docker run -it --gpus all --name SAT     --mount type=bind,source=/home/fatemeh/Downloads/tree/SAT/,target=/home/nibio/mutable-outside-world/bucket_in_folder     --mount type=bind,source=/home/fatemeh/Downloads/tree/SAT/out,target=/home/nibio/mutable-outside-world/bucket_out_folder   --mount type=bind,source=/home/fatemeh/Downloads/tree/ds,target=/home/datascience  donaldmaen/segment-any-tree
+</code></pre>
+<h4 id="on-snellius_1">On Snellius</h4>
+<p>Since Snellius uses <code>apptainer</code> instead of Docker, follow these steps:</p>
+<pre><code class="language-bash"># On Snellius, the GPU container option is enabled. Run this command inside Apptainer to check if it detects the GPU:
+# First, request a GPU with the following command:
+salloc --gpus=1 --partition=gpu --time=01:00:00
+
+# Test GPU visibility inside Apptainer:
+apptainer run --nv docker://nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi
+
+# Pull the container image:
+apptainer pull docker://donaldmaen/segment-any-tree
+
+# Start an interactive shell session with Apptainer:
+apptainer shell --nv  --bind /home/user/data/tree/sat:/home/nibio/mutable-outside-world/bucket_in_folder     --bind /home/user/data/tree/sat/output:/home/nibio/mutable-outside-world/bucket_out_folder  --bind /home/user/data/tree/ds:/home/datascience    /home/user/segment-any-tree_latest.sif
+
+# Once inside Apptainer, run the following commands:
+Apptainer&gt; cd dev/SegmentAnyTree/
+Apptainer&gt; bash run_oracle_pipeline.sh
+</code></pre>
+<p>Note that if you use apptainer run instead of apptainer shell, it runs everything automatically.</p>
+<h2 id="install-treelearn">Install TreeLearn</h2>
+<p>This content is adapted from the <a href="https://github.com/ecker-lab/TreeLearn/blob/main/TreeLearn_Pipeline.ipynb">TreeLearn Pipeline Notebook</a>.</p>
+<pre><code class="language-bash"># Note that newer version laspy[lazrs] gives error 
+# spconv-cu120 comes with warnings and then Floating point exception (core dumped).
+conda create -n treelearn python=3.9
+conda activate treelearn
+pip install torch torch-scatter timm laspy[lazrs]==2.5.1 munch pandas plyfile pyyaml scikit-learn six tqdm open3d-cpu jakteristics shapely geopandas alphashape spconv-cu114 tensorboard tensorboardX
+cd ~/dev
+git clone https://github.com/ecker-lab/TreeLearn.git
+cd TreeLearn
+pip install -e .
+
+mkdir -p ~/Downloads/tree/treelearn/checkpoints
+cd ~/Downloads/tree/treelearn
+mkdir -p pipeline/forests
+
+wget https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/1JMEQV -O checkpoints/model_weights.pth
+# https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/C1AHQW for model_weights_diverse_training_data.pth
+
+wget https://data.goettingen-research-online.de/api/access/datafile/:persistentId?persistentId=doi:10.25625/VPMPID/0WDXL6 -O pipeline/forests/plot_7_cut.laz
+
+cd ~/dev/TreeLearn
+python
+</code></pre>
+<p>For Snellius with CUDA11: </p>
+<pre><code class="language-bash">module load 2022
+module load Anaconda3/2022.05
+conda init
+# exit and ssh again then conda will be in .bashrc
+
+module load 2022
+module load CUDA/11.7.0
+
+conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+# pytorch 1.11 has issue with new numpy
+pip install numpy==1.26
+# I install torch-scatter first to see if there is an issue. 
+pip install torch-scatter
+# Install the rest as above
+</code></pre>
+<pre><code class="language-python"># for python path
+sys.path.append(&quot;/home/user/dev/TreeLearn/tools/pipeline&quot;)
+config_path = &quot;/home/user/dev/TreeLearn/configs/pipeline/pipeline.yaml&quot;
+config.forest_path = &quot;/home/user/data/tree/treelearn/pipeline/forests/plot_7_cut.laz&quot;
+config.dataset_test.data_root = &quot;/home/user/data/tree/treelearn/pipeline/forests/tiles&quot;
+config.pretrain = &quot;/home/user/data/tree/treelearn/checkpoints/model_weights.pth&quot;
+</code></pre>
+<pre><code class="language-python">import sys
+sys.path.append(&quot;/home/fatemeh/dev/TreeLearn/tools/pipeline&quot;)
+from pipeline import run_treelearn_pipeline
+import argparse, pprint
+from tree_learn.util import get_config
+
+config_path = &quot;/home/fatemeh/dev/TreeLearn/configs/pipeline/pipeline.yaml&quot;
+config = get_config(config_path)
+
+# adjust config
+config.forest_path = &quot;/home/fatemeh/Downloads/tree/treelearn/pipeline/forests/plot_7_cut.laz&quot;
+config.dataset_test.data_root = &quot;/home/fatemeh/Downloads/tree/treelearn/pipeline/forests/tiles&quot;
+config.pretrain = &quot;/home/fatemeh/Downloads/tree/treelearn/checkpoints/model_weights.pth&quot;
+config.tile_generation = True
+config.sample_generation.stride = 0.9 # small overlap of tiles
+config.shape_cfg.outer_remove = False # default value = 13.5
+config.save_cfg.save_treewise = False
+config.save_cfg.return_type = &quot;voxelized_and_filtered&quot;
+print(pprint.pformat(config.toDict(), indent=2))
+
+import logging
+logger = logging.getLogger(&quot;TreeLearn&quot;)
+for handler in logger.handlers[:]:
+    logger.removeHandler(handler)
+logging.basicConfig()
+ch = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+logger.setLevel(logging.INFO)
+
+run_treelearn_pipeline(config)
+</code></pre>
+<h2 id="install-forainet">Install ForAINet</h2>
+<p>Follow the rest of the <a href="https://github.com/prs-eth/PanopticSegForLargeScalePointCloud?tab=readme-ov-file#example-1-of-installation">installation guide</a>. However, a few changes need to be made. Follow the steps below:</p>
+<ul>
+<li>The guide mentions that <code>requirements.txt</code> should be installed, but the file is not provided. Additionally, <code>torch-cluster</code> should be installed from a separate file.</li>
+<li><code>MinkowskiEngine</code> should be installed locally.  </li>
+</ul>
+<pre><code class="language-bash"># make requirements.txt from https://github.com/nicolas-chaulet/torch-points3d/blob/master/requirements.txt
+# remove: omegaconf, hydra-core and replace by hydra-core&gt;=1.0.0,&lt;1.1.0
+# remove: torch-scatter, torch-sparse, torch-cluster, torch-geometric, torch, torchvision, numpy
+pip install torch-scatter==2.0.8 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-sparse==0.6.12 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-geometric==1.7.2
+
+# Don't do: export CUDA_HOME=/usr/local/cuda-11
+# Don't do: pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --install-option=&quot;--blas_include_dirs=${CONDA_PREFIX}/include&quot; –install-option=&quot;--blas=openblas&quot;
+module load 2022
+module load CUDA/11.7.0 # CUDA/11.6.0 was giving error
+git clone https://github.com/NVIDIA/MinkowskiEngine.git
+cd MinkowskiEngine
+python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
+</code></pre>
+<h2 id="tools">Tools</h2>
+<p><a href="https://github.com/ch-sa/labelCloud">labelCloud</a> is installed both on python 3.9, 3.10 but run with errors. </p>
+<p>point cloud annotation tools:
+https://chatgpt.com/share/67adeacf-bef8-8011-ba02-c59ae671126c</p>
+<ul>
+<li>cloudcompare for visualization: <code>sudo snap install cloudcompare</code>. Note that <code>sudo apt install cloudcompare</code> can't open <code>.laz</code> file.</li>
+</ul>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<h4 id="gpu-compute-capability">GPU Compute Capability</h4>
+<p>You can define from the below code or from <a href="https://developer.nvidia.com/cuda-gpus">GPU Compute Capability</a>.</p>
+<pre><code class="language-python">import torch
+torch.cuda.get_device_capability()
+</code></pre>
+<p>H100: 9.0, A100: 8.6</p>
+<h4 id="cuda-modules-available-on-snellius">CUDA modules available on Snellius</h4>
+<pre><code class="language-bash"># module load 2024
+CUDA/12.6.0
+cuDNN/9.5.0.50-CUDA-12.6.0
+
+# module load 2023
+CUDA/12.1.1 
+CUDA/12.4.0
+cuDNN/8.9.2.26-CUDA-12.1.1
+
+# module load 2022
+CUDA/11.6.0    
+CUDA/11.7.0
+CUDA/11.8.0
+cuDNN/8.4.1.50-CUDA-11.7.0
+cuDNN/8.6.0.163-CUDA-11.8.0
+</code></pre>
+<h4 id="cuda-modules-paths-on-snellius">CUDA modules paths on Snellius</h4>
+<p>To get the path information such as <code>CUDA_HOME</code>, <code>CUDA_PATH</code>, <code>PAHT</code>, <code>LIBRARY_PATH</code>, <code>LD_LIBRARY_PATH</code> use: </p>
+<pre><code class="language-bash">module load CUDA/12.6.0
+module display CUDA/12.6.0
+</code></pre>
+<h3 id="tried-but-failed">Tried but failed</h3>
+<p>These are my previos attemps to solve issues encountered. But resolvinig issues didn't install MinkowskiEngine. But it is worth mentioning them here.</p>
+<h4 id="pip-deprecation-build-option-and-global-option">pip DEPRECATION: --build-option and --global-option</h4>
+<p>This option doesn't work, even with the <code>--no-build-isolation</code> fix.</p>
+<pre><code class="language-bash">export CXX=g++
+pip install -U git+https://github.com/NVIDIA/MinkowskiEngine --no-build-isolation -v --config-settings=build_option=--force_cuda --config-settings=blas_include_dirs=${CONDA_PREFIX}/include --config-settings=blas=openblas
+</code></pre>
+<p>MinkowskiEngine requires torch at build time, pip’s default build isolation can cause “Pytorch not found” errors. <code>--no-build-isolation</code> tells pip not to create a temporary/isolated environment at build time and instead to use the packages in your current conda/pip environment (where you have PyTorch installed).</p>
+<h4 id="distutil-issue-with-numpy">Distutil issue with Numpy</h4>
+<p><code>numpy.distutils</code> removed after numpy=1.24.</p>
+<pre><code class="language-bash">conda install &quot;numpy=1.23.*&quot; setuptools pip wheel
+</code></pre>
+<h4 id="find-openbals">Find openbals</h4>
+<pre><code class="language-bash">OPENBLAS=$(find ~/.conda/envs/test -name &quot;libopenblas.so&quot; | head -n 1)
+export LD_LIBRARY_PATH=$(dirname $OPENBLAS):$LD_LIBRARY_PATH
+pip install --no-cache-dir --force-reinstall numpy
+</code></pre>
+<pre><code class="language-bash"># &gt;&gt;&gt; np.__config__.show()
+  &quot;Build Dependencies&quot;: {
+    &quot;blas&quot;: {
+      &quot;name&quot;: &quot;scipy-openblas&quot;,
+      &quot;found&quot;: true,
+      &quot;version&quot;: &quot;0.3.28&quot;,
+      &quot;detection method&quot;: &quot;pkgconfig&quot;,
+      &quot;include directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/include&quot;,
+      &quot;lib directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/lib&quot;,
+      &quot;openblas configuration&quot;: &quot;OpenBLAS 0.3.28  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64&quot;,
+      &quot;pc file directory&quot;: &quot;/project/.openblas&quot;
+    },
+    &quot;lapack&quot;: {
+      &quot;name&quot;: &quot;scipy-openblas&quot;,
+      &quot;found&quot;: true,
+      &quot;version&quot;: &quot;0.3.28&quot;,
+      &quot;detection method&quot;: &quot;pkgconfig&quot;,
+      &quot;include directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/include&quot;,
+      &quot;lib directory&quot;: &quot;/opt/_internal/cpython-3.10.15/lib/python3.10/site-packages/scipy_openblas64/lib&quot;,
+      &quot;openblas configuration&quot;: &quot;OpenBLAS 0.3.28  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64&quot;,
+      &quot;pc file directory&quot;: &quot;/project/.openblas&quot;
+    }
+  }
+</code></pre>
+<h4 id="cuda-installation-in-docker">CUDA installation in Docker</h4>
+<pre><code class="language-bash"># docker pull or From
+# nvidia/cuda:12.6.0-runtime-ubuntu22.04
+# nvidia/cuda:12.6.0-devel-ubuntu22.04
+# nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
+
+# https://developer.nvidia.com/cuda-downloads
+wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
+sh cuda_11.1.1_455.32.00_linux.run --silent --toolkit
+
+export PATH=/usr/local/cuda-11.1/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64:$LD_LIBRARY_PATH
+export CUDA_HOME=/usr/local/cuda-11.1
+</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li>TreeLearn: ~30M parameters <a href="https://github.com/ecker-lab/TreeLearn/tree/main">github</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1574954124004308">paper</a></li>
+<li>SegmentAnyTree: ~12M parameters, <a href="https://github.com/SmartForest-no/SegmentAnyTree">paper</a></li>
+<li>ForAINet: <a href="https://arxiv.org/pdf/2312.15084">paper</a>, <a href="https://github.com/prs-eth/ForAINet/tree/main">github</a></li>
+</ul>
+<p>TreeLearn, SegmentAnyTree, and ForAINet are based on <a href="https://arxiv.org/abs/2004.01658">PointGroup</a> model. NB <a href="https://arxiv.org/abs/2203.01509">SoftGroup</a> is improved version of the <a href="https://arxiv.org/abs/2004.01658">PointGroup</a>.</p>
+<p><a href="https://arxiv.org/pdf/2305.02651">Point2Tree</a> utilizes PointNet++ for semantic segmentation and employs a "Bayesian flow approach," a non-deep-learning method, for instance segmentation.</p>
+<p><a href="https://www.mdpi.com/2072-4292/13/8/1413">FSCT</a>(<a href="https://github.com/SKrisanski/FSCT">code</a>) is a semantic segmentation model, seemingly based on PointNet++.</p>
+<p><a href="https://github.com/philwilkes">TLS2Tree</a> performs instance segmentation of individual trees, leveraging the FSCT semantic segmentation model as a preprocessing step. Notably, it does not rely on deep learning.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

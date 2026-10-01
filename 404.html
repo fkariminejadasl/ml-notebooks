@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="/ml-notebooks/img/favicon.ico">
+        <title>ML Notebooks</title>
+        <link href="/ml-notebooks/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/ml-notebooks/css/fontawesome.min.css" rel="stylesheet">
+        <link href="/ml-notebooks/css/brands.min.css" rel="stylesheet">
+        <link href="/ml-notebooks/css/solid.min.css" rel="stylesheet">
+        <link href="/ml-notebooks/css/v4-font-face.min.css" rel="stylesheet">
+        <link href="/ml-notebooks/css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="/ml-notebooks/.">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="/ml-notebooks/." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="/ml-notebooks/revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/ml-notebooks/GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+    <div class="row-fluid">
+      <div id="main-content" class="span12">
+        <h1 id="404-page-not-found" style="text-align: center">404</h1>
+        <p style="text-align: center"><strong>Page not found</strong></p>
+      </div>
+    </div>
+
+
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="/ml-notebooks/js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "/ml-notebooks/",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="/ml-notebooks/js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="/ml-notebooks/search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
