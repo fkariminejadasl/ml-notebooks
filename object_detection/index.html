@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/object_detection/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Object Detection: A Quick Overview - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../courses/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../tracking/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#object-detection-a-quick-overview" class="nav-link">Object Detection: A Quick Overview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#categories-of-object-detection-methods" class="nav-link">Categories of Object Detection Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#two-stage-methods-faster-r-cnn" class="nav-link">Two-Stage Methods: Faster R-CNN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#one-stage-methods-yolo" class="nav-link">One-Stage Methods: YOLO</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#anchorless-methods-centernet" class="nav-link">Anchorless Methods: CenterNet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#transformer-based-methods-detr" class="nav-link">Transformer-Based Methods: DETR</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#open-set-object-detection-open-vocabulary-object-detection-ovd" class="nav-link">Open-Set Object Detection | Open Vocabulary Object Detection (OVD)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#object-detection-with-limited-data" class="nav-link">Object Detection with Limited Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="object-detection-a-quick-overview">Object Detection: A Quick Overview</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Object detection is a critical task in computer vision, involving the classification and localization of objects within an image or video. This manual provides a quick overview of various methods to enhance the efficiency and accuracy of object detection. We'll explore different categories of object detection, including Faster R-CNN, YOLO (You Only Look Once), CenterNet, and DETR (DEtection Transformer). Finally, we'll delve into open-set object detection and object detection with limited data.</p>
+<h2 id="categories-of-object-detection-methods">Categories of Object Detection Methods</h2>
+<p>Object detection methods can be categorized based on key attributes influencing their design and performance. Here are prominent categories:</p>
+<ul>
+<li><strong>Two-Stage vs. One-Stage Methods:</strong></li>
+<li>Two-stage methods, like Faster R-CNN, involve region proposal and subsequent classification, offering high accuracy but may be slower.</li>
+<li>
+<p>One-stage methods, such as YOLO, perform object detection in a single step, providing faster inference for real-time applications.</p>
+</li>
+<li>
+<p><strong>Anchor-Based vs. Anchor-Free Methods:</strong></p>
+</li>
+<li>
+<p>Anchor-based methods, like Faster R-CNN, use predefined anchor boxes, while anchor-free methods, such as CenterNet, eliminate the need for predefined anchors.</p>
+</li>
+<li>
+<p><strong>Region-Based vs. Query-Based Methods:</strong></p>
+</li>
+<li>
+<p>Region-based methods divide an image into regions (e.g., Faster R-CNN), while query-based methods like DETR use transformer architectures for set prediction.</p>
+</li>
+<li>
+<p><strong>Plain vs. Hierarchical Methods:</strong></p>
+</li>
+<li>Plain methods maintain a single-scale feature map, e.g., <a href="https://arxiv.org/abs/2203.16527">ViTDet</a>, while hierarchical methods contain multi-scale features.</li>
+</ul>
+<h2 id="two-stage-methods-faster-r-cnn">Two-Stage Methods: Faster R-CNN</h2>
+<p><strong>Faster R-CNN (Region-based Convolutional Neural Network):</strong></p>
+<ul>
+<li>
+<p><strong>Overview:</strong> A two-stage framework combining region proposal and object classification using a region proposal network (RPN).</p>
+</li>
+<li>
+<p><strong>Links:</strong> <a href="https://arxiv.org/abs/1311.2524">R-CNN</a>, <a href="https://arxiv.org/abs/1504.08083">Fast R-CNN</a>, <a href="https://arxiv.org/abs/1506.01497">Faster R-CNN</a></p>
+</li>
+</ul>
+<h2 id="one-stage-methods-yolo">One-Stage Methods: YOLO</h2>
+<p><strong>YOLO (You Only Look Once):</strong></p>
+<ul>
+<li>
+<p><strong>Overview:</strong> A one-stage algorithm dividing the image into a grid and predicting bounding boxes and class probabilities directly for real-time object detection.</p>
+</li>
+<li>
+<p><strong>Links:</strong> <a href="https://arxiv.org/abs/1506.02640">YOLO</a>, <a href="https://docs.ultralytics.com/#yolo-a-brief-history">YOLO brief history</a></p>
+</li>
+</ul>
+<h2 id="anchorless-methods-centernet">Anchorless Methods: CenterNet</h2>
+<p><strong>CenterNet:</strong></p>
+<ul>
+<li>
+<p><strong>Overview:</strong> An anchorless approach focusing on predicting object centers and regressing bounding box coordinates directly, eliminating the need for predefined anchors.</p>
+</li>
+<li>
+<p><strong>Links:</strong> <a href="https://arxiv.org/abs/1904.07850">CenterNet</a></p>
+</li>
+</ul>
+<h2 id="transformer-based-methods-detr">Transformer-Based Methods: DETR</h2>
+<p><strong>DETR (DEtection Transformer):</strong></p>
+<ul>
+<li>
+<p><strong>Overview:</strong> A transformer-based object detection model formulating object detection as a set prediction problem, simultaneously predicting object classes and bounding box coordinates.</p>
+</li>
+<li>
+<p><strong>Links:</strong> <a href="https://arxiv.org/abs/2406.03459">LW-DETR</a>, <a href="https://arxiv.org/abs/2304.08069">RT-DETR</a>, <a href="https://arxiv.org/abs/2410.13842">D-FINE</a>, <a href="https://arxiv.org/abs/2005.12872">DETR</a>, <a href="https://arxiv.org/abs/2010.04159">deformableDETR</a></p>
+</li>
+</ul>
+<h2 id="open-set-object-detection-open-vocabulary-object-detection-ovd">Open-Set Object Detection | Open Vocabulary Object Detection (OVD)</h2>
+<ul>
+<li>
+<p><strong>Overview:</strong> Open-set object detection, or open vocabulary object detection, aims to detect objects of novel categories beyond the training vocabulary. Traditional models are limited to a fixed set, but open-set detection scales up the vocabulary size.</p>
+</li>
+<li>
+<p><strong>Links:</strong> <a href="https://arxiv.org/abs/2303.05499">Grounding DINO</a>, <a href="https://arxiv.org/abs/2205.06230v2">OWL-VIT</a>, <a href="https://arxiv.org/abs/2201.02605">Detic</a>, <a href="https://paperswithcode.com/task/open-vocabulary-object-detection">paperwithcode list</a>.</p>
+</li>
+</ul>
+<h2 id="object-detection-with-limited-data">Object Detection with Limited Data</h2>
+<p>To address the challenge of limited labeled data, leveraging pre-training in self-supervised learning is an effective strategy. Two prominent methods are contrastive learning and reconstruction-based methods. In contrastive learning, data augmentation is applied, and the model learns by bringing the representation of augmented parts together while pushing non-augmented parts further apart. Another method involves removing part of the data, and the model attempts to reconstruct the missing portion, as seen in Masked Autoencoders (<a href="https://arxiv.org/abs/2111.06377">MAE</a>).</p>
+<p>Alternatively, foundation models—large models trained on extensive datasets—can serve as a pre-training step. These pre-trained models can be fine-tuned on specific tasks using a smaller dataset or used to distill knowledge into a smaller model, minimizing size while preserving performance.</p>
+<p>Another common approach involves training with different modalities, particularly text and image data, in a self-supervised manner. Following the success of models like <a href="https://arxiv.org/abs/2103.00020">CLIP</a>, various methods, such as <a href="https://arxiv.org/abs/2303.05499">Grounding DINO</a> and <a href="https://arxiv.org/abs/2205.06230v2">OWL-VIT</a>, have adopted this approach for training.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
