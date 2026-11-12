@@ -141,6 +141,20 @@ Once configured correctly:
 - You should see **"Run Test | Debug Test"** options above each test function.
 - Click **"Debug Test"** to start debugging.
 
+### Upgrading Python and packages in an existing Conda environment
+
+Run from your project's root directory:
+
+```bash
+conda activate yourenv
+conda install python=3.15  # Upgrade Python to version 3.15
+python -m pip install --upgrade --upgrade-strategy eager -e ".[test]"
+```
+
+- **`-e`**: Keeps your project installed in editable mode.
+- **`.[test]`**: Installs your project's dependencies, including optional test dependencies defined in `pyproject.toml`.
+- **`--upgrade`**: Upgrades your project's dependencies to the latest compatible versions.
+- **`--upgrade-strategy eager`**: Also upgrades dependencies of those packages to the latest compatible versions.
 
 ## Conda Commands Cheat Sheet
 
