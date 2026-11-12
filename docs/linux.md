@@ -136,6 +136,7 @@ These directories are accessible system-wide, so all users on the system can use
 | `date`                           | Display or set the system date and time.                                    |
 | `who`                            | Show who is logged into the system.                                         |
 | `whoami`                         | Display the current logged-in user's username.                              |
+| `systemd-analyze`                | Analyze system boot performance and startup times.                          |
 
 #### Package Management (Debian-based systems)
 
@@ -157,9 +158,15 @@ Note: `apt` and `snap` should be run with `sudo`, e.g., `sudo apt purge cloudcom
 | Command                          | Description                                                                 |
 |----------------------------------|-----------------------------------------------------------------------------|
 | `grep [pattern] [file]`          | Search for a pattern in a file.                                             |
-| `rg [pattern] [path]`            | Search for a pattern in files under a path (or in a file). Install with `sudo apt install ripgrep`|
-| `sed 's/[old]/[new]/' [file]`    | Replace text in a file using stream editor.                                 |
-| `awk '{print $1}' [file]`        | Pattern scanning and processing language.                                   |
+| `grep -RInE [pattern] [path]`    | Recursive search (`-R`), ignore binaries (`-I`), line numbers (`-n`), regex (`-E`). |
+| `grep -o [pattern] [file]`       | Print only matching text.                                                   |
+| `grep -i [pattern] [file]`       | Case-insensitive search.                                                    |
+| `grep -v [pattern] [file]`       | Show lines that do not match.                                               |
+| `grep -l [pattern] [path]`       | Show filenames containing matches.                                          |
+| `grep -C 3 [pattern] [file]`     | Show 3 lines before and after each match (`-A` after, `-B` before).         |
+| `rg [pattern] [path]`            | Fast recursive search. Install with `sudo apt install ripgrep`.             |
+| `sed 's/[old]/[new]/' [file]`    | Replace text using stream editor.                                           |
+| `awk '{print $1}' [file]`        | Print the first whitespace-separated field.                                 |
 
 #### Compression and Archiving
 
