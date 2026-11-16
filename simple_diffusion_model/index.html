@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/simple_diffusion_model/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Simple diffusion model - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../docker/" class="dropdown-item">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#1-the-big-idea" class="nav-link">1. The big idea</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#2-what-the-model-learns" class="nav-link">2. What the model learns</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#3-why-this-works" class="nav-link">3. Why this works</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#4-minimal-pytorch-code-for-training" class="nav-link">4. Minimal PyTorch code for training</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#noise-schedule" class="nav-link">Noise schedule</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#helper-to-gather-timestep-specific-values" class="nav-link">Helper to gather timestep-specific values</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#forward-noising" class="nav-link">Forward noising</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#5-a-very-small-denoiser-model" class="nav-link">5. A very small denoiser model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#6-training-step" class="nav-link">6. Training step</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#7-what-inference-does" class="nav-link">7. What inference does</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#8-minimal-sampling-code" class="nav-link">8. Minimal sampling code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#9-training-vs-inference-in-plain-language" class="nav-link">9. Training vs inference in plain language</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#training" class="nav-link">Training</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#inference" class="nav-link">Inference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#10-why-timestep-conditioning-is-necessary" class="nav-link">10. Why timestep conditioning is necessary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#11-what-a-real-diffusion-model-changes" class="nav-link">11. What a real diffusion model changes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#12-the-most-important-formulas-to-remember" class="nav-link">12. The most important formulas to remember</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#forward-sample-from-clean-image" class="nav-link">Forward sample from clean image</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#model-prediction" class="nav-link">Model prediction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#training-loss" class="nav-link">Training loss</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reverse-step-intuition" class="nav-link">Reverse step intuition</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#13-intuition-for-what-the-model-is-actually-learning" class="nav-link">13. Intuition for what the model is actually learning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#14-tiny-end-to-end-example-on-mnist" class="nav-link">14. Tiny end-to-end example on MNIST</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#15-common-confusion-points" class="nav-link">15. Common confusion points</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#why-predict-noise-instead-of-the-image" class="nav-link">"Why predict noise instead of the image?"</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#why-random-timestep-during-training" class="nav-link">"Why random timestep during training?"</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#why-is-inference-slow" class="nav-link">"Why is inference slow?"</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#is-this-like-an-autoencoder" class="nav-link">"Is this like an autoencoder?"</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#16-one-compact-pseudocode-summary" class="nav-link">16. One compact pseudocode summary</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#training_1" class="nav-link">Training</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#inference_1" class="nav-link">Inference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<blockquote>
+<p>I want to understand diffusion models. Can you explain them with code? I want to understand both training and inference.</p>
+</blockquote>
+<p>Yes. Here is a practical mental model first:</p>
+<p>A diffusion model learns to reverse a gradual corruption process.</p>
+<p>You start with a real sample <span class="arithmatex">\(x_0\)</span>, like an image.<br />
+During training, you add a little Gaussian noise again and again until it becomes almost pure noise.<br />
+The model is trained to undo that corruption.</p>
+<p>So there are two processes:</p>
+<ol>
+<li><strong>Forward process</strong>: slowly add noise to data.</li>
+<li><strong>Reverse process</strong>: learn to remove noise step by step.</li>
+</ol>
+<hr />
+<h2 id="1-the-big-idea">1. The big idea</h2>
+<p>Suppose <span class="arithmatex">\(x_0\)</span> is a clean image.</p>
+<p>At timestep <span class="arithmatex">\(t\)</span>, we create a noisy version <span class="arithmatex">\(x_t\)</span>.</p>
+<p>A standard forward process is:</p>
+<div class="arithmatex">\[
+q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; \sqrt{1-\beta_t}\,x_{t-1}, \beta_t I\right)
+\]</div>
+<p>where <span class="arithmatex">\(\beta_t\)</span> is a small variance schedule.</p>
+<p>Instead of simulating step by step, we can directly sample <span class="arithmatex">\(x_t\)</span> from <span class="arithmatex">\(x_0\)</span>:</p>
+<div class="arithmatex">\[
+x_t = \sqrt{\bar{\alpha}_t}\, x_0 + \sqrt{1-\bar{\alpha}_t}\,\epsilon
+\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\alpha_t = 1 - \beta_t\)</span></li>
+<li><span class="arithmatex">\(\bar{\alpha}_t = \prod_{s=1}^t \alpha_s\)</span></li>
+<li><span class="arithmatex">\(\epsilon \sim \mathcal{N}(0, I)\)</span></li>
+</ul>
+<p>This equation is the core trick behind training.</p>
+<hr />
+<h2 id="2-what-the-model-learns">2. What the model learns</h2>
+<p>The model usually does <strong>not</strong> predict the clean image directly.</p>
+<p>Instead, it predicts the noise that was added:</p>
+<div class="arithmatex">\[
+\epsilon_\theta(x_t, t)
+\]</div>
+<p>So during training:</p>
+<ul>
+<li>sample a clean image <span class="arithmatex">\(x_0\)</span></li>
+<li>sample a random timestep <span class="arithmatex">\(t\)</span></li>
+<li>sample random Gaussian noise <span class="arithmatex">\(\epsilon\)</span></li>
+<li>build <span class="arithmatex">\(x_t\)</span></li>
+<li>ask model to predict <span class="arithmatex">\(\epsilon\)</span></li>
+</ul>
+<p>Loss:</p>
+<div class="arithmatex">\[
+L = \mathbb{E}\left[\left\lVert \epsilon - \epsilon_\theta(x_t, t) \right\rVert^2\right]
+\]</div>
+<p>That simple MSE loss is the standard DDPM training objective.</p>
+<hr />
+<h2 id="3-why-this-works">3. Why this works</h2>
+<p>At high noise levels, <span class="arithmatex">\(x_t\)</span> is almost random.<br />
+At lower noise levels, <span class="arithmatex">\(x_t\)</span> still contains structure.</p>
+<p>By training on many noise levels, the model learns how images look at every corruption stage.<br />
+Then, at inference time, you start from pure noise and repeatedly denoise.</p>
+<p>So generation is:</p>
+<ul>
+<li>start with <span class="arithmatex">\(x_T \sim \mathcal{N}(0, I)\)</span></li>
+<li>predict noise</li>
+<li>remove some noise</li>
+<li>repeat until <span class="arithmatex">\(x_0\)</span></li>
+</ul>
+<hr />
+<h1 id="4-minimal-pytorch-code-for-training">4. Minimal PyTorch code for training</h1>
+<p>This is a compact educational implementation, not production code.</p>
+<pre><code class="language-python">import math
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;
+</code></pre>
+<h2 id="noise-schedule">Noise schedule</h2>
+<pre><code class="language-python">T = 1000
+
+beta_start = 1e-4
+beta_end = 0.02
+betas = torch.linspace(beta_start, beta_end, T, device=device)
+
+alphas = 1.0 - betas
+alpha_bars = torch.cumprod(alphas, dim=0)
+
+sqrt_alpha_bars = torch.sqrt(alpha_bars)
+sqrt_one_minus_alpha_bars = torch.sqrt(1.0 - alpha_bars)
+</code></pre>
+<h2 id="helper-to-gather-timestep-specific-values">Helper to gather timestep-specific values</h2>
+<pre><code class="language-python">def extract(a, t, x_shape):
+    &quot;&quot;&quot;
+    a: tensor of shape [T]
+    t: tensor of shape [B]
+    returns values reshaped to [B, 1, 1, 1, ...] for broadcasting
+    &quot;&quot;&quot;
+    batch_size = t.shape[0]
+    out = a.gather(0, t)
+    return out.reshape(batch_size, *([1] * (len(x_shape) - 1)))
+</code></pre>
+<h2 id="forward-noising">Forward noising</h2>
+<pre><code class="language-python">def q_sample(x0, t, noise=None):
+    &quot;&quot;&quot;
+    Sample x_t from q(x_t | x_0)
+    x_t = sqrt(alpha_bar_t) * x0 + sqrt(1 - alpha_bar_t) * noise
+    &quot;&quot;&quot;
+    if noise is None:
+        noise = torch.randn_like(x0)
+
+    sqrt_ab_t = extract(sqrt_alpha_bars, t, x0.shape)
+    sqrt_1mab_t = extract(sqrt_one_minus_alpha_bars, t, x0.shape)
+
+    return sqrt_ab_t * x0 + sqrt_1mab_t * noise
+</code></pre>
+<hr />
+<h1 id="5-a-very-small-denoiser-model">5. A very small denoiser model</h1>
+<p>Real systems use a U-Net with attention and timestep embeddings.<br />
+For learning, here is a tiny CNN.</p>
+<pre><code class="language-python">class SinusoidalTimeEmbedding(nn.Module):
+    def __init__(self, dim):
+        super().__init__()
+        self.dim = dim
+
+    def forward(self, t):
+        half = self.dim // 2
+        freqs = torch.exp(
+            -math.log(10000) * torch.arange(0, half, device=t.device) / (half - 1)
+        )
+        args = t[:, None].float() * freqs[None]
+        emb = torch.cat([torch.sin(args), torch.cos(args)], dim=-1)
+        return emb
+
+
+class SimpleDenoiser(nn.Module):
+    def __init__(self, in_channels=1, base_channels=64, time_dim=128):
+        super().__init__()
+        self.time_mlp = nn.Sequential(
+            SinusoidalTimeEmbedding(time_dim),
+            nn.Linear(time_dim, time_dim),
+            nn.ReLU(),
+            nn.Linear(time_dim, time_dim),
+        )
+
+        self.conv1 = nn.Conv2d(in_channels, base_channels, 3, padding=1)
+        self.conv2 = nn.Conv2d(base_channels, base_channels, 3, padding=1)
+        self.conv3 = nn.Conv2d(base_channels, base_channels, 3, padding=1)
+        self.conv4 = nn.Conv2d(base_channels, in_channels, 3, padding=1)
+
+        self.time_proj1 = nn.Linear(time_dim, base_channels)
+        self.time_proj2 = nn.Linear(time_dim, base_channels)
+        self.time_proj3 = nn.Linear(time_dim, base_channels)
+
+    def forward(self, x, t):
+        temb = self.time_mlp(t)
+
+        h = self.conv1(x)
+        h = h + self.time_proj1(temb)[:, :, None, None]
+        h = F.relu(h)
+
+        h = self.conv2(h)
+        h = h + self.time_proj2(temb)[:, :, None, None]
+        h = F.relu(h)
+
+        h = self.conv3(h)
+        h = h + self.time_proj3(temb)[:, :, None, None]
+        h = F.relu(h)
+
+        return self.conv4(h)
+</code></pre>
+<hr />
+<h1 id="6-training-step">6. Training step</h1>
+<p>This is the heart of diffusion training.</p>
+<pre><code class="language-python">model = SimpleDenoiser(in_channels=1).to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+</code></pre>
+<pre><code class="language-python">def training_step(x0):
+    &quot;&quot;&quot;
+    x0: clean batch, assumed scaled to [-1, 1]
+    &quot;&quot;&quot;
+    model.train()
+    B = x0.shape[0]
+
+    t = torch.randint(0, T, (B,), device=device)
+    noise = torch.randn_like(x0)
+    xt = q_sample(x0, t, noise)
+
+    pred_noise = model(xt, t)
+
+    loss = F.mse_loss(pred_noise, noise)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    return loss.item()
+</code></pre>
+<p>If you had a dataloader:</p>
+<pre><code class="language-python">for epoch in range(10):
+    for x0, _ in dataloader:
+        x0 = x0.to(device) * 2 - 1  # if original images are in [0,1]
+        loss = training_step(x0)
+    print(f&quot;epoch={epoch}, loss={loss:.4f}&quot;)
+</code></pre>
+<hr />
+<h1 id="7-what-inference-does">7. What inference does</h1>
+<p>At inference, we do the reverse diffusion process.</p>
+<p>We start from random noise:</p>
+<pre><code class="language-python">x = torch.randn(batch_size, channels, height, width)
+</code></pre>
+<p>Then for <span class="arithmatex">\(t = T-1, T-2, \dots, 0\)</span>:</p>
+<ul>
+<li>predict noise with the model</li>
+<li>compute the mean of the reverse distribution</li>
+<li>optionally add a little noise except at the final step</li>
+</ul>
+<p>In DDPM, one standard reverse update is:</p>
+<div class="arithmatex">\[
+x_{t-1} =
+\frac{1}{\sqrt{\alpha_t}}
+\left(
+x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \,\epsilon_\theta(x_t, t)
+\right)
++ \sigma_t z
+\]</div>
+<p>where <span class="arithmatex">\(z \sim \mathcal{N}(0, I)\)</span> if <span class="arithmatex">\(t &gt; 0\)</span>.</p>
+<hr />
+<h1 id="8-minimal-sampling-code">8. Minimal sampling code</h1>
+<pre><code class="language-python">@torch.no_grad()
+def p_sample(model, x, t):
+    &quot;&quot;&quot;
+    One reverse step: x_t -&gt; x_{t-1}
+    t is an integer scalar timestep
+    &quot;&quot;&quot;
+    betas_t = betas[t]
+    alphas_t = alphas[t]
+    alpha_bars_t = alpha_bars[t]
+
+    sqrt_one_minus_alpha_bars_t = torch.sqrt(1 - alpha_bars_t)
+    recip_sqrt_alpha_t = torch.rsqrt(alphas_t)
+
+    t_batch = torch.full((x.shape[0],), t, device=x.device, dtype=torch.long)
+    pred_noise = model(x, t_batch)
+
+    model_mean = recip_sqrt_alpha_t * (
+        x - (betas_t / sqrt_one_minus_alpha_bars_t) * pred_noise
+    )
+
+    if t &gt; 0:
+        noise = torch.randn_like(x)
+        sigma_t = torch.sqrt(betas_t)
+        return model_mean + sigma_t * noise
+    else:
+        return model_mean
+</code></pre>
+<pre><code class="language-python">@torch.no_grad()
+def sample(model, shape):
+    model.eval()
+    x = torch.randn(shape, device=device)
+
+    for t in reversed(range(T)):
+        x = p_sample(model, x, t)
+
+    return x
+</code></pre>
+<p>Usage:</p>
+<pre><code class="language-python">samples = sample(model, (16, 1, 28, 28))
+samples = (samples.clamp(-1, 1) + 1) / 2
+</code></pre>
+<hr />
+<h1 id="9-training-vs-inference-in-plain-language">9. Training vs inference in plain language</h1>
+<h2 id="training">Training</h2>
+<p>You already have real images.</p>
+<p>For each image:</p>
+<ul>
+<li>choose a random noise level <span class="arithmatex">\(t\)</span></li>
+<li>corrupt the image to get <span class="arithmatex">\(x_t\)</span></li>
+<li>ask the model to guess the noise that was added</li>
+<li>update weights to reduce prediction error</li>
+</ul>
+<p>The model sees examples of denoising at every noise level.</p>
+<h2 id="inference">Inference</h2>
+<p>You do not have a real image.</p>
+<p>Instead:</p>
+<ul>
+<li>begin with random noise</li>
+<li>use the model to predict what part is noise</li>
+<li>remove that noise a little</li>
+<li>repeat many times</li>
+</ul>
+<p>Eventually, random noise becomes a structured image.</p>
+<hr />
+<h1 id="10-why-timestep-conditioning-is-necessary">10. Why timestep conditioning is necessary</h1>
+<p>The same noisy image value can mean different things depending on how much noise was added.</p>
+<p>So the model must know the timestep <span class="arithmatex">\(t\)</span>.</p>
+<p>That is why the model input is not just <span class="arithmatex">\(x_t\)</span>, but <span class="arithmatex">\((x_t, t)\)</span>.</p>
+<p>Without <span class="arithmatex">\(t\)</span>, the task is ambiguous.</p>
+<hr />
+<h1 id="11-what-a-real-diffusion-model-changes">11. What a real diffusion model changes</h1>
+<p>The minimal code above teaches the mechanics, but real systems usually add:</p>
+<ul>
+<li><strong>U-Net architecture</strong></li>
+<li><strong>attention layers</strong></li>
+<li><strong>better noise schedules</strong></li>
+<li><strong>classifier-free guidance</strong> for text conditioning</li>
+<li><strong>latent diffusion</strong> instead of pixel-space diffusion</li>
+<li><strong>faster samplers</strong> such as DDIM, DPM-Solver, Euler samplers</li>
+</ul>
+<p>But the core idea is still the same:<br />
+learn to reverse gradual noising.</p>
+<hr />
+<h1 id="12-the-most-important-formulas-to-remember">12. The most important formulas to remember</h1>
+<h2 id="forward-sample-from-clean-image">Forward sample from clean image</h2>
+<div class="arithmatex">\[
+x_t = \sqrt{\bar{\alpha}_t}x_0 + \sqrt{1-\bar{\alpha}_t}\epsilon
+\]</div>
+<h2 id="model-prediction">Model prediction</h2>
+<div class="arithmatex">\[
+\epsilon_\theta(x_t, t)
+\]</div>
+<h2 id="training-loss">Training loss</h2>
+<div class="arithmatex">\[
+\left\lVert \epsilon - \epsilon_\theta(x_t, t) \right\rVert^2
+\]</div>
+<h2 id="reverse-step-intuition">Reverse step intuition</h2>
+<p>Use predicted noise to estimate a less noisy sample.</p>
+<hr />
+<h1 id="13-intuition-for-what-the-model-is-actually-learning">13. Intuition for what the model is actually learning</h1>
+<p>A useful intuition:</p>
+<p>At each timestep, the model learns the direction from a noisy point back toward the data manifold.</p>
+<p>So if noise gives you a point floating in image space, the model says:<br />
+"from here, move this way to look more like a real image."</p>
+<p>Repeated many times, this becomes generation.</p>
+<hr />
+<h1 id="14-tiny-end-to-end-example-on-mnist">14. Tiny end-to-end example on MNIST</h1>
+<p>This is still educational, but more concrete.</p>
+<pre><code class="language-python">import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+transform = transforms.ToTensor()
+dataset = datasets.MNIST(root=&quot;./data&quot;, train=True, download=True, transform=transform)
+dataloader = DataLoader(dataset, batch_size=128, shuffle=True)
+
+model = SimpleDenoiser(in_channels=1).to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+for epoch in range(5):
+    for x0, _ in dataloader:
+        x0 = x0.to(device)
+        x0 = x0 * 2 - 1  # scale to [-1,1]
+
+        B = x0.shape[0]
+        t = torch.randint(0, T, (B,), device=device)
+        noise = torch.randn_like(x0)
+        xt = q_sample(x0, t, noise)
+
+        pred_noise = model(xt, t)
+        loss = F.mse_loss(pred_noise, noise)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    print(f&quot;Epoch {epoch+1}: loss={loss.item():.4f}&quot;)
+</code></pre>
+<p>Sampling:</p>
+<pre><code class="language-python">samples = sample(model, (16, 1, 28, 28))
+samples = (samples.clamp(-1, 1) + 1) / 2
+</code></pre>
+<hr />
+<h1 id="15-common-confusion-points">15. Common confusion points</h1>
+<h2 id="why-predict-noise-instead-of-the-image">"Why predict noise instead of the image?"</h2>
+<p>Because the objective is simple and stable. In practice, predicting noise works very well.</p>
+<h2 id="why-random-timestep-during-training">"Why random timestep during training?"</h2>
+<p>Because one batch can teach the model denoising at many different corruption levels.</p>
+<h2 id="why-is-inference-slow">"Why is inference slow?"</h2>
+<p>Because generation needs many reverse steps. Faster samplers reduce the number of steps.</p>
+<h2 id="is-this-like-an-autoencoder">"Is this like an autoencoder?"</h2>
+<p>Not exactly. Autoencoders directly compress and reconstruct. Diffusion models learn iterative denoising.</p>
+<hr />
+<h1 id="16-one-compact-pseudocode-summary">16. One compact pseudocode summary</h1>
+<h2 id="training_1">Training</h2>
+<pre><code class="language-text">for x0 in data:
+    t ~ Uniform({1,...,T})
+    eps ~ Normal(0, I)
+    xt = sqrt(alpha_bar_t) * x0 + sqrt(1 - alpha_bar_t) * eps
+    pred = model(xt, t)
+    loss = mse(pred, eps)
+    update model
+</code></pre>
+<h2 id="inference_1">Inference</h2>
+<pre><code class="language-text">xT ~ Normal(0, I)
+x = xT
+for t = T, T-1, ..., 1:
+    eps_pred = model(x, t)
+    x = reverse_step(x, eps_pred, t)
+return x
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

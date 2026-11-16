@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://fkariminejadasl.github.io/ml-notebooks/docker/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Docker Basics - ML Notebooks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ML Notebooks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Deep Learning Tutorials and Notebooks</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Deep Learning General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../gpu/" class="dropdown-item">Access Snellius GPUs</a>
+</li>
+                                    
+<li>
+    <a href="../deep_learning_project_setup/" class="dropdown-item">Deep Learning Project Setup</a>
+</li>
+                                    
+<li>
+    <a href="../pytorch_lightning/" class="dropdown-item">Pytorch Lightning</a>
+</li>
+                                    
+<li>
+    <a href="../practical_info_data/" class="dropdown-item">Practical Information about Data</a>
+</li>
+                                    
+<li>
+    <a href="../jupyter_src/" class="dropdown-item">Shared Jupyter Notebook in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_src/" class="dropdown-item">Gradio App in SRC (SURF Research Cloud)</a>
+</li>
+                                    
+<li>
+    <a href="../gradio_hf/" class="dropdown-item">Hugging Face Guide</a>
+</li>
+                                    
+<li>
+    <a href="../postgres_plpython3u/" class="dropdown-item">Set Up a Custom Python Function within PostgreSQL</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Training and Inference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resource_limitations/" class="dropdown-item">Training and Inference with Limited Resources</a>
+</li>
+                                    
+<li>
+    <a href="../improve_training_results/" class="dropdown-item">Improve Deep Learning Training Results</a>
+</li>
+                                    
+<li>
+    <a href="../ddp/" class="dropdown-item">DDP(Distributed Data Parallel in PyTorch</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Courses and Literature</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../courses/" class="dropdown-item">Courses in Deep Learning and Computer Vision</a>
+</li>
+                                    
+<li>
+    <a href="../object_detection/" class="dropdown-item">Object Detection: A Quick Overview</a>
+</li>
+                                    
+<li>
+    <a href="../tracking/" class="dropdown-item">Object Tracking</a>
+</li>
+                                    
+<li>
+    <a href="../slam/" class="dropdown-item">Localization, Mapping, 3D Reconstruction</a>
+</li>
+                                    
+<li>
+    <a href="../time_series/" class="dropdown-item">Time Series</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Blogpost</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tasks/" class="dropdown-item">Example Tasks for Large Language, Multimodal, and Vision Models</a>
+</li>
+                                    
+<li>
+    <a href="../companies/" class="dropdown-item">Companies</a>
+</li>
+                                    
+<li>
+    <a href="../transformer_models_with_variable_sequence_lengths/" class="dropdown-item">Handling Variable Sequence Lengths in Transformer Models</a>
+</li>
+                                    
+<li>
+    <a href="../segmenttree_install/" class="dropdown-item">Installing Deep Learning Tools for Point Cloud Segmentation</a>
+</li>
+                                    
+<li>
+    <a href="../AIEnhancement/" class="dropdown-item">Enhancing AI Capabilities: Post-Training, Reasoning, and Agent, Models</a>
+</li>
+                                    
+<li>
+    <a href="../generative/" class="dropdown-item">Generative AI</a>
+</li>
+                                    
+<li>
+    <a href="../ts_augmentation/" class="dropdown-item">Time Series Augmentation</a>
+</li>
+                                    
+<li>
+    <a href="../distribution_metrics/" class="dropdown-item">Metrics for Comparing Distributions</a>
+</li>
+                                    
+<li>
+    <a href="../simulation/" class="dropdown-item">Simulation: Generation / Editing</a>
+</li>
+                                    
+<li>
+    <a href="../ubuntu_install/" class="dropdown-item">Install Ubuntu on a Windows Laptop with NVIDIA</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">General</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../services/" class="dropdown-item">Services</a>
+</li>
+                                    
+<li>
+    <a href="../git/" class="dropdown-item">Git Basics</a>
+</li>
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python Basics</a>
+</li>
+                                    
+<li>
+    <a href="../linux/" class="dropdown-item">Linux Basics</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Docker Basics</a>
+</li>
+                                    
+<li>
+    <a href="../tmux/" class="dropdown-item">Tmux Basics</a>
+</li>
+                                    
+<li>
+    <a href="../revealjs/" class="dropdown-item">Slides from Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../scheuler/" class="dropdown-item">Scheduler</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Miscellaneous</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../GEE/" class="dropdown-item">Google Earth Engine</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../linux/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../tmux/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#docker" class="nav-link">DOCKER</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#installation-for-ubuntu" class="nav-link">Installation for Ubuntu</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#uninstall-docker-engine" class="nav-link">Uninstall Docker Engine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#basic-commands" class="nav-link">Basic Commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#docker-compose" class="nav-link">Docker Compose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cheat-sheet" class="nav-link">Cheat Sheet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#installing-the-nvidia-container-toolkit" class="nav-link">Installing the NVIDIA Container Toolkit</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#apptainer" class="nav-link">Apptainer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="docker">DOCKER</h1>
+<h2 id="installation-for-ubuntu">Installation for Ubuntu</h2>
+<p>More information can be found on the <a href="https://docs.docker.com/engine/install/ubuntu">"engine install ubuntu"</a>.</p>
+<pre><code class="language-bash"># Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;&amp; echo &quot;$VERSION_CODENAME&quot;) stable&quot; | \
+  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+
+# Install the latest version
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<p>More information can be found on the <a href="https://docs.docker.com/engine/install/linux-postinstall">linux postinstall</a>.</p>
+<pre><code class="language-bash"># Create the `docker` group. The Docker group already exists, so there is no need to run this command.
+sudo groupadd docker
+
+# Add your user to the docker group.
+sudo usermod -aG docker $USER
+
+# Activate the changes to groups. 
+# I think it is better to restart the system than to run this command. I encountered a weird issue when I installed Docker Compose.
+newgrp docker
+
+# Verify docker
+docker run hello-world
+</code></pre>
+<h2 id="uninstall-docker-engine">Uninstall Docker Engine</h2>
+<p>More information can be found on the <a href="https://docs.docker.com/engine/install/ubuntu">official website</a>.</p>
+<pre><code class="language-bash">sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+
+sudo rm /etc/apt/sources.list.d/docker.list
+sudo rm /etc/apt/keyrings/docker.asc
+</code></pre>
+<h2 id="basic-commands">Basic Commands</h2>
+<p>Here's a guide to essential Docker commands, followed by a cheat sheet for quick reference.</p>
+<h3 id="listing-docker-images-and-containers">Listing Docker Images and Containers</h3>
+<h4 id="list-images">List Images:</h4>
+<p>To view all Docker images on your system:</p>
+<pre><code class="language-bash">docker images
+</code></pre>
+<p>This displays a table of images with details like repository, tag, and image ID.</p>
+<h4 id="list-running-containers">List Running Containers:</h4>
+<p>To see all currently running containers:</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p>This shows a list of active containers with their IDs, names, and statuses.</p>
+<h4 id="list-all-containers">List All Containers</h4>
+<p>To list all containers, including those that are stopped:</p>
+<pre><code class="language-bash">docker ps -a
+</code></pre>
+<p>This provides a comprehensive list of all containers, regardless of their state.</p>
+<p>To display the full command without truncation:</p>
+<pre><code>docker ps -a --no-trunc
+</code></pre>
+<h3 id="managing-docker-images">Managing Docker Images</h3>
+<h4 id="pull-an-image">Pull an Image</h4>
+<p>To download an image from Docker Hub:</p>
+<pre><code class="language-bash">docker pull &lt;image_name&gt;
+</code></pre>
+<p>Replace <code>&lt;image_name&gt;</code> with the desired image, e.g., <code>ubuntu</code>.</p>
+<h4 id="remove-an-image">Remove an Image</h4>
+<p>To delete a specific image:</p>
+<pre><code class="language-bash">docker rmi &lt;image_name_or_id&gt;
+</code></pre>
+<p>Use the image name or ID from the <code>docker images</code> list.</p>
+<h3 id="building-docker-images">Building Docker Images</h3>
+<h4 id="build-an-image-from-a-dockerfile">Build an Image from a Dockerfile</h4>
+<p>To create a Docker image from a Dockerfile:</p>
+<pre><code class="language-bash">docker build -t &lt;image_name&gt; &lt;path_to_dockerfile_directory&gt;
+</code></pre>
+<p>Replace <code>&lt;image_name&gt;</code> with your desired image name and <code>&lt;path_to_dockerfile_directory&gt;</code> with the path to the directory containing your Dockerfile. The <code>-t</code> flag tags the image with a name.</p>
+<p>Example:</p>
+<pre><code class="language-bash">docker build -t myapp:latest .
+</code></pre>
+<p>This builds an image named <code>myapp</code> with the tag <code>latest</code> from the Dockerfile in the current directory.</p>
+<h3 id="running-and-managing-containers">Running and Managing Containers</h3>
+<h4 id="run-a-container">Run a Container</h4>
+<p>To create and start a new container:</p>
+<pre><code class="language-bash">docker run [OPTIONS] &lt;image_name&gt;
+</code></pre>
+<p>Common options include:
+- <code>-d</code>: Run the container in detached mode (in the background).
+- <code>-it</code>: Run the container in interactive mode with a terminal.
+- <code>--name &lt;container_name&gt;</code>: Assign a name to the container.
+- <code>-p &lt;host_port&gt;:&lt;container_port&gt;</code>: Map host port to container port.
+- <code>-v &lt;host_directory&gt;:&lt;container_directory&gt;</code>: Mount a host directory as a volume in the container.</p>
+<p>Example:</p>
+<pre><code class="language-bash">docker run -it bird-behavior bash
+</code></pre>
+<p>Example:</p>
+<p>This runs a container named <code>bird-behavior</code> and opens an interactive bash shell inside the <code>bird-behavior</code> container.</p>
+<pre><code class="language-bash">docker run -d -p 8080:80 -v /host/data:/container/data --name mynginx nginx
+</code></pre>
+<p>This runs an Nginx container named <code>mynginx</code> in detached mode, mapping port 8080 on the host to port 80 in the container, and mounts the host directory <code>/host/data</code> to <code>/container/data</code> in the container.</p>
+<p><strong>Resource constraints</strong>: For more details check <a href="https://docs.docker.com/engine/containers/resource_constraints">here</a>.</p>
+<pre><code class="language-bash">docker run --cpus=&quot;4&quot; --memory=&quot;8g&quot; ...
+</code></pre>
+<h4 id="execute-commands-in-a-running-container">Execute Commands in a Running Container</h4>
+<p>To run a command inside a running container:</p>
+<pre><code class="language-bash">docker exec [OPTIONS] &lt;container_name_or_id&gt; &lt;command&gt;
+ ```
+
+Common options:
+- `-it`: Run in interactive mode with a terminal.
+
+Example:
+
+```bash
+docker exec -it mynginx /bin/bash
+</code></pre>
+<p>This opens an interactive bash shell inside the <code>mynginx</code> container.</p>
+<h4 id="stop-a-running-container">Stop a Running Container</h4>
+<p>To stop a container:</p>
+<pre><code class="language-bash">docker stop &lt;container_name_or_id&gt;
+</code></pre>
+<h4 id="start-a-stopped-container">Start a Stopped Container</h4>
+<p>To start a container that has been stopped:</p>
+<pre><code class="language-bash">docker start &lt;container_name_or_id&gt;
+</code></pre>
+<h4 id="remove-a-container">Remove a Container</h4>
+<p>To delete a container:</p>
+<pre><code class="language-bash">docker rm &lt;container_name_or_id&gt;
+</code></pre>
+<p>Note: Ensure the container is stopped before removing it.</p>
+<h3 id="viewing-logs-and-inspecting-containers">Viewing Logs and Inspecting Containers</h3>
+<h4 id="view-container-logs">View Container Logs</h4>
+<p>To see the logs of a container:</p>
+<pre><code class="language-bash">docker logs &lt;container_name_or_id&gt;
+</code></pre>
+<h4 id="inspect-container-details">Inspect Container Details</h4>
+<p>To get detailed information about a container:</p>
+<pre><code class="language-bash">docker inspect &lt;container_name_or_id&gt;
+</code></pre>
+<h2 id="docker-compose">Docker Compose</h2>
+<p>Docker Compose is a tool that simplifies running applications with multiple containers. By defining services, networks, and volumes in a single YAML file, you can start and manage all components of your application with one command. </p>
+<p>You can find an example of a Docker Compose file <a href="https://github.com/fkariminejadasl/prev_homepage_academicpages/blob/main/docker-compose.yml">here</a>. The description is provided below.</p>
+<h3 id="creating-a-docker-composeyml-file">Creating a <code>docker-compose.yml</code> File</h3>
+<p>Create a <code>docker-compose.yml</code> file with the following content:</p>
+<pre><code class="language-yaml">version: '3'
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    command: jekyll serve --watch --incremental
+    ports:
+      - &quot;4000:4000&quot;
+    volumes:
+      - .:/srv/jekyll
+</code></pre>
+<h3 id="running-the-docker-compose-file">Running the Docker Compose File</h3>
+<p>To start the services defined in your <code>docker-compose.yml</code> file, run:</p>
+<pre><code class="language-bash">docker-compose up
+</code></pre>
+<h2 id="cheat-sheet">Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker images</code></td>
+<td>List all Docker images</td>
+</tr>
+<tr>
+<td><code>docker ps</code></td>
+<td>List running containers</td>
+</tr>
+<tr>
+<td><code>docker ps -a</code></td>
+<td>List all containers (running and stopped)</td>
+</tr>
+<tr>
+<td><code>docker pull &lt;image_name&gt;</code></td>
+<td>Pull an image from Docker Hub</td>
+</tr>
+<tr>
+<td><code>docker rmi &lt;image_name_or_id&gt;</code></td>
+<td>Remove a Docker image</td>
+</tr>
+<tr>
+<td><code>docker build -t &lt;image_name&gt; &lt;path&gt;</code></td>
+<td>Build an image from a Dockerfile</td>
+</tr>
+<tr>
+<td><code>docker run [OPTIONS] &lt;image_name&gt;</code></td>
+<td>Run a new container</td>
+</tr>
+<tr>
+<td><code>docker exec [OPTIONS] &lt;container&gt; &lt;command&gt;</code></td>
+<td>Execute a command in a running container</td>
+</tr>
+<tr>
+<td><code>docker stop &lt;container_name_or_id&gt;</code></td>
+<td>Stop a running container</td>
+</tr>
+<tr>
+<td><code>docker start &lt;container_name_or_id&gt;</code></td>
+<td>Start a stopped container</td>
+</tr>
+<tr>
+<td><code>docker rm &lt;container_name_or_id&gt;</code></td>
+<td>Remove a container</td>
+</tr>
+<tr>
+<td><code>docker logs &lt;container_name_or_id&gt;</code></td>
+<td>View logs of a container</td>
+</tr>
+<tr>
+<td><code>docker inspect &lt;container_name_or_id&gt;</code></td>
+<td>Inspect detailed information of a container</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installing-the-nvidia-container-toolkit">Installing the NVIDIA Container Toolkit</h2>
+<p>Follow these instructions from <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html">NVIDIA Container Toolkit Installation Guide</a> to enable GPU support in Docker containers:</p>
+<p>First, back up your NVIDIA packages in case anything breaks during installation:</p>
+<pre><code class="language-bash">dpkg --get-selections | grep -i nvidia &gt; ~/nvidia-packages-backup.txt
+</code></pre>
+<p>Then proceed with the installation steps below.</p>
+<pre><code class="language-bash">curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  &amp;&amp; curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt update
+sudo apt install -y nvidia-container-toolkit
+</code></pre>
+<h4 id="configuring-docker-with-nvidia-runtime">Configuring Docker with NVIDIA Runtime</h4>
+<ol>
+<li>After installing the NVIDIA Container Toolkit, configure Docker to use the NVIDIA runtime:</li>
+</ol>
+<pre><code class="language-bash">sudo nvidia-ctk runtime configure --runtime=docker
+</code></pre>
+<p>This command updates <code>/etc/docker/daemon.json</code> to enable NVIDIA GPU support in containers. The file will contain:</p>
+<pre><code class="language-json">{
+    &quot;runtimes&quot;: {
+        &quot;nvidia&quot;: {
+            &quot;args&quot;: [],
+            &quot;path&quot;: &quot;nvidia-container-runtime&quot;
+        }
+    }
+}
+</code></pre>
+<ol>
+<li>Restart the Docker daemon:</li>
+</ol>
+<pre><code class="language-bash">sudo systemctl restart docker
+</code></pre>
+<ol>
+<li>Verify the installation:</li>
+</ol>
+<pre><code class="language-bash">docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-sm
+</code></pre>
+<h4 id="rollback-installation">Rollback Installation</h4>
+<pre><code class="language-bash"># Rollback Installation
+# Remove the Nvidia GPG Key
+sudo rm -f /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+# Remove the Nvidia Container Source List
+sudo rm -f /etc/apt/sources.list.d/nvidia-container-toolkit.list
+# Refresh the Package List
+sudo apt update
+sudo apt remove --purge nvidia-container-toolkit
+sudo apt autoremove
+
+# Reinstall Your Nvidia Drivers
+# If your GPU stops working, reinstall the driver listed in your backup (e.g., nvidia-driver-535):
+sudo apt install --reinstall nvidia-driver-535  # adjust version to match your backup
+
+# If you had issues with missing dependencies after reinstalling the driver, running the full 
+# reinstall command ensures everything is restored.
+cat ~/nvidia-packages-backup.txt | awk '{print $1}' | xargs sudo apt install --reinstall -y
+
+# Reboot and Check
+sudo reboot
+nvidia-smi
+</code></pre>
+<h2 id="apptainer">Apptainer</h2>
+<p>In Snellius, there is Apptainer instead of Docker.</p>
+<p>Apptainer (formerly Singularity) is a containerization tool designed for high-performance computing (HPC), scientific workloads, and secure application deployment. Unlike Docker, Apptainer focuses on security, reproducibility, and portability, allowing users to run containers without requiring root privileges. It uses single-file SIF (Singularity Image Format) images, making it ideal for environments like HPC clusters and supercomputers.</p>
+<p>The equivalent commands for the Docker commands you mentioned are:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apptainer cache list</code></td>
+<td><code>docker images</code></td>
+</tr>
+<tr>
+<td><code>apptainer instance list</code></td>
+<td><code>docker ps -a</code></td>
+</tr>
+<tr>
+<td><code>apptainer cache clean</code></td>
+<td><code>docker rmi imageid</code>. See example below.</td>
+</tr>
+<tr>
+<td><code>docker rm containerid</code></td>
+<td><code>apptainer instance stop &lt;instance_name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>These directories store the downloaded images.</p>
+<pre><code class="language-bash">ls ~/.apptainer/cache/library
+ls ~/.apptainer/cache/oci-tmp
+</code></pre>
+<p>E.g. If you pulled docker using apptainer pull, it should have been saved as a <code>.sif</code> file in your working directory </p>
+<pre><code class="language-bash">apptainer pull docker://godlovedc/lolcow 
+apptainer inspect lolcow_latest.sif
+# Since Apptainer doesn’t use a centralized image store like Docker, you typically just remove the .sif file:
+rm lolcow_latest.sif
+# If you want to clean the cache (which includes OCI blobs and temporary files), use:
+apptainer cache clean
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
