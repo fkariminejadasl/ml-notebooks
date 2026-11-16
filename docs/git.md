@@ -23,22 +23,26 @@ git config --global user.email "your.email@example.com"
 git init
 ```
 
-> This step is better to be done on GitHub.
+> It is easier to create the repository on GitHub and then clone it to your computer.
 
 - **Clone Repository**: To work on an existing project, clone it from a remote repository using:
 ```
 git clone <remote_url>
 ```
 
-- **Switching Branches**: Create and switch to a new branch with:
+- **Creating and Switching Branches**: Create and switch to a new branch with:
 ```
-git checkout -b <branch_name>
+git switch -c <branch_name>
+```
+
+To switch to an existing branch:
+```
+git switch <branch_name>
 ```
 
 #### Basic Commands
 
-
-- **Adding Files**: Stage changes for commit using:
+- **Adding Files**: Stage new, modified, or deleted files for the next commit using:
 ```
 git add <filename>
 ```
@@ -54,18 +58,40 @@ Use `-a` to tell the command to automatically stage files that have been modifie
 git commit -am "Your commit message"
 ```
 
+- **Ignoring Files**: Create a `.gitignore` file to specify files and directories that Git should not track, such as temporary files or model outputs. For example:
+
+```
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+```
+
+Note: `.gitignore` does not automatically stop tracking files already committed to Git.
+
 #### Collaboration
 
 - **Pushing Changes**: Upload your local commits to a remote repository using:
 
 ```
-git push origin <branch_name>
+git push -u origin <branch_name>
 ```
 
-- **Pulling Changes**: Retrieve and merge changes from the remote repository with:
+The `-u` sets the upstream branch. After the first push, you can usually use:
+
+```
+git push
+```
+
+- **Pulling Changes**: Download and integrate changes from the remote branch into your current branch:
 
 ```
 git pull origin <branch_name>
+```
+
+If an upstream branch is set, you can usually use:
+
+```
+git pull
 ```
 
 #### View Commands
@@ -101,7 +127,7 @@ If you don't have sudo rights, follow these steps instead:
 ```bash
 mkdir -p ~/bin
 cd ~/bin
-wget https://github.com/git-lfs/git-lfs/releases/latest/download/git-lfs-linux-amd64-v3.6.1.tar.gz
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.6.1/git-lfs-linux-amd64-v3.6.1.tar.gz
 tar -xvzf git-lfs-linux-amd64-v3.6.1.tar.gz
 rm git-lfs-linux-amd64-v3.6.1.tar.gz
 echo 'export PATH=$HOME/bin/git-lfs-3.6.1:$PATH' >> ~/.bashrc
@@ -193,7 +219,13 @@ To check the current status of tracked files in Git LFS, use:
 git lfs status
 ```
 
-This command shows you which files are being tracked and which are pending to be pushed or committed.
+This command shows the status of Git LFS files, including changes pending commit or push.
+
+To list files currently tracked by Git LFS, use:
+
+```bash
+git lfs ls-files
+```
 
 ## Links
 
